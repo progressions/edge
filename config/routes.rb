@@ -1,7 +1,12 @@
 Edge::Application.routes.draw do
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
+  get "characters/new"
+  get "characters/create"
+  get "characters/edit"
+  get "characters/show"
+  get "characters/destroy"
+  get "logout" => "sessions#destroy", as: :logout
+  get "login" => "sessions#new", as: :login
+  get "signup" => "users#new", as: :signup
   resources :users
   resources :sessions
 
