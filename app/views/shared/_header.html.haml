@@ -5,3 +5,12 @@
       .nav-collapse.collapse
         %ul.nav
           %li= link_to("Characters", characters_url)
+
+      .nav-collapse.collapse.pull-right
+        %ul.nav
+          - if current_user
+            %li= link_to("Log out", logout_url)
+          - else
+            %li= link_to("Sign up", signup_url)
+            %li= link_to("Log in", login_url)
+
