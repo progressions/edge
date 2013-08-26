@@ -1,0 +1,9 @@
+%h1 Characters
+
+%table.table
+  %tr
+    %th Name
+  - @characters.each do |character|
+    %tr
+      %td= character.name
+
