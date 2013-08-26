@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826021435) do
+ActiveRecord::Schema.define(version: 20130826031638) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "brawn",        default: 0, null: false
+    t.integer  "agility",      default: 0, null: false
+    t.integer  "intellect",    default: 0, null: false
+    t.integer  "cunning",      default: 0, null: false
+    t.integer  "presence",     default: 0, null: false
+    t.integer  "available_xp"
+    t.integer  "spent_xp"
+    t.integer  "user_id"
+  end
+
+  create_table "obligations", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "amount"
+    t.integer  "character_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -7,5 +7,5 @@
     %th Name
   - @characters.each do |character|
     %tr
-      %td= character.name
+      %td= link_to(character.name, edit_character_url(character))
 

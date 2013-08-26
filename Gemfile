@@ -33,6 +33,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'sorcery'
+gem 'nested_form'
+gem 'formtastic'
+gem 'formtastic-bootstrap'
+gem 'annotate'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
