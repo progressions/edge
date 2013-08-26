@@ -2,18 +2,19 @@
 #
 # Table name: characters
 #
-#  id           :integer          not null, primary key
-#  name         :string(255)
-#  created_at   :datetime
-#  updated_at   :datetime
-#  brawn        :integer          default(0), not null
-#  agility      :integer          default(0), not null
-#  intellect    :integer          default(0), not null
-#  cunning      :integer          default(0), not null
-#  presence     :integer          default(0), not null
-#  available_xp :integer
-#  spent_xp     :integer
-#  user_id      :integer
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  user_id     :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  brawn       :integer          default(0), not null
+#  agility     :integer          default(0), not null
+#  intellect   :integer          default(0), not null
+#  cunning     :integer          default(0), not null
+#  presence    :integer          default(0), not null
+#  unused_xp   :integer
+#  used_xp     :integer
 #
 
 class Character < ActiveRecord::Base
