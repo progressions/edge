@@ -31,4 +31,12 @@ class User < ActiveRecord::Base
   def move_to(user)
     characters.update_all(user_id: user.id)
   end
+
+  def name
+    if guest?
+      "Guest"
+    else
+      email
+    end
+  end
 end
