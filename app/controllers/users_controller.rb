@@ -5,12 +5,13 @@ class UsersController < ApplicationController
 
   def create
     if params[:user]
-      @user = User.new(params[:user])
+      @user = User.new(params[:user].permit(:email, :password, :password_confirmation))
     else
       @user = User.new_guest
     end
 
     if @user.save
+      current_user.move_to(@user) if current_user && current_user.guest?
       session[:user_id] = @user.id
 
       if params[:create_character]

@@ -13,7 +13,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_secure_password
+  has_secure_password(validations: false)
 
   validates :password, confirmation: true, unless: :guest?
   validates :password, presence: true, on: :create, unless: :guest?
@@ -25,9 +25,10 @@ class User < ActiveRecord::Base
   def self.new_guest
     new do |u|
       u.guest = true
-      u.email = "guest#{Date.today.to_s}@email.com"
-      u.password = "password"
-      u.password_confirmation = "password"
     end
+  end
+
+  def move_to(user)
+    characters.update_all(user_id: user.id)
   end
 end

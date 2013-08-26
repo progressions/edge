@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, except: [:index, :new]
 
   def index
     if current_user
