@@ -1,6 +1,10 @@
 %h1 Characters
 
-%p= link_to("New Character", new_character_url)
+- if current_user
+  %p= link_to("New Character", new_character_url)
+- else
+  %p= link_to("New Character", users_url(create_character: true), method: :post)
+
 
 %table.table
   %tr

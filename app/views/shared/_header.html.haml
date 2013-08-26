@@ -9,6 +9,8 @@
       .nav-collapse.collapse.pull-right
         %ul.nav
           - if current_user
+            - if current_user.guest?
+              %li= link_to("Guest", "")
             %li= link_to("Log out", logout_url)
           - else
             %li= link_to("Sign up", signup_url)

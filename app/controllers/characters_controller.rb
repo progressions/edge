@@ -1,11 +1,16 @@
 class CharactersController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, except: [:index, :new]
 
   def index
-    @characters = current_user.characters
+    if current_user
+      @characters = current_user.characters
+    else
+      @characters = []
+    end
   end
 
   def new
+    Rails.logger.info("current_user is #{current_user.inspect}")
     @character = current_user.characters.build
   end
 

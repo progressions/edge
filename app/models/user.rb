@@ -15,10 +15,19 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  validates :password, confirmation: true
-  validates :password, presence: true, on: :create
-  validates :email, presence: true
-  validates :email, uniqueness: true
+  validates :password, confirmation: true, unless: :guest?
+  validates :password, presence: true, on: :create, unless: :guest?
+  validates :email, presence: true, unless: :guest?
+  validates :email, uniqueness: true, unless: :guest?
 
   has_many :characters
+
+  def self.new_guest
+    new do |u|
+      u.guest = true
+      u.email = "guest#{Date.today.to_s}@email.com"
+      u.password = "password"
+      u.password_confirmation = "password"
+    end
+  end
 end
