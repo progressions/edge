@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     end
 
     if @user.save
-      Rails.logger.info("current_user is #{current_user.inspect}")
+      session[:user_id] = @user.id
+
       if params[:create_character]
         redirect_to new_character_url
       else

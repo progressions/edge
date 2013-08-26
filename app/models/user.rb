@@ -13,7 +13,7 @@
 #
 
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  has_secure_password
 
   validates :password, confirmation: true, unless: :guest?
   validates :password, presence: true, on: :create, unless: :guest?
