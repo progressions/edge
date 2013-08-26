@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130826172704) do
     t.integer  "intellect",   default: 0, null: false
     t.integer  "cunning",     default: 0, null: false
     t.integer  "presence",    default: 0, null: false
-    t.integer  "unused_xp"
-    t.integer  "used_xp"
+    t.integer  "unused_xp",   default: 0, null: false
+    t.integer  "used_xp",     default: 0, null: false
   end
 
   create_table "obligations", force: true do |t|

@@ -13,8 +13,8 @@
 #  intellect   :integer          default(0), not null
 #  cunning     :integer          default(0), not null
 #  presence    :integer          default(0), not null
-#  unused_xp   :integer
-#  used_xp     :integer
+#  unused_xp   :integer          default(0), not null
+#  used_xp     :integer          default(0), not null
 #
 
 class Character < ActiveRecord::Base
