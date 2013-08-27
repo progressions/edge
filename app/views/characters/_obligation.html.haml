@@ -1,0 +1,17 @@
+.obligation{style: "display: #{show};"}
+  %p= link_to("Remove", "#", class: "remove_obligation")
+  .control-group
+    %label.control-label Obligation Amount
+    .controls
+      %input{type: "text"}
+
+  .control-group
+    %label.control-label Obligation Name
+    .controls
+      %input{type: "text"}
+
+  .control-group
+    %label.control-label Description
+    .controls
+      %textarea.input-xxlarge
+

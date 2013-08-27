@@ -4,3 +4,17 @@
 
 $ ->
   $("#character_name").focus()
+  Obligation.init()
+
+class window.Obligation
+  @init: ->
+    $(".add_obligation").click(Obligation.show)
+    $(".remove_obligation").click(Obligation.hide)
+
+  @show: ->
+    $(".obligation").show()
+    false
+
+  @remove: (event) ->
+    $(event.target).hide()
+    false
