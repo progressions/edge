@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130826172704) do
+ActiveRecord::Schema.define(version: 20130830020740) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20130826172704) do
     t.integer  "agility",     default: 0, null: false
     t.integer  "intellect",   default: 0, null: false
     t.integer  "cunning",     default: 0, null: false
+    t.integer  "willpower",   default: 0, null: false
     t.integer  "presence",    default: 0, null: false
     t.integer  "unused_xp",   default: 0, null: false
     t.integer  "used_xp",     default: 0, null: false
+    t.string   "species"
   end
 
   create_table "obligations", force: true do |t|

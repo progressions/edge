@@ -65,17 +65,3 @@
 
 // Utility classes
 @import "bootstrap/utilities"; // Has to be last to override when necessary
-
-#header .logo {
-  padding-top: 10px;
-}
-.powered_by {
-  font-size: 10px;
-  text-align: center;
-  text-transform: uppercase;
-}
-.powered_by img {
-  margin: 0;
-  position: relative;
-  top: 5px;
-}

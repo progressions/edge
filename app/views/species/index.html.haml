@@ -1,0 +1,27 @@
+- @active = :species
+
+%h1= @character.name
+
+%h2 Species
+
+- if @character.species?
+  %p NOTE that changing your species will reset your Attributes and your spent Experience Points!
+
+.form-horizontal
+  = form_for @character do |f|
+
+    .non_js
+      .control-group
+        %label.control-label{for: "character_species"} Species
+
+        .controls
+          = f.select(:species, @species)
+
+    .species.js_only
+      - @species.each do |species|
+        .species_module.well
+          %h4= species
+          %input.hidden{type: "hidden", value: species}
+
+    .form-actions
+      = f.submit "Save and Continue", class: "btn btn-success"

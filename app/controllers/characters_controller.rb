@@ -18,7 +18,11 @@ class CharactersController < ApplicationController
   def create
     @character = current_user.characters.build(params[:character].permit(:name))
     if @character.save
-      redirect_to new_character_obligation_url(@character)
+      if @character.obligations.any?
+        redirect_to character_url(@character)
+      else
+        redirect_to character_obligations_url(@character)
+      end
     else
       render :new
     end
@@ -45,6 +49,6 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, obligations_attributes: [:amount, :name, :description, :"_destroy", :id])
+    params.require(:character).permit(:name, :species, obligations_attributes: [:amount, :name, :description, :"_destroy", :id])
   end
 end

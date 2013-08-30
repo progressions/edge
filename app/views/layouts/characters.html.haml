@@ -5,7 +5,7 @@
         %li{class: "#{'active' if @active == :show}"}= link_to("Character", character_url(@character))
         %li{class: "#{'active' if @active == :name}"}= link_to("Name", edit_character_url(@character))
         %li{class: "#{'active' if @active == :obligations}"}= link_to("Obligations", character_obligations_url(@character))
-        %li= link_to("Species", "")
+        %li{class: "#{'active' if @active == :species}"}= link_to("Species", character_species_index_url(@character))
         %li= link_to("Starting Career", "")
         %li= link_to("Specializations", "")
         %li= link_to("Invest Experience", "")

@@ -8,6 +8,7 @@ Edge::Application.routes.draw do
   resources :characters do
     get "characters/:id/name" => "characters#name", as: :name
     resources :obligations
+    resources :species
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

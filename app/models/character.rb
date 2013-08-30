@@ -16,6 +16,7 @@
 #  presence    :integer          default(0), not null
 #  unused_xp   :integer          default(0), not null
 #  used_xp     :integer          default(0), not null
+#  species     :string(255)
 #
 
 class Character < ActiveRecord::Base

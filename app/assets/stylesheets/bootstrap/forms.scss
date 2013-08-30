@@ -299,7 +299,6 @@ select:focus:required:invalid {
 ================================================== */
 
 .form-actions {
-  background: lighten($cream, 2%) url('/images/bootstrap/shadow.png') repeat-x top;
   @include box-shadow(inset 0 1px 1px rgba(0,0,0,.2));
   margin-bottom: $baseLineHeight;
   margin-top: $baseLineHeight;
