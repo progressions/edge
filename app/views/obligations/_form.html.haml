@@ -1,0 +1,18 @@
+= f.fields_for :obligations do |obligations_form|
+  %h4 
+    Obligation
+    %small= obligations_form.link_to_remove "(Remove)"
+  .control-group
+    %label.control-label Amount
+    .controls
+      = obligations_form.text_field :amount, value: 20
+  .control-group
+    %label.control-label Name
+    .controls
+      = obligations_form.text_field :name
+  .control-group
+    %label.control-label Description
+    .controls
+      = obligations_form.text_area :description
+
+= f.link_to_add "Add Obligation", :obligations, class: "btn btn-warning"

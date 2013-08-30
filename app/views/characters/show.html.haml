@@ -1,2 +1,32 @@
-%h1 Characters#show
-%p Find me in app/views/characters/show.html.haml
+- @active = :show
+
+%h1= @character.name
+
+%h4
+  Species:
+
+
+
+.attributes
+  %dl.dl-horizontal
+    %dt Brawn
+    %dd= @character.brawn
+    %dt Agility
+    %dd= @character.agility
+    %dt Cunning
+    %dd= @character.cunning
+    %dt Intellect
+    %dd= @character.intellect
+    %dt Willpower
+    %dd= @character.willpower
+    %dt Presence
+    %dd= @character.presence
+
+%p
+  Obligation
+  = @character.total_obligation_amount
+
+- @character.obligations.each do |obligation|
+  %p
+    = obligation.amount
+    = obligation.name

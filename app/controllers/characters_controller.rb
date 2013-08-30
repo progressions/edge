@@ -7,17 +7,18 @@ class CharactersController < ApplicationController
     else
       @characters = []
     end
+    render layout: "application"
   end
 
   def new
-    Rails.logger.info("current_user is #{current_user.inspect}")
     @character = current_user.characters.build
+    render 'name', layout: "application"
   end
 
   def create
     @character = current_user.characters.build(params[:character].permit(:name))
     if @character.save
-      redirect_to root_url, notice: "Character created."
+      redirect_to new_character_obligation_url(@character)
     else
       render :new
     end
@@ -28,6 +29,10 @@ class CharactersController < ApplicationController
   end
 
   def update
+    Rails.logger.info(character_params.inspect)
+    @character = current_user.characters.find(params[:id])
+    @character.update_attributes!(character_params)
+    redirect_to @character
   end
 
   def show
@@ -35,5 +40,11 @@ class CharactersController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def character_params
+    params.require(:character).permit(:name, obligations_attributes: [:amount, :name, :description, :"_destroy", :id])
   end
 end

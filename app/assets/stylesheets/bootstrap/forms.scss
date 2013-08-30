@@ -299,7 +299,7 @@ select:focus:required:invalid {
 ================================================== */
 
 .form-actions {
-  background: lighten($cream, 2%) url('/images/oibootstrap/shadow.png') repeat-x top;
+  background: lighten($cream, 2%) url('/images/bootstrap/shadow.png') repeat-x top;
   @include box-shadow(inset 0 1px 1px rgba(0,0,0,.2));
   margin-bottom: $baseLineHeight;
   margin-top: $baseLineHeight;
@@ -446,7 +446,7 @@ select:focus:required:invalid {
 ================================================== */
 
 .search-query {
-  background-image: url('/images/oibootstrap/icon-search.png');
+  background-image: url('/images/bootstrap/icon-search.png');
   background-repeat: no-repeat;
   background-position: 6px 7px;
   margin-bottom: 0; // remove the default margin on all inputs
@@ -564,7 +564,7 @@ legend + .control-group {
   .control-group { padding: 0 20px; }
 
   .form-actions {
-    background: url('/images/oibootstrap/shadow.png') repeat-x top lighten($blueLightest, 1%);
+    background: url('/images/bootstrap/shadow.png') repeat-x top lighten($blueLightest, 1%);
     border: none;
     margin: 0 -20px;
     padding: 20px 20px 20px 200px;

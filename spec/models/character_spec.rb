@@ -12,6 +12,7 @@
 #  agility     :integer          default(0), not null
 #  intellect   :integer          default(0), not null
 #  cunning     :integer          default(0), not null
+#  willpower   :integer          default(0), not null
 #  presence    :integer          default(0), not null
 #  unused_xp   :integer          default(0), not null
 #  used_xp     :integer          default(0), not null
