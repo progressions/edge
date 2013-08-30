@@ -28,6 +28,13 @@
     %dd= @character.presence
 
 %p
+  %strong Unused Experience
+  = @character.unused_xp
+
+%p
+  %strong Total Experience
+  = @character.total_xp
+%p
   Obligation
   = @character.total_obligation_amount
 

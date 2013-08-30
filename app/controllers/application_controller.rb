@@ -12,4 +12,9 @@ class ApplicationController < ActionController::Base
     redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
 
+  def next_creation_url(character)
+    return character_obligations_url(character) unless character.obligations.any?
+    return character_species_index_url(character) unless character.species?
+    return character_url(character)
+  end
 end

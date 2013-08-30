@@ -4,15 +4,6 @@ class SpeciesController < ApplicationController
 
   def index
     @character = current_user.characters.find(params[:character_id])
-    @species = [
-      "Human",
-      "Rodian",
-      "Twi'lek",
-      "Bothan",
-      "Gand",
-      "Droid",
-      "Trandoshan",
-      "Wookiee"
-    ].sort
+    @species = Species.all
   end
 end

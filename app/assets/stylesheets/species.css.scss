@@ -5,13 +5,24 @@
 .species_module {
   border: 2px solid grey;
   display: inline-block;
-
-  height: 200px;
-  width: 200px;
+  width: 340px;
 }
 .species_module:hover {
+  background-color: #d9edf7;
   border: 2px solid red;
+  cursor: pointer;
 }
 .species_module.selected {
+  background-color: #fcf8e3;
   border: 2px solid red;
+}
+.species_module ul.attributes {
+  margin-left: -5px;
+}
+.species_module .image {
+  background-color: green;
+  float: left;
+  margin-right: 2em;
+  height: 300px;
+  width: 200px;
 }

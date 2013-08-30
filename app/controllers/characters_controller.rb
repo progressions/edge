@@ -18,11 +18,7 @@ class CharactersController < ApplicationController
   def create
     @character = current_user.characters.build(params[:character].permit(:name))
     if @character.save
-      if @character.obligations.any?
-        redirect_to character_url(@character)
-      else
-        redirect_to character_obligations_url(@character)
-      end
+      redirect_to next_creation_url(@character)
     else
       render :new
     end
@@ -36,7 +32,7 @@ class CharactersController < ApplicationController
     Rails.logger.info(character_params.inspect)
     @character = current_user.characters.find(params[:id])
     @character.update_attributes!(character_params)
-    redirect_to @character
+    redirect_to next_creation_url(@character)
   end
 
   def show

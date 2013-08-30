@@ -25,7 +25,23 @@ class Character < ActiveRecord::Base
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
 
+  before_update do |character|
+    character.apply_species if character.species_changed?
+  end
+
   def total_obligation_amount
     obligations.sum(:amount)
+  end
+
+  def total_xp
+    unused_xp.to_i + used_xp.to_i
+  end
+
+  protected
+
+  def apply_species
+    Rails.logger.info("species: #{species.downcase.underscore}")
+    s = Species.get(species)
+    s.generate(self)
   end
 end
