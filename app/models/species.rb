@@ -19,27 +19,23 @@ class Species
   end
 
   def self.get(species)
-    @species = species
-
-    species_class = species.to_s.gsub("'","").capitalize.constantize
-
-    species_class.new
+    species.to_s.gsub("'", "").capitalize.constantize.new
   end
 
   def initialize
   end
 
-  def generate(user)
-    user.assign_attributes(attributes)
-    user.assign_attributes(unused_xp: unused_xp, used_xp: 0)
-    # set wound threshold
-    # set strain threshold
+  def generate(character)
+    character.assign_attributes(characteristics)
+    character.assign_attributes(unused_xp: unused_xp, used_xp: 0)
+    character.assign_attributes(wound_threshold: wound_threshold)
+    character.assign_attributes(strain_threshold: strain_threshold)
     # reset careers, specs, skills, talents?
   end
 
   # Default
   #
-  def attributes
+  def characteristics
     {
       brawn: 2,
       agility: 2,
@@ -57,70 +53,27 @@ class Species
   def name
     self.class.to_s
   end
-end
 
-class Human < Species
-  def attributes
-    {
-      brawn: 2,
-      agility: 2,
-      intellect: 2,
-      cunning: 2,
-      willpower: 2,
-      presence: 2
-    }
+  def reset_skills
+    character.skills.destroy_all
   end
 
-  def unused_xp
-    100
-  end
-end
-
-class Twilek < Species
-  def name
-    "Twi'lek"
+  def set_skills
   end
 
-  def attributes
-    {
-      brawn: 7,
-      agility: 2,
-      intellect: 2,
-      cunning: 3,
-      willpower: 2,
-      presence: 9
-    }
+  def wound_threshold_modifier
+    10
   end
 
-  def unused_xp
-    100
+  def strain_threshold_modifier
+    10
   end
-end
 
-class Bothan < Species
-  def attributes
-    {
-      brawn: 1,
-      agility: 2,
-      intellect: 2,
-      cunning: 3,
-      willpower: 2,
-      presence: 2
-    }
+  def wound_threshold
+    characteristics[:brawn] + wound_threshold_modifier
   end
-end
 
-class Wookiee < Species
-end
-
-class Rodian < Species
-end
-
-class Gand < Species
-end
-
-class Trandoshan < Species
-end
-
-class Droid < Species
+  def strain_threshold
+    characteristics[:willpower] + strain_threshold_modifier
+  end
 end

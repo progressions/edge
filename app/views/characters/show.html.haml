@@ -28,12 +28,13 @@
     %dd= @character.presence
 
 %p
+  %strong Total Experience
+  = @character.total_xp
+
+%p
   %strong Unused Experience
   = @character.unused_xp
 
-%p
-  %strong Total Experience
-  = @character.total_xp
 %p
   Obligation
   = @character.total_obligation_amount
@@ -42,3 +43,11 @@
   %p
     = obligation.amount
     = obligation.name
+
+%p
+  Wound Threshold
+  = @character.wound_threshold
+
+%p
+  Strain Threshold
+  = @character.strain_threshold

@@ -2,28 +2,31 @@
 #
 # Table name: characters
 #
-#  id              :integer          not null, primary key
-#  name            :string(255)
-#  description     :text
-#  user_id         :integer
-#  created_at      :datetime
-#  updated_at      :datetime
-#  brawn           :integer          default(0), not null
-#  agility         :integer          default(0), not null
-#  intellect       :integer          default(0), not null
-#  cunning         :integer          default(0), not null
-#  willpower       :integer          default(0), not null
-#  presence        :integer          default(0), not null
-#  unused_xp       :integer          default(0), not null
-#  used_xp         :integer          default(0), not null
-#  species         :string(255)
-#  party_size      :integer
-#  base_obligation :integer
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  description      :text
+#  user_id          :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  brawn            :integer          default(0), not null
+#  agility          :integer          default(0), not null
+#  intellect        :integer          default(0), not null
+#  cunning          :integer          default(0), not null
+#  willpower        :integer          default(0), not null
+#  presence         :integer          default(0), not null
+#  unused_xp        :integer          default(0), not null
+#  used_xp          :integer          default(0), not null
+#  species          :string(255)
+#  party_size       :integer
+#  base_obligation  :integer
+#  wound_threshold  :integer
+#  strain_threshold :integer
 #
 
 class Character < ActiveRecord::Base
   belongs_to :user
   has_many :obligations
+  has_many :skills
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
 
@@ -46,6 +49,12 @@ class Character < ActiveRecord::Base
       obligation.amount = obligation_amount
       obligations << obligation
     end
+  end
+
+  def add_to_skill(skill_name, rank)
+    skill = skills.where(name: skill_name).first
+    skill.rank += rank
+    skill.save!
   end
 
   protected
