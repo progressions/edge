@@ -5,7 +5,7 @@
   .control-group
     %label.control-label Amount
     .controls
-      = obligations_form.text_field :amount, value: 20
+      = obligations_form.text_field :amount, value: @character.base_obligation
   .control-group
     %label.control-label Name
     .controls
@@ -16,3 +16,4 @@
       = obligations_form.text_area :description
 
 = f.link_to_add "Add Obligation", :obligations, class: "btn btn-warning"
+= f.submit "Random Obligation", class: "btn btn-info"

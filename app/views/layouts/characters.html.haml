@@ -4,7 +4,9 @@
       %ul.nav.nav-tabs.nav-stacked
         %li{class: "#{'active' if @active == :show}"}= link_to("Character", character_url(@character))
         %li{class: "#{'active' if @active == :name}"}= link_to("Name", edit_character_url(@character))
-        %li{class: "#{'active' if @active == :obligations}"}= link_to("Obligations", character_obligations_url(@character))
+        %li{class: "#{'active' if @active == :base_obligation}"}= link_to("Base Obligation", base_obligation_url(@character))
+        - if @character.base_obligation?
+          %li{class: "#{'active' if @active == :obligations}"}= link_to("Obligations", character_obligations_url(@character))
         %li{class: "#{'active' if @active == :species}"}= link_to("Species", character_species_index_url(@character))
         %li= link_to("Starting Career", "")
         %li= link_to("Specializations", "")

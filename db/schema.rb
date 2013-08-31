@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130830020740) do
+ActiveRecord::Schema.define(version: 20130831003646) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -19,15 +19,17 @@ ActiveRecord::Schema.define(version: 20130830020740) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "brawn",       default: 0, null: false
-    t.integer  "agility",     default: 0, null: false
-    t.integer  "intellect",   default: 0, null: false
-    t.integer  "cunning",     default: 0, null: false
-    t.integer  "willpower",   default: 0, null: false
-    t.integer  "presence",    default: 0, null: false
-    t.integer  "unused_xp",   default: 0, null: false
-    t.integer  "used_xp",     default: 0, null: false
+    t.integer  "brawn",           default: 0, null: false
+    t.integer  "agility",         default: 0, null: false
+    t.integer  "intellect",       default: 0, null: false
+    t.integer  "cunning",         default: 0, null: false
+    t.integer  "willpower",       default: 0, null: false
+    t.integer  "presence",        default: 0, null: false
+    t.integer  "unused_xp",       default: 0, null: false
+    t.integer  "used_xp",         default: 0, null: false
     t.string   "species"
+    t.integer  "party_size"
+    t.integer  "base_obligation"
   end
 
   create_table "obligations", force: true do |t|

@@ -19,3 +19,8 @@
 
     .form-actions
       = f.submit "Save and Continue", class: "btn btn-success"
+
+:javascript
+  $(document).ready(function() {
+    $("#character_name").focus();
+  });

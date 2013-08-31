@@ -4,12 +4,12 @@
 
 %h2 Obligations
 
-%p Your character must take on a certain amount of Obligation to start with.
-
 %p
-  The amount you start with will vary depending on how many characters will be in your party. See
-  %strong Table 2-2
-  on page 40 and adjust you starting Amount accordingly.
+  Because your party size is
+  = @character.party_size
+  your character starts with
+  %strong Base Obligation
+  = "#{@character.base_obligation}."
 
 %p
   You may choose the type of Obligation you start with or you may roll randomly on

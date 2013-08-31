@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def next_creation_url(character)
+    return base_obligation_url(character) unless character.base_obligation?
     return character_obligations_url(character) unless character.obligations.any?
     return character_species_index_url(character) unless character.species?
     return character_url(character)
