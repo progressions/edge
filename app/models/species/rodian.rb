@@ -13,4 +13,10 @@ class Rodian < Species
   def unused_xp
     100
   end
+
+  def starting_skills
+    [
+      {name: "Survival", rank: 1}
+    ]
+  end
 end

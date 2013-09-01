@@ -6,6 +6,7 @@ class CreateSkills < ActiveRecord::Migration
       t.integer :rank
       t.boolean :career
       t.string :characteristic
+      t.string :category
 
       t.timestamps
     end

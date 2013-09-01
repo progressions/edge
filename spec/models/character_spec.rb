@@ -30,6 +30,11 @@ describe Character do
     @character = Character.new
   end
 
+  it "sets default skills" do
+    @character.save
+    expect(@character.skills.length).to eq(32)
+  end
+
   it "sets base obligation" do
     @character.update_attributes(party_size: 2)
     @character.save

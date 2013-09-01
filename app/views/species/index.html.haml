@@ -8,7 +8,7 @@
   %p NOTE that changing your species will reset your Attributes and your spent Experience Points!
 
 .form-horizontal
-  = form_for @character do |f|
+  = nested_form_for @character do |f|
 
     .non_js
       .control-group
@@ -16,6 +16,12 @@
 
         .controls
           = f.select(:species, @species.map(&:name))
+
+        .species_skills
+          = f.fields_for :skills do |skills_form|
+            = skills_form.text_field :name
+            = skills_form.text_field :rank
+
 
     .species.js_only
       - @species.each do |species|

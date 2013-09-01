@@ -21,5 +21,10 @@ class Bothan < Species
   def strain_threshold_modifier
     11
   end
-end
 
+  def starting_skills
+    [
+      {name: "Streetwise", rank: 1}
+    ]
+  end
+end

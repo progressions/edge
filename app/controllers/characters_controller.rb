@@ -61,6 +61,7 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :species, :party_size, :base_obligation,
+      skills_attributes: [:name, :rank, :id],
       obligations_attributes: [:amount, :name, :description, :"_destroy", :id])
   end
 end

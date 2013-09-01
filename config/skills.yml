@@ -1,0 +1,101 @@
+general:
+  astrogation:
+    name: "Astrogation"
+    characteristic: "brawn"
+  athletics:
+    name: "Athletics"
+    characteristic: "brawn"
+  charm:
+    name: "Charm"
+    characteristic: "presence"
+  coercion:
+    name: "Coercion"
+    characteristic: "willpower"
+  computers:
+    name: "Computers"
+    characteristic: "intellect"
+  cool:
+    name: "Cool"
+    characteristic: "presence"
+  coordination:
+    name: "Coordination"
+    characteristic: "agility"
+  deception:
+    name: "Deception"
+    characteristic: "cunning"
+  discipline:
+    name: "Discipline"
+    characteristic: "willpower"
+  leadership:
+    name: "Leadership"
+    characteristic: "presence"
+  mechanics:
+    name: "Mechanics"
+    characteristic: "intellect"
+  medicine:
+    name: "Medicine"
+    characteristic: "intellect"
+  negotiation:
+    name: "Negotiation"
+    characteristic: "presence"
+  perception:
+    name: "Perception"
+    characteristic: "cunning"
+  piloting_planetary:
+    name: "Piloting (Planetary)"
+    characteristic: "agility"
+  piloting_space:
+    name: "Piloting (Space)"
+    characteristic: "agility"
+  resilience:
+    name: "Resilience"
+    characteristic: "brawn"
+  skullduggery:
+    name: "Skullduggery"
+    characteristic: "cunning"
+  stealth:
+    name: "Stealth"
+    characteristic: "agility"
+  streetwise:
+    name: "Streetwise"
+    characteristic: "cunning"
+  survival:
+    name: "Survival"
+    characteristic: "cunning"
+  vigilance:
+    name: "Vigilance"
+    characteristic: "willpower"
+
+combat:
+  brawl:
+    name: "Brawl"
+    characteristic: "brawn"
+  gunnery:
+    name: "Gunnery"
+    characteristic: "agility"
+  melee:
+    name: "Melee"
+    characteristic: "brawn"
+  ranged_light:
+    name: "Ranged (Light)"
+    characteristic: "agility"
+  ranged_heavy:
+    name: "Ranged (Heavy)"
+    characteristic: "agility"
+
+knowledge:
+  knowledge_core_worlds:
+    name: "Knowledge (Core Worlds)"
+    characteristic: "intellect"
+  knowledge_education:
+    name: "Knowledge (Education)"
+    characteristic: "intellect"
+  knowledge_lore:
+    name: "Knowledge (Lore)"
+    characteristic: "intellect"
+  knowledge_outer_rim:
+    name: "Knowledge (Outer Rim)"
+    characteristic: "intellect"
+  knowledge_xenology:
+    name: "Knowledge (Xenology)"
+    characteristic: "intellect"

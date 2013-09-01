@@ -39,6 +39,9 @@ gem 'formtastic-bootstrap'
 gem 'annotate'
 
 group :development, :test do
+  gem "factory_girl_rails", "~> 4.0"
+  gem 'capybara'
+  gem 'capybara-webkit'
   gem 'rspec-rails', '~> 2.0'
   gem 'jasmine-rails'
 end

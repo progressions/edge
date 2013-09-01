@@ -51,3 +51,18 @@
 %p
   Strain Threshold
   = @character.strain_threshold
+
+.skills
+  %h3 Skills
+
+  .general
+    %h4 General
+    = render "skills", skills: @character.skills.general
+
+  .combat
+    %h4 Combat
+    = render "skills", skills: @character.skills.combat
+
+  .knowledge
+    %h4 Knowledge
+    = render "skills", skills: @character.skills.knowledge

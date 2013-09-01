@@ -2,14 +2,15 @@ require 'spec_helper'
 
 describe CharactersController do
   before(:each) do
-    @user = User.create(email: "test@test.com", password: "password", password_confirmation: "password")
-    controller.stub!(:current_user).and_return(@user)
+    @user = FactoryGirl.create(:user)
+    @character = FactoryGirl.create(:character, user: @user)
+    controller.stub(:current_user).and_return(@user)
   end
 
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
@@ -18,23 +19,37 @@ describe CharactersController do
       post 'create', character: {
         name: "Fred"
       }
-      response.should be_success
+      expect(response).to be_redirect
+    end
+  end
+
+  describe "GET 'edit'" do
+    it "returns http success" do
+      get 'edit', id: @character.id
+      expect(response).to be_success
     end
   end
 
   describe "GET 'show'" do
     it "returns http success" do
-      @character = @user.characters.build(name: "Fred")
       get 'show', id: @character.id
-      response.should be_success
+      expect(response).to be_success
     end
   end
 
   describe "DELETE 'destroy'" do
-    pending
     it "returns http success" do
-      response.should be_success
+      delete 'destroy', id: @character.id
+      expect(response).to redirect_to(characters_url)
     end
   end
 
+  describe "GET 'update'" do
+    context "with random obligation" do
+      it "sets sets random obligation" do
+        put :update, id: @character.id, commit: "Random Obligation"
+        expect(response).to redirect_to(character_obligations_url(@character))
+      end
+    end
+  end
 end

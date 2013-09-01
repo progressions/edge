@@ -16,10 +16,8 @@ class window.Species
 
   @setup: ->
     species = $("#character_species").val()
-    console.log(species)
     modules = $(".species_module")
     $(modules).each (i, module) ->
-      console.log("module")
       if $(module).find(".hidden").val() == species
         $(".species_module.selected").removeClass("selected")
         $(module).addClass("selected")
@@ -38,4 +36,3 @@ class window.Species
     element.addClass("selected")
 
     $("#character_species").val(species)
-

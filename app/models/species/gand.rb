@@ -13,4 +13,10 @@ class Gand < Species
   def unused_xp
     100
   end
+
+  def starting_skills
+    [
+      {name: "Discipline", rank: 1}
+    ]
+  end
 end

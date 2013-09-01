@@ -1,0 +1,16 @@
+%table.table.table-striped.table-bordered
+  %tr
+    %th.skill_name Skill Name
+    %th.career Career?
+    %th.rank Rank
+
+  - skills.each do |skill|
+    %tr
+      %td
+        %strong= skill.name
+        = "(#{skill.ch})"
+      %td
+        = skill.career_yn?
+      %td
+        = skill.rank
+

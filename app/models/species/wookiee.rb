@@ -21,4 +21,10 @@ class Wookiee < Species
   def strain_threshold_modifier
     8
   end
+
+  def starting_skills
+    [
+      {name: "Brawl", rank: 1}
+    ]
+  end
 end

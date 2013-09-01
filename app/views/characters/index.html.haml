@@ -6,10 +6,12 @@
   %p= link_to("New Character", users_url(create_character: true), method: :post)
 
 
-%table.table
+%table.table.table-bordered
   %tr
     %th Name
+    %th
   - @characters.each do |character|
     %tr
       %td= link_to(character.name, edit_character_url(character))
+      %td= link_to("Delete", character_url(character), method: "delete")
 

@@ -14,4 +14,28 @@
 
 class Skill < ActiveRecord::Base
   belongs_to :character
+
+  def self.ranked
+    where("rank > 0")
+  end
+
+  def self.general
+    where(category: "general")
+  end
+
+  def self.combat
+    where(category: "combat")
+  end
+
+  def self.knowledge
+    where(category: "knowledge")
+  end
+
+  def ch
+    characteristic.to_s.capitalize[0,2]
+  end
+
+  def career_yn?
+    career? ? "yes" : "no"
+  end
 end

@@ -4,6 +4,7 @@ class AddAttributesToCharacter < ActiveRecord::Migration
     add_column :characters, :agility, :integer, null: false, default: 0
     add_column :characters, :intellect, :integer, null: false, default: 0
     add_column :characters, :cunning, :integer, null: false, default: 0
+    add_column :characters, :willpower, :integer, null: false, default: 0
     add_column :characters, :presence, :integer, null: false, default: 0
   end
 end

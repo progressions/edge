@@ -21,4 +21,10 @@ class Trandoshan < Species
   def strain_threshold_modifier
     9
   end
+
+  def starting_skills
+    [
+      {name: "Perception", rank: 1}
+    ]
+  end
 end

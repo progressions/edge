@@ -29,9 +29,11 @@ class Character < ActiveRecord::Base
   has_many :skills
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
+  accepts_nested_attributes_for :skills
 
   before_update :apply_species
   before_update :set_base_obligation
+  before_create :set_default_skills
 
   def total_obligation_amount
     obligations.sum(:amount)
@@ -43,7 +45,7 @@ class Character < ActiveRecord::Base
 
   def build_random_obligations!
     random_obligations = obligations.randomize
-    obligation_amount = self.base_obligation / random_obligations.length
+    obligation_amount = self.base_obligation.to_i / random_obligations.length
 
     random_obligations.each do |obligation|
       obligation.amount = obligation_amount
@@ -51,10 +53,12 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def add_to_skill(skill_name, rank)
+  def add_rank_to_skill(skill_name, rank)
     skill = skills.where(name: skill_name).first
-    skill.rank += rank
-    skill.save!
+    if skill.present?
+      skill.rank += rank
+      skill.save!
+    end
   end
 
   protected
@@ -72,8 +76,16 @@ class Character < ActiveRecord::Base
 
   def apply_species
     if species_changed?
-      s = Species.get(species)
-      s.generate(self)
+      s = Species.get(species, self)
+      s.generate
+    end
+  end
+
+  def set_default_skills
+    SKILLS.each do |category, category_skills|
+      category_skills.each do |key, values|
+        self.skills.new(values.merge(rank: 0, category: category))
+      end
     end
   end
 end
