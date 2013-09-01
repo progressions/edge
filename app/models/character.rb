@@ -53,12 +53,16 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def add_rank_to_skill(skill_name, rank)
-    skill = skills.where(name: skill_name).first
-    if skill.present?
-      skill.rank += rank
-      skill.save!
+  def add_rank_to_skill(skill_name, rank=1)
+    skill_to_change = skill(skill_name)
+    if skill_to_change.present?
+      skill_to_change.rank += rank
+      skill_to_change.save!
     end
+  end
+
+  def skill(name)
+    skills.where(name: name).first
   end
 
   protected
