@@ -4,6 +4,7 @@ class SpeciesController < ApplicationController
 
   def index
     @character = current_user.characters.find(params[:character_id])
-    @species = Species.all
+    @all_species = Species.all(@character)
+    @species = Species.get(@character.species, @character)
   end
 end

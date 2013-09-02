@@ -109,4 +109,11 @@ describe Character do
       expect(@second_obligation.amount).to eq(10)
     end
   end
+
+  describe "with optional skills" do
+    it "sets optional skill" do
+      @character.optional_skills = ["Charm"].to_json
+      expect(@character.skill("Charm").rank).to eq(1)
+    end
+  end
 end

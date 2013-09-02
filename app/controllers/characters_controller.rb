@@ -37,7 +37,14 @@ class CharactersController < ApplicationController
       flash[:notice] = "Your character has been updated."
       redirect_to character_obligations_url(@character)
     elsif params[:character]
-      @character.update_attributes!(character_params)
+      @character_params = character_params
+      optional_skills_json = @character_params.delete(:optional_skills)
+      @character.update_attributes!(@character_params)
+
+      if optional_skills_json.present?
+        @character.optional_skills = optional_skills_json
+      end
+
       flash[:notice] = "Your character has been updated."
       redirect_to next_creation_url(@character)
     end
@@ -61,6 +68,7 @@ class CharactersController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :species, :party_size, :base_obligation,
+      :optional_skills,
       skills_attributes: [:name, :rank, :id],
       obligations_attributes: [:amount, :name, :description, :"_destroy", :id])
   end

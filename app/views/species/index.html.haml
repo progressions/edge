@@ -9,23 +9,45 @@
 
 .form-horizontal
   = nested_form_for @character do |f|
+    = hidden_field_tag "character[optional_skills]"
 
     .non_js
       .control-group
         %label.control-label{for: "character_species"} Species
 
         .controls
-          = f.select(:species, @species.map(&:name))
-
-        .species_skills
-          = f.fields_for :skills do |skills_form|
-            = skills_form.text_field :name
-            = skills_form.text_field :rank
-
+          = f.select(:species, @all_species.map(&:name))
 
     .species.js_only
-      - @species.each do |species|
-        .species_module.well
+      - @all_species.each do |species|
+        - if species.optional_skills?
+          .optional_skills.modal.hide.fade{id: "#{species.identifier}_optional_skills"}
+            .modal-header
+              %h3 Species Skills
+
+            .modal-body
+              - if species.optional_skills_count > 1
+                %p
+                  You may choose
+                  = pluralize(species.optional_skills_count, "different skill")
+                  to gain a rank in.
+              - else
+                %p You may choose one skill to gain a rank in.
+
+              .form-horizontal
+                - species.optional_skills_count.times do |index|
+                  .control-group
+                    %label.control-label Skill
+                    .controls
+                      = select_tag("optional_skill_#{index}", options_for_select(species.optional_skills.pluck(:name)))
+                .control-group
+                  .controls.message
+
+            .modal-footer
+              %a.save_optional_skills.btn.btn-success{href: "#", "data-dismiss" => "modal"} Save
+
+      - @all_species.each do |species|
+        .species_module.well{id: species.identifier}
           %input.hidden{type: "hidden", value: species.name}
 
           %h2= species.name

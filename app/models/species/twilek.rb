@@ -1,4 +1,8 @@
 class Twilek < Species
+  def name
+    "Twi'lek"
+  end
+
   def characteristics
     {
       brawn: 1,
@@ -20,5 +24,13 @@ class Twilek < Species
 
   def optional_skills
     character.skills.where(name: ["Charm", "Deception"])
+  end
+
+  def optional_skills_count
+    1
+  end
+
+  def optional_skills_unique
+    true
   end
 end

@@ -39,12 +39,14 @@ gem 'formtastic-bootstrap'
 gem 'annotate'
 
 group :development, :test do
+  gem 'launchy'
   gem "factory_girl_rails", "~> 4.0"
   gem 'faker'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'rspec-rails', '~> 2.0'
   gem 'jasmine-rails'
+  gem 'database_cleaner'
 end
 
 group :doc do

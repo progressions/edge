@@ -26,6 +26,10 @@ describe Species do
       @species.generate
     end
 
+    it "returns name" do
+      expect(@species.name).to eq("Bothan")
+    end
+
     it "sets characteristics" do
       expect(@character.brawn).to eq(@species.characteristics[:brawn])
     end

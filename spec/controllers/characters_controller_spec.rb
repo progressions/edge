@@ -116,5 +116,56 @@ describe CharactersController do
         expect(assigns(:character).obligations).to eq([@obligation])
       end
     end
+
+    context "with species" do
+      it "changes the species" do
+        put :update, id: @character.id,
+          character: attributes_for(:character, species: "twilek")
+
+        @character.reload
+        expect(@character.species).to eq("twilek")
+      end
+
+      it "sets species attributes" do
+        put :update, id: @character.id,
+          character: attributes_for(:character, species: "twilek")
+
+        @character.reload
+        expect(@character.presence).to eq(3)
+      end
+
+      it "resets skills" do
+        @character.add_rank_to_skill("Astrogation")
+
+        put :update, id: @character.id,
+          character: attributes_for(:character, species: "twilek")
+
+        @character.reload
+        expect(@character.skill("Astrogation").rank).to eq(0)
+      end
+    end
+
+    context "with optional skills" do
+      it "updates a single optional skill" do
+        json = ["Charm"].to_json
+        put :update, id: @character.id,
+          character: attributes_for(:character, species: "twilek").merge(optional_skills: json)
+
+        @character.reload
+        expect(@character.skill("Charm").rank).to eq(1)
+      end
+
+      it "updates multiple optional skills" do
+        json = ["Charm", "Deception"].to_json
+        put :update, id: @character.id,
+          character: {
+            optional_skills: json
+          }
+
+        @character.reload
+        expect(@character.skill("Charm").rank).to eq(1)
+        expect(@character.skill("Deception").rank).to eq(1)
+      end
+    end
   end
 end

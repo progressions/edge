@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20130831055935) do
     t.string   "name"
     t.integer  "rank"
     t.boolean  "career"
+    t.boolean  "species"
     t.string   "characteristic"
     t.string   "category"
     t.datetime "created_at"

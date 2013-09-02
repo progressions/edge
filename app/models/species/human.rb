@@ -17,4 +17,12 @@ class Human < Species
   def optional_skills
     character.skills
   end
+
+  def optional_skills_count
+    2
+  end
+
+  def optional_skills_unique
+    true
+  end
 end

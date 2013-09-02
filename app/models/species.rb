@@ -14,14 +14,17 @@ class Species
     ]
   end
 
-  def self.all
+  def self.all(character=nil)
     all_species.map do |species|
-      Species.get(species)
+      Species.get(species, character)
     end
   end
 
   def self.get(species, character=nil)
-    species.to_s.gsub("'", "").capitalize.constantize.new(character)
+    if species
+      klass = species.to_s.gsub("'", "").capitalize.constantize
+      klass.new(character)
+    end
   end
 
   def initialize(character=nil)
@@ -35,7 +38,11 @@ class Species
     character.assign_attributes(wound_threshold: wound_threshold)
     character.assign_attributes(strain_threshold: strain_threshold)
 
+    Rails.logger.info("############################################")
+    Rails.logger.info("About to reset skills")
     reset_skills
+    Rails.logger.info("Just reset skills")
+    Rails.logger.info("############################################")
     set_starting_skills
 
     # reset careers, specs, skills, talents?
@@ -43,7 +50,7 @@ class Species
 
   def reset_skills
     character.skills.each do |skill|
-      skill.rank = 0 unless skill.rank_changed?
+      skill.rank = 0 unless skill.rank_changed? || skill.species?
     end
   end
 
@@ -78,6 +85,10 @@ class Species
     self.class.to_s
   end
 
+  def identifier
+    name.downcase.gsub("'", "")
+  end
+
   def set_skills
   end
 
@@ -97,7 +108,19 @@ class Species
     characteristics[:willpower] + strain_threshold_modifier
   end
 
+  def optional_skills?
+    [optional_skills].flatten.any?
+  end
+
   def optional_skills
     []
+  end
+
+  def optional_skills_count
+    0
+  end
+
+  def optional_skills_unique
+    true
   end
 end
