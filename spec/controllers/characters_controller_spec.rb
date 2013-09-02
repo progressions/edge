@@ -166,6 +166,15 @@ describe CharactersController do
         expect(@character.skill("Charm").rank).to eq(1)
         expect(@character.skill("Deception").rank).to eq(1)
       end
+
+      it "resets 'species' attributes" do
+        json = ["Charm"].to_json
+        put :update, id: @character.id,
+          character: attributes_for(:character, species: "twilek").merge(optional_skills: json)
+
+        @character.reload
+        expect(@character.skills.species).to be_empty
+      end
     end
   end
 end

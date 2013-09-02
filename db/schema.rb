@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831055935) do
+ActiveRecord::Schema.define(version: 20130902231209) do
+
+  create_table "careers", force: true do |t|
+    t.integer  "character_id"
+    t.string   "name"
+    t.string   "career_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -51,6 +59,24 @@ ActiveRecord::Schema.define(version: 20130831055935) do
     t.boolean  "species"
     t.string   "characteristic"
     t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specializations", force: true do |t|
+    t.integer  "career_id"
+    t.string   "name"
+    t.string   "career_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "talents", force: true do |t|
+    t.integer  "character_id"
+    t.string   "name"
+    t.integer  "rank"
+    t.string   "career"
+    t.string   "specialization"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

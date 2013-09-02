@@ -65,7 +65,7 @@ class Character < ActiveRecord::Base
     skills.where(name: name).first
   end
 
-  def optional_skills=(skills_json)
+  def set_optional_skills(skills_json)
     optional_skills = JSON.parse(skills_json)
     optional_skills.each do |skill_name|
       add_rank_to_skill(skill_name, 1)
@@ -73,6 +73,7 @@ class Character < ActiveRecord::Base
       skill_to_change.rank += 1
       skill_to_change.species = true
     end
+    skills.update_all(species: false)
   end
 
   protected

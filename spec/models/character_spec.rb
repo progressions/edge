@@ -112,8 +112,13 @@ describe Character do
 
   describe "with optional skills" do
     it "sets optional skill" do
-      @character.optional_skills = ["Charm"].to_json
+      @character.set_optional_skills(["Charm"].to_json)
       expect(@character.skill("Charm").rank).to eq(1)
+    end
+
+    it "resets skill 'species' attributes" do
+      @character.set_optional_skills(["Charm"].to_json)
+      expect(@character.skills.species.length).to eq(0)
     end
   end
 end

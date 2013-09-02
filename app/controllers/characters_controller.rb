@@ -42,7 +42,7 @@ class CharactersController < ApplicationController
       @character.update_attributes!(@character_params)
 
       if optional_skills_json.present?
-        @character.optional_skills = optional_skills_json
+        @character.set_optional_skills(optional_skills_json)
       end
 
       flash[:notice] = "Your character has been updated."

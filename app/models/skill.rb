@@ -32,6 +32,10 @@ class Skill < ActiveRecord::Base
     where(category: "knowledge")
   end
 
+  def self.species
+    where(species: true)
+  end
+
   def ch
     characteristic.to_s.capitalize[0,2]
   end
