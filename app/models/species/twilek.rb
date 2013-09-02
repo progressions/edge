@@ -17,4 +17,8 @@ class Twilek < Species
   def strain_threshold_modifier
     11
   end
+
+  def optional_skills
+    character.skills.where(name: ["Charm", "Deception"])
+  end
 end
