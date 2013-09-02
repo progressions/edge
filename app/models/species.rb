@@ -30,6 +30,7 @@ class Species
 
   def generate
     character.assign_attributes(characteristics)
+
     character.assign_attributes(unused_xp: unused_xp, used_xp: 0)
     character.assign_attributes(wound_threshold: wound_threshold)
     character.assign_attributes(strain_threshold: strain_threshold)
@@ -94,5 +95,9 @@ class Species
 
   def strain_threshold
     characteristics[:willpower] + strain_threshold_modifier
+  end
+
+  def optional_skills
+    []
   end
 end

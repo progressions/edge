@@ -27,7 +27,7 @@ require 'spec_helper'
 
 describe Character do
   before(:each) do
-    @character = FactoryGirl.create(:character)
+    @character = create(:character)
   end
 
   it "has a valid factory" do
@@ -46,8 +46,8 @@ describe Character do
   end
 
   it "shows total obligation amount" do
-    @character.obligations << FactoryGirl.build(:obligation, amount: 5)
-    @character.obligations << FactoryGirl.build(:obligation, amount: 10)
+    @character.obligations << build(:obligation, amount: 5)
+    @character.obligations << build(:obligation, amount: 10)
     expect(@character.total_obligation_amount).to eq(15)
   end
 
@@ -90,7 +90,7 @@ describe Character do
 
   describe "with random obligations" do
     it "sets random obligations" do
-      @obligation = FactoryGirl.build(:obligation, character: @character)
+      @obligation = build(:obligation, character: @character)
       Obligation.stub(:randomize).and_return([@obligation])
 
       @character.build_random_obligations!
@@ -100,8 +100,8 @@ describe Character do
     it "random obligations have base_obligation evenly divided" do
       @character.base_obligation = 20
 
-      @first_obligation = FactoryGirl.build(:obligation, character: @character)
-      @second_obligation = FactoryGirl.build(:obligation, character: @character)
+      @first_obligation = build(:obligation, character: @character)
+      @second_obligation = build(:obligation, character: @character)
       Obligation.stub(:randomize).and_return([@first_obligation, @second_obligation])
 
       @character.build_random_obligations!

@@ -13,4 +13,8 @@ class Human < Species
   def unused_xp
     110
   end
+
+  def optional_skills
+    character.skills
+  end
 end

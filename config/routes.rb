@@ -1,5 +1,4 @@
 Edge::Application.routes.draw do
-  resources :skills
 
   get "logout" => "sessions#destroy", as: :logout
   get "login" => "sessions#new", as: :login
@@ -13,6 +12,7 @@ Edge::Application.routes.draw do
     get "characters/:id/name" => "characters#name", as: :name
     resources :obligations
     resources :species
+    resources :skills
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

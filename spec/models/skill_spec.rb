@@ -17,7 +17,7 @@ require 'spec_helper'
 
 describe Skill do
   before(:each) do
-    @skill = FactoryGirl.build(:skill)
+    @skill = build(:skill)
   end
 
   describe "ch" do

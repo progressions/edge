@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe CharactersController do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @character = FactoryGirl.create(:character, user: @user)
+    @user = create(:user)
+    @character = create(:character, user: @user)
     controller.stub(:current_user).and_return(@user)
   end
 
@@ -28,13 +28,13 @@ describe CharactersController do
 
   describe "GET 'create'" do
     it "redirects to character url" do
-      post :create, character: FactoryGirl.attributes_for(:character)
+      post :create, character: attributes_for(:character)
       expect(response).to redirect_to(base_obligation_url(Character.last.id))
     end
 
     it "creates a new character" do
       expect {
-        post :create, character: FactoryGirl.attributes_for(:character)
+        post :create, character: attributes_for(:character)
       }.to change(Character, :count).by(1)
     end
   end
@@ -80,13 +80,13 @@ describe CharactersController do
     context "with new attributes" do
       it "locates the requested character" do
         put :update, id: @character.id,
-          character: FactoryGirl.attributes_for(:character, name: "Odeko")
+          character: attributes_for(:character, name: "Odeko")
         expect(assigns(:character)).to eq(@character)
       end
 
       it "changes the character's attributes" do
         put :update, id: @character.id,
-          character: FactoryGirl.attributes_for(:character, name: "Odeko")
+          character: attributes_for(:character, name: "Odeko")
 
         @character.reload
         expect(@character.name).to eq("Odeko")
@@ -94,7 +94,7 @@ describe CharactersController do
 
       it "redirects to thing" do
         put :update, id: @character.id,
-          character: FactoryGirl.attributes_for(:character, name: "Odeko")
+          character: attributes_for(:character, name: "Odeko")
 
         expect(response).to redirect_to(character_obligations_url(@character))
       end
@@ -102,7 +102,7 @@ describe CharactersController do
 
     context "with random obligation" do
       before(:each) do
-        @obligation = FactoryGirl.build(:obligation, character: @character)
+        @obligation = build(:obligation, character: @character)
         Obligation.stub(:randomize).and_return([@obligation])
       end
 
