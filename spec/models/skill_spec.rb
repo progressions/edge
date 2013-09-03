@@ -7,6 +7,7 @@
 #  name           :string(255)
 #  rank           :integer
 #  career         :boolean
+#  species        :boolean
 #  characteristic :string(255)
 #  category       :string(255)
 #  created_at     :datetime
