@@ -2,6 +2,9 @@
 
 %h1= @character.name
 
+%p= @character.inspect
+%p= @character.skills.inspect
+
 %h4
   Species:
   - if @character.species?

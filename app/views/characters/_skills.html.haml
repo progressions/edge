@@ -5,7 +5,7 @@
     %th.rank Rank
 
   - skills.each do |skill|
-    %tr
+    %tr{id: skill.identifier}
       %td
         %strong= skill.name
         = "(#{skill.ch})"

@@ -14,7 +14,7 @@
 .form-horizontal
   = form_for @character do |f|
     .control-group
-      %label.control-label{for: "party_size"} Party Size
+      %label.control-label{for: "character_party_size"} Party Size
       .controls
         = f.select :party_size, {"2" => 2, "3" => 3, "4" => 4, "5" => 5, "6+" => 6}
 

@@ -37,7 +37,7 @@
               .form-horizontal
                 - species.optional_skills_count.times do |index|
                   .control-group
-                    %label.control-label Skill
+                    %label.control-label{for: "optional_skill_#{index}"} Skill
                     .controls
                       = select_tag("optional_skill_#{index}", options_for_select(species.optional_skills.pluck(:name)))
                 .control-group

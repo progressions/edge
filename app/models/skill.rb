@@ -37,6 +37,10 @@ class Skill < ActiveRecord::Base
     where(species: true)
   end
 
+  def identifier
+    self.name.underscore.gsub(/[^A-Za-z0-9]/, "_")
+  end
+
   def ch
     characteristic.to_s.capitalize[0,2]
   end

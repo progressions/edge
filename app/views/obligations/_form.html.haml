@@ -3,15 +3,15 @@
     Obligation
     %small= obligations_form.link_to_remove "(Remove)"
   .control-group
-    %label.control-label Amount
+    = obligations_form.label :amount, class: "control-label"
     .controls
       = obligations_form.text_field :amount, value: @character.base_obligation
   .control-group
-    %label.control-label Name
+    = obligations_form.label :name, class: "control-label"
     .controls
       = obligations_form.text_field :name
   .control-group
-    %label.control-label Description
+    = obligations_form.label :description, class: "control-label"
     .controls
       = obligations_form.text_area :description
 
