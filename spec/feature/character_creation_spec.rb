@@ -17,16 +17,13 @@ describe "character creation", js: true do
     expect(page).to have_content("Your character has been updated.")
     expect(page).to have_content("Because your party size is")
     expect(page).to have_content("5")
-    click_button "Random Obligation"
-    expect(find_field("Name").value).to eq("Dutybound")
-    click_button "Save and Continue"
+    click_link "Random Obligation"
+    expect(page).to have_content("Dutybound")
+    click_link "Save and Continue"
     expect(page).to have_content("Bothan")
     find("#twilek").click
-    expect(find("#twilek_optional_skills")).to be_visible
-    within "#twilek_optional_skills" do
-      select "Deception", from: "Skill"
-      click_link "Save"
-    end
+    click_button "Save and Continue"
+    select "Deception", from: "Skill"
     click_button "Save and Continue"
     expect(page).to have_content("Deception")
     within "tr#deception" do

@@ -20,7 +20,7 @@
       .control-group
         %label.control-label{for: "optional_skill_#{index}"} Skill
         .controls
-          = select_tag("character[optional_skills][]", options_for_select(@species.optional_skills.pluck(:name)))
+          = select_tag("character[optional_skills][]", options_for_select(@species.optional_skills.pluck(:name)), id: "optional_skill_#{index}")
     .control-group
       .controls.message
 

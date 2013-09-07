@@ -69,21 +69,25 @@ describe Character do
   describe "with new species" do
     it "sets species attributes" do
       @character.update_attributes(species: "twilek")
+      @character.apply_species
       expect(@character.presence).to eq(3)
     end
 
     it "sets species skills" do
       @character.update_attributes(species: "rodian")
+      @character.apply_species
       expect(@character.skills.where(name: "Survival").first.rank).to eq(1)
     end
 
     it "sets species wound threshold" do
       @character.update_attributes(species: "trandoshan")
+      @character.apply_species
       expect(@character.wound_threshold).to eq(15)
     end
 
     it "sets species strain threshold" do
       @character.update_attributes(species: "trandoshan")
+      @character.apply_species
       expect(@character.strain_threshold).to eq(11)
     end
   end
@@ -112,13 +116,14 @@ describe Character do
 
   describe "with optional skills" do
     it "sets optional skill" do
-      @character.set_optional_skills(["Charm"].to_json)
+      @character.optional_skills = ["Charm"]
       expect(@character.skill("Charm").rank).to eq(1)
     end
 
-    it "resets skill 'species' attributes" do
-      @character.set_optional_skills(["Charm"].to_json)
-      expect(@character.skills.species.length).to eq(0)
+    it "sets multiple optional skills" do
+      @character.optional_skills = ["Charm", "Deception"]
+      expect(@character.skill("Charm").rank).to eq(1)
+      expect(@character.skill("Deception").rank).to eq(1)
     end
   end
 end

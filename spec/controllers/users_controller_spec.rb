@@ -37,7 +37,7 @@ describe UsersController do
 
       it "redirects to create character if params[:create_character]" do
         post :create, user: attributes_for(:user), create_character: true
-        expect(response).to redirect_to(new_character_url)
+        expect(response).to redirect_to(character_build_url(:start, character_id: "new"))
       end
 
       it "logs in the user" do

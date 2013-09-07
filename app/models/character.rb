@@ -80,6 +80,11 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def apply_species
+    s = Species.get(species, self)
+    s.generate
+  end
+
   protected
 
   def set_base_obligation
@@ -91,13 +96,6 @@ class Character < ActiveRecord::Base
       6 => 5
     }
     self.base_obligation = party_to_obligation[self.party_size.to_i]
-  end
-
-  def apply_species
-    if species_changed?
-      s = Species.get(species, self)
-      s.generate
-    end
   end
 
   def set_default_skills
