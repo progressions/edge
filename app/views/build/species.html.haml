@@ -4,22 +4,22 @@
 
 %h2 Species
 
-- if @character.species?
+- if @character.species.present?
   %p NOTE that changing your species will reset your Attributes and your spent Experience Points!
 
 .form-horizontal
   = form_for @character, url: wizard_path, method: :put do |f|
     .non_js
       .control-group
-        %label.control-label{for: "character_species"} Species
+        %label.control-label{for: "character_species_id"} Species
 
         .controls
-          = f.select(:species, @all_species.map(&:name))
+          = f.select(:species_id, options_from_collection_for_select(@all_species, :id, :name))
 
     .species.js_only
       - @all_species.each do |species|
         .species_module.well{id: species.identifier}
-          %input.hidden{type: "hidden", value: species.name}
+          %input.hidden{type: "hidden", value: species.id}
 
           %h2= species.name
 
@@ -28,22 +28,22 @@
           %ul.characteristics.unstyled
             %li
               %strong Brawn
-              = species.characteristics[:brawn]
+              = species[:brawn]
             %li
               %strong Agility
-              = species.characteristics[:agility]
+              = species[:agility]
             %li
               %strong Intellect
-              = species.characteristics[:intellect]
+              = species[:intellect]
             %li
               %strong Cunning
-              = species.characteristics[:cunning]
+              = species[:cunning]
             %li
               %strong Willpower
-              = species.characteristics[:willpower]
+              = species[:willpower]
             %li
               %strong Presence
-              = species.characteristics[:presence]
+              = species[:presence]
 
           %p
             %strong Base XP

@@ -17,6 +17,10 @@
 class Skill < ActiveRecord::Base
   belongs_to :character
 
+  def self.reset_all
+    update_all(rank: 0)
+  end
+
   def self.ranked
     where("rank > 0")
   end

@@ -16,18 +16,22 @@
 #  presence         :integer          default(0), not null
 #  unused_xp        :integer          default(0), not null
 #  used_xp          :integer          default(0), not null
-#  species          :string(255)
 #  party_size       :integer
 #  base_obligation  :integer
 #  wound_threshold  :integer
 #  strain_threshold :integer
+#  species_id       :integer
 #
 
 require 'spec_helper'
 
 describe Character do
   before(:each) do
+    seed_species
     @character = create(:character)
+    @twilek = Species.where(name: "Twi'lek").first
+    @bothan = Species.where(name: "Bothan").first
+    @human = Species.where(name: "Human").first
   end
 
   it "has a valid factory" do
@@ -66,32 +70,6 @@ describe Character do
     expect(@character.skill("Cool").name).to eq("Cool")
   end
 
-  describe "with new species" do
-    it "sets species attributes" do
-      @character.update_attributes(species: "twilek")
-      @character.apply_species
-      expect(@character.presence).to eq(3)
-    end
-
-    it "sets species skills" do
-      @character.update_attributes(species: "rodian")
-      @character.apply_species
-      expect(@character.skills.where(name: "Survival").first.rank).to eq(1)
-    end
-
-    it "sets species wound threshold" do
-      @character.update_attributes(species: "trandoshan")
-      @character.apply_species
-      expect(@character.wound_threshold).to eq(15)
-    end
-
-    it "sets species strain threshold" do
-      @character.update_attributes(species: "trandoshan")
-      @character.apply_species
-      expect(@character.strain_threshold).to eq(11)
-    end
-  end
-
   describe "with random obligations" do
     it "sets random obligations" do
       @obligation = build(:obligation, character: @character)
@@ -111,6 +89,40 @@ describe Character do
       @character.build_random_obligations!
       expect(@first_obligation.amount).to eq(10)
       expect(@second_obligation.amount).to eq(10)
+    end
+  end
+
+  describe "with species" do
+    it "sets characteristics" do
+      @character.set_species("Bothan")
+      expect(@character.brawn).to eq(1)
+      expect(@character.agility).to eq(2)
+      expect(@character.intellect).to eq(2)
+      expect(@character.cunning).to eq(3)
+      expect(@character.willpower).to eq(2)
+      expect(@character.presence).to eq(2)
+    end
+
+    it "sets wound threshold" do
+      @character.set_species("Trandoshan")
+      expect(@character.wound_threshold).to eq(15)
+    end
+
+    it "sets strain threshold" do
+      @character.set_species("Trandoshan")
+      expect(@character.strain_threshold).to eq(11)
+    end
+
+    it "sets unused xp" do
+      @character.set_species("Trandoshan")
+      expect(@character.unused_xp).to eq(90)
+    end
+
+    it "resets skill ranks" do
+      @character.add_rank_to_skill("Charm")
+      @character.set_species("Human")
+      @character.save
+      expect(@character.reload.skills.sum(:rank)).to eq(0)
     end
   end
 

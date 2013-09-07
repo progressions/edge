@@ -16,14 +16,15 @@
 #  presence         :integer          default(0), not null
 #  unused_xp        :integer          default(0), not null
 #  used_xp          :integer          default(0), not null
-#  species          :string(255)
 #  party_size       :integer
 #  base_obligation  :integer
 #  wound_threshold  :integer
 #  strain_threshold :integer
+#  species_id       :integer
 #
 
 class Character < ActiveRecord::Base
+  belongs_to :species
   belongs_to :user
   has_many :obligations
   has_many :skills
@@ -31,7 +32,6 @@ class Character < ActiveRecord::Base
   accepts_nested_attributes_for :obligations, allow_destroy: true
   accepts_nested_attributes_for :skills
 
-  # before_update :apply_species
   before_update :set_base_obligation
   before_create :set_default_skills
 
@@ -81,8 +81,25 @@ class Character < ActiveRecord::Base
   end
 
   def apply_species
-    s = Species.get(species, self)
-    s.generate
+    assign_attributes(species.characteristics)
+    assign_attributes(wound_threshold: species.wound_threshold)
+    assign_attributes(strain_threshold: species.strain_threshold)
+    assign_attributes(unused_xp: species.unused_xp)
+    reset_skills
+    optional_skills = species.starting_skills
+  end
+
+  def set_species(species_name)
+    self.species = Species.where(name: species_name).first
+    if species.nil?
+      raise "Species #{species_name} does not exist"
+    end
+
+    apply_species
+  end
+
+  def reset_skills
+    skills.reset_all
   end
 
   protected

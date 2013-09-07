@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe "character creation", js: true do
+  before(:each) do
+    seed_species
+  end
+
   it "creates a character with name, random obligation and species" do
     Obligation.stub(:rand).and_return(0.49)
     @user = create(:user)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831055935) do
+ActiveRecord::Schema.define(version: 20130907185855) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(version: 20130831055935) do
     t.integer  "presence",         default: 0, null: false
     t.integer  "unused_xp",        default: 0, null: false
     t.integer  "used_xp",          default: 0, null: false
-    t.string   "species"
     t.integer  "party_size"
     t.integer  "base_obligation"
     t.integer  "wound_threshold"
     t.integer  "strain_threshold"
+    t.integer  "species_id"
   end
 
   create_table "obligations", force: true do |t|
@@ -51,6 +51,24 @@ ActiveRecord::Schema.define(version: 20130831055935) do
     t.boolean  "species"
     t.string   "characteristic"
     t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "species", force: true do |t|
+    t.string   "name"
+    t.integer  "brawn"
+    t.integer  "agility"
+    t.integer  "intellect"
+    t.integer  "cunning"
+    t.integer  "willpower"
+    t.integer  "presence"
+    t.integer  "unused_xp"
+    t.integer  "wound_threshold_modifier"
+    t.integer  "strain_threshold_modifier"
+    t.integer  "optional_skills_count"
+    t.string   "starting_skills"
+    t.string   "optional_skills"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

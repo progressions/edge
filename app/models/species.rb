@@ -1,6 +1,55 @@
-class Species
-  attr_accessor :character
+# == Schema Information
+#
+# Table name: species
+#
+#  id                        :integer          not null, primary key
+#  name                      :string(255)
+#  brawn                     :integer
+#  agility                   :integer
+#  intellect                 :integer
+#  cunning                   :integer
+#  willpower                 :integer
+#  presence                  :integer
+#  unused_xp                 :integer
+#  wound_threshold_modifier  :integer
+#  strain_threshold_modifier :integer
+#  optional_skills_count     :integer
+#  starting_skills           :string(255)
+#  optional_skills           :string(255)
+#  created_at                :datetime
+#  updated_at                :datetime
+#
 
+class Species < ActiveRecord::Base
+  has_many :characters
+  serialize :starting_skills, Array
+  serialize :optional_skills, Array
+
+
+  def identifier
+    name.downcase.gsub("'", "")
+  end
+
+  def characteristics
+    {
+      brawn: brawn,
+      agility: agility,
+      intellect: intellect,
+      cunning: cunning,
+      willpower: willpower,
+      presence: presence
+    }
+  end
+
+  def wound_threshold
+    wound_threshold_modifier + brawn
+  end
+
+  def strain_threshold
+    strain_threshold_modifier + willpower
+  end
+
+=begin
   def self.all_species
     [
       "Bothan",
@@ -38,11 +87,7 @@ class Species
     character.assign_attributes(wound_threshold: wound_threshold)
     character.assign_attributes(strain_threshold: strain_threshold)
 
-    Rails.logger.info("############################################")
-    Rails.logger.info("About to reset skills")
     reset_skills
-    Rails.logger.info("Just reset skills")
-    Rails.logger.info("############################################")
     set_starting_skills
 
     # reset careers, specs, skills, talents?
@@ -50,7 +95,7 @@ class Species
 
   def reset_skills
     character.skills.each do |skill|
-      skill.rank = 0 unless skill.rank_changed? || skill.species?
+      skill.rank = 0 unless skill.rank_changed? || skill.species.present?
     end
   end
 
@@ -83,10 +128,6 @@ class Species
 
   def name
     self.class.to_s
-  end
-
-  def identifier
-    name.downcase.gsub("'", "")
   end
 
   def set_skills
@@ -123,4 +164,5 @@ class Species
   def optional_skills_unique
     true
   end
+=end
 end

@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :character do
     user
     name { Faker::Name.name }
-    species "human"
+    species
 
     brawn 2
     agility 3

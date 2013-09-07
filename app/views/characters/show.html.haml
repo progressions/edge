@@ -4,12 +4,12 @@
 
 %h4
   Species:
-  - if @character.species?
-    = @character.species.capitalize
+  - if @character.species.present?
+    = @character.species.name.capitalize
   - else
     = link_to("Add Species", character_species_index_url(@character))
 
-- unless @character.species?
+- unless @character.species.present?
   %p Your character's starting attributes and Experience Points will be determined by your species.
 
 .attributes

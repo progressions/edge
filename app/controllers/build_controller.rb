@@ -21,17 +21,23 @@ class BuildController < ApplicationController
         flash[:notice] = "Your obligation has been set."
       end
     when :species
-      @all_species = Species.all(@character)
-      @species = Species.get(@character.species, @character)
+      @all_species = Species.all
     when :species_attributes
-      @species = Species.get(@character.species, @character)
-      @species.generate
+      @character.apply_species
       @character.save
       skip_step
     when :species_skills
-      @species = Species.get(@character.species, @character)
+      @species = @character.species
+      @character.apply_species
+      flash[:notice] = "Your character has been updated."
 
-      unless @species.optional_skills?
+      if @species.optional_skills?
+        if @species.optional_skills.include?("all")
+          @optional_skills = @character.skills.pluck(:name)
+        else
+          @optional_skills = @species.optional_skills
+        end
+      else
         skip_step
       end
     end
@@ -41,7 +47,7 @@ class BuildController < ApplicationController
   def update
     @character = current_user.characters.find(params[:character_id])
     @character.update_attributes(character_params)
-    @species = Species.get(@character.species, @character)
+    @species = @character.species
 
     if @character.valid?
       flash[:notice] = "Your character has been updated."
@@ -59,7 +65,7 @@ class BuildController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :species, :party_size, :base_obligation,
+    params.require(:character).permit(:name, :species_id, :party_size, :base_obligation,
       optional_skills: [],
       skills_attributes: [:name, :rank, :id],
       obligations_attributes: [:amount, :name, :description, :"_destroy", :id])

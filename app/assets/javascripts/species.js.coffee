@@ -15,7 +15,7 @@ class window.Species
     Species.setup()
 
   @setup: ->
-    species = $("#character_species").val()
+    species = $("#character_species_id").val()
     modules = $(".species_module")
     $(modules).each (i, module) ->
       if $(module).find(".hidden").val() == species
@@ -36,9 +36,9 @@ class window.Species
     element.addClass("selected")
 
     species_identifier = species.toLowerCase().replace("'", "")
+    console.log(species)
 
-    $("#character_species").val(species)
-    # $("##{species_identifier}_optional_skills").modal()
+    $("#character_species_id").val(species)
 
   @close: (event) ->
     element = $(event.target).parents(".optional_skills")
