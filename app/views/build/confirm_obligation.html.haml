@@ -1,0 +1,25 @@
+%h1= @character.name
+
+%h2 Obligations
+
+%p
+  Because your party size is
+  = @character.party_size
+  your character starts with
+  %strong Base Obligation
+  = "#{@character.base_obligation}."
+
+.form-horizontal
+  - @character.obligations.each do |obligation|
+    .obligation_module
+      %h3
+        = obligation.name
+        %span
+          = surround("(", ")") do
+            = obligation.amount
+
+      %p= obligation.description
+
+  .form-actions
+    = link_to("Accept", next_wizard_path, class: "btn btn-success")
+    = link_to("Change", wizard_path(:obligation), class: "btn btn-success")

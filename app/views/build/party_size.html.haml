@@ -12,7 +12,7 @@
   on page 40 and adjust you starting Amount accordingly.
 
 .form-horizontal
-  = form_for @character do |f|
+  = form_for @character, url: wizard_path, method: :put do |f|
     .control-group
       %label.control-label{for: "character_party_size"} Party Size
       .controls
@@ -20,3 +20,4 @@
 
     .form-actions
       = f.submit "Save and Continue", class: "btn btn-success"
+

@@ -37,6 +37,7 @@ gem 'nested_form'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'annotate'
+gem 'wicked'
 
 group :development, :test do
   gem 'launchy'

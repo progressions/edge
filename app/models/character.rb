@@ -31,9 +31,15 @@ class Character < ActiveRecord::Base
   accepts_nested_attributes_for :obligations, allow_destroy: true
   accepts_nested_attributes_for :skills
 
-  before_update :apply_species
+  # before_update :apply_species
   before_update :set_base_obligation
   before_create :set_default_skills
+
+  validate do |user|
+    if Array(@optional_skills).uniq != Array(@optional_skills)
+      errors.add(:base, "Species skills must be unique.")
+    end
+  end
 
   def total_obligation_amount
     obligations.sum(:amount)
@@ -65,15 +71,13 @@ class Character < ActiveRecord::Base
     skills.where(name: name).first
   end
 
-  def set_optional_skills(skills_json)
-    optional_skills = JSON.parse(skills_json)
-    optional_skills.each do |skill_name|
+  def optional_skills=(optional_skills)
+    @optional_skills = Array(optional_skills)
+    @optional_skills.each do |skill_name|
       add_rank_to_skill(skill_name, 1)
       skill_to_change = skill(skill_name)
       skill_to_change.rank += 1
-      skill_to_change.species = true
     end
-    skills.update_all(species: false)
   end
 
   protected

@@ -6,16 +6,11 @@ Edge::Application.routes.draw do
   get "login" => "sessions#new", as: :login
   get "signup" => "users#new", as: :signup
 
-  get "characters/:character_id/base" => "obligations#base", as: :base_obligation
-
   resources :users
   resources :sessions
+
   resources :characters do
-    get "characters/:id/name" => "characters#name", as: :name
-    resources :obligations
-    resources :species
-    resources :skills
-    resources :talents
+    resources :build
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

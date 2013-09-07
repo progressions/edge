@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
 
       if params[:create_character]
-        redirect_to new_character_url
+        redirect_to character_build_url(:start, character_id: "new")
       else
         redirect_to root_url, notice: "Signed up successfully."
       end

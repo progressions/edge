@@ -1,0 +1,27 @@
+- @active = :name
+
+%h1 Create a new character
+
+%p Welcome to Star Wars Edge of the Empire!
+
+%p The first step of creating a new character is to give some thought to your character's name and background.
+
+%p If you don't know your character's name yet, don't worry, you can choose one at any time!
+
+%p Click "Save and Continue".
+
+.form-horizontal
+  = nested_form_for @character, url: wizard_path, method: :put do |f|
+    .control-group
+      %label.control-label{for: "character_name"} Name
+      .controls
+        = f.text_field :name
+
+    .form-actions
+      = f.submit "Save and Continue", class: "btn btn-success"
+
+:javascript
+  $(document).ready(function() {
+    $("#character_name").focus();
+  });
+

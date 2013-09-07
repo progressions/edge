@@ -1,7 +1,7 @@
 %h1 Characters
 
 - if current_user
-  %p= link_to("New Character", new_character_url)
+  %p= link_to("New Character", character_build_url(:name, character_id: "new"))
 - else
   %p= link_to("New Character", users_url(create_character: true), method: :post)
 
@@ -12,6 +12,6 @@
     %th
   - @characters.each do |character|
     %tr
-      %td= link_to(character.name, edit_character_url(character))
+      %td= link_to(character.name, character_url(character))
       %td= link_to("Delete", character_url(character), method: "delete")
 

@@ -8,9 +8,7 @@
   %p NOTE that changing your species will reset your Attributes and your spent Experience Points!
 
 .form-horizontal
-  = nested_form_for @character do |f|
-    = hidden_field_tag "character[optional_skills]"
-
+  = form_for @character, url: wizard_path, method: :put do |f|
     .non_js
       .control-group
         %label.control-label{for: "character_species"} Species
@@ -19,33 +17,6 @@
           = f.select(:species, @all_species.map(&:name))
 
     .species.js_only
-      - @all_species.each do |species|
-        - if species.optional_skills?
-          .optional_skills.modal.hide.fade{id: "#{species.identifier}_optional_skills"}
-            .modal-header
-              %h3 Species Skills
-
-            .modal-body
-              - if species.optional_skills_count > 1
-                %p
-                  You may choose
-                  = pluralize(species.optional_skills_count, "different skill")
-                  to gain a rank in.
-              - else
-                %p You may choose one skill to gain a rank in.
-
-              .form-horizontal
-                - species.optional_skills_count.times do |index|
-                  .control-group
-                    %label.control-label{for: "optional_skill_#{index}"} Skill
-                    .controls
-                      = select_tag("optional_skill_#{index}", options_for_select(species.optional_skills.pluck(:name)))
-                .control-group
-                  .controls.message
-
-            .modal-footer
-              %a.save_optional_skills.btn.btn-success{href: "#", "data-dismiss" => "modal"} Save
-
       - @all_species.each do |species|
         .species_module.well{id: species.identifier}
           %input.hidden{type: "hidden", value: species.name}
@@ -88,3 +59,4 @@
 
     .form-actions
       = f.submit "Save and Continue", class: "btn btn-success"
+

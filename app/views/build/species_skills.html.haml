@@ -1,0 +1,29 @@
+%h3 Species Skills
+
+- if @species.optional_skills_count > 1
+  %p
+    You may choose
+    = pluralize(@species.optional_skills_count, "different skill")
+    to gain a rank in.
+- else
+  %p You may choose one skill to gain a rank in.
+
+.form-horizontal
+  = nested_form_for @character, url: wizard_path, method: :put do |f|
+    - if @character.errors.any?
+      .errors
+        %ul.unstyled
+          - @character.errors.full_messages.each do |message|
+            %li.text-error= message
+
+    - @species.optional_skills_count.times do |index|
+      .control-group
+        %label.control-label{for: "optional_skill_#{index}"} Skill
+        .controls
+          = select_tag("character[optional_skills][]", options_for_select(@species.optional_skills.pluck(:name)))
+    .control-group
+      .controls.message
+
+
+      .form-actions
+        = f.submit "Save and Continue", class: "btn btn-success"

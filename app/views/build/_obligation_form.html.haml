@@ -16,4 +16,4 @@
       = obligations_form.text_area :description
 
 = f.link_to_add "Add Obligation", :obligations, class: "btn btn-warning"
-= f.submit "Random Obligation", class: "btn btn-info"
+= link_to "Random Obligation", wizard_path(:confirm_obligation, character_id: @character.id, obligation: :random), class: "btn btn-info"

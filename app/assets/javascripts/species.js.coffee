@@ -38,7 +38,7 @@ class window.Species
     species_identifier = species.toLowerCase().replace("'", "")
 
     $("#character_species").val(species)
-    $("##{species_identifier}_optional_skills").modal()
+    # $("##{species_identifier}_optional_skills").modal()
 
   @close: (event) ->
     element = $(event.target).parents(".optional_skills")
