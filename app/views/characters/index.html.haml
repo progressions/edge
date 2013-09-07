@@ -1,7 +1,7 @@
 %h1 Characters
 
 - if current_user
-  %p= link_to("New Character", character_build_url(:name, character_id: "new"))
+  %p= link_to("New Character", character_build_url(:start, character_id: "new"))
 - else
   %p= link_to("New Character", users_url(create_character: true), method: :post)
 

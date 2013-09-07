@@ -18,6 +18,7 @@ class BuildController < ApplicationController
     when :confirm_obligation
       if @character.obligations.empty?
         @character.build_random_obligations!
+        flash[:notice] = "Your obligation has been set."
       end
     when :species
       @all_species = Species.all(@character)
