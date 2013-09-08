@@ -1,0 +1,31 @@
+- @active = :specialization
+
+%h1= @character.name
+
+%h2 Select Character Specialization
+
+.form-horizontal
+  = form_for @character, url: wizard_path, method: :put do |f|
+    .non_jss
+      .control-group
+        %label.control-label{for: "character_specialization_id"} Specialization
+
+        .controls
+          = select_tag("character[specialization_id]", options_from_collection_for_select(@specializations, :id, :name))
+
+    .specializations.js_only
+      - @specializations.each do |specialization|
+        .specialization_module.module.well{id: identifier(specialization.name)}
+          %input.hidden{type: "hidden", value: specialization.id}
+
+          %h2= specialization.name
+
+          %h4 Specialization Skill Choices
+
+          %ul.characteristics.unstyled
+            - specialization.career_skills.each do |skill|
+              %li= skill
+
+
+    .form-actions
+      = f.submit "Save and Continue", class: "btn btn-success"

@@ -16,4 +16,8 @@ class Specialization < ActiveRecord::Base
   has_many :characters, through: :character_specializations
 
   serialize :career_skills, Array
+
+  def full_name
+    "#{career.name} - #{name}"
+  end
 end

@@ -37,6 +37,7 @@ class Character < ActiveRecord::Base
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
   accepts_nested_attributes_for :skills
+  accepts_nested_attributes_for :specializations
 
   before_update :set_base_obligation
   before_create :set_default_skills
@@ -125,6 +126,10 @@ class Character < ActiveRecord::Base
 
   def reset_skills
     skills.reset_all
+  end
+
+  def specialization_id=(spec_id)
+    specializations << Specialization.where(id: spec_id).first
   end
 
   protected

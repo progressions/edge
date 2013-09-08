@@ -27,37 +27,38 @@
     %dt Presence
     %dd= @character.presence
 
-%p
+%p.career
   %strong Career
   = @character.career.try(:name)
 
-%p
+%p.specializations
   %strong Specializations
   = @specializations.join(", ")
 
-%p
+%p.total_xp
   %strong Total Experience
   = @character.total_xp
 
-%p
+%p.unused_xp
   %strong Unused Experience
   = @character.unused_xp
 
-%p
-  Obligation
-  = @character.total_obligation_amount
-
-- @character.obligations.each do |obligation|
+.obligations
   %p
-    = obligation.amount
-    = obligation.name
+    Obligation
+    = @character.total_obligation_amount
 
-%p
-  Wound Threshold
+  - @character.obligations.each do |obligation|
+    %p
+      = obligation.amount
+      = obligation.name
+
+%p.wound_threshold
+  %strong Wound Threshold
   = @character.wound_threshold
 
-%p
-  Strain Threshold
+%p.strain_threshold
+  %strong Strain Threshold
   = @character.strain_threshold
 
 .skills

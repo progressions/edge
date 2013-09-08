@@ -383,7 +383,7 @@ describe BuildController do
       expect(assigns(:character)).to eq(@character)
     end
 
-    it "renders species" do
+    it "renders career" do
       get :show, {
         id: "career",
         character_id: @character.id
@@ -391,7 +391,7 @@ describe BuildController do
       expect(response).to render_template("build/career")
     end
 
-    it "assigns species" do
+    it "assigns career" do
       put :update, {
         id: "career",
         character_id: @character.id,
@@ -424,10 +424,6 @@ describe BuildController do
   end
 
   describe "career skills step" do
-    before(:each) do
-      @career = Career.where(name: "Smuggler").first
-    end
-
     it "assigns character" do
       get :show, {
         id: "career_skills",
@@ -509,7 +505,7 @@ describe BuildController do
       end
     end
 
-    it "redirects to wicked finish" do
+    it "redirects to specialization step" do
         put :update, {
           id: "career_skills",
           character_id: @character.id,
@@ -517,8 +513,58 @@ describe BuildController do
             optional_skills: ["Astrogation", "Charm"]
           }
         }
-      expect(response).to redirect_to(character_build_url(:wicked_finish, character_id: Character.last.id))
+      expect(response).to redirect_to(character_build_url(:specialization, character_id: Character.last.id))
     end
   end
 
+  describe "specialization step" do
+    before(:each) do
+      @specialization = Specialization.where(name: "Assassin").first
+    end
+
+    it "assigns character" do
+      get :show, {
+        id: "specialization",
+        character_id: @character.id
+      }
+      expect(assigns(:character)).to eq(@character)
+    end
+
+    it "renders specialization" do
+      get :show, {
+        id: "specialization",
+        character_id: @character.id
+      }
+      expect(response).to render_template("build/specialization")
+    end
+
+    it "assigns specialization" do
+      put :update, {
+        id: "specialization",
+        character_id: @character.id,
+        character: {
+          specialization_id: @specialization.id
+        }
+      }
+      expect(@character.reload.specializations.first).to eq(@specialization)
+    end
+
+    it "redirects to species if they don't have one" do
+      @character.update_attributes(species_id: nil)
+      get :show, {
+        id: "specialization",
+        character_id: @character.id
+      }
+      expect(response).to redirect_to(character_build_url(:species, character_id: @character.id))
+    end
+
+    it "redirects to career if they don't have one" do
+      @character.update_attributes(career_id: nil)
+      get :show, {
+        id: "specialization",
+        character_id: @character.id
+      }
+      expect(response).to redirect_to(character_build_url(:career, character_id: @character.id))
+    end
+  end
 end

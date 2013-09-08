@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :specialization do
-    name "MyString"
-    career_skills "MyString"
+    name "Specialization"
+    career_skills ["Negotiation", "Resilience"]
     career_id 1
   end
 end

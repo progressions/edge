@@ -23,4 +23,10 @@
 require 'spec_helper'
 
 describe Species do
+  describe "class methods" do
+    it "seeds 8 species" do
+      Species.seed!
+      expect(Species.count).to eq(8)
+    end
+  end
 end

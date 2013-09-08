@@ -169,4 +169,17 @@ describe Character do
       expect(@character.skill("Charm").rank).to eq(0)
     end
   end
+
+  describe "with specialization" do
+    before(:each) do
+      Career.seed!
+      expect(Specialization.count).to eq(18)
+      @specialization = Specialization.first
+    end
+
+    it "sets specialization one at a time" do
+      @character.specialization_id = @specialization.id
+      expect(@character.specializations).to include(@specialization)
+    end
+  end
 end

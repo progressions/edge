@@ -18,16 +18,14 @@ class Career < ActiveRecord::Base
 
   def self.seed!
     CAREERS.values.each do |attributes|
-      Rails.logger.info "Creating #{attributes['name']}"
-      Rails.logger.info attributes.inspect
+      attributes = attributes.dup
 
       specializations = Array(attributes.delete("specializations"))
       career = Career.where(name: attributes["name"]).first || Career.create(attributes)
-      specializations.each do |specialization|
-        Rails.logger.info "Creating #{specialization['name']}"
-        Rails.logger.info specialization.inspect
 
-        career.specializations.where(name: specialization["name"]).first || career.specializations.create(specialization)
+      specializations.each do |spec_attributes|
+        spec = career.specializations.where(name: spec_attributes["name"]).first ||
+          career.specializations.create(spec_attributes)
       end
     end
   end

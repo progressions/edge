@@ -70,6 +70,12 @@ describe "character creation", js: true do
     end
     click_button "Save and Continue"
 
+    # Step 9: Select Character Specialization
+    expect(page).to have_content("Select Character Specialization")
+    find("#scout").click
+    click_button "Save and Continue"
+
+    # Show Character and verify changes
     visit "/characters/#{Character.last.id}"
     expect(page).to have_content("Deception")
     within "tr#deception" do
@@ -87,6 +93,13 @@ describe "character creation", js: true do
     end
     within "tr#survival .career" do
       expect(page).to have_content("yes")
+    end
+
+    within "p.career" do
+      expect(page).to have_content("Explorer")
+    end
+    within ".specializations" do
+      expect(page).to have_content("Explorer - Scout")
     end
   end
 end
