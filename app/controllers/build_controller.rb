@@ -2,6 +2,8 @@ class BuildController < ApplicationController
   include Wicked::Wizard
 
   before_filter :authorize
+  before_filter :check_for_character
+
   layout "characters"
 
   steps :start, :name, :party_size, :obligation, :confirm_obligation, :species, :species_attributes, :species_skills, :career, :career_skills
@@ -75,6 +77,14 @@ class BuildController < ApplicationController
     @character.update_attributes(character_params)
     @species = @character.species
 
+    if @species
+      if @species.optional_skills.include?("all")
+        @optional_skills = @character.skills.pluck(:name)
+      else
+        @optional_skills = @species.optional_skills
+      end
+    end
+
     if @character.valid?
       flash[:notice] = "Your character has been updated."
     else
@@ -95,5 +105,11 @@ class BuildController < ApplicationController
       optional_skills: [],
       skills_attributes: [:name, :rank, :id],
       obligations_attributes: [:amount, :name, :description, :"_destroy", :id])
+  end
+
+  def check_for_character
+    unless params[:character_id].present?
+      redirect_to build_character_url(:start, character_id: "new")
+    end
   end
 end

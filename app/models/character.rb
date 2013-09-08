@@ -79,13 +79,15 @@ class Character < ActiveRecord::Base
 
   def optional_skills=(optional_skills)
     @optional_skills = Array(optional_skills)
-    @optional_skills.each do |skill_name|
-      begin
-        add_rank_to_skill(skill_name, 1)
-        skill_to_change = skill(skill_name)
-        skill_to_change.rank += 1
-      rescue StandardError => e
-        Rails.logger.info("Blew up on '#{skill_name}'")
+    if valid?
+      @optional_skills.each do |skill_name|
+        begin
+          add_rank_to_skill(skill_name, 1)
+          skill_to_change = skill(skill_name)
+          skill_to_change.rank += 1
+        rescue StandardError => e
+          Rails.logger.info("Blew up on '#{skill_name}'")
+        end
       end
     end
   end

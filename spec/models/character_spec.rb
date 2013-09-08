@@ -152,5 +152,21 @@ describe Character do
       expect(@character.skill("Charm").rank).to eq(1)
       expect(@character.skill("Deception").rank).to eq(1)
     end
+
+    it "is not valid if optional skills aren't unique" do
+      @character.optional_skills = ["Charm", "Charm"]
+      expect(@character).not_to be_valid
+    end
+
+    it "sets error if optional skills aren't unique" do
+      @character.optional_skills = ["Charm", "Charm"]
+      @character.valid?
+      expect(@character.errors).not_to be_empty
+    end
+
+    it "doesn't set skills if optional skills aren't unique" do
+      @character.optional_skills = ["Charm", "Charm"]
+      expect(@character.skill("Charm").rank).to eq(0)
+    end
   end
 end

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :career do
-    name "MyString"
-    career_skills "MyString"
+    name "Career"
+    career_skills ["Astrogation", "Charm"]
   end
 end

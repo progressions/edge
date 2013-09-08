@@ -2,7 +2,8 @@ FactoryGirl.define do
   factory :character do
     user
     name { Faker::Name.name }
-    species
+    species { Species.where(name: "Human").first }
+    career { Career.where(name: "Bounty Hunter").first }
 
     brawn 2
     agility 3

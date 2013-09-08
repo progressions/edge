@@ -4,9 +4,7 @@ describe "character creation", js: true do
   before(:each) do
     Species.seed!
     Career.seed!
-  end
 
-  it "creates a character with name, random obligation and species" do
     Obligation.stub(:rand).and_return(0.49)
     @user = create(:user)
     visit "/login"
@@ -14,7 +12,9 @@ describe "character creation", js: true do
     fill_in "Password", with: @user.password
     click_button "Log in"
     click_link "New Character"
+  end
 
+  it "creates a character with name, random obligation and species" do
     # Step 1: Determine Character Name
     fill_in "Name", with: "Odeko"
     click_button "Save and Continue"
