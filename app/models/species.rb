@@ -25,9 +25,14 @@ class Species < ActiveRecord::Base
   serialize :starting_skills, Array
   serialize :optional_skills, Array
 
+  def self.seed!
+    SPECIES.values.each do |attributes|
+      species = Species.where(name: attributes["name"]).first || Species.create(attributes)
+    end
+  end
 
-  def identifier
-    name.downcase.gsub("'", "")
+  def career_skills_count
+    4
   end
 
   def characteristics

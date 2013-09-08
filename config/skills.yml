@@ -50,8 +50,8 @@ general:
   resilience:
     name: "Resilience"
     characteristic: "brawn"
-  skullduggery:
-    name: "Skullduggery"
+  skulduggery:
+    name: "Skulduggery"
     characteristic: "cunning"
   stealth:
     name: "Stealth"

@@ -7,3 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 testuser = User.create(email: "test@gmail.com", password: "password", password_confirmation: "password")
+
+Career.seed!
+Species.seed!

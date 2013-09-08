@@ -8,7 +8,8 @@
         - if @character.base_obligation?
           %li{class: "#{'active' if @active == :obligations}"}= link_to("Obligation", character_build_url(:obligation, character_id: @character.id))
         %li{class: "#{'active' if @active == :species}"}= link_to("Species", character_build_url(:species, character_id: @character.id))
-        %li= link_to("Starting Career", "")
+        %li{class: "#{'active' if @active == :career}"}= link_to("Career", character_build_url(:career, character_id: @character.id))
+        %li{class: "#{'active' if @active == :career_skills}"}= link_to("Career Skills", character_build_url(:career_skills, character_id: @character.id))
         %li= link_to("Specializations", "")
         %li= link_to("Invest Experience", "")
 

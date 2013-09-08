@@ -1,0 +1,38 @@
+- @active = :career
+
+%h1= @character.name
+
+%h2 Select Character Career
+
+.form-horizontal
+  = form_for @character, url: wizard_path, method: :put do |f|
+    .non_jss
+      .control-group
+        %label.control-label{for: "character_career_id"} Career
+
+        .controls
+          = f.select(:career_id, options_from_collection_for_select(@careers, :id, :name))
+
+    .careers.js_only
+      - @careers.each do |career|
+        .career_module.module.well{id: identifier(career.name)}
+          %input.hidden{type: "hidden", value: career.id}
+
+          %h2= career.name
+
+          %h4 Career Skill Choices
+
+          %ul.characteristics.unstyled
+            - career.career_skills.each do |skill|
+              %li= skill
+
+          %h4 Specializations
+
+          %ul.characteristics.unstyled
+            - career.specializations.each do |specialization|
+              %li= specialization.name
+
+
+    .form-actions
+      = f.submit "Save and Continue", class: "btn btn-success"
+

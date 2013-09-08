@@ -21,13 +21,19 @@
 #  wound_threshold  :integer
 #  strain_threshold :integer
 #  species_id       :integer
+#  career_id        :integer
 #
 
 class Character < ActiveRecord::Base
+
+  belongs_to :career
   belongs_to :species
   belongs_to :user
   has_many :obligations
   has_many :skills
+
+  has_many :character_specializations
+  has_many :specializations, through: :character_specializations
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
   accepts_nested_attributes_for :skills
@@ -74,10 +80,18 @@ class Character < ActiveRecord::Base
   def optional_skills=(optional_skills)
     @optional_skills = Array(optional_skills)
     @optional_skills.each do |skill_name|
-      add_rank_to_skill(skill_name, 1)
-      skill_to_change = skill(skill_name)
-      skill_to_change.rank += 1
+      begin
+        add_rank_to_skill(skill_name, 1)
+        skill_to_change = skill(skill_name)
+        skill_to_change.rank += 1
+      rescue StandardError => e
+        Rails.logger.info("Blew up on '#{skill_name}'")
+      end
     end
+  end
+
+  def apply_career
+    skills.where(name: career.career_skills).update_all(career: true)
   end
 
   def apply_species
@@ -96,6 +110,15 @@ class Character < ActiveRecord::Base
     end
 
     apply_species
+  end
+
+  def set_career(career_name)
+    self.career = Career.where(name: career_name).first
+    if career.nil?
+      raise "Career #{career_name} does not exist"
+    end
+
+    apply_career
   end
 
   def reset_skills

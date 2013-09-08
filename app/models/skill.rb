@@ -37,12 +37,12 @@ class Skill < ActiveRecord::Base
     where(category: "knowledge")
   end
 
-  def self.species
-    where(species: true)
+  def self.career
+    where(career: true)
   end
 
-  def identifier
-    self.name.underscore.gsub(/[^A-Za-z0-9]/, "_")
+  def self.species
+    where(species: true)
   end
 
   def ch

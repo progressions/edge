@@ -2,7 +2,7 @@
 
 %h1= @character.name
 
-%h2 Species
+%h2 Select Character Species
 
 - if @character.species.present?
   %p NOTE that changing your species will reset your Attributes and your spent Experience Points!
@@ -18,7 +18,7 @@
 
     .species.js_only
       - @all_species.each do |species|
-        .species_module.well{id: species.identifier}
+        .species_module.module.well{id: identifier(species.name)}
           %input.hidden{type: "hidden", value: species.id}
 
           %h2= species.name

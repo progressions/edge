@@ -4,7 +4,7 @@ class BuildController < ApplicationController
   before_filter :authorize
   layout "characters"
 
-  steps :start, :name, :party_size, :obligation, :confirm_obligation, :species, :species_attributes, :species_skills
+  steps :start, :name, :party_size, :obligation, :confirm_obligation, :species, :species_attributes, :species_skills, :career, :career_skills
 
   def show
     unless params[:character_id] == "new"
@@ -23,10 +23,16 @@ class BuildController < ApplicationController
     when :species
       @all_species = Species.all
     when :species_attributes
+      @character.species ||= Species.where(name: "Human").first
       @character.apply_species
       @character.save
       skip_step
     when :species_skills
+      unless @character.species.present?
+        flash[:notice] = "Please choose a Species for your character."
+        redirect_to character_build_url(:species, character_id: @character.id) and return
+      end
+
       @species = @character.species
       @character.apply_species
       flash[:notice] = "Your character has been updated."
@@ -40,6 +46,26 @@ class BuildController < ApplicationController
       else
         skip_step
       end
+    when :career
+      unless @character.species.present?
+        flash[:notice] = "Please choose a Species for your character."
+        redirect_to character_build_url(:species, character_id: @character.id) and return
+      end
+
+      @all_species = Species.all
+      @careers = Career.all
+    when :career_skills
+      unless @character.career.present?
+        flash[:notice] = "Please choose a Career for your character."
+        redirect_to character_build_url(:career, character_id: @character.id) and return
+      end
+      unless @character.species.present?
+        flash[:notice] = "Please choose a Species for your character."
+        redirect_to character_build_url(:species, character_id: @character.id) and return
+      end
+
+      @character.apply_career
+      @career_skills = @character.career.career_skills
     end
     render_wizard
   end
@@ -65,7 +91,7 @@ class BuildController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :species_id, :party_size, :base_obligation,
+    params.require(:character).permit(:name, :species_id, :party_size, :base_obligation, :career_id, :specialization_id,
       optional_skills: [],
       skills_attributes: [:name, :rank, :id],
       obligations_attributes: [:amount, :name, :description, :"_destroy", :id])

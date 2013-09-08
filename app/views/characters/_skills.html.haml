@@ -5,12 +5,12 @@
     %th.rank Rank
 
   - skills.each do |skill|
-    %tr{id: skill.identifier}
-      %td
+    %tr{id: identifier(skill.name), class: (skill.career_yn? ? "career" : "")}
+      %td.skill_name
         %strong= skill.name
         = "(#{skill.ch})"
-      %td
+      %td.career
         = skill.career_yn?
-      %td
+      %td.rank
         = skill.rank
 

@@ -28,6 +28,14 @@
     %dd= @character.presence
 
 %p
+  %strong Career
+  = @character.career.try(:name)
+
+%p
+  %strong Specializations
+  = @specializations.join(", ")
+
+%p
   %strong Total Experience
   = @character.total_xp
 

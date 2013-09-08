@@ -1,0 +1,180 @@
+bounty_hunter:
+  name: "Bounty Hunter"
+  career_skills:
+    - "Athletics"
+    - "Brawl"
+    - "Perception"
+    - "Piloting (Planetary)"
+    - "Piloting (Space)"
+    - "Ranged (Heavy)"
+    - "Streetwise"
+    - "Vigilance"
+  specializations:
+    - name: "Assassin"
+      career_skills:
+        - "Melee"
+        - "Ranged (Heavy)"
+        - "Skulduggery"
+        - "Stealth"
+    - name: "Gadgeteer"
+      career_skills:
+        - "Brawl"
+        - "Coercion"
+        - "Mechanics"
+        - "Ranged (Light)"
+    - name: "Survivalist"
+      career_skills:
+        - "Knowledge (Xenology)"
+        - "Perception"
+        - "Resilience"
+        - "Survival"
+colonist:
+  name: "Colonist"
+  career_skills:
+    - "Charm"
+    - "Deception"
+    - "Knowledge (Core Worlds)"
+    - "Knowledge (Education)"
+    - "Knowledge (Lore)"
+    - "Leadership"
+    - "Negotiation"
+    - "Streetwise"
+  specializations:
+    - name: "Doctor"
+      career_skills:
+        - "Cool"
+        - "Knowledge (Education)"
+        - "Medicine"
+        - "Resilience"
+    - name: "Politico"
+      career_skills:
+        - "Charm"
+        - "Coercion"
+        - "Deception"
+        - "Knowledge (Core Worlds)"
+    - name: "Scholar"
+      career_skills:
+        - "Knowledge (Outer Rim)"
+        - "Knowledge (Underworld)"
+        - "Knowledge (Xenology)"
+        - "Perception"
+explorer:
+  name: "Explorer"
+  career_skills:
+    - "Astrogation"
+    - "Cool"
+    - "Knowledge (Lore)"
+    - "Knowledge (Outer Rim)"
+    - "Knowledge (Xenology)"
+    - "Perception"
+    - "Piloting (Space)"
+    - "Survival"
+  specializations:
+    - name: "Fringer"
+      career_skills:
+        - "Astrogation"
+        - "Coordination"
+        - "Negotiation"
+        - "Streetwise"
+    - name: "Scout"
+      career_skills:
+        - "Athletics"
+        - "Medicine"
+        - "Piloting (Planetary)"
+        - "Survival"
+    - name: "Trader"
+      career_skills:
+        - "Deception"
+        - "Knowledge (Core Worlds)"
+        - "Knowledge (Underworld)"
+        - "Negotiation"
+hired_gun:
+  name: "Hired Gun"
+  career_skills:
+    - "Athletics"
+    - "Brawl"
+    - "Discipline"
+    - "Melee"
+    - "Piloting (Planetary)"
+    - "Ranged (Light)"
+    - "Resilience"
+    - "Vigilance"
+  specializations:
+    - name: "Bodyguard"
+      career_skills:
+        - "Gunnery"
+        - "Perception"
+        - "Piloting (Planetary)"
+        - "Ranged (Heavy)"
+    - name: "Marauder"
+      career_skills:
+        - "Coercion"
+        - "Melee"
+        - "Resilience"
+        - "Survival"
+    - name: "Mercenary Soldier"
+      career_skills:
+        - "Discipline"
+        - "Gunnery"
+        - "Leadership"
+        - "Ranged (Heavy)"
+smuggler:
+  name: "Smuggler"
+  career_skills:
+    - "Coordination"
+    - "Deception"
+    - "Knowledge (Underworld)"
+    - "Perception"
+    - "Piloting (Space)"
+    - "Skulduggery"
+    - "Streetwise"
+    - "Vigilance"
+  specializations:
+    - name: "Pilot"
+      career_skills:
+        - "Astrogation"
+        - "Gunnery"
+        - "Piloting (Planetary)"
+        - "Piloting (Space)"
+    - name: "Scoundrel"
+      career_skills:
+        - "Charm"
+        - "Cool"
+        - "Deception"
+        - "Ranged (Light)"
+    - name: "Thief"
+      career_skills:
+        - "Computers"
+        - "Skulduggery"
+        - "Stealth"
+        - "Vigilance"
+technician:
+  name: "Technician"
+  career_skills:
+    - "Astrogation"
+    - "Computers"
+    - "Coordination"
+    - "Discipline"
+    - "Knowledge (Outer Rim)"
+    - "Mechanics"
+    - "Perception"
+    - "Piloting (Planetary)"
+  specializations:
+    - name: "Mechanic"
+      career_skills:
+        - "Brawl"
+        - "Mechanics"
+        - "Piloting (Space)"
+        - "Skulduggery"
+    - name: "Outlaw"
+      career_skills:
+        - "Knowledge (Education)"
+        - "Knowledge (Underworld)"
+        - "Mechanics"
+        - "Streetwise"
+    - name: "Slicer"
+      career_skills:
+        - "Computers"
+        - "Knowledge (Education)"
+        - "Knowledge (Underworld)"
+        - "Stealth"

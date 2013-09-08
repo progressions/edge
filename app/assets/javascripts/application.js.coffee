@@ -15,3 +15,8 @@
 #= require jquery.turbolinks
 #= require turbolinks
 #= require_tree .
+
+$ ->
+  $(".non_js").hide()
+  $(".js_only").show()
+

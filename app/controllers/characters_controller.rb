@@ -17,6 +17,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = current_user.characters.find(params[:id])
+    @specializations = @character.specializations.map(&:full_name)
   end
 
   def destroy

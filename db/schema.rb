@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907185855) do
+ActiveRecord::Schema.define(version: 20130908014550) do
+
+  create_table "careers", force: true do |t|
+    t.string   "name"
+    t.string   "career_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_specializations", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "specialization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "character_specializations", ["character_id"], name: "index_character_specializations_on_character_id", using: :btree
+  add_index "character_specializations", ["specialization_id"], name: "index_character_specializations_on_specialization_id", using: :btree
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -32,6 +49,7 @@ ActiveRecord::Schema.define(version: 20130907185855) do
     t.integer  "wound_threshold"
     t.integer  "strain_threshold"
     t.integer  "species_id"
+    t.integer  "career_id"
   end
 
   create_table "obligations", force: true do |t|
@@ -51,6 +69,14 @@ ActiveRecord::Schema.define(version: 20130907185855) do
     t.boolean  "species"
     t.string   "characteristic"
     t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specializations", force: true do |t|
+    t.string   "name"
+    t.string   "career_skills"
+    t.integer  "career_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

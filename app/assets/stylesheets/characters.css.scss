@@ -5,3 +5,27 @@
 .skills table .skill_name {
   width: 300px;
 }
+.module {
+  border: 2px solid grey;
+  display: inline-block;
+  width: 340px;
+}
+.module:hover {
+  background-color: #d9edf7;
+  border: 2px solid red;
+  cursor: pointer;
+}
+.module.selected {
+  background-color: #fcf8e3;
+  border: 2px solid red;
+}
+.module ul.attributes {
+  margin-left: -5px;
+}
+.module .image {
+  background-color: green;
+  float: left;
+  margin-right: 2em;
+  height: 300px;
+  width: 200px;
+}

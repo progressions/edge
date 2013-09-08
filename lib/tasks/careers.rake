@@ -1,5 +1,5 @@
-namespace :species do
+namespace :careers do
   task load: :environment do
-    Seed.load!
+    Career.seed!
   end
 end

@@ -21,13 +21,14 @@
 #  wound_threshold  :integer
 #  strain_threshold :integer
 #  species_id       :integer
+#  career_id        :integer
 #
 
 require 'spec_helper'
 
 describe Character do
   before(:each) do
-    seed_species
+    Species.seed!
     @character = create(:character)
     @twilek = Species.where(name: "Twi'lek").first
     @bothan = Species.where(name: "Bothan").first
@@ -123,6 +124,20 @@ describe Character do
       @character.set_species("Human")
       @character.save
       expect(@character.reload.skills.sum(:rank)).to eq(0)
+    end
+  end
+
+  describe "with career" do
+    before(:each) do
+      Career.seed!
+    end
+
+    it "sets career" do
+      colonist = Career.where(name: "Colonist").first
+      @character.set_career("Colonist")
+      colonist.career_skills.each do |career_skill|
+        expect(@character.skill(career_skill)).to be_career
+      end
     end
   end
 

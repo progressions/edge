@@ -1,0 +1,31 @@
+- @active = :career
+
+%h1= @character.name
+
+%h2 Select Character's Career Skills
+
+%p
+  You may choose
+  = pluralize(@character.species.career_skills_count, "different skill")
+  to gain a rank in.
+
+.form-horizontal
+  = form_for @character, url: wizard_path, method: :put do |f|
+    - if @character.errors.any?
+      .errors
+        %ul.unstyled
+          - @character.errors.full_messages.each do |message|
+            %li.text-error= message
+    %p= @character.career.career_skills.join(", ")
+
+    - @character.species.career_skills_count.times do |index|
+      .optional_skill.control-group{class: "optional_skill_#{index}"}
+        %label.control-label{for: "optional_skill_#{index}"} Skill
+        .controls
+          = select_tag("character[optional_skills][]", options_for_select(@character.career.career_skills), id: "optional_skill_#{index}")
+    .control-group
+      .controls.message
+
+
+    .form-actions
+      = f.submit "Save and Continue", class: "btn btn-success"
