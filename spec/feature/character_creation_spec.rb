@@ -75,6 +75,9 @@ describe "character creation", js: true do
     find("#scout").click
     click_button "Save and Continue"
 
+    # Step 10: Select Specialization Skills
+    # expect(page).to have_content("Select Character's Specialization Career Skills")
+
     # Show Character and verify changes
     visit "/characters/#{Character.last.id}"
     expect(page).to have_content("Deception")

@@ -97,6 +97,10 @@ class Character < ActiveRecord::Base
     skills.where(name: career.career_skills).update_all(career: true)
   end
 
+  def apply_specializations
+    skills.where(name: specializations.pluck(:career_skills).flatten).update_all(career: true)
+  end
+
   def apply_species
     assign_attributes(species.characteristics)
     assign_attributes(wound_threshold: species.wound_threshold)

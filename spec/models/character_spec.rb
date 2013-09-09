@@ -29,6 +29,8 @@ require 'spec_helper'
 describe Character do
   before(:each) do
     Species.seed!
+    Career.seed!
+
     @character = create(:character)
     @twilek = Species.where(name: "Twi'lek").first
     @bothan = Species.where(name: "Bothan").first
@@ -41,7 +43,7 @@ describe Character do
 
   it "sets default skills" do
     @character.save
-    expect(@character.skills.length).to eq(32)
+    expect(@character.skills.length).to eq(33)
   end
 
   it "sets base obligation" do
@@ -136,6 +138,39 @@ describe Character do
       colonist = Career.where(name: "Colonist").first
       @character.set_career("Colonist")
       colonist.career_skills.each do |career_skill|
+        expect(@character.skill(career_skill)).to be_career
+      end
+    end
+
+    it "applies career skills" do
+      colonist = Career.where(name: "Colonist").first
+      @character.career = colonist
+
+      @character.apply_career
+      colonist.career_skills.each do |career_skill|
+        expect(@character.skill(career_skill)).to be_career
+      end
+    end
+  end
+
+  describe "with one specialization" do
+    before(:each) do
+      Career.seed!
+      @character = create(:character, specializations: [])
+      @specialization = @character.career.specializations.first
+      @character.specializations << @specialization
+    end
+
+    it "sets specialization skills" do
+      @character.apply_specializations
+      @specialization.career_skills.each do |career_skill|
+        expect(@character.skill(career_skill)).to be_career
+      end
+    end
+
+    it "applies career skills" do
+      @character.apply_specializations
+      @specialization.career_skills.each do |career_skill|
         expect(@character.skill(career_skill)).to be_career
       end
     end

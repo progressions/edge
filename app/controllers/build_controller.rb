@@ -6,7 +6,9 @@ class BuildController < ApplicationController
 
   layout "characters"
 
-  steps :start, :name, :party_size, :obligation, :confirm_obligation, :species, :species_attributes, :species_skills, :career, :career_skills, :specialization
+  steps :start, :name, :party_size, :obligation, :confirm_obligation, :species,
+    :species_attributes, :species_skills, :career, :career_skills, :specialization,
+    :specialization_skills
 
   def show
     unless params[:character_id] == "new"
@@ -79,6 +81,19 @@ class BuildController < ApplicationController
       end
 
       @specializations = @character.career.specializations
+    when :specialization_skills
+      unless @character.career.present?
+        flash[:notice] = "Please choose a Career for your character."
+        redirect_to character_build_url(:career, character_id: @character.id) and return
+      end
+      unless @character.species.present?
+        flash[:notice] = "Please choose a Species for your character."
+        redirect_to character_build_url(:species, character_id: @character.id) and return
+      end
+      unless @character.specializations.any?
+        flash[:notice] = "Please choose a Species for your character."
+        redirect_to character_build_url(:specialization, character_id: @character.id) and return
+      end
     end
     render_wizard
   end
@@ -97,7 +112,6 @@ class BuildController < ApplicationController
         @optional_skills = @species.optional_skills
       end
     end
-
 
     if @character.valid?
       flash[:notice] = "Your character has been updated."

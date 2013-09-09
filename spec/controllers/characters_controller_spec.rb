@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe CharactersController do
   before(:each) do
+    Species.seed!
+    Career.seed!
+
     @user = create(:user)
     @character = create(:character, user: @user)
     controller.stub(:current_user).and_return(@user)

@@ -99,3 +99,6 @@ knowledge:
   knowledge_xenology:
     name: "Knowledge (Xenology)"
     characteristic: "intellect"
+  knowledge_underworld:
+    name: "Knowledge (Underworld)"
+    characteristic: "intellect"
