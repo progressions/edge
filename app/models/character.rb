@@ -48,7 +48,7 @@ class Character < ActiveRecord::Base
     end
   end
 
-  # species_join association methods:
+  # species_join association methods
 
   def species
     species_join.try(:species)
@@ -78,7 +78,7 @@ class Character < ActiveRecord::Base
     end
   end
 
-  # career_join association methods:
+  # career_join association methods
 
   def career
     career_join.try(:career)
@@ -107,6 +107,8 @@ class Character < ActiveRecord::Base
       self.career_join.destroy
     end
   end
+
+
 
   def total_obligation_amount
     obligations.sum(:amount)
