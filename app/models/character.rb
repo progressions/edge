@@ -20,20 +20,20 @@
 #  base_obligation  :integer
 #  wound_threshold  :integer
 #  strain_threshold :integer
-#  species_id       :integer
-#  career_id        :integer
+#  career_join_id   :integer
+#  species_join_id  :integer
 #
 
 class Character < ActiveRecord::Base
+  belongs_to :career_join, dependent: :destroy
+  belongs_to :species_join, dependent: :destroy
 
-  belongs_to :career
-  belongs_to :species
   belongs_to :user
   has_many :obligations
   has_many :skills
 
-  has_many :character_specializations
-  has_many :specializations, through: :character_specializations
+  has_many :specialization_joins
+  has_many :specializations, through: :specialization_joins
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
   accepts_nested_attributes_for :skills
@@ -45,6 +45,66 @@ class Character < ActiveRecord::Base
   validate do |user|
     if Array(@optional_skills).uniq != Array(@optional_skills)
       errors.add(:base, "Species skills must be unique.")
+    end
+  end
+
+  # species_join association methods:
+
+  def species
+    species_join.try(:species)
+  end
+
+  def species= (species)
+    if species.present?
+      self.species_id = species.id
+    else
+      self.species_id = nil
+    end
+  end
+
+  def species_id
+    species_join.try(:species).try(:id)
+  end
+
+  def species_id= (species_id)
+    if species_id.present?
+      if species_join.present?
+        self.species_join.update_attributes(species_id: species_id)
+      else
+        self.species_join = SpeciesJoin.create(species_id: species_id)
+      end
+    else
+      self.species_join.destroy
+    end
+  end
+
+  # career_join association methods:
+
+  def career
+    career_join.try(:career)
+  end
+
+  def career= (career)
+    if career.present?
+      self.career_id = career.id
+    else
+      self.career_id = nil
+    end
+  end
+
+  def career_id
+    career_join.try(:career).try(:id)
+  end
+
+  def career_id= (career_id)
+    if career_id.present?
+      if career_join.present?
+        self.career_join.update_attributes(career_id: career_id)
+      else
+        self.career_join = CareerJoin.create(career_id: career_id)
+      end
+    else
+      self.career_join.destroy
     end
   end
 

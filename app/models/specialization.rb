@@ -12,8 +12,8 @@
 
 class Specialization < ActiveRecord::Base
   belongs_to :career
-  has_many :character_specializations
-  has_many :characters, through: :character_specializations
+  has_many :specialization_joins
+  has_many :characters, through: :specialization_joins
 
   serialize :career_skills, Array
 

@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908014550) do
+ActiveRecord::Schema.define(version: 20130914174526) do
+
+  create_table "career_joins", force: true do |t|
+    t.integer  "career_id"
+    t.string   "career_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "careers", force: true do |t|
     t.string   "name"
@@ -19,16 +26,6 @@ ActiveRecord::Schema.define(version: 20130908014550) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "character_specializations", force: true do |t|
-    t.integer  "character_id"
-    t.integer  "specialization_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "character_specializations", ["character_id"], name: "index_character_specializations_on_character_id", using: :btree
-  add_index "character_specializations", ["specialization_id"], name: "index_character_specializations_on_specialization_id", using: :btree
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -48,8 +45,8 @@ ActiveRecord::Schema.define(version: 20130908014550) do
     t.integer  "base_obligation"
     t.integer  "wound_threshold"
     t.integer  "strain_threshold"
-    t.integer  "species_id"
-    t.integer  "career_id"
+    t.integer  "career_join_id"
+    t.integer  "species_join_id"
   end
 
   create_table "obligations", force: true do |t|
@@ -73,6 +70,17 @@ ActiveRecord::Schema.define(version: 20130908014550) do
     t.datetime "updated_at"
   end
 
+  create_table "specialization_joins", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "specialization_id"
+    t.string   "career_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "specialization_joins", ["character_id"], name: "index_specialization_joins_on_character_id", using: :btree
+  add_index "specialization_joins", ["specialization_id"], name: "index_specialization_joins_on_specialization_id", using: :btree
+
   create_table "specializations", force: true do |t|
     t.string   "name"
     t.string   "career_skills"
@@ -95,6 +103,13 @@ ActiveRecord::Schema.define(version: 20130908014550) do
     t.integer  "optional_skills_count"
     t.string   "starting_skills"
     t.string   "optional_skills"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "species_joins", force: true do |t|
+    t.integer  "species_id"
+    t.string   "species_skills"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

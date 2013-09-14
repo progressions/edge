@@ -50,6 +50,12 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :debug do
+  gem 'pry-rails'
+  gem 'debugger'
+  gem 'ruby-prof',        '~> 0.13.0'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

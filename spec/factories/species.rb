@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: species
+#
+#  id                        :integer          not null, primary key
+#  name                      :string(255)
+#  brawn                     :integer
+#  agility                   :integer
+#  intellect                 :integer
+#  cunning                   :integer
+#  willpower                 :integer
+#  presence                  :integer
+#  unused_xp                 :integer
+#  wound_threshold_modifier  :integer
+#  strain_threshold_modifier :integer
+#  optional_skills_count     :integer
+#  starting_skills           :string(255)
+#  optional_skills           :string(255)
+#  created_at                :datetime
+#  updated_at                :datetime
+#
+
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do

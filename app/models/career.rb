@@ -10,7 +10,7 @@
 #
 
 class Career < ActiveRecord::Base
-  has_many :characters
+  has_many :career_joins
   has_many :specializations
 
   serialize :career_skills, Array
@@ -28,5 +28,9 @@ class Career < ActiveRecord::Base
           career.specializations.create(spec_attributes)
       end
     end
+  end
+
+  def destroy
+    false
   end
 end

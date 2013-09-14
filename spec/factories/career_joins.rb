@@ -1,9 +1,9 @@
 # == Schema Information
 #
-# Table name: careers
+# Table name: career_joins
 #
 #  id            :integer          not null, primary key
-#  name          :string(255)
+#  career_id     :integer
 #  career_skills :string(255)
 #  created_at    :datetime
 #  updated_at    :datetime
@@ -12,8 +12,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :career do
-    name "Career"
-    career_skills ["Astrogation", "Charm"]
+  factory :career_join do
+    career { Career.where(name: "Bounty Hunter").first }
+    career_skills []
   end
 end

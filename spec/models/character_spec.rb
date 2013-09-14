@@ -20,8 +20,8 @@
 #  base_obligation  :integer
 #  wound_threshold  :integer
 #  strain_threshold :integer
-#  species_id       :integer
-#  career_id        :integer
+#  career_join_id   :integer
+#  species_join_id  :integer
 #
 
 require 'spec_helper'

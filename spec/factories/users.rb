@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  email           :string(255)
+#  password_digest :string(255)
+#  guest           :boolean
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 FactoryGirl.define do
   sequence :email do |n|
     "email#{n}@email.com"

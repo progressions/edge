@@ -21,7 +21,8 @@
 #
 
 class Species < ActiveRecord::Base
-  has_many :characters
+  has_many :species_joins
+
   serialize :starting_skills, Array
   serialize :optional_skills, Array
 
