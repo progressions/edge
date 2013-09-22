@@ -47,12 +47,14 @@ FactoryGirl.define do
     wound_threshold 12
     strain_threshold 12
 
-    after :create do |c|
-      if c.career.present?
-        c.specializations << c.career.specializations.first
-      else
-        c.career = create(:career)
-        c.specializations << create(:specialization)
+    factory :character_with_specialization do
+      after :create do |c|
+        if c.career.present?
+          c.specializations << c.career.specializations.first
+        else
+          c.career = create(:career)
+          c.specializations << create(:specialization)
+        end
       end
     end
   end

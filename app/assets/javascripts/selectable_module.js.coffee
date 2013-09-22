@@ -1,10 +1,13 @@
 class window.SelectableModule
   constructor: (@select_id) ->
     @behaviors()
-    @setup
+    @setup()
 
   setup: ->
     value = $(@select_id).val()
+    console.log(value)
+    $(".module.selected").removeClass("selected")
+    $(".hidden[value=#{value}]").parent(".module").addClass("selected")
 
   behaviors: =>
     $(".module").click(@select)

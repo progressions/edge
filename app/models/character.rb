@@ -32,7 +32,7 @@ class Character < ActiveRecord::Base
   has_many :obligations
   has_many :skills
 
-  has_many :specialization_joins
+  has_many :specialization_joins, dependent: :destroy
   has_many :specializations, through: :specialization_joins
 
   accepts_nested_attributes_for :obligations, allow_destroy: true
@@ -45,6 +45,10 @@ class Character < ActiveRecord::Base
   validate do |user|
     if Array(@optional_skills).uniq != Array(@optional_skills)
       errors.add(:base, "Species skills must be unique.")
+    end
+
+    if specializations.uniq.length != specializations.length
+      errors.add(:base, "Specializations must be unique.")
     end
   end
 

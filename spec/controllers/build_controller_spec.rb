@@ -9,6 +9,7 @@ describe BuildController do
 
     @user = create(:user)
     @character = create(:character, user: @user, species: @species)
+    @character_with_specialization = create(:character_with_specialization, user: @user, species: @species)
     controller.stub(:current_user).and_return(@user)
   end
 
@@ -521,7 +522,7 @@ describe BuildController do
             optional_skills: ["Astrogation", "Charm"]
           }
         }
-      expect(response).to redirect_to(character_build_url(:specialization, character_id: Character.last.id))
+      expect(response).to redirect_to(character_build_url(:specialization, character_id: @character.id))
     end
   end
 
@@ -555,6 +556,18 @@ describe BuildController do
         }
       }
       expect(@character.reload.specializations.first).to eq(@specialization)
+    end
+
+    it "renders back if specialization is not unique" do
+      specialization = @character_with_specialization.specializations.first
+      put :update, {
+        id: "specialization",
+        character_id: @character_with_specialization.id,
+        character: {
+          specialization_id: specialization.id
+        }
+      }
+      expect(response).to render_template("build/specialization")
     end
 
     it "redirects to species if they don't have one" do
@@ -615,7 +628,7 @@ describe BuildController do
     it "renders specialization_skills" do
       get :show, {
         id: "specialization_skills",
-        character_id: @character.id
+        character_id: @character_with_specialization.id
       }
       expect(response).to render_template("build/specialization_skills")
     end
@@ -670,12 +683,12 @@ describe BuildController do
     it "redirects to next step" do
         put :update, {
           id: "specialization_skills",
-          character_id: @character.id,
+          character_id: @character_with_specialization.id,
           character: {
             optional_skills: ["Astrogation", "Charm"]
           }
         }
-      expect(response).to redirect_to(character_build_url(:wicked_finish, character_id: Character.last.id))
+      expect(response).to redirect_to(character_build_url(:wicked_finish, character_id: @character_with_specialization.id))
     end
   end
 

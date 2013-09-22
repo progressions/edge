@@ -153,25 +153,35 @@ describe Character do
     end
   end
 
-  describe "with one specialization" do
+  describe "with specializations" do
     before(:each) do
       Career.seed!
-      @character = create(:character, specializations: [])
+      @character = create(:character)
+      @character.specializations = []
       @specialization = @character.career.specializations.first
       @character.specializations << @specialization
     end
 
-    it "sets specialization skills" do
-      @character.apply_specializations
-      @specialization.career_skills.each do |career_skill|
-        expect(@character.skill(career_skill)).to be_career
+    context "with one specialization" do
+      it "sets specialization skills" do
+        @character.apply_specializations
+        @specialization.career_skills.each do |career_skill|
+          expect(@character.skill(career_skill)).to be_career
+        end
+      end
+
+      it "applies career skills" do
+        @character.apply_specializations
+        @specialization.career_skills.each do |career_skill|
+          expect(@character.skill(career_skill)).to be_career
+        end
       end
     end
 
-    it "applies career skills" do
-      @character.apply_specializations
-      @specialization.career_skills.each do |career_skill|
-        expect(@character.skill(career_skill)).to be_career
+    context "with multiple specializations" do
+      it "can't add the same specialization twice" do
+        @character.specializations << @specialization
+        expect(@character).not_to be_valid
       end
     end
   end
@@ -205,7 +215,7 @@ describe Character do
     end
   end
 
-  describe "with specialization" do
+  describe "with specialization_id" do
     before(:each) do
       Career.seed!
       expect(Specialization.count).to eq(18)
@@ -213,6 +223,7 @@ describe Character do
     end
 
     it "sets specialization one at a time" do
+      @character.specializations = []
       @character.specialization_id = @specialization.id
       expect(@character.specializations).to include(@specialization)
     end

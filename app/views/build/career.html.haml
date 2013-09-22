@@ -6,12 +6,12 @@
 
 .form-horizontal
   = form_for @character, url: wizard_path, method: :put do |f|
-    .non_jss
+    .non_js
       .control-group
         %label.control-label{for: "character_career_id"} Career
 
         .controls
-          = f.select(:career_id, options_from_collection_for_select(@careers, :id, :name))
+          = f.select(:career_id, options_from_collection_for_select(@careers, :id, :name, @character.career_id))
 
     .careers.js_only
       - @careers.each do |career|

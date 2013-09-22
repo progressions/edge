@@ -10,7 +10,8 @@
         %li{class: "#{'active' if @active == :species}"}= link_to("Species", character_build_url(:species, character_id: @character.id))
         %li{class: "#{'active' if @active == :career}"}= link_to("Career", character_build_url(:career, character_id: @character.id))
         %li{class: "#{'active' if @active == :career_skills}"}= link_to("Career Skills", character_build_url(:career_skills, character_id: @character.id))
-        %li= link_to("Specializations", "")
+        %li{class: "#{'active' if @active == :specialization}"}= link_to("Specialization", character_build_url(:specialization, character_id: @character.id))
+        %li{class: "#{'active' if @active == :specialization_skills}"}= link_to("Specialization Skills", character_build_url(:specialization_skills, character_id: @character.id))
         %li= link_to("Invest Experience", "")
 
     .span8

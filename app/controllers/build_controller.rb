@@ -69,7 +69,13 @@ class BuildController < ApplicationController
       end
 
       @character.apply_career
-      @career_skills = @character.career.career_skills
+
+      if @character.species_join.species_skills.any?
+        @career_skills = @character.species_join.species_skills
+      else
+        @career_skills = Array.new(4, "")
+      end
+
     when :specialization
       unless @character.career.present?
         flash[:notice] = "Please choose a Career for your character."

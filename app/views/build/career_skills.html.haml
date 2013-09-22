@@ -16,13 +16,16 @@
         %ul.unstyled
           - @character.errors.full_messages.each do |message|
             %li.text-error= message
-    %p= @character.career.career_skills.join(", ")
+    %p
+      %strong Career Skills
+      = @character.career.career_skills.join(", ")
 
-    - @character.species.career_skills_count.times do |index|
+    - @career_skills.each_with_index do |skill, index|
       .optional_skill.control-group{class: "optional_skill_#{index}"}
         %label.control-label{for: "optional_skill_#{index}"} Skill
         .controls
-          = select_tag("character[optional_skills][]", options_for_select(@character.career.career_skills), id: "optional_skill_#{index}")
+          = select_tag("character[optional_skills][]", options_for_select(@character.career.career_skills, skill), id: "optional_skill_#{index}")
+
     .control-group
       .controls.message
 
