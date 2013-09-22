@@ -1,4 +1,4 @@
-- @active = :career
+- @active = :specialization_skills
 
 %h1= @character.name
 
@@ -10,7 +10,7 @@
   to gain a rank in.
 
 .form-horizontal
-  = form_for @character, url: wizard_path, method: :put do |f|
+  = form_for @character, url: wizard_path(:first_specialization_skills), method: :put do |f|
     - if @character.errors.any?
       .errors
         %ul.unstyled

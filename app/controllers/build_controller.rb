@@ -113,6 +113,8 @@ class BuildController < ApplicationController
     case step
     when :first_specialization
       @character.specializations.destroy_all
+    when :first_specialization_skills
+      @character.specializations_joins.first.update_attributes(career_skills: params[:character][:optional_skills])
     end
 
     @character.update_attributes(character_params)
