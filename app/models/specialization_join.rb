@@ -13,6 +13,4 @@
 class SpecializationJoin < ActiveRecord::Base
   belongs_to :character
   belongs_to :specialization
-
-  # validates_uniqueness_of :specialization, scope: :character
 end

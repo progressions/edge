@@ -52,6 +52,12 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def career_skills
+    career_skills = career.career_skills + specializations.pluck(:career_skills).flatten
+
+    skills.where(name: career_skills)
+  end
+
   # species_join association methods
 
   def species

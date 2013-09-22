@@ -5,7 +5,7 @@
 %h2 Select Character Specialization
 
 .form-horizontal
-  = form_for @character, url: wizard_path, method: :put do |f|
+  = form_for @character, url: wizard_path(:first_specialization), method: :put do |f|
     .non_js
       .control-group
         %label.control-label{for: "character_specialization_id"} Specialization

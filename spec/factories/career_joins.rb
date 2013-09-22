@@ -13,7 +13,7 @@
 
 FactoryGirl.define do
   factory :career_join do
-    career { Career.where(name: "Bounty Hunter").first }
+    career { Career.where(name: "Bounty Hunter").first || FactoryGirl.create(:career) }
     career_skills []
   end
 end

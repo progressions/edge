@@ -37,19 +37,20 @@ class Skill < ActiveRecord::Base
     where(category: "knowledge")
   end
 
-  def self.career
-    where(career: true)
-  end
-
-  def self.species
-    where(species: true)
-  end
-
   def ch
     characteristic.to_s.capitalize[0,2]
   end
 
   def career_yn?
     career? ? "yes" : "no"
+  end
+
+  def career?
+    return false unless character.present?
+
+    career_skills = Array(character.career.try(:career_skills)) +
+      character.specializations.pluck(:career_skills).flatten
+
+    career_skills.include?(self.name)
   end
 end

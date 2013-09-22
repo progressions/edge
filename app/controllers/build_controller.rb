@@ -1,3 +1,6 @@
+# This controller covers creation of characters before Experience
+# Points begin to be spent.
+#
 class BuildController < ApplicationController
   include Wicked::Wizard
 
@@ -8,7 +11,7 @@ class BuildController < ApplicationController
 
   steps :start, :name, :party_size, :obligation, :confirm_obligation, :species,
     :species_attributes, :species_skills, :career, :career_skills, :specialization,
-    :specialization_skills
+    :first_specialization, :specialization_skills
 
   def show
     unless params[:character_id] == "new"
@@ -106,6 +109,11 @@ class BuildController < ApplicationController
 
   def update
     @character = current_user.characters.find(params[:character_id])
+
+    case step
+    when :first_specialization
+      @character.specializations.destroy_all
+    end
 
     @character.update_attributes(character_params)
     @species = @character.species

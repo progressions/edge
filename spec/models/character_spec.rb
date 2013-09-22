@@ -73,6 +73,13 @@ describe Character do
     expect(@character.skill("Cool").name).to eq("Cool")
   end
 
+  describe "career skills" do
+    it "collects skills with names in career skills" do
+      @skill = @character.skills.where(name: "Athletics").first
+      expect(@character.career_skills).to include(@skill)
+    end
+  end
+
   describe "with random obligations" do
     it "sets random obligations" do
       @obligation = build(:obligation, character: @character)
