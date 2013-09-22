@@ -194,6 +194,21 @@ describe Character do
   end
 
   describe "when assigning career_skills" do
+    it "adds 1 to career skill rank" do
+      @character.career_skills = ["Charm"]
+      expect(@character.skill("Charm").rank).to eq(1)
+    end
+
+    it "adds 1 to existing skill rank" do
+      @character.add_rank_to_skill("Charm", 1)
+      @character.career_skills = ["Charm"]
+      expect(@character.skill("Charm").rank).to eq(2)
+    end
+
+    it "sets career_join career_skills" do
+      @character.career_skills = ["Charm"]
+      expect(@character.career_join.career_skills).to eq(["Charm"])
+    end
   end
 
   describe "with optional skills" do

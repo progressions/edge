@@ -150,14 +150,17 @@ class Character < ActiveRecord::Base
     skills.where(name: name).first
   end
 
+  def career_skills=(skills_to_change)
+    self.career_join.career_skills = skills_to_change
+    self.optional_skills = skills_to_change
+  end
+
   def optional_skills=(optional_skills)
     @optional_skills = Array(optional_skills)
     if valid?
       @optional_skills.each do |skill_name|
         begin
           add_rank_to_skill(skill_name, 1)
-          skill_to_change = skill(skill_name)
-          skill_to_change.rank += 1
         rescue StandardError => e
           Rails.logger.info("Blew up on '#{skill_name}'")
         end
