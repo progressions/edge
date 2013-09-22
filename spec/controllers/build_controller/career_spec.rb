@@ -105,7 +105,7 @@ describe BuildController do
         id: "career_skills",
         character_id: @character.id
       }
-      expect(@character.skills.career.count).to eq(8)
+      expect(@character.career_skills.count).to eq(8)
     end
 
     it "assigns ranks to chosen career skills" do
