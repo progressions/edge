@@ -36,7 +36,7 @@ describe BuildController do
 
     it "assigns specialization" do
       put :update, {
-        id: "specialization",
+        id: "first_specialization",
         character_id: @character.id,
         character: {
           specialization_id: @specialization.id
@@ -45,16 +45,20 @@ describe BuildController do
       expect(@character.reload.specializations.first).to eq(@specialization)
     end
 
-    it "renders back if specialization is not unique" do
-      specialization = @character_with_specialization.specializations.first
+    it "wipes specializations" do
+      @character.specializations << create(:specialization)
+      @character.specializations << create(:specialization)
+
       put :update, {
-        id: "specialization",
-        character_id: @character_with_specialization.id,
+        id: "first_specialization",
+        character_id: @character.id,
         character: {
-          specialization_id: specialization.id
+          specialization_id: @specialization.id
         }
       }
-      expect(response).to render_template("build/specialization")
+      @character.reload
+
+      expect(@character.specializations.count).to eq(1)
     end
 
     it "redirects to species if they don't have one" do
