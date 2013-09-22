@@ -11,7 +11,7 @@ class BuildController < ApplicationController
 
   steps :start, :name, :party_size, :obligation, :confirm_obligation, :species,
     :species_attributes, :species_skills, :career, :career_skills, :specialization,
-    :first_specialization, :specialization_skills
+    :specialization_skills
 
   def show
     unless params[:character_id] == "new"
@@ -103,6 +103,8 @@ class BuildController < ApplicationController
         flash[:notice] = "Please choose a Species for your character."
         redirect_to character_build_url(:specialization, character_id: @character.id) and return
       end
+    when :first_specialization_skills
+      skip_step
     end
     render_wizard
   end
@@ -111,9 +113,9 @@ class BuildController < ApplicationController
     @character = current_user.characters.find(params[:character_id])
 
     case step
-    when :first_specialization
+    when "first_specialization"
       @character.specializations.destroy_all
-    when :first_specialization_skills
+    when "first_specialization_skills"
       @character.specializations_joins.first.update_attributes(career_skills: params[:character][:optional_skills])
     end
 
