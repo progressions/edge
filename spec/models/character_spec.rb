@@ -193,7 +193,11 @@ describe Character do
     end
   end
 
+  describe "when assigning career_skills" do
+  end
+
   describe "with optional skills" do
+    pending "changing this method to be more specific"
     it "sets optional skill" do
       @character.optional_skills = ["Charm"]
       expect(@character.skill("Charm").rank).to eq(1)
