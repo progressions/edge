@@ -38,6 +38,7 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'annotate'
 gem 'wicked'
+gem 'concerning', '~> 1.0.1'
 
 group :development, :test do
   gem 'launchy'
