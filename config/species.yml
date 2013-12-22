@@ -6,7 +6,7 @@ bothan:
   cunning: 3
   willpower: 2
   presence: 2
-  unused_xp: 100
+  base_xp: 100
   wound_threshold_modifier: 10
   strain_threshold_modifier: 11
   starting_skills:
@@ -20,7 +20,7 @@ droid:
   cunning: 1
   willpower: 1
   presence: 1
-  unused_xp: 175
+  base_xp: 175
   wound_threshold_modifier: 10
   strain_threshold_modifier: 10
 
@@ -33,7 +33,7 @@ gand:
   cunning: 2
   willpower: 3
   presence: 1
-  unused_xp: 100
+  base_xp: 100
   starting_skills:
     - "Discipline"
   wound_threshold_modifier: 10
@@ -47,7 +47,7 @@ human:
   cunning: 2
   willpower: 2
   presence: 2
-  unused_xp: 110
+  base_xp: 110
   optional_skills_count: 2
   optional_skills:
     - "all"
@@ -62,7 +62,7 @@ rodian:
   cunning: 2
   willpower: 1
   presence: 2
-  unused_xp: 100
+  base_xp: 100
   starting_skills:
     - "Survival"
   wound_threshold_modifier: 10
@@ -76,7 +76,7 @@ trandoshan:
   cunning: 2
   willpower: 2
   presence: 2
-  unused_xp: 90
+  base_xp: 90
   wound_threshold_modifier: 12
   strain_threshold_modifier: 9
   starting_skills:
@@ -90,7 +90,7 @@ twilek:
   cunning: 2
   willpower: 2
   presence: 3
-  unused_xp: 100
+  base_xp: 100
   wound_threshold_modifier: 10
   strain_threshold_modifier: 11
   optional_skills_count: 1
@@ -106,7 +106,7 @@ wookiee:
   cunning: 2
   willpower: 1
   presence: 2
-  unused_xp: 90
+  base_xp: 90
   wound_threshold_modifier: 14
   strain_threshold_modifier: 8
   starting_skills:

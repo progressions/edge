@@ -7,8 +7,6 @@
 }
 .module {
   border: 2px solid grey;
-  display: inline-block;
-  width: 340px;
 }
 .module:hover {
   background-color: #d9edf7;
@@ -22,10 +20,25 @@
 .module ul.attributes {
   margin-left: -5px;
 }
-.module .image {
+.module .zimage {
   background-color: green;
   float: left;
   margin-right: 2em;
   height: 300px;
   width: 200px;
+}
+
+.species .characteristics li {
+  float: left;
+  display: inline-block;
+  margin-right: 5px;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-bottom: 0.4em;
+}
+.species .characteristics li .characteristic {
+  display: inline-block;
+}
+.species .characteristics {
+  clear: left;
 }

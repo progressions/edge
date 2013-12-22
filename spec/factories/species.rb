@@ -10,7 +10,7 @@
 #  cunning                   :integer
 #  willpower                 :integer
 #  presence                  :integer
-#  unused_xp                 :integer
+#  base_xp                   :integer
 #  wound_threshold_modifier  :integer
 #  strain_threshold_modifier :integer
 #  optional_skills_count     :integer
@@ -31,7 +31,7 @@ FactoryGirl.define do
     cunning 2
     willpower 2
     presence 2
-    unused_xp 2
+    base_xp 2
     wound_threshold_modifier 10
     strain_threshold_modifier 10
     starting_skills []

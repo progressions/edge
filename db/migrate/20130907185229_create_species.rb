@@ -8,7 +8,7 @@ class CreateSpecies < ActiveRecord::Migration
       t.integer :cunning
       t.integer :willpower
       t.integer :presence
-      t.integer :unused_xp
+      t.integer :base_xp
       t.integer :wound_threshold_modifier
       t.integer :strain_threshold_modifier
       t.integer :optional_skills_count

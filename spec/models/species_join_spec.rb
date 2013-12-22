@@ -12,5 +12,21 @@
 require 'spec_helper'
 
 describe SpeciesJoin do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    Species.seed!
+    Career.seed!
+
+    @character = create(:character, species: create(:species, name: "Human"))
+    expect(@character.species).to be_present
+    @character.species_skills = "Charm"
+    expect(@character.skill("Charm").rank).to eq(1)
+  end
+
+  it "resets points" do
+    another_species = create(:species, name: "Twi'lek")
+    @character.species = another_species
+    @character.save
+    @character.reload
+    expect(@character.species_join).to be_present
+  end
 end

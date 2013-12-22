@@ -10,7 +10,7 @@
 #  cunning                   :integer
 #  willpower                 :integer
 #  presence                  :integer
-#  unused_xp                 :integer
+#  base_xp                   :integer
 #  wound_threshold_modifier  :integer
 #  strain_threshold_modifier :integer
 #  optional_skills_count     :integer

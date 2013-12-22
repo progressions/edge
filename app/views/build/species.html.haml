@@ -27,23 +27,31 @@
 
           %ul.characteristics.unstyled
             %li
-              %strong Brawn
-              = species[:brawn]
+              %strong Br
+              .characteristic
+                = species[:brawn]
             %li
-              %strong Agility
-              = species[:agility]
+              %strong Ag
+              .characteristic
+                = species[:agility]
             %li
-              %strong Intellect
-              = species[:intellect]
+              %strong In
+              .characteristic
+                = species[:intellect]
             %li
-              %strong Cunning
-              = species[:cunning]
+              %strong Cu
+              .characteristic
+                = species[:cunning]
             %li
-              %strong Willpower
-              = species[:willpower]
+              %strong Wi
+              .characteristic
+                = species[:willpower]
             %li
-              %strong Presence
-              = species[:presence]
+              %strong Pr
+              .characteristic
+                = species[:presence]
+
+          .clearfix
 
           %p
             %strong Base XP
@@ -51,11 +59,13 @@
 
           %p
             %strong Wound Threshold
-            Brawn + 10
+            Brawn +
+            = species.wound_threshold_modifier
 
           %p
             %strong Strain Threshold
-            Willpower + 10
+            Willpower +
+            = species.strain_threshold_modifier
 
     .form-actions
       = f.submit "Save and Continue", class: "btn btn-success"

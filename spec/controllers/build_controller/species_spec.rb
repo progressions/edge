@@ -14,7 +14,7 @@ describe BuildController do
 
   describe "species step" do
     before(:each) do
-      @character.update_attributes(species_id: nil)
+      @character.update_attributes(species: nil)
       @species = Species.where(name: "Twi'lek").first
     end
 
@@ -60,7 +60,7 @@ describe BuildController do
   describe "species attributes step" do
     before(:each) do
       @species = Species.where(name: "Twi'lek").first
-      @character.update_attributes(species_id: @species.id)
+      @character.update_attributes(species: @species)
     end
 
     it "assigns character" do
@@ -107,7 +107,7 @@ describe BuildController do
     end
 
     it "redirects to species if they don't have one" do
-      @character.update_attributes(species_id: nil)
+      @character.update_attributes(species: nil)
       get :show, {
         id: "species_skills",
         character_id: @character.id
@@ -128,7 +128,7 @@ describe BuildController do
         id: "species_skills",
         character_id: @character.id,
         character: {
-          optional_skills: ["Astrogation", "Charm"]
+          species_skills: ["Astrogation", "Charm"]
         }
       }
       expect(@character.skill("Astrogation").rank).to eq(1)
@@ -141,7 +141,7 @@ describe BuildController do
           id: "species_skills",
           character_id: @character.id,
           character: {
-            optional_skills: ["Astrogation", "Astrogation"]
+            species_skills: ["Astrogation", "Astrogation"]
           }
         }
         expect(@character.skill("Astrogation").rank).to eq(0)
@@ -152,7 +152,7 @@ describe BuildController do
           id: "species_skills",
           character_id: @character.id,
           character: {
-            optional_skills: ["Astrogation", "Astrogation"]
+            species_skills: ["Astrogation", "Astrogation"]
           }
         }
         expect(response).to render_template("build/species_skills")
@@ -163,7 +163,7 @@ describe BuildController do
           id: "species_skills",
           character_id: @character.id,
           character: {
-            optional_skills: ["Astrogation", "Astrogation"]
+            species_skills: ["Astrogation", "Astrogation"]
           }
         }
         expect(flash[:error]).to eq("There was an error updating your character.")
@@ -175,7 +175,7 @@ describe BuildController do
           id: "species_skills",
           character_id: @character.id,
           character: {
-            optional_skills: ["Astrogation", "Charm"]
+            species_skills: ["Astrogation", "Charm"]
           }
         }
       expect(response).to redirect_to(character_build_url(:career, character_id: @character.id))

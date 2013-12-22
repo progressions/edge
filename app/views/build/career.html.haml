@@ -23,15 +23,16 @@
           %h4 Career Skill Choices
 
           %ul.characteristics.unstyled
-            - career.career_skills.each do |skill|
-              %li= skill
+            = career.career_skills.join(", ")
+
+          .clearfix
 
           %h4 Specializations
 
           %ul.characteristics.unstyled
-            - career.specializations.each do |specialization|
-              %li= specialization.name
+            = career.specializations.map(&:name).join(", ")
 
+          .clearfix
 
     .form-actions
       = f.submit "Save and Continue", class: "btn btn-success"

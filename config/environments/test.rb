@@ -33,4 +33,7 @@ Edge::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  require File.expand_path("../../diagnostic.rb", __FILE__)
+  config.middleware.use(Edge::DiagnosticMiddleware)
 end

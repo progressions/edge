@@ -13,6 +13,11 @@
 require 'spec_helper'
 
 describe User do
+  before(:each) do
+    Species.seed!
+    Career.seed!
+  end
+
   describe "class methods" do
     it "creates a new guest user" do
       @user = User.new_guest

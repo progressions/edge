@@ -62,7 +62,7 @@ describe BuildController do
     end
 
     it "redirects to species if they don't have one" do
-      @character.update_attributes(species_id: nil)
+      @character.update_attributes(species: nil)
       get :show, {
         id: "specialization",
         character_id: @character.id
@@ -71,7 +71,7 @@ describe BuildController do
     end
 
     it "redirects to career if they don't have one" do
-      @character.update_attributes(career_id: nil)
+      @character.update_attributes(career: nil)
       get :show, {
         id: "specialization",
         character_id: @character.id
@@ -90,7 +90,7 @@ describe BuildController do
     end
 
     it "redirects to species if they don't have one" do
-      @character.update_attributes(species_id: nil)
+      @character.update_attributes(species: nil)
       get :show, {
         id: "specialization_skills",
         character_id: @character.id
@@ -99,7 +99,7 @@ describe BuildController do
     end
 
     it "redirects to career if they don't have one" do
-      @character.update_attributes(career_id: nil)
+      @character.update_attributes(career: nil)
       get :show, {
         id: "specialization_skills",
         character_id: @character.id

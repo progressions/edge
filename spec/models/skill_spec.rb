@@ -18,6 +18,9 @@ require 'spec_helper'
 
 describe Skill do
   before(:each) do
+    Species.seed!
+    Career.seed!
+
     @skill = build(:skill)
     @career = double('career', career_skills: ["Astrogation", "Charm"])
     @specializations = double('specializations', pluck: ["Skulduggery", "Charm"])

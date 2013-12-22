@@ -14,6 +14,11 @@
 require 'spec_helper'
 
 describe Obligation do
+  before(:each) do
+    Species.seed!
+    Career.seed!
+  end
+
   it "gets a random obligation for a value" do
     expect(Obligation.random_value(50)).to eq({:name=>"Dutybound", :description=>""})
   end

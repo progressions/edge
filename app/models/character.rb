@@ -28,9 +28,14 @@ class Character < ActiveRecord::Base
   belongs_to :career_join, dependent: :destroy
   belongs_to :species_join, dependent: :destroy
 
+  has_one :species, through: :species_join
+  has_one :career, through: :career_join
+
   belongs_to :user
   has_many :obligations
   has_many :skills
+
+  has_many :points, through: :skills
 
   has_many :specialization_joins, dependent: :destroy
   has_many :specializations, through: :specialization_joins
@@ -43,8 +48,12 @@ class Character < ActiveRecord::Base
   before_create :set_default_skills
 
   validate do |user|
-    if Array(@optional_skills).uniq != Array(@optional_skills)
+    if Array(@species_skills).uniq != Array(@species_skills)
       errors.add(:base, "Species skills must be unique.")
+    end
+
+    if Array(@optional_skills).uniq != Array(@optional_skills)
+      errors.add(:base, "Career skills must be unique.")
     end
 
     if specializations.uniq.length != specializations.length
@@ -58,67 +67,49 @@ class Character < ActiveRecord::Base
     skills.where(name: career_skills)
   end
 
-  # species_join association methods
-
-  def species
-    species_join.try(:species)
-  end
-
-  def species= (species)
-    if species.present?
-      self.species_id = species.id
-    else
-      self.species_id = nil
+  concerning :CareerJoins do
+    def career_id
+      career.try(:id)
     end
-  end
 
-  def species_id
-    species_join.try(:species).try(:id)
-  end
-
-  def species_id= (species_id)
-    if species_id.present?
-      if species_join.present?
-        self.species_join.update_attributes(species_id: species_id)
+    def career_id=(career_id)
+      if career_id.nil?
+        self.career = nil
       else
-        self.species_join = SpeciesJoin.create(species_id: species_id)
+        self.career = Career.find(career_id)
       end
-    else
-      self.species_join.destroy
     end
   end
 
-  # career_join association methods
-
-  def career
-    career_join.try(:career)
-  end
-
-  def career= (career)
-    if career.present?
-      self.career_id = career.id
-    else
-      self.career_id = nil
+  concerning :SpeciesJoins do
+    def species_id
+      species.try(:id)
     end
-  end
 
-  def career_id
-    career_join.try(:career).try(:id)
-  end
-
-  def career_id= (career_id)
-    if career_id.present?
-      if career_join.present?
-        self.career_join.update_attributes(career_id: career_id)
+    def species_id=(species_id)
+      if species_id.nil?
+        self.species = nil
       else
-        self.career_join = CareerJoin.create(career_id: career_id)
+        self.species = Species.find(species_id)
       end
-    else
-      self.career_join.destroy
+    end
+
+    def species_skills=(species_skills)
+      @species_skills = Array(species_skills)
+      if valid?
+        @species_skills.each do |skill_name|
+          begin
+            add_rank_to_skill(skill_name, species.name)
+          rescue StandardError => e
+            Rails.logger.info("===")
+            Rails.logger.info(e)
+            Rails.logger.info("Blew up on '#{skill_name}'")
+            Rails.logger.info("===")
+          end
+        end
+      end
     end
   end
-
-
 
   def total_obligation_amount
     obligations.sum(:amount)
@@ -138,10 +129,10 @@ class Character < ActiveRecord::Base
     end
   end
 
-  def add_rank_to_skill(skill_name, rank=1)
+  def add_rank_to_skill(skill_name, source, value=1)
     skill_to_change = skill(skill_name)
     if skill_to_change.present?
-      skill_to_change.rank += rank
+      skill_to_change.add_rank(source, value)
       skill_to_change.save!
     end
   end
@@ -160,7 +151,7 @@ class Character < ActiveRecord::Base
     if valid?
       @optional_skills.each do |skill_name|
         begin
-          add_rank_to_skill(skill_name, 1)
+          add_rank_to_skill(skill_name, "Thing")
         rescue StandardError => e
           Rails.logger.info("Blew up on '#{skill_name}'")
         end
@@ -180,7 +171,7 @@ class Character < ActiveRecord::Base
     assign_attributes(species.characteristics)
     assign_attributes(wound_threshold: species.wound_threshold)
     assign_attributes(strain_threshold: species.strain_threshold)
-    assign_attributes(unused_xp: species.unused_xp)
+    assign_attributes(unused_xp: species.base_xp)
     reset_skills
     optional_skills = species.starting_skills
   end

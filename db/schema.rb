@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914174526) do
+ActiveRecord::Schema.define(version: 20131215163803) do
 
   create_table "career_joins", force: true do |t|
     t.integer  "career_id"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 20130914174526) do
     t.datetime "updated_at"
   end
 
+  create_table "points", force: true do |t|
+    t.integer  "skill_id"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "skills", force: true do |t|
     t.integer  "character_id"
     t.string   "name"
@@ -97,7 +104,7 @@ ActiveRecord::Schema.define(version: 20130914174526) do
     t.integer  "cunning"
     t.integer  "willpower"
     t.integer  "presence"
-    t.integer  "unused_xp"
+    t.integer  "base_xp"
     t.integer  "wound_threshold_modifier"
     t.integer  "strain_threshold_modifier"
     t.integer  "optional_skills_count"

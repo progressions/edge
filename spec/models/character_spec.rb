@@ -65,7 +65,7 @@ describe Character do
   end
 
   it "adds a rank to a skill" do
-    @character.add_rank_to_skill("Cool")
+    @character.add_rank_to_skill("Cool", "Thing")
     expect(@character.skills.where(name: "Cool").first.rank).to eq(1)
   end
 
@@ -129,7 +129,7 @@ describe Character do
     end
 
     it "resets skill ranks" do
-      @character.add_rank_to_skill("Charm")
+      @character.add_rank_to_skill("Charm", "Thing")
       @character.set_species("Human")
       @character.save
       expect(@character.reload.skills.sum(:rank)).to eq(0)
@@ -200,7 +200,7 @@ describe Character do
     end
 
     it "adds 1 to existing skill rank" do
-      @character.add_rank_to_skill("Charm", 1)
+      @character.add_rank_to_skill("Charm", "Thing", 1)
       @character.career_skills = ["Charm"]
       expect(@character.skill("Charm").rank).to eq(2)
     end
@@ -238,6 +238,13 @@ describe Character do
     it "doesn't set skills if optional skills aren't unique" do
       @character.optional_skills = ["Charm", "Charm"]
       expect(@character.skill("Charm").rank).to eq(0)
+    end
+  end
+
+  describe "with species skills" do
+    it "sets optional skill" do
+      @character.species_skills = ["Deception"]
+      expect(@character.skill("Deception").rank).to eq(1)
     end
   end
 

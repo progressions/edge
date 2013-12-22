@@ -16,6 +16,7 @@
 
 class Skill < ActiveRecord::Base
   belongs_to :character
+  has_many :points
 
   def self.reset_all
     update_all(rank: 0)
@@ -35,6 +36,18 @@ class Skill < ActiveRecord::Base
 
   def self.knowledge
     where(category: "knowledge")
+  end
+
+  def add_rank(source, value=1)
+    value ||= 1
+    value.times do |i|
+      points.create(source: source)
+    end
+  end
+
+  def update_rank
+    self.rank = points.count
+    self.save!
   end
 
   def ch
