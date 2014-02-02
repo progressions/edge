@@ -33,6 +33,8 @@ gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'nokogiri'
+
 gem 'nested_form'
 gem 'formtastic'
 gem 'formtastic-bootstrap'

@@ -234,6 +234,7 @@ DEPENDENCIES
   launchy
   mysql
   nested_form
+  nokogiri
   pry-rails
   rails (= 4.1.0.beta1)
   rspec-rails (~> 2.0)
