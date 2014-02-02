@@ -21,7 +21,10 @@ class CharactersController < ApplicationController
   def export
     @character = current_user.characters.find(params[:id])
 
-    render data: @character.to_xml
+    respond_to do |format|
+      format.html { send_data(@character.to_xml, filename: "#{@character.name}.xml") }
+      format.xml
+    end
   end
 
   def copy
