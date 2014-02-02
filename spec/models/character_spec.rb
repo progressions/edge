@@ -2,26 +2,12 @@
 #
 # Table name: characters
 #
-#  id               :integer          not null, primary key
-#  name             :string(255)
-#  description      :text
-#  user_id          :integer
-#  created_at       :datetime
-#  updated_at       :datetime
-#  brawn            :integer          default(0), not null
-#  agility          :integer          default(0), not null
-#  intellect        :integer          default(0), not null
-#  cunning          :integer          default(0), not null
-#  willpower        :integer          default(0), not null
-#  presence         :integer          default(0), not null
-#  unused_xp        :integer          default(0), not null
-#  used_xp          :integer          default(0), not null
-#  party_size       :integer
-#  base_obligation  :integer
-#  wound_threshold  :integer
-#  strain_threshold :integer
-#  career_join_id   :integer
-#  species_join_id  :integer
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  description :text
+#  user_id     :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 require 'spec_helper'

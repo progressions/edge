@@ -1,7 +1,5 @@
 Edge::Application.routes.draw do
 
-  resources :careers
-
   get "logout" => "sessions#destroy", as: :logout
   get "login" => "sessions#new", as: :login
   get "signup" => "users#new", as: :signup
@@ -9,15 +7,13 @@ Edge::Application.routes.draw do
   resources :users
   resources :sessions
 
-  resources :characters do
-    resources :build
-  end
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
+
+  resources :characters
 
   root 'characters#index'
 

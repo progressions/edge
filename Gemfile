@@ -42,7 +42,7 @@ gem 'concerning', '~> 1.0.1'
 
 group :development, :test do
   gem 'launchy'
-  gem "factory_girl_rails", "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'capybara'
   gem 'capybara-webkit'
@@ -63,7 +63,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
