@@ -13,4 +13,13 @@
 
 class Character < ActiveRecord::Base
   belongs_to :user
+
+  def self.from_xml(xml)
+    hash = Hash.from_xml(xml)
+    character_params = {}
+    character_params[:name] = hash["Character"]["Description"]["CharName"]
+    character_params[:player_name] = hash["Character"]["Description"]["PlayerName"]
+
+    create(character_params)
+  end
 end
