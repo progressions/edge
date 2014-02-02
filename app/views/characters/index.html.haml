@@ -11,12 +11,22 @@
 %table.table.table-bordered
   %tr
     %th Name
+    %th Player
+    %th Species
+    %th Career
     %th
   - @characters.each do |character|
     %tr
       %td
         = link_to(character.name, character_url(character))
       %td
+        Bess
+      %td
+        Droid
+      %td
+        Bounty Hunter
+
+      %td.actions
         .btn-group
           = link_to("Export", export_character_url(character), class: "btn")
           = link_to("Copy", copy_character_url(character), class: "btn")

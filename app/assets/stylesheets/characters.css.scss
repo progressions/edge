@@ -2,43 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.skills table .skill_name {
-  width: 300px;
-}
-.module {
-  border: 2px solid grey;
-}
-.module:hover {
-  background-color: #d9edf7;
-  border: 2px solid red;
-  cursor: pointer;
-}
-.module.selected {
-  background-color: #fcf8e3;
-  border: 2px solid red;
-}
-.module ul.attributes {
-  margin-left: -5px;
-}
-.module .zimage {
-  background-color: green;
-  float: left;
-  margin-right: 2em;
-  height: 300px;
-  width: 200px;
-}
-
-.species .characteristics li {
-  float: left;
-  display: inline-block;
-  margin-right: 5px;
-  font-size: 1.5em;
-  line-height: 1.5em;
-  margin-bottom: 0.4em;
-}
-.species .characteristics li .characteristic {
-  display: inline-block;
-}
-.species .characteristics {
-  clear: left;
+td.actions {
+  width: 150px;
 }

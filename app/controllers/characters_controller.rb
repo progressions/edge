@@ -17,6 +17,16 @@ class CharactersController < ApplicationController
   end
 
   def copy
+    @character = current_user.characters.find(params[:id])
+
+    @new_character = @character.dup
+    if @new_character.save
+      flash[:notice] = "Your character has been copied."
+    else
+      flash[:notice] = "There was a problem copying your character."
+    end
+
+    redirect_to characters_url
   end
 
   def new
