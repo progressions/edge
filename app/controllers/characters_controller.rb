@@ -10,6 +10,15 @@ class CharactersController < ApplicationController
     render layout: "application"
   end
 
+  def import
+  end
+
+  def export
+  end
+
+  def copy
+  end
+
   def new
     @character = current_user.characters.create
     redirect_to character_build_url(:name, character_id: @character.id)

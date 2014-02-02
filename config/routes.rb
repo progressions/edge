@@ -13,7 +13,15 @@ Edge::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  resources :characters
+  resources :characters do
+    collection do
+      get :import
+    end
+    member do
+      get :export
+      get :copy
+    end
+  end
 
   root 'characters#index'
 
