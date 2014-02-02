@@ -17,6 +17,7 @@ class Character < ActiveRecord::Base
   def self.from_xml(xml)
     hash = Hash.from_xml(xml)
     character_params = {}
+
     character_params[:name] = hash["Character"]["Description"]["CharName"]
     character_params[:player_name] = hash["Character"]["Description"]["PlayerName"]
 
