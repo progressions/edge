@@ -11,6 +11,17 @@ class CharactersController < ApplicationController
   end
 
   def import
+    character_io = params[:character]
+
+    character_xml = Nokogiri.parse(character_io.read)
+
+    character_params = {}
+
+    character_params[:name] = character_xml.css("CharName").text
+
+    @character = current_user.characters.create(character_params)
+
+    redirect_to characters_url
   end
 
   def export

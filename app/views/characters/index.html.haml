@@ -3,9 +3,18 @@
 %p.btn-group
   - if current_user
     = link_to("New", new_character_url, class: "btn")
-    = link_to("Import", import_characters_url, class: "btn")
+    = link_to("Import", "", class: "import btn")
   - else
     = link_to("New", users_url(create_character: true), method: :post, class: "btn")
+
+.import-form{style: "display: none;"}
+  %p Upload a file
+
+  = form_tag(import_characters_url, multipart: true, method: :post) do
+    %p= file_field_tag 'character'
+
+    %p= submit_tag("Upload", class: "btn")
+
 
 
 %table.table.table-bordered
