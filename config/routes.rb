@@ -23,6 +23,8 @@ Edge::Application.routes.draw do
     end
   end
 
+  resources :descriptions
+
   root 'characters#index'
 
   # Example of regular route:
