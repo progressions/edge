@@ -31,4 +31,25 @@ class Character < ActiveRecord::Base
 
     create(character_params)
   end
+
+  def to_xml(options = {})
+    require 'builder'
+    options[:indent] ||= 2
+    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml.instruct! unless options[:skip_instruct]
+    xml.tag!(:Character) do
+      xml.tag!(:Description) do
+        xml.tag!(:CharName, name)
+        xml.tag!(:PlayerName, player_name)
+        xml.tag!(:Gender, gender)
+        xml.tag!(:Age, age)
+        xml.tag!(:Height, height)
+        xml.tag!(:Build, build)
+        xml.tag!(:Hair, hair)
+        xml.tag!(:Eyes, eyes)
+        xml.tag!(:OtherFeatures, notable_features)
+      end
+    end
+  end
+
 end

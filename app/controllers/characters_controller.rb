@@ -19,6 +19,9 @@ class CharactersController < ApplicationController
   end
 
   def export
+    @character = current_user.characters.find(params[:id])
+
+    render data: @character.to_xml
   end
 
   def copy
