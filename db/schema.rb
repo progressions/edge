@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203040433) do
+ActiveRecord::Schema.define(version: 20140203045531) do
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20140203040433) do
     t.string   "portrait_content_type"
     t.integer  "portrait_file_size"
     t.datetime "portrait_updated_at"
+    t.string   "social_class"
+    t.string   "background"
+    t.text     "story"
   end
 
   create_table "experience_ranks", force: true do |t|

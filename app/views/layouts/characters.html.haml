@@ -3,6 +3,7 @@
     .span2
       %ul.nav.nav-tabs.nav-stacked
         %li{class: "#{'active' if @active == :description}"}= link_to("Description", new_description_url(@character))
+        %li{class: "#{'active' if @active == :background}"}= link_to("Background", new_background_url(@character))
 
     .span8
       = yield
