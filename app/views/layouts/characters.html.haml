@@ -1,11 +1,33 @@
 - content_for :content do
+
   .row
     .span2
       %ul.nav.nav-tabs.nav-stacked
         %li{class: "#{'active' if @active == :description}"}= link_to("Description", new_description_url(@character))
         %li{class: "#{'active' if @active == :background}"}= link_to("Background", new_background_url(@character))
 
-    .span8
+    .span10
+      - if @character.present?
+        .character_details.row.well
+          %dl.dl-horizontal.span2
+            %dt Name
+            %dd= @character.name
+
+            %dt Species
+            %dd Droid
+
+            %dt Career
+            %dd Bounty Hunter
+
+          %dl.dl-horizontal.span2
+            %dt Credits
+            %dd 400
+
+            %dt Encum
+            %dd 0/7
+
+            %dt Oblig/Duty
+            %dd 15/0
       = yield
 
 = render template: "layouts/application"
