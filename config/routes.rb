@@ -13,6 +13,9 @@ Edge::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  resources :descriptions
+  resources :backgrounds
+
   resources :characters do
     collection do
       post :import
@@ -20,10 +23,6 @@ Edge::Application.routes.draw do
     member do
       get :export
       get :copy
-
-      resources :descriptions
-      resource :background
-      resources :obligations
     end
   end
 

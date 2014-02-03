@@ -15,8 +15,6 @@
 
     %p= submit_tag("Upload", class: "btn")
 
-
-
 %table.table.table-bordered
   %tr
     %th Name
@@ -27,7 +25,7 @@
   - @characters.each do |character|
     %tr
       %td
-        = link_to(character.name, new_description_url(character))
+        = link_to(character.name, edit_description_url(character))
       %td= character.player_name
       %td
         Droid
