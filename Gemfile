@@ -40,7 +40,7 @@ gem 'formtastic'
 gem 'formtastic-bootstrap'
 gem 'annotate'
 gem 'wicked'
-gem 'concerning', '~> 1.0.1'
+gem "paperclip", "~> 3.0"
 
 group :development, :test do
   gem 'launchy'

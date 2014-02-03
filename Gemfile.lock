@@ -48,6 +48,10 @@ GEM
     capybara-webkit (1.1.0)
       capybara (~> 2.0, >= 2.0.2)
       json
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.3)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -57,8 +61,6 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.3.6)
-    concerning (1.0.1)
-      activesupport (>= 3.0.0)
     database_cleaner (1.2.0)
     debugger (1.6.5)
       columnize (>= 0.3.1)
@@ -122,6 +124,11 @@ GEM
     net-ssh (2.8.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    paperclip (3.5.3)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
     phantomjs (1.9.2.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
@@ -218,7 +225,6 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails (~> 4.0.0)
-  concerning (~> 1.0.1)
   database_cleaner
   debugger
   factory_girl_rails (~> 4.0)
@@ -235,6 +241,7 @@ DEPENDENCIES
   mysql
   nested_form
   nokogiri
+  paperclip (~> 3.0)
   pry-rails
   rails (= 4.1.0.beta1)
   rspec-rails (~> 2.0)
