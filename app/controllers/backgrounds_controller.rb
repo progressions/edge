@@ -16,7 +16,7 @@ class BackgroundsController < ApplicationController
       flash[:notice] = "There was a problem updating your character."
     end
 
-    redirect_to new_background_url(@character)
+    redirect_to edit_background_url(@character)
   end
 
   def character_params

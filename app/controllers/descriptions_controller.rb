@@ -27,7 +27,7 @@ class DescriptionsController < ApplicationController
       flash[:notice] = "There was a problem updating your character."
     end
 
-    redirect_to new_description_url(@character)
+    redirect_to edit_description_url(@character)
   end
 
   def character_params
