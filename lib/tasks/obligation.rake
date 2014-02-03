@@ -14,6 +14,8 @@ namespace :obligations do
           obligation_values[k.downcase] = v
         end
         obligation = Obligation.where(key: key).first || Obligation.create(obligation_values)
+
+        puts "Created obligation: #{obligation.name}"
       end
 
     rescue StandardError => e
