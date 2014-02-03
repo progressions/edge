@@ -1,0 +1,12 @@
+down_and_out:
+  name: "Down and Out"
+  description: "Please see page 36 of the Edge of the Empire Core Rulebook for details."
+middle_class_struggles:
+  name: "Middle Class Struggles"
+  description: "Please see page 37 of the Edge of the Empire Core Rulebook for details."
+high_and_mighty:
+  name: "High and Mighty"
+  description: "Please see page 37 of the Edge of the Empire Core Rulebook for details."
+the_outsider:
+  name: "The Outsider"
+  description: "Please see page 37 of the Edge of the Empire Core Rulebook for details."
