@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140203003449) do
   create_table "ranks", force: true do |t|
     t.integer  "value"
     t.string   "source"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

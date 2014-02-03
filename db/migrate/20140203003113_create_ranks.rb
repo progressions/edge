@@ -3,6 +3,7 @@ class CreateRanks < ActiveRecord::Migration
     create_table :ranks do |t|
       t.integer :value
       t.string :source
+      t.string :type
 
       t.timestamps
     end
