@@ -3,7 +3,7 @@ class BackgroundsController < ApplicationController
 
   def new
     @social_classes = SocialClass.all
-    @backgrounds = ["Opportunity Knocks", "Higher Calling", "Enemies and Antagonists", "Failure of Character", "Wrong Place, Wrong Time", "Academic", "Criminal", "Entrepreneur", "Ex-Imperial Operator", "Fallen Noble", "Wanderer"]
+    @backgrounds = Background.all
     @character = current_user.characters.find(params[:id])
   end
 
@@ -20,6 +20,6 @@ class BackgroundsController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:social_class, :background, :story)
+    params.require(:character).permit(:social_class_id, :background_id, :story)
   end
 end
