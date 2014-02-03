@@ -1,18 +1,21 @@
 - @active = :description
 
-%h1 Description
+= semantic_form_for(@character, url: description_url) do |f|
+  .row
+    .span4
+      .form-horizontal
+        = f.inputs do
+          = f.input :name
+          = f.input :player_name
+          = f.input :gender, as: :select, collection: ["Male", "Female", "Other"], input_html: {class: "input-medium"}
+          = f.input :age, input_html: {class: "input-small"}
+          = f.input :height, input_html: {class: "input-small"}
+          = f.input :build, input_html: {class: "input-medium"}
+          = f.input :hair, input_html: {class: "input-medium"}
+          = f.input :eyes, input_html: {class: "input-medium"}
+          = f.input :notable_features, input_html: {rows: 5}
 
-.form-horizontal
-  = semantic_form_for(@character, url: description_url) do |f|
-    = f.inputs do
-      = f.input :name
-      = f.input :player_name
-      = f.input :gender, as: :select, collection: ["Male", "Female", "Other"], input_html: {class: "input-medium"}
-      = f.input :age, input_html: {class: "input-small"}
-      = f.input :height, input_html: {class: "input-small"}
-      = f.input :build, input_html: {class: "input-medium"}
-      = f.input :hair, input_html: {class: "input-medium"}
-      = f.input :eyes, input_html: {class: "input-medium"}
-      = f.input :notable_features
-
+    .span3.offset1
+      %p Earned XP 100
+      %p Total Credits 500
 
