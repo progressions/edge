@@ -23,9 +23,13 @@
           %p= link_to("Select Portrait", "", class: "btn select_portrait")
 
           .well.portrait_upload{style: "display: none;"}
+            %p Select stock portrait:
+            = select_tag(:stock_portrait, options_for_select(@species_images))
+
+            %p Select from file:
             = f.file_field :portrait
 
-            %p Choose from URL
+            %p Select from URL:
             = text_field_tag('portrait_url', '', class: 'input-medium')
 
         = f.input :earned_experience, as: :number

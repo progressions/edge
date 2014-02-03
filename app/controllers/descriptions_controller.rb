@@ -3,6 +3,9 @@ class DescriptionsController < ApplicationController
 
   def new
     @character = current_user.characters.find(params[:id])
+    @species_images = %w{ None AQUA ARKAN ARKANOFF BARAB BITH BOTH CAAMASI CATHAR CEREAN CHADRA CHISS CLAWDITE DASHADE DEFEL DEVAR DROID DUG DUROS EWOK FALLEEN FARGHUL GAMORREAN GAND GIVIN GOTAL GRAN GUNGAN HERGLIC HUMAN ITHORIAN JAWA KLATOO KUBAZ MONCAL NAGAI NAUTOLAN NEIM NIKTO NOGHRI ORTOLAN QUARREN ROD RYN SELKATH SHIST SLUISSI SNIVVIAN SQUIB SULLUSTAN TOGORIAN TOGRUTA TOYDARIAN TRAND TWI VERPINE WEEQUAY WHIPHID WOOK ZABRAK ZELTRON }.map do |image|
+      image.capitalize
+    end
   end
 
   def update
@@ -10,6 +13,12 @@ class DescriptionsController < ApplicationController
 
     if params[:portrait_url].present?
       @character.portrait = URI.parse(params[:portrait_url])
+    end
+
+    if params[:stock_portrait] != "None"
+      species = params[:stock_portrait].upcase
+      url = view_context.asset_url("/assets/species/#{species}.png")
+      @character.portrait = URI.parse(url)
     end
 
     if @character.update_attributes(character_params)
