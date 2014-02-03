@@ -22,6 +22,8 @@
 class Character < ActiveRecord::Base
   belongs_to :user
 
+  has_many :experience_ranks
+
   def self.from_xml(xml)
     hash = Hash.from_xml(xml)
     character_params = {}
