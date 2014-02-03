@@ -14,4 +14,13 @@
 class Obligation < ActiveRecord::Base
   has_many :character_obligations
   has_many :characters, through: :character_obligation
+
+  def self.from_xml(hash)
+    obligation_params = {
+      key: hash["Key"],
+      name: hash["Name"],
+      description: hash["Description"]
+    }
+    create(obligation_params)
+  end
 end
