@@ -17,9 +17,6 @@
 
     .span4
       .form-horizontal
-        = f.input :earned_experience, as: :number
-        = f.input :credits
-
         .controls
           .portrait= image_tag(@character.portrait.url)
 
@@ -27,6 +24,13 @@
 
           .well.portrait_upload{style: "display: none;"}
             = f.file_field :portrait
+
+            %p Choose from URL
+            = text_field_tag('portrait_url', '', class: 'input-medium')
+
+        = f.input :earned_experience, as: :number
+        = f.input :credits
+
 
     .row
       .span8

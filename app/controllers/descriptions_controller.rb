@@ -8,6 +8,9 @@ class DescriptionsController < ApplicationController
   def update
     @character = current_user.characters.find(params[:id])
 
+    if params[:portrait_url].present?
+      @character.portrait = URI.parse(params[:portrait_url])
+    end
 
     if @character.update_attributes(character_params)
       flash[:notice] = "Your character has been updated."
@@ -20,6 +23,6 @@ class DescriptionsController < ApplicationController
 
   def character_params
     params.require(:character).permit(:name, :player_name, :gender, :age, :height, :build, :hair,
-      :eyes, :notable_features, :credits, :earned_experience, :portrait)
+      :eyes, :notable_features, :credits, :earned_experience, :portrait, :portrait_url)
   end
 end
