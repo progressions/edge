@@ -1,16 +1,20 @@
 class Loader
-  def self.load_from_xml(name)
+  def self.load_from_xml(name, options={})
+    options ||= {}
     begin
-      klass = name.constantize
-      collection_name = name.pluralize
+      klass = options[:klass] || name.constantize
+      member_name = options[:member] || klass.name
+      collection_name = options[:collection] || name.pluralize
 
-      File.open(Rails.root.join("config", "data", "#{collection_name}.xml")) do |f|
+      filename = options[:filename] || collection_name
+
+      File.open(Rails.root.join("config", "data", "#{filename}.xml")) do |f|
         xml = Nokogiri::XML(f)
 
         @hash = Hash.from_xml(xml.to_s)
       end
 
-      @hash[collection_name][klass.name].each do |values|
+      @hash[collection_name][member_name].each do |values|
         key = values["Key"]
         class_values = {}
         values.each do |k, v|
@@ -20,8 +24,6 @@ class Loader
 
         puts "Loaded record: #{record.inspect}"
       end
-    rescue StandardError => e
-      puts e.message
     end
   end
 end
