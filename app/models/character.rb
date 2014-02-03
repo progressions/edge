@@ -34,6 +34,9 @@ class Character < ActiveRecord::Base
   belongs_to :social_class
   belongs_to :background
 
+  has_many :character_obligations
+  has_many :obligations, through: :character_obligations
+
   has_attached_file :portrait, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
