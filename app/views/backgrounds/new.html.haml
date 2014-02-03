@@ -1,0 +1,20 @@
+- @active = :background
+
+= semantic_form_for(@character, url: background_url) do |f|
+  .row
+    .span2
+      .form-horizontal
+        = f.inputs do
+          = f.input :social_class, as: :select, collection: @social_classes
+          = f.input :background, as: :select, collection: @backgrounds
+
+    .span5.offset1
+      .form-horizontal
+        = f.input :story, input_html: {class: "input-xlarge"}
+
+  .row
+    .span8
+      .form-horizontal
+        .controls
+          = f.submit(class: "btn btn-success")
+
