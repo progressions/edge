@@ -37,6 +37,9 @@ class Character < ActiveRecord::Base
   has_many :character_obligations
   has_many :obligations, through: :character_obligations
 
+  accepts_nested_attributes_for :character_obligations, allow_destroy: true
+  accepts_nested_attributes_for :obligations
+
   has_attached_file :portrait, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 

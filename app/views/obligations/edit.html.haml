@@ -1,7 +1,30 @@
 - @active = :obligation
 
-= semantic_form_for(@character, url: obligation_url) do |f|
-  = f.fields_for :obligations do |of|
-    = of.input :name
-    = of.input :size
+= semantic_nested_form_for(@character, url: obligation_url) do |f|
+  .form-horizontal.obligations
+    = f.semantic_fields_for :character_obligations do |c|
+      .row
+        .span3
+          = c.label :obligation_id, "Obligation"
+          = c.input :obligation_id, as: :select, collection: @obligations, input_html: {class: 'obligation_select'}
 
+          .control-group
+            = c.label :size
+            = c.text_field :size, type: :number
+
+          .control-group
+            = c.label :notes
+            = c.text_area :notes
+
+          %p= c.link_to_remove "Remove", class: "btn"
+
+        .span3.well.obligation_details
+          - @obligations.each do |obligation|
+            = div_for(obligation, style: "display: none;") do
+              = format_description(obligation.description)
+
+
+    %p= f.link_to_add "Add", :character_obligations, class: "btn"
+
+
+    %p= f.submit(class: "btn btn-success")

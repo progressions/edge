@@ -15,10 +15,10 @@ class ObligationsController < ApplicationController
       flash[:notice] = "There was a problem updating your character."
     end
 
-    redirect_to edit_background_url(@character)
+    redirect_to edit_obligation_url(@character)
   end
 
-  def character_param
-    params.require(:character).permit()
+  def character_params
+    params.require(:character).permit(character_obligations_attributes: [:id, :obligation_id, :size, :notes, :_destroy])
   end
 end
