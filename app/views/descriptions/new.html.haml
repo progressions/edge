@@ -18,7 +18,7 @@
     .span4
       .form-horizontal
         .controls
-          .portrait= image_tag(@character.portrait.url)
+          .portrait= image_tag(@character.portrait.url(:medium))
 
           %p= link_to("Select Portrait", "", class: "btn select_portrait")
 
