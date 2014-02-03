@@ -15,6 +15,7 @@ Edge::Application.routes.draw do
 
   resources :descriptions
   resources :backgrounds
+  resources :obligations
 
   resources :characters do
     collection do

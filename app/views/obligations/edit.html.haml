@@ -1,0 +1,7 @@
+- @active = :obligation
+
+= semantic_form_for(@character, url: obligation_url) do |f|
+  = f.fields_for :obligations do |of|
+    = of.input :name
+    = of.input :size
+
