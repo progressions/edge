@@ -4,8 +4,15 @@
 
 $ ->
   $('.obligation_select').change(Obligation.update)
+  Obligation.update_all()
 
 class window.Obligation
+  @update_all: ->
+    $(".obligation_select").each ->
+      Obligation.update(
+        target: this
+      )
+
   @update: (event) ->
     element = $(event.target)
     id = element.val()
