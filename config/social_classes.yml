@@ -1,12 +1,24 @@
 down_and_out:
+  slug: "OUT"
   name: "Down and Out"
-  description: "Please see page 36 of the Edge of the Empire Core Rulebook for details."
+  description: |
+    <h4>The Outsider</h4>
+    <p>Please see page 36 of the Edge of the Empire Core Rulebook for details.</p>
 middle_class_struggles:
+  slug: "MIDDLE"
   name: "Middle Class Struggles"
-  description: "Please see page 37 of the Edge of the Empire Core Rulebook for details."
+  description: |
+    <h4>Middle Class Struggles</h4>
+    <p>Please see page 37 of the Edge of the Empire Core Rulebook for details.</p>
 high_and_mighty:
+  slug: "HIGH"
   name: "High and Mighty"
-  description: "Please see page 37 of the Edge of the Empire Core Rulebook for details."
+  description: |
+    <h4>High and Mighty</h4>
+    <p>Please see page 37 of the Edge of the Empire Core Rulebook for details.</p>
 the_outsider:
+  slug: "OUT"
   name: "The Outsider"
-  description: "Please see page 37 of the Edge of the Empire Core Rulebook for details."
+  description: |
+    <h4>The Outsider</h4>
+    <p>Please see page 37 of the Edge of the Empire Core Rulebook for details.</p>

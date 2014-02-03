@@ -2,7 +2,7 @@ class BackgroundsController < ApplicationController
   layout 'characters'
 
   def new
-    @social_classes = ["Down and Out", "Middle Class Struggles", "High and Mighty", "The Outsider"]
+    @social_classes = SocialClass.all
     @backgrounds = ["Opportunity Knocks", "Higher Calling", "Enemies and Antagonists", "Failure of Character", "Wrong Place, Wrong Time", "Academic", "Criminal", "Entrepreneur", "Ex-Imperial Operator", "Fallen Noble", "Wanderer"]
     @character = current_user.characters.find(params[:id])
   end
