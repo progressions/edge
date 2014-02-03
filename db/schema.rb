@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140203181121) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
-    t.string   "slug"
+    t.string   "key"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140203181121) do
   create_table "social_classes", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "slug"
+    t.string   "key"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

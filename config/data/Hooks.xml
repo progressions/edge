@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Hooks>
+  <Hook>
+    <Key>OPP</Key>
+    <Name>Opportunity Knocks</Name>
+    <Description>
+      [H4]Opportunity Knocks[h4]
+      Please see page 37 of the Core Rulebook for details.
+
+    </Description>
+  </Hook>
+  <Hook>
+    <Key>HIGH</Key>
+    <Name>Higher Calling</Name>
+    <Description>
+      [H4]Higher Calling[h4]
+      Please see page 37 of the Core Rulebook for details.
+
+    </Description>
+  </Hook>
+  <Hook>
+    <Key>ENEMIES</Key>
+    <Name>Enemies and Antagonists</Name>
+    <Description>
+      [H4]Enemies and Antagonists[h4]
+      Please see page 38 of the Core Rulebook for details.
+
+    </Description>
+  </Hook>
+  <Hook>
+    <Key>FLAW</Key>
+    <Name>Failure of Character</Name>
+    <Description>
+      [H4]Failure of Character[h4]
+      Please see page 38 of the Core Rulebook for details.
+
+    </Description>
+  </Hook>
+  <Hook>
+    <Key>WRONG</Key>
+    <Name>Wrong Place, Wrong Time</Name>
+    <Description>
+      [H4]Wrong Place, Wrong Time[h4]
+      Please see page 38 of the Core Rulebook for details.
+
+    </Description>
+  </Hook>
+  <Hook>
+    <Key>ACADEMIC</Key>
+    <Name>Academic</Name>
+    <Description>
+      [H4]Academic[h4]
+      Please see page 13 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+  </Hook>
+  <Hook>
+    <Key>CRIMINAL</Key>
+    <Name>Criminal</Name>
+    <Description>
+      [H4]Criminal[h4]
+      Please see page 13 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+  </Hook>
+  <Hook>
+    <Key>ENTREPRENEUR</Key>
+    <Name>Entrepreneur</Name>
+    <Description>
+      [H4]Entrepreneur[h4]
+      Please see page 15 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+  </Hook>
+  <Hook>
+    <Key>EXIMP</Key>
+    <Name>Ex-Imperial Operator</Name>
+    <Description>
+      [H4]Ex-Imperial Operator[h4]
+      Please see page 16 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+  </Hook>
+  <Hook>
+    <Key>FALLENNOBLE</Key>
+    <Name>Fallen Noble</Name>
+    <Description>
+      [H4]Fallen Noble[h4]
+      Please see page 16 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+  </Hook>
+  <Hook>
+    <Key>WANDERER</Key>
+    <Name>Wanderer</Name>
+    <Description>
+      [H4]Wanderer[h4]
+      Please see page 18 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+  </Hook>
+</Hooks>

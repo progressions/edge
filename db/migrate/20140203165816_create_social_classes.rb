@@ -3,7 +3,7 @@ class CreateSocialClasses < ActiveRecord::Migration
     create_table :social_classes do |t|
       t.string :name
       t.text :description
-      t.string :slug
+      t.string :key
 
       t.timestamps
     end
