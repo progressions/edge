@@ -22,9 +22,9 @@
 #  portrait_content_type :string(255)
 #  portrait_file_size    :integer
 #  portrait_updated_at   :datetime
-#  social_class          :string(255)
-#  background            :string(255)
 #  story                 :text
+#  social_class_id       :integer
+#  background_id         :integer
 #
 
 class Character < ActiveRecord::Base

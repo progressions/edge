@@ -1,81 +1,72 @@
-hook:
+opportunity_knocks:
   slug: OPP
   name: Opportunity Knocks
   description: |
     <h4>Opportunity Knocks</h4>
-    Please see page 37 of the Core Rulebook for details.
-hook:
+    <p>Please see page 37 of the Core Rulebook for details.</p>
+higher_calling:
   slug: HIGH
   name: Higher Calling
   description: |
     <h4>Higher Calling</h4>
-    Please see page 37 of the Core Rulebook for details.
-hook:
+    <p>Please see page 37 of the Core Rulebook for details.</p>
+enemies:
   slug: ENEMIES
   name: Enemies and Antagonists
   description: |
     <h4>Enemies and Antagonists</h4>
-    Please see page 38 of the Core Rulebook for details.
-hook:
+    <p>Please see page 38 of the Core Rulebook for details.</p>
+failure_of_character:
   slug: FLAW
   name: Failure of Character
   description: |
     <h4>Failure of Character</h4>
-    Please see page 38 of the Core Rulebook for details.
-hook:
+    <p>Please see page 38 of the Core Rulebook for details.</p>
+wrong:
   slug: WRONG
   name: Wrong Place, Wrong Time
   description: |
     <h4>Wrong Place, Wrong Time</h4>
-    Please see page 38 of the Core Rulebook for details.
-hook:
+    <p>Please see page 38 of the Core Rulebook for details.</p>
+academic:
   slug: ACADEMIC
   name: Academic
   description: |
     <h4>Academic</h4>
-    Please see page 13 of Enter the Unknown for details.
-
+    <p>Please see page 13 of Enter the Unknown for details.</p>
   source: Enter the Unknown
-hook:
+criminal:
   slug: CRIMINAL
   name: Criminal
   description: |
     <h4>Criminal</h4>
-    Please see page 13 of Enter the Unknown for details.
-
+    <p>Please see page 13 of Enter the Unknown for details.</p>
   source: Enter the Unknown
-hook:
+entrepreneur:
   slug: ENTREPRENEUR
   name: Entrepreneur
   description: |
     <h4>Entrepreneur</h4>
-    Please see page 15 of Enter the Unknown for details.
-
+    <p>Please see page 15 of Enter the Unknown for details.</p>
   source: Enter the Unknown
-hook:
+eximp:
   slug: EXIMP
   name: Ex-Imperial Operator
   description: |
     <h4>Ex-Imperial Operator</h4>
-    Please see page 16 of Enter the Unknown for details.
-
+    <p>Please see page 16 of Enter the Unknown for details.</p>
   source: Enter the Unknown
-
-hook:
+fallennoble:
   slug: FALLENNOBLE
   name: Fallen Noble
   description: |
     <h4>Fallen Noble</h4>
-    Please see page 16 of Enter the Unknown for details.
-
+    <p>Please see page 16 of Enter the Unknown for details.</p>
   source: Enter the Unknown
-
-hook:
+wanderer:
   slug: WANDERER
   name: Wanderer
   description: |
     <h4>Wanderer</h4>
-    Please see page 18 of Enter the Unknown for details.
-
+    <p>Please see page 18 of Enter the Unknown for details.</p>
   source: Enter the Unknown
-
