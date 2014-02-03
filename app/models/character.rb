@@ -26,7 +26,7 @@ class Character < ActiveRecord::Base
   has_many :experience_ranks
 
   def total_experience
-    experience_ranks.sum(:value)
+    experience_ranks.sum(:amount).to_i + used_experience
   end
 
   def self.from_xml(xml)
