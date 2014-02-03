@@ -8,6 +8,11 @@ body {
 }
 
 .character_details {
+  border: 1px solid #ccc;
+  margin-left: 0;
+  margin-bottom: 30px;
+  padding: 5px;
+
   .dl-horizontal dt {
     width: 80px;
   }

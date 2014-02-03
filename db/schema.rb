@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203045531) do
+ActiveRecord::Schema.define(version: 20140203165850) do
+
+  create_table "backgrounds", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "characters", force: true do |t|
     t.string   "name"
@@ -33,15 +41,23 @@ ActiveRecord::Schema.define(version: 20140203045531) do
     t.string   "portrait_content_type"
     t.integer  "portrait_file_size"
     t.datetime "portrait_updated_at"
-    t.string   "social_class"
-    t.string   "background"
     t.text     "story"
+    t.integer  "social_class_id"
+    t.integer  "background_id"
   end
 
   create_table "experience_ranks", force: true do |t|
     t.integer  "character_id"
     t.integer  "amount"
     t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "social_classes", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

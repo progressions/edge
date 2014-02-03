@@ -6,11 +6,15 @@
       .form-horizontal
         = f.inputs do
           = f.input :social_class, as: :select, collection: @social_classes
+          .social_class_detail.well
           = f.input :background, as: :select, collection: @backgrounds
+          .background_detail.well
 
     .span5.offset1
       .form-horizontal
-        = f.input :story, input_html: {class: "span5"}
+        .controls
+          = f.label :story
+          = f.text_area :story, class: "span5", rows: 20
 
   .row
     .span8
