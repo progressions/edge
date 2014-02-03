@@ -94,6 +94,12 @@ class Character < ActiveRecord::Base
         xml.tag!(:Eyes, eyes)
         xml.tag!(:OtherFeatures, notable_features)
       end
+      xml.tag!(:Class) do
+        xml.tag!(:ClassKey, social_class.slug)
+      end
+      xml.tag!(:Hook) do
+        xml.tag!(:HookKey, background.slug)
+      end
     end
   end
 
