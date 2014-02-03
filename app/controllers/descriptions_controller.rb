@@ -19,6 +19,6 @@ class DescriptionsController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:name, :player_name, :gender, :age, :height, :build, :hair, :eyes, :notable_features)
+    params.require(:character).permit(:name, :player_name, :gender, :age, :height, :build, :hair, :eyes, :notable_features, :credits, :earned_experience)
   end
 end

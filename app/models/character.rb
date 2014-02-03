@@ -29,6 +29,18 @@ class Character < ActiveRecord::Base
     experience_ranks.sum(:amount).to_i + used_experience
   end
 
+  def earned_experience_rank
+    experience_ranks.where(source: :purchased).first || experience_ranks.create(source: :purchased, amount: 0)
+  end
+
+  def earned_experience
+    earned_experience_rank.amount
+  end
+
+  def earned_experience=(amount)
+    earned_experience_rank.update_attributes(amount: amount)
+  end
+
   def self.from_xml(xml)
     hash = Hash.from_xml(xml)
     character_params = {}
