@@ -25,6 +25,10 @@ class Character < ActiveRecord::Base
 
   has_many :experience_ranks
 
+  def total_experience
+    experience_ranks.sum(:value)
+  end
+
   def self.from_xml(xml)
     hash = Hash.from_xml(xml)
     character_params = {}

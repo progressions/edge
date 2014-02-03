@@ -10,6 +10,6 @@
 #  updated_at   :datetime
 #
 
-class ExperienceRanks < ActiveRecord::Base
+class ExperienceRank < ActiveRecord::Base
   belongs_to :characte
 end
