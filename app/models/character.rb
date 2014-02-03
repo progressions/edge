@@ -17,6 +17,7 @@
 #  eyes             :string(255)
 #  notable_features :text
 #  credits          :integer
+#  used_experience  :integer
 #
 
 class Character < ActiveRecord::Base
