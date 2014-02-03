@@ -1,9 +1,9 @@
 - @active = :obligation
 
-= semantic_nested_form_for(@character, url: obligation_url) do |f|
-  .form-horizontal.obligations
-    = f.semantic_fields_for :character_obligations do |c|
-      .row
+.row
+  = semantic_nested_form_for(@character, url: obligation_url) do |f|
+    .form-horizontal.obligations.span7
+      = f.semantic_fields_for :character_obligations do |c|
         .span3
           = c.label :obligation_id, "Obligation"
           = c.input :obligation_id, as: :select, collection: @obligations, input_html: {class: 'obligation_select'}
@@ -23,8 +23,18 @@
             = div_for(obligation, style: "display: none;") do
               = format_description(obligation.description)
 
+        .clearfix.clear
 
-    %p= f.link_to_add "Add", :character_obligations, class: "btn"
+      %p= f.link_to_add "Add", :character_obligations, class: "btn"
+
+      %p= f.submit(class: "btn btn-success")
+
+    .span2
+      %h3 Options
+
+      .control-group
+        %label Starting Size
+        .controls
+          = select_tag(:starting_size, options_for_select([5,10,15]))
 
 
-    %p= f.submit(class: "btn btn-success")

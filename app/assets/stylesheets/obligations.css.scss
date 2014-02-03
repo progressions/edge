@@ -2,7 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+form {
+  margin: 0;
+}
+
 .obligations {
+  .field {
+    clear: both;
+    margin-bottom: 20px;
+  }
+
   .label {
     display: none;
   }
@@ -14,3 +23,5 @@
 .obligation_details {
   height: 100px;
 }
+
+
