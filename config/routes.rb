@@ -22,6 +22,7 @@ Edge::Application.routes.draw do
       get :copy
 
       resources :descriptions
+      resource :background
     end
   end
 
