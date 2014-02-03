@@ -11,5 +11,7 @@
 #
 
 class ExperienceRank < ActiveRecord::Base
-  belongs_to :characte
+  SOURCES = [:starting, :species, :career, :talent, :obligation, :duty, :attachment, :item, :purchased, :character]
+
+  belongs_to :character
 end
