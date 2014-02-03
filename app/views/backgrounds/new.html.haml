@@ -9,12 +9,12 @@
           .social_class_detail.well
             - @social_classes.each do |social_class|
               = div_for(social_class, style: "display: none;") do
-                = social_class.description.html_safe
+                = format_description(social_class.description)
           = f.input :background, as: :select, collection: @backgrounds
           .background_detail.well
             - @backgrounds.each do |background|
               = div_for(background, style: "display: none;") do
-                = background.description.html_safe
+                = format_description(background.description)
 
     .span5.offset1
       .form-horizontal
