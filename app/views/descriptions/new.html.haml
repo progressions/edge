@@ -15,7 +15,11 @@
           = f.input :eyes, input_html: {class: "input-medium"}
           = f.input :notable_features, input_html: {rows: 5}
 
-    .span3.offset1
-      %p Earned XP 100
-      %p Total Credits 500
+    .span4
+      .form-horizontal
+        = f.input :credits
+
+    .row
+      .span8
+        = f.submit(class: "btn-success")
 

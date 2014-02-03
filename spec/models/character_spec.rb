@@ -2,13 +2,21 @@
 #
 # Table name: characters
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  description :text
-#  user_id     :integer
-#  created_at  :datetime
-#  updated_at  :datetime
-#  player_name :string(255)
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  description      :text
+#  user_id          :integer
+#  created_at       :datetime
+#  updated_at       :datetime
+#  player_name      :string(255)
+#  gender           :string(255)
+#  age              :string(255)
+#  height           :string(255)
+#  build            :string(255)
+#  hair             :string(255)
+#  eyes             :string(255)
+#  notable_features :text
+#  credits          :integer
 #
 
 require 'spec_helper'
