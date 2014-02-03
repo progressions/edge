@@ -1,1 +1,18 @@
-%h1 Hello
+- @active = :description
+
+%h1 Description
+
+.form-horizontal
+  = semantic_form_for(@character, url: description_url) do |f|
+    = f.inputs do
+      = f.input :name
+      = f.input :player_name
+      = f.input :gender, as: :select, collection: ["Male", "Female", "Other"], input_html: {class: "input-medium"}
+      = f.input :age, input_html: {class: "input-small"}
+      = f.input :height, input_html: {class: "input-small"}
+      = f.input :build, input_html: {class: "input-medium"}
+      = f.input :hair, input_html: {class: "input-medium"}
+      = f.input :eyes, input_html: {class: "input-medium"}
+      = f.input :notable_features
+
+

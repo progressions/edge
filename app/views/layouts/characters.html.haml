@@ -2,17 +2,7 @@
   .row
     .span2
       %ul.nav.nav-tabs.nav-stacked
-        %li{class: "#{'active' if @active == :show}"}= link_to("Character", character_url(@character))
-        %li{class: "#{'active' if @active == :name}"}= link_to("Name", character_build_url(:name, character_id: @character.id))
-        %li{class: "#{'active' if @active == :base_obligation}"}= link_to("Party Size", character_build_url(:party_size, character_id: @character.id))
-        - if @character.base_obligation?
-          %li{class: "#{'active' if @active == :obligations}"}= link_to("Obligation", character_build_url(:obligation, character_id: @character.id))
-        %li{class: "#{'active' if @active == :species}"}= link_to("Species", character_build_url(:species, character_id: @character.id))
-        %li{class: "#{'active' if @active == :career}"}= link_to("Career", character_build_url(:career, character_id: @character.id))
-        %li{class: "#{'active' if @active == :career_skills}"}= link_to("Career Skills", character_build_url(:career_skills, character_id: @character.id))
-        %li{class: "#{'active' if @active == :specialization}"}= link_to("Specialization", character_build_url(:specialization, character_id: @character.id))
-        %li{class: "#{'active' if @active == :specialization_skills}"}= link_to("Specialization Skills", character_build_url(:specialization_skills, character_id: @character.id))
-        %li= link_to("Invest Experience", "")
+        %li{class: "#{'active' if @active == :description}"}= link_to("Description", new_description_url(@character))
 
     .span8
       = yield

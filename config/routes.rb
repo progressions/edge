@@ -20,10 +20,10 @@ Edge::Application.routes.draw do
     member do
       get :export
       get :copy
+
+      resources :descriptions
     end
   end
-
-  resources :descriptions
 
   root 'characters#index'
 
