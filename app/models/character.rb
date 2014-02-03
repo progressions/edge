@@ -25,6 +25,9 @@ class Character < ActiveRecord::Base
 
   has_many :experience_ranks
 
+  has_attached_file :portrait, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
+
   def total_experience
     experience_ranks.sum(:amount).to_i + used_experience
   end
