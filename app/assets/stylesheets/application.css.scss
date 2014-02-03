@@ -19,4 +19,48 @@ body {
   td {
     text-align: center;
   }
+
+  .characteristics {
+    td {
+      border: 10px solid white;
+      border-bottom: none;
+      border-top: none;
+    }
+    tr.values {
+      td {
+        background-color: green;
+
+        height: 40px;
+        width: 50px;
+
+        .value {
+          background-color: white;
+          border-radius: 50%;
+          border: double 4px black;
+
+          margin: auto;
+
+          height: 35px;
+          width: 35px;
+
+          text-align: center;
+          vertical-align: middle;
+
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 35px;
+        }
+      }
+    }
+    tr.names {
+      background-color: maroon;
+      color: white;
+      font-size: 9px;
+      text-transform: uppercase;
+
+      td {
+        border-radius: 10%;
+      }
+    }
+  }
 }
