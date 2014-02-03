@@ -1,2 +1,0 @@
-class ExperienceRank < Rank
-end
