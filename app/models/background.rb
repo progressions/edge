@@ -12,5 +12,7 @@
 #
 
 class Background < ActiveRecord::Base
+  include Sluggable
+
   has_many :characters
 end

@@ -11,5 +11,7 @@
 #
 
 class SocialClass < ActiveRecord::Base
+  include Sluggable
+
   has_many :characters
 end

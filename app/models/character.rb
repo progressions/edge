@@ -68,6 +68,12 @@ class Character < ActiveRecord::Base
     character_params[:eyes] = description_hash["Eyes"]
     character_params[:notable_features] = description_hash["OtherFeatures"]
 
+    social_class_slug = hash["Character"]["Class"]["ClassKey"]
+    background_slug = hash["Character"]["Hook"]["HookKey"]
+
+    character_params[:social_class] = SocialClass.lookup(social_class_slug)
+    character_params[:background] = Background.lookup(background_slug)
+
     create(character_params)
   end
 
