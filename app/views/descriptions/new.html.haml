@@ -20,6 +20,14 @@
         = f.input :earned_experience, as: :number
         = f.input :credits
 
+        .controls
+          .portrait= image_tag(@character.portrait.url)
+
+          %p= link_to("Select Portrait", "", class: "btn select_portrait")
+
+          .well.portrait_upload{style: "display: none;"}
+            = f.file_field :portrait
+
     .row
       .span8
         = f.submit(class: "btn btn-success")
