@@ -11,13 +11,5 @@
 #  updated_at  :datetime
 #
 
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
-FactoryGirl.define do
-  factory :obligation do
-    key "MyString"
-    name "MyString"
-    description "MyText"
-    source "MyString"
-  end
+class Obligation < ActiveRecord::Base
 end
