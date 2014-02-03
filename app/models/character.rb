@@ -34,6 +34,9 @@ class Character < ActiveRecord::Base
   belongs_to :social_class
   belongs_to :background
 
+  has_one :obligation_options
+  accepts_nested_attributes_for :obligation_options
+
   has_many :character_obligations
   has_many :obligations, through: :character_obligations
 

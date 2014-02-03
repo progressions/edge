@@ -6,17 +6,17 @@ form {
   margin: 0;
 }
 
+.label {
+  display: none;
+}
+li {
+  list-style-type: none;
+}
+
 .obligations {
   .field {
     clear: both;
     margin-bottom: 20px;
-  }
-
-  .label {
-    display: none;
-  }
-  li {
-    list-style-type: none;
   }
 }
 

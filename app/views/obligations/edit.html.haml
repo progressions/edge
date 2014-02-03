@@ -32,9 +32,8 @@
     .span2
       %h3 Options
 
-      .control-group
-        %label Starting Size
-        .controls
-          = select_tag(:starting_size, options_for_select([5,10,15]))
+      = f.semantic_fields_for :obligation_options do |o|
+        = o.label :starting_size
+        = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
 
 

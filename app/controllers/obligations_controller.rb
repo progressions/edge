@@ -19,6 +19,6 @@ class ObligationsController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(character_obligations_attributes: [:id, :obligation_id, :size, :notes, :_destroy])
+    params.require(:character).permit(character_obligations_attributes: [:id, :obligation_id, :size, :notes, :_destroy], obligation_options_attributes: [:id, :starting_size])
   end
 end
