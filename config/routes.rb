@@ -23,6 +23,7 @@ Edge::Application.routes.draw do
 
       resources :descriptions
       resource :background
+      resources :obligations
     end
   end
 
