@@ -42,7 +42,7 @@ class CharactersController < ApplicationController
 
   def new
     @character = current_user.characters.create
-    redirect_to new_description_url(id: @character)
+    redirect_to edit_description_url(id: @character)
   end
 
   def show
