@@ -10,7 +10,7 @@
       = f.semantic_fields_for :character_obligations do |c|
         .span3
           = c.label :obligation_id, "Obligation"
-          = c.input :obligation_id, as: :select, collection: @obligations, input_html: {class: 'obligation_select'}
+          = c.select :obligation_id, options_from_collection_for_select(@obligations, :id, :name), {}, class: 'obligation_select'
 
           .control-group
             = c.label :size
@@ -20,7 +20,7 @@
             = c.label :notes
             = c.text_area :notes
 
-          %p= c.link_to_remove "Remove", class: "btn"
+          %p= c.link_to_remove "Remove", class: 'btn btn-danger'
 
         .span3.well.obligation_details
           - @obligations.each do |obligation|
@@ -29,7 +29,7 @@
 
         .clearfix.clear
 
-      %p= f.link_to_add "New Obligation", :character_obligations, class: "btn"
+      %p= f.link_to_add 'New Obligation', :character_obligations, class: 'btn btn-info'
 
       .form-actions
         = f.submit(class: "btn btn-large btn-success")

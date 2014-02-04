@@ -7,7 +7,9 @@ $ ->
   Obligation.update_all()
 
   $(document).on('nested:fieldAdded', (event) ->
+    $('.obligation_select').change(Obligation.update)
     event.field.addClass("unsaved")
+    Obligation.update_all()
   )
 
 class window.Obligation
