@@ -27,13 +27,28 @@
 
       %p= f.link_to_add "Add", :character_obligations, class: "btn"
 
-      %p= f.submit(class: "btn btn-success")
+      .form-actions
+        = f.submit(class: "btn btn-success")
 
-    .span2
+    .span3.obligation_options
       %h3 Options
 
       = f.semantic_fields_for :obligation_options do |o|
         = o.label :starting_size
         = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
 
+        %label.checkbox
+          +5 Starting XP (+5 Obligation)
+          = o.check_box :plus_five_xp
 
+        %label.checkbox
+          +10 Starting XP (+10 Obligation)
+          = o.check_box :plus_ten_xp
+
+        %label.checkbox
+          +1,000 Credits (+5 Obligation)
+          = o.check_box :plus_thousand_credits
+
+        %label.checkbox
+          +2,500 Credits (+10 Obligation)
+          = o.check_box :plus_two_thousand_five_hundred_credits
