@@ -47,7 +47,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
   gem 'capybara'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'rspec-rails', '~> 2.0'
   gem 'jasmine-rails'
   gem 'database_cleaner'
