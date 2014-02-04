@@ -14,4 +14,8 @@ class ExperienceRank < ActiveRecord::Base
   SOURCES = [:starting, :species, :career, :talent, :obligation, :duty, :attachment, :item, :purchased, :character]
 
   belongs_to :character
+
+  def self.by_obligation
+    where(source: "obligation")
+  end
 end

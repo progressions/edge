@@ -46,8 +46,11 @@ class Character < ActiveRecord::Base
   has_attached_file :portrait, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
+  before_save :update_obligation_xp
+  before_save :update_obligation_credits
+
   def total_experience
-    experience_ranks.sum(:amount).to_i + used_experience
+    experience_ranks.sum(:amount).to_i + used_experience.to_i
   end
 
   def earned_experience_rank
@@ -60,6 +63,43 @@ class Character < ActiveRecord::Base
 
   def earned_experience=(amount)
     earned_experience_rank.update_attributes(amount: amount)
+  end
+
+  concerning :UpdatingObligationOptions do
+    def update_obligation_credits
+      amount = self.credits
+
+      if obligation_options.changes["plus_thousand_credits"] == [false, true]
+        amount += 1000
+      elsif obligation_options.changes["plus_thousand_credits"] == [true, false]
+        amount -= 1000
+      end
+
+      if obligation_options.changes["plus_two_thousand_five_hundred_credits"] == [false, true]
+        amount += 2500
+      elsif obligation_options.changes["plus_two_thousand_five_hundred_credits"] == [true, false]
+        amount -= 2500
+      end
+
+      self.credits = amount
+    end
+
+    def update_obligation_xp
+      amount = 0
+      if obligation_options.plus_five_xp
+        amount += 5
+      end
+      if obligation_options.plus_ten_xp
+        amount += 10
+      end
+      obligation_rank.update_attribute(:amount, amount)
+    end
+  end
+
+  concerning :Ranks do
+    def obligation_rank
+      experience_ranks.by_obligation.first || experience_ranks.build(source: "obligation")
+    end
   end
 
   def self.from_xml(xml)
