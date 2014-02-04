@@ -71,6 +71,8 @@ class Character < ActiveRecord::Base
 
   concerning :UpdatingObligationOptions do
     def update_obligation_credits
+      return unless obligation_options.present?
+
       amount = self.credits
 
       if obligation_options.changes["plus_thousand_credits"] == [false, true]
@@ -89,6 +91,8 @@ class Character < ActiveRecord::Base
     end
 
     def update_obligation_xp
+      return unless obligation_options.present?
+
       amount = 0
       if obligation_options.plus_five_xp
         amount += 5
