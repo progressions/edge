@@ -65,6 +65,10 @@ class Character < ActiveRecord::Base
     earned_experience_rank.update_attributes(amount: amount)
   end
 
+  def total_obligation
+    obligations.sum(:size).to_i
+  end
+
   concerning :UpdatingObligationOptions do
     def update_obligation_credits
       amount = self.credits

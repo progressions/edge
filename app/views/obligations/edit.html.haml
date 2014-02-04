@@ -3,6 +3,10 @@
 .row
   = semantic_nested_form_for(@character, url: obligation_url) do |f|
     .form-horizontal.obligations.span7
+      %h4
+        Total Obligation:
+        = @character.total_obligation
+
       = f.semantic_fields_for :character_obligations do |c|
         .span3
           = c.label :obligation_id, "Obligation"
@@ -25,10 +29,10 @@
 
         .clearfix.clear
 
-      %p= f.link_to_add "Add", :character_obligations, class: "btn"
+      %p= f.link_to_add "New Obligation", :character_obligations, class: "btn"
 
       .form-actions
-        = f.submit(class: "btn btn-success")
+        = f.submit(class: "btn btn-large btn-success")
 
     .span3.obligation_options
       %h3 Options
@@ -37,18 +41,21 @@
         = o.label :starting_size
         = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
 
-        %label.checkbox
+        - over_by_five = (@character.total_obligation - @character.obligation_options.try(:starting_size).to_i >= 5)
+        - over_by_ten = (@character.total_obligation - @character.obligation_options.try(:starting_size).to_i >= 10)
+
+        %label.checkbox{class: "#{'disabled' unless over_by_five}"}
           +5 Starting XP (+5 Obligation)
-          = o.check_box :plus_five_xp
+          = o.check_box :plus_five_xp, disabled: !over_by_five
 
-        %label.checkbox
+        %label.checkbox{class: "#{'disabled' unless over_by_ten}"}
           +10 Starting XP (+10 Obligation)
-          = o.check_box :plus_ten_xp
+          = o.check_box :plus_ten_xp, disabled: !over_by_ten
 
-        %label.checkbox
+        %label.checkbox{class: "#{'disabled' unless over_by_five}"}
           +1,000 Credits (+5 Obligation)
-          = o.check_box :plus_thousand_credits
+          = o.check_box :plus_thousand_credits, disabled: !over_by_five
 
-        %label.checkbox
+        %label.checkbox{class: "#{'disabled' unless over_by_ten}"}
           +2,500 Credits (+10 Obligation)
-          = o.check_box :plus_two_thousand_five_hundred_credits
+          = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !over_by_ten
