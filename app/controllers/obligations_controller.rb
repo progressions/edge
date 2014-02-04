@@ -4,6 +4,7 @@ class ObligationsController < ApplicationController
   def edit
     @character = current_user.characters.find(params[:id])
     @obligations = Obligation.all
+    @character.obligation_options ||= ObligationOptions.create(starting_size: 10)
   end
 
   def update

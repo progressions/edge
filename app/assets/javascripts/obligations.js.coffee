@@ -8,6 +8,7 @@ $ ->
 
   $(document).on('nested:fieldAdded', (event) ->
     $('.obligation_select').change(Obligation.update)
+    event.field.find(".size_input").val(10)
     event.field.addClass("unsaved")
     Obligation.update_all()
   )

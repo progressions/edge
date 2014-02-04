@@ -73,7 +73,7 @@ class Character < ActiveRecord::Base
     def update_obligation_credits
       return unless obligation_options.present?
 
-      amount = self.credits
+      amount = self.credits.to_i
 
       if obligation_options.changes["plus_thousand_credits"] == [false, true]
         amount += 1000
