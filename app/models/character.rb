@@ -43,7 +43,7 @@ class Character < ActiveRecord::Base
   accepts_nested_attributes_for :character_obligations, allow_destroy: true
   accepts_nested_attributes_for :obligations
 
-  has_attached_file :portrait, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/:style/missing.jpg"
+  has_attached_file :portrait, :styles => { :medium => "300x300", :thumb => "100x100#" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
   before_save :update_obligation_xp
