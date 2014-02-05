@@ -38,8 +38,13 @@ class window.Flash
     $(".flash").html(alert_html)
     $(".alert").alert()
 
+    setTimeout(Flash.close, 2000)
+
   @error: (message) ->
     Flash.update('error', message)
 
   @success: (message) ->
     Flash.update('success', message)
+
+  @close: ->
+    $('.alert').alert('close')
