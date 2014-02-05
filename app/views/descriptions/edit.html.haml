@@ -1,6 +1,6 @@
 - @active = :description
 
-= semantic_form_for(@character, url: description_url) do |f|
+= semantic_form_for(@character, url: description_url, remote: true) do |f|
   .row
     .span4
       .form-horizontal
@@ -40,6 +40,6 @@
 
 
     .row
-      .span8
+      .span8.form-actions
         = f.submit(class: "btn btn-success")
 

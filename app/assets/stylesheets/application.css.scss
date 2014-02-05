@@ -7,6 +7,19 @@ body {
   padding-top: 80px;
 }
 
+.alert {
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  font-size: 0.8em;
+  margin: 0px 0 0 -25%;
+  width: 600px;
+
+  z-index: 10000;
+}
+
+
+
 .character_details {
   border: 1px solid #ccc;
   margin-left: 0;
