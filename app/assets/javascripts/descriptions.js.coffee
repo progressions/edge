@@ -20,6 +20,7 @@ $ ->
 
   $('form.character').on 'ajax:success', (event, data, status, xhr) ->
     Portrait.update()
+    Details.update()
     Flash.success("Changes saved.")
 
 class window.Flash

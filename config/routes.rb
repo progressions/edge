@@ -29,6 +29,7 @@ Edge::Application.routes.draw do
     member do
       get :export
       get :copy
+      get :details
     end
   end
 

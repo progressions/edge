@@ -10,6 +10,15 @@ class CharactersController < ApplicationController
     render layout: "application"
   end
 
+  def details
+    @character = current_user.characters.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def import
     character_io = params[:character]
 
