@@ -4,8 +4,12 @@
 
 $ ->
   $('.form-actions').hide()
-  $('.select_portrait').click ->
-    $('.portrait_upload').show()
+  $('.select-portrait').click ->
+    $('.portrait-upload').show()
+    false
+
+  $('.close-portrait').click ->
+    $('.portrait-upload').hide()
     false
 
   $('form.character').on 'change', ->
@@ -15,6 +19,7 @@ $ ->
     Flash.error("There was a problem saving your changes.")
 
   $('form.character').on 'ajax:success', (event, data, status, xhr) ->
+    Portrait.update()
     Flash.success("Changes saved.")
 
 class window.Flash

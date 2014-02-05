@@ -20,9 +20,9 @@
         .controls
           #portrait
 
-          %p= link_to("Select Portrait", "", class: "btn select_portrait")
+          %p= link_to("Select Portrait", "", class: "btn select-portrait")
 
-          .well.portrait_upload{style: "display: none;"}
+          .well.portrait-upload{style: "display: none;"}
             .control-group
               %p Select stock portrait:
               = select_tag(:stock_portrait, options_for_select(@species_images), class: 'input-medium')
@@ -35,6 +35,8 @@
               %p Select from URL:
               = text_field_tag('portrait_url', '', class: 'input-medium')
 
+            %a.close-portrait.btn.btn-danger Close
+
         = f.input :earned_experience, as: :number
         = f.input :credits
 
@@ -45,5 +47,10 @@
 
 :javascript
   $().ready(function() {
-    $.ajax({ url: "#{portrait_description_url(@character, params.merge(format: 'js'))}" });
+    window.Portrait = {
+      update: function() {
+        $.ajax({ url: "#{portrait_description_url(@character, params.merge(format: 'js'))}" });
+      }
+    };
+    Portrait.update();
   });
