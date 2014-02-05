@@ -10,6 +10,15 @@ class DescriptionsController < ApplicationController
     end
   end
 
+  def portrait
+    @character = current_user.characters.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def update
     @character = current_user.characters.find(params[:id])
 

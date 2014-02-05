@@ -18,7 +18,7 @@
     .span4
       .form-horizontal
         .controls
-          .portrait= image_tag(@character.portrait.url(:medium))
+          #portrait
 
           %p= link_to("Select Portrait", "", class: "btn select_portrait")
 
@@ -43,3 +43,7 @@
       .span8.form-actions
         = f.submit(class: "btn btn-success")
 
+:javascript
+  $().ready(function() {
+    $.ajax({ url: "#{portrait_description_url(@character, params.merge(format: 'js'))}" });
+  });
