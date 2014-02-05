@@ -10,7 +10,7 @@
       = f.semantic_fields_for :character_obligations do |c|
         .span3
           = c.label :obligation_id, "Obligation"
-          = c.select :obligation_id, options_from_collection_for_select(@obligations, :id, :name), {}, class: 'obligation_select'
+          = c.input :obligation_id, as: :select, collection: @obligations, include_blank: false, input_html: {class: 'obligation_select'}
 
           .control-group
             = c.label :size
