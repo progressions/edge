@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203223209) do
+ActiveRecord::Schema.define(version: 20140206042505) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -96,6 +96,22 @@ ActiveRecord::Schema.define(version: 20140203223209) do
     t.string   "email"
     t.string   "password_digest"
     t.boolean  "guest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weapons", force: true do |t|
+    t.string   "name"
+    t.string   "key"
+    t.text     "description"
+    t.string   "skill_key"
+    t.integer  "damage"
+    t.integer  "crit"
+    t.string   "range"
+    t.integer  "encumbrance"
+    t.integer  "hp"
+    t.integer  "price"
+    t.integer  "rarity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
