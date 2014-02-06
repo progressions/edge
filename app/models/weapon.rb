@@ -22,6 +22,9 @@
 #
 
 class Weapon < ActiveRecord::Base
+  has_many :categorizables, foreign_key: "parent_id"
+  has_many :categories, through: :categorizables
+
   RANGES = {
     "RANGLT" => "Ranged (Light)",
     "RANGHVY" => "Ranged (Heavy)",
@@ -50,7 +53,7 @@ class Weapon < ActiveRecord::Base
   def categories_from_xml=(values)
     values = Array(values)
     values.each do |value|
-      category = Category.new(name: value)
+      category = Category.where(name: value).first || Category.new(name: value)
       categories << category
     end
   end
