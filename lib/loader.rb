@@ -18,7 +18,7 @@ class Loader
         key = values["Key"]
         class_values = {}
         values.each do |k, v|
-          k = k.downcase
+          k = k.underscore
           if k == "type"
             k = "#{klass.name.underscore}_type"
           end
@@ -29,7 +29,8 @@ class Loader
           klass.column_names.include?(k)
         end
 
-        record = klass.where(key: key).first || klass.create(class_values)
+        record = klass.where(key: key).first || klass.new
+        record.update_attributes(class_values)
 
         puts "Loaded record: #{record.inspect}"
       end

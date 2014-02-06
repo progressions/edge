@@ -17,6 +17,8 @@
 #  weapon_type :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  damage_add  :integer
+#  source      :string(255)
 #
 
 require 'spec_helper'
