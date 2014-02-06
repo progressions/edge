@@ -26,6 +26,7 @@ class Weapon < ActiveRecord::Base
     "RANGLT" => "Ranged (Light)",
     "RANGHVY" => "Ranged (Heavy)",
     "GUNN" => "Gunnery",
+    "BRAWL" => "Brawl",
     "MELEE" => "Melee",
     "LTSABER" => "Lightsaber"
   }
