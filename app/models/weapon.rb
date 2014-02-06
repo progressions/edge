@@ -23,6 +23,7 @@
 
 class Weapon < ActiveRecord::Base
   include CategoriesFromXml
+  include Sourced
 
   has_many :categorizables, foreign_key: "parent_id", dependent: :destroy
   has_many :categories, through: :categorizables
@@ -36,10 +37,6 @@ class Weapon < ActiveRecord::Base
     "LTSABER" => "Lightsaber"
   }
 
-  def category_names
-    categories.pluck(:name)
-  end
-
   def skill
     RANGES[self.skill_key] || self.skill_key
   end
@@ -50,9 +47,5 @@ class Weapon < ActiveRecord::Base
     else
       "+#{damage_add}"
     end
-  end
-
-  def source
-    self.read_attribute(:source) || "Edge of the Empire Rulebook"
   end
 end

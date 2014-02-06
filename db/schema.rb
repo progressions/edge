@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206230405) do
+ActiveRecord::Schema.define(version: 20140206233019) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -119,6 +119,26 @@ ActiveRecord::Schema.define(version: 20140206230405) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "navicomputer"
+    t.string   "sensor_range"
+    t.string   "crew"
+    t.integer  "encumbrance_capacity"
+    t.integer  "passengers"
+    t.string   "consummables"
+    t.integer  "silhouette"
+    t.integer  "speed"
+    t.integer  "handling"
+    t.integer  "def_fore"
+    t.integer  "def_aft"
+    t.integer  "def_port"
+    t.integer  "def_starboard"
+    t.integer  "armor"
+    t.integer  "hull_trauma"
+    t.integer  "system_strain"
+    t.integer  "hp"
+    t.integer  "price"
+    t.integer  "rarity"
+    t.string   "source"
   end
 
   create_table "weapons", force: true do |t|

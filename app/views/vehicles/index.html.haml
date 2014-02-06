@@ -3,9 +3,23 @@
 %table.table.sortable
   %thead
     %tr
-      %th name
+      %th Name
+      %th Silhouette
+      %th Speed
+      %th Handling
+      %th Hull Trauma
+      %th System Strain
+      %th Source
+      %th Categories
 
   %tbody
     - @vehicles.each do |vehicle|
       %tr
         %td= vehicle.name
+        %td= vehicle.silhouette
+        %td= vehicle.speed
+        %td= vehicle.handling
+        %td= vehicle.hull_trauma
+        %td= vehicle.system_strain
+        %td= vehicle.source
+        %td= vehicle.category_names.join(", ")

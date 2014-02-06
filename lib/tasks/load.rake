@@ -1,7 +1,7 @@
 require 'loader'
 
 namespace :load do
-  task all: [:backgrounds, :obligation, :social_class, :weapons]
+  task all: [:backgrounds, :obligation, :social_class, :weapons, :vehicles]
 
   task backgrounds: :environment do
     Loader.load_from_file("Background", filename: "Hooks", collection: "Hooks", member: "Hook")
