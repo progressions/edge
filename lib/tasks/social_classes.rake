@@ -3,4 +3,3 @@ namespace :social_classes do
     Loader.load_from_xml("SocialClass", filename: "Classes", collection: "Classes", member: "Class")
   end
 end
-
