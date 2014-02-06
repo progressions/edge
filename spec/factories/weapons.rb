@@ -13,5 +13,6 @@ FactoryGirl.define do
     hp 1
     price 1
     rarity 1
+    weapon_type "MyString"
   end
 end
