@@ -11,6 +11,8 @@
 #
 
 class Vehicle < ActiveRecord::Base
+  include CategoriesFromXml
+
   has_many :categorizables, foreign_key: "parent_id", dependent: :destroy
   has_many :categories, through: :categorizables
 end

@@ -22,6 +22,8 @@
 #
 
 class Weapon < ActiveRecord::Base
+  include CategoriesFromXml
+
   has_many :categorizables, foreign_key: "parent_id", dependent: :destroy
   has_many :categories, through: :categorizables
 
@@ -52,13 +54,5 @@ class Weapon < ActiveRecord::Base
 
   def source
     self.read_attribute(:source) || "Edge of the Empire Rulebook"
-  end
-
-  def categories_from_xml=(values)
-    values = Array(values)
-    values.each do |value|
-      category = Category.where(name: value).first || Category.new(name: value)
-      categories << category
-    end
   end
 end

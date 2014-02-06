@@ -29,7 +29,25 @@ class Loader
     puts "Loaded record: #{record.inspect}"
   end
 
-  def self.load_from_xml(name, options={})
+  def self.load_from_files(name, options={})
+    path = Rails.root.join("config", "data", name.underscore.pluralize, "*")
+    Dir[path].each do |path|
+      @hash = Loader.get_hash_from_file(path)
+      Loader.load_single(name.constantize, @hash[name])
+    end
+  end
+
+  def self.get_hash_from_file(path)
+    File.open(path) do |f|
+      xml = Nokogiri::XML(f)
+
+      @hash = Hash.from_xml(xml.to_s)
+    end
+
+    @hash
+  end
+
+  def self.load_from_file(name, options={})
     options ||= {}
     begin
       klass = options[:klass] || name.constantize
@@ -37,8 +55,9 @@ class Loader
       collection_name = options[:collection] || name.pluralize
 
       filename = options[:filename] || collection_name
+      path = options[:path] || Rails.root.join("config", "data", "#{filename}.xml")
 
-      File.open(Rails.root.join("config", "data", "#{filename}.xml")) do |f|
+      File.open(path) do |f|
         xml = Nokogiri::XML(f)
 
         @hash = Hash.from_xml(xml.to_s)
