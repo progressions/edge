@@ -17,16 +17,25 @@ class Loader
       @hash[collection_name][member_name].each do |values|
         key = values["Key"]
         class_values = {}
+
         values.each do |k, v|
+          next unless v.present?
+
           k = k.underscore
           if k == "type"
             k = "#{klass.name.underscore}_type"
           end
 
+          if k == "categories"
+            k = "categories_from_xml"
+            v = v["Category"]
+          end
+
           class_values[k] = v
         end
+
         class_values.select! do |k,v|
-          klass.column_names.include?(k)
+          klass.new.respond_to?("#{k}=".to_sym)
         end
 
         record = klass.where(key: key).first || klass.new

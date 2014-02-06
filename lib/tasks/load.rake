@@ -1,3 +1,5 @@
+require 'loader'
+
 namespace :load do
   task all: [:backgrounds, :obligation, :social_class, :weapons]
 

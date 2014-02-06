@@ -48,4 +48,12 @@ class Weapon < ActiveRecord::Base
   def source
     self.read_attribute(:source) || "Edge of the Empire Rulebook"
   end
+
+  def categories_from_xml=(values)
+    values = Array(values)
+    values.each do |value|
+      category = Category.new(name: value)
+      categories << category
+    end
+  end
 end
