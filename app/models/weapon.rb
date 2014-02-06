@@ -22,6 +22,8 @@
 #
 
 class Weapon < ActiveRecord::Base
+  has_many :categories, as: :categorizable
+
   RANGES = {
     "RANGLT" => "Ranged (Light)",
     "RANGHVY" => "Ranged (Heavy)",
