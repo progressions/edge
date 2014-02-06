@@ -1,29 +1,31 @@
 %h1 Weapons
 
 %table.table.sortable
-  %tr
-    %th Name
-    %th Skill
-    %th Dam
-    %th Crit
-    %th Range
-    %th Encum
-    %th HP
-    %th Price
-    %th Rarity
-    %th Type
-    %th Source
-
-  - @weapons.each do |weapon|
+  %thead
     %tr
-      %td= weapon.name
-      %td= weapon.skill
-      %td= weapon.display_damage
-      %td= weapon.crit
-      %td= weapon.range
-      %td= weapon.encumbrance
-      %td= weapon.hp
-      %td= weapon.price
-      %td= weapon.rarity
-      %td= weapon.weapon_type
-      %td= weapon.source
+      %th{"data-defaultsort" => "asc", "data-sortcolumn" => "0", "data-sortkey" => "0-1"}  Name
+      %th Skill
+      %th Dam
+      %th Crit
+      %th Range
+      %th Encum
+      %th HP
+      %th Price
+      %th Rarity
+      %th Type
+      %th Source
+
+  %tbody
+    - @weapons.each do |weapon|
+      %tr
+        %td= weapon.name
+        %td= weapon.skill
+        %td= weapon.display_damage
+        %td= weapon.crit
+        %td= weapon.range
+        %td= weapon.encumbrance
+        %td= weapon.hp
+        %td= weapon.price
+        %td= weapon.rarity
+        %td= weapon.weapon_type
+        %td= weapon.source
