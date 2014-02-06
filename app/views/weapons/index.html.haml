@@ -1,0 +1,13 @@
+%h1 Weapons
+
+%table.table
+  %tr
+    %th Name
+    %th Dam
+    %th Crit
+
+  - @weapons.each do |weapon|
+    %tr
+      %td= weapon.name
+      %td= weapon.damage
+      %td= weapon.crit
