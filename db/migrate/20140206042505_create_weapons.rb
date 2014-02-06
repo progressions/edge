@@ -12,6 +12,7 @@ class CreateWeapons < ActiveRecord::Migration
       t.integer :hp
       t.integer :price
       t.integer :rarity
+      t.string :weapon_type
 
       t.timestamps
     end

@@ -18,8 +18,16 @@ class Loader
         key = values["Key"]
         class_values = {}
         values.each do |k, v|
-          class_values[k.downcase] = v
+          if klass.respond_to?(:loader_column_names)
+            k = klass.loader_column_names[k.downcase] || k.downcase
+          end
+
+          class_values[k] = v
         end
+        class_values.select! do |k,v|
+          klass.column_names.include?(k)
+        end
+
         record = klass.where(key: key).first || klass.create(class_values)
 
         puts "Loaded record: #{record.inspect}"

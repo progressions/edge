@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20140206042505) do
     t.integer  "hp"
     t.integer  "price"
     t.integer  "rarity"
+    t.string   "weapon_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
