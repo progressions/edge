@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Classes>
+  <Class>
+    <Key>LOW</Key>
+    <Name>Down and Out</Name>
+    <Description>
+      [H4]Down and Out[h4]
+      Please see page 36 of the Core Rulebook for details.
+
+    </Description>
+  </Class>
+  <Class>
+    <Key>MIDDLE</Key>
+    <Name>Middle Class Struggles</Name>
+    <Description>
+      [H4]Middle Class Struggles[h4]
+      Please see page 37 of the Core Rulebook for details.
+
+    </Description>
+  </Class>
+  <Class>
+    <Key>HIGH</Key>
+    <Name>High and Mighty</Name>
+    <Description>
+      [H4]High and Mighty[h4]
+      Please see page 37 of the Core Rulebook for details.
+
+    </Description>
+  </Class>
+  <Class>
+    <Key>OUT</Key>
+    <Name>The Outsider</Name>
+    <Description>
+      [H4]The Outsider[h4]
+      Please see page 37 of the Core Rulebook for details.
+
+    </Description>
+  </Class>
+</Classes>
