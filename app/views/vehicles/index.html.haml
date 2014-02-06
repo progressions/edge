@@ -10,7 +10,7 @@
       %th Hull Trauma
       %th System Strain
       %th Source
-      %th Categories
+      %th Type
 
   %tbody
     - @vehicles.each do |vehicle|
@@ -22,4 +22,4 @@
         %td= vehicle.hull_trauma
         %td= vehicle.system_strain
         %td= vehicle.source
-        %td= vehicle.category_names.join(", ")
+        %td= vehicle.vehicle_type
