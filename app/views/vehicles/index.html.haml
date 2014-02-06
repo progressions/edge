@@ -1,0 +1,11 @@
+%h1 Vehicles
+
+%table.table.sortable
+  %thead
+    %tr
+      %th name
+
+  %tbody
+    - @vehicles.each do |vehicle|
+      %tr
+        %td= vehicle.name
