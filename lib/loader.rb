@@ -1,5 +1,5 @@
 class Loader
-  def self.load_single(values)
+  def self.load_single(klass, values)
     key = values["Key"]
     class_values = {}
 
@@ -45,7 +45,7 @@ class Loader
       end
 
       @hash[collection_name][member_name].each do |values|
-        Loader.load_single(values)
+        Loader.load_single(klass, values)
       end
     end
   end
