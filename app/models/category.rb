@@ -9,4 +9,6 @@
 #
 
 class Category < ActiveRecord::Base
+  has_many :categorizables
+  has_many :weapons, through: :categorizables
 end
