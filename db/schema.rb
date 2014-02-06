@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206233019) do
+ActiveRecord::Schema.define(version: 20140206234040) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 20140206233019) do
     t.integer  "price"
     t.integer  "rarity"
     t.string   "source"
+    t.string   "vehicle_type"
   end
 
   create_table "weapons", force: true do |t|
