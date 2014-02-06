@@ -18,8 +18,9 @@ class Loader
         key = values["Key"]
         class_values = {}
         values.each do |k, v|
-          if klass.respond_to?(:loader_column_names)
-            k = klass.loader_column_names[k.downcase] || k.downcase
+          k = k.downcase
+          if k == "type"
+            k = "#{klass.name.underscore}_type"
           end
 
           class_values[k] = v
