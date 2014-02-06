@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206224505) do
+ActiveRecord::Schema.define(version: 20140206230405) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -109,6 +109,14 @@ ActiveRecord::Schema.define(version: 20140206224505) do
     t.string   "email"
     t.string   "password_digest"
     t.boolean  "guest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vehicles", force: true do |t|
+    t.string   "key"
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

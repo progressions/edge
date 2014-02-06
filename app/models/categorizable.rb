@@ -12,4 +12,5 @@
 class Categorizable < ActiveRecord::Base
   belongs_to :category
   belongs_to :weapon, foreign_key: "parent_id"
+  belongs_to :vehicle, foreign_key: "parent_id"
 end

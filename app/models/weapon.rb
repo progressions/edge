@@ -22,7 +22,7 @@
 #
 
 class Weapon < ActiveRecord::Base
-  has_many :categorizables, foreign_key: "parent_id"
+  has_many :categorizables, foreign_key: "parent_id", dependent: :destroy
   has_many :categories, through: :categorizables
 
   RANGES = {
