@@ -34,6 +34,10 @@ class Weapon < ActiveRecord::Base
     "LTSABER" => "Lightsaber"
   }
 
+  def category_names
+    categories.pluck(:name)
+  end
+
   def skill
     RANGES[self.skill_key] || self.skill_key
   end
