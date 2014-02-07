@@ -51,6 +51,9 @@ class Character < ActiveRecord::Base
   accepts_nested_attributes_for :character_obligations, allow_destroy: true
   accepts_nested_attributes_for :obligations
 
+  accepts_nested_attributes_for :character_duties, allow_destroy: true
+  accepts_nested_attributes_for :duties
+
   has_attached_file :portrait, :styles => { :medium => "300x300", :thumb => "100x100#" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
@@ -75,6 +78,10 @@ class Character < ActiveRecord::Base
 
   def total_obligation
     obligations.sum(:size).to_i
+  end
+
+  def total_duty
+    duties.sum(:size).to_i
   end
 
   concerning :UpdatingObligationOptions do
@@ -112,7 +119,46 @@ class Character < ActiveRecord::Base
     end
   end
 
+  concerning :UpdatingDutyOptions do
+    def update_duty_credits
+      return unless duty_options.present?
+
+      amount = self.credits.to_i
+
+      if duty_options.changes["plus_thousand_credits"] == [false, true]
+        amount += 1000
+      elsif duty_options.changes["plus_thousand_credits"] == [true, false]
+        amount -= 1000
+      end
+
+      if duty_options.changes["plus_two_thousand_five_hundred_credits"] == [false, true]
+        amount += 2500
+      elsif duty_options.changes["plus_two_thousand_five_hundred_credits"] == [true, false]
+        amount -= 2500
+      end
+
+      self.credits = amount
+    end
+
+    def update_duty_xp
+      return unless duty_options.present?
+
+      amount = 0
+      if duty_options.plus_five_xp
+        amount += 5
+      end
+      if duty_options.plus_ten_xp
+        amount += 10
+      end
+      duty_rank.update_attribute(:amount, amount)
+    end
+  end
+
   concerning :Ranks do
+    def duty_rank
+      experience_ranks.by_duty.first || experience_ranks.build(source: "duty")
+    end
+
     def obligation_rank
       experience_ranks.by_obligation.first || experience_ranks.build(source: "obligation")
     end
