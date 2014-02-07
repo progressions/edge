@@ -141,6 +141,10 @@ class Character < ActiveRecord::Base
     earned_experience_rank.update_attributes(amount: amount)
   end
 
+  def unused_experience
+    total_experience.to_i - used_experience.to_i
+  end
+
   def total_obligation
     obligations.sum(:size).to_i
   end
