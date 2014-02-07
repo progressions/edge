@@ -23,6 +23,10 @@
 class Species < ActiveRecord::Base
   has_many :characters, through: :character_species
 
+  def self.official
+    where(source: [nil, "Enter the Unknown", "Suns of Fortune", "Age of Rebellion Rulebook"])
+  end
+
   def starting_chars=(values)
     values.map do |k,v|
       if self.respond_to?("#{k.underscore}=".to_sym)
