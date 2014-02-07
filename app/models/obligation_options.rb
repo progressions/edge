@@ -16,6 +16,16 @@
 class ObligationOptions < ActiveRecord::Base
   belongs_to :character
 
+  def remaining_obligation
+    amount = character.total_obligation.to_i
+    amount -= starting_size.to_i
+    amount -= 5 if plus_five_xp?
+    amount -= 10 if plus_ten_xp?
+    amount -= 5 if plus_thousand_credits?
+    amount -= 10 if plus_two_thousand_five_hundred_credits?
+
+    amount
+  end
 
   def update_obligation_options
     margin = character.total_obligation.to_i - self.starting_size.to_i

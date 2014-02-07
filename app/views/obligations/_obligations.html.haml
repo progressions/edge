@@ -38,22 +38,19 @@
       = o.label :starting_size
       = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
 
-      - over_by_five = (@character.total_obligation - @character.obligation_options.try(:starting_size).to_i >= 5)
-      - over_by_ten = (@character.total_obligation - @character.obligation_options.try(:starting_size).to_i >= 10)
-
-      %label.checkbox{class: "#{'disabled' unless over_by_five}"}
+      %label.checkbox{class: "#{'disabled' unless plus_five_xp_enabled?(@character)}"}
         +5 Starting XP (+5 Obligation)
-        = o.check_box :plus_five_xp, disabled: !over_by_five
+        = o.check_box :plus_five_xp, disabled: !plus_five_xp_enabled?(@character)
 
-      %label.checkbox{class: "#{'disabled' unless over_by_ten}"}
+      %label.checkbox{class: "#{'disabled' unless plus_ten_xp_enabled?(@character)}"}
         +10 Starting XP (+10 Obligation)
-        = o.check_box :plus_ten_xp, disabled: !over_by_ten
+        = o.check_box :plus_ten_xp, disabled: !plus_ten_xp_enabled?(@character)
 
-      %label.checkbox{class: "#{'disabled' unless over_by_five}"}
+      %label.checkbox{class: "#{'disabled' unless plus_thousand_credits_enabled?(@character)}"}
         +1,000 Credits (+5 Obligation)
-        = o.check_box :plus_thousand_credits, disabled: !over_by_five
+        = o.check_box :plus_thousand_credits, disabled: !plus_thousand_credits_enabled?(@character)
 
-      %label.checkbox{class: "#{'disabled' unless over_by_ten}"}
+      %label.checkbox{class: "#{'disabled' unless plus_two_thousand_five_hundred_credits_enabled?(@character)}"}
         +2,500 Credits (+10 Obligation)
-        = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !over_by_ten
+        = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !plus_two_thousand_five_hundred_credits_enabled?(@character)
 
