@@ -5,15 +5,10 @@
 $ ->
   if $("#edit_obligations").length > 0
 
-    $('.obligation_select').change(Obligation.update)
-
-    Obligation.update_all()
-
     $(document).on('nested:fieldAdded', (event) ->
       $('.obligation_select').change(Obligation.update)
       event.field.find(".size_input").val(10)
       event.field.addClass("unsaved")
-      Obligation.update_all()
       Obligation.submit()
     )
 
@@ -53,7 +48,10 @@ class window.Obligation
     element = $(event.target)
     id = element.val()
 
-    parent = element.parents(".row").first()
+    console.log(id)
+
+    parent = element.parents(".fields").first()
+    console.log(parent)
     details = parent.find(".obligation_details")
 
     details.find(".obligation").hide()
