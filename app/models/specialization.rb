@@ -14,4 +14,8 @@
 #
 
 class Specialization < ActiveRecord::Base
+  include Sourced
+
+  has_many :character_specializations
+  has_many :characters, through: :character_specialization
 end
