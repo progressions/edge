@@ -82,6 +82,7 @@ class Character < ActiveRecord::Base
   before_save :update_duty_credits
 
   before_save :update_species
+  before_save :update_first_specialization
 
   before_save :update_obligation_xp
   before_save :update_obligation_credits
@@ -113,6 +114,12 @@ class Character < ActiveRecord::Base
       results[ch] = send(ch).amount
     end
     results
+  end
+
+  def update_first_specialization
+    unless self.career.specializations.include?(self.first_specialization)
+      self.first_specialization = self.career.specializations.first
+    end
   end
 
   def update_species
