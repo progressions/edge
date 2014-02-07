@@ -17,7 +17,10 @@ class Loader
       end
       if k == "attributes"
         k = "attributes_from_xml"
-        v = v["Attributes"]
+      end
+      if k == "specializations"
+        k = "specializations_from_xml"
+        v = v["Key"]
       end
 
       class_values[k] = v

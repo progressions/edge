@@ -13,7 +13,20 @@
 
 class Career < ActiveRecord::Base
   include Sourced
+  include Sluggable
 
   has_many :character_careers
   has_many :character, through: :character_careers
+
+  has_many :specializations
+
+  def specializations_from_xml=(values)
+    values.each do |value|
+      specialization = Specialization.lookup(value)
+      unless specializations.include?(specialization)
+        specializations << specialization
+      end
+    end
+    save
+  end
 end

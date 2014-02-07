@@ -15,6 +15,7 @@
 
 class Specialization < ActiveRecord::Base
   include Sourced
+  include Sluggable
 
   has_many :character_specializations
   has_many :characters, through: :character_specialization
