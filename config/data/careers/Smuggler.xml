@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Career>
+  <Key>SMUG</Key>
+  <Name>Smuggler</Name>
+  <Description>
+    [H4]Smuggler[h4]
+    Please see page 80 of the Core Rulebook for details.
+  </Description>
+  <CareerSkills>
+    <Key>COORD</Key>
+    <Key>DECEP</Key>
+    <Key>UND</Key>
+    <Key>PERC</Key>
+    <Key>PILOTSP</Key>
+    <Key>SKUL</Key>
+    <Key>SW</Key>
+    <Key>VIGIL</Key>
+  </CareerSkills>
+  <Specializations>
+    <Key>PILOT</Key>
+    <Key>SCOUND</Key>
+    <Key>THIEF</Key>
+  </Specializations>
+</Career>

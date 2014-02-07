@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Career>
+  <Key>ENGINEER</Key>
+  <Name>Engineer</Name>
+  <Description>
+    [H4]Engineer[h4]
+    Please see Age of Rebellion Rule Book for details.
+  </Description>
+  <Source>Age of Rebellion Rulebook</Source>
+  <CareerSkills>
+    <Key>ATHL</Key>
+    <Key>COMP</Key>
+    <Key>EDU</Key>
+    <Key>RANGLT</Key>
+    <Key>PILOTSP</Key>
+    <Key>MECH</Key>
+    <Key>PERC</Key>
+    <Key>VIGIL</Key>
+  </CareerSkills>
+  <Specializations>
+    <Key>MECHANIC</Key>
+    <Key>SABOTEUR</Key>
+    <Key>SCIENTIST</Key>
+  </Specializations>
+</Career>

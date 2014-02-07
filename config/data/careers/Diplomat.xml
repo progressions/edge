@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Career>
+  <Key>DIPLOMAT</Key>
+  <Name>Diplomat</Name>
+  <Description>
+    [H4]Diplomat[h4]
+    Please see Age of Rebellion Rule Book for details.
+  </Description>
+  <Source>Age of Rebellion Rulebook</Source>
+  <CareerSkills>
+    <Key>CHARM</Key>
+    <Key>DECEP</Key>
+    <Key>CORE</Key>
+    <Key>LORE</Key>
+    <Key>LEAD</Key>
+    <Key>NEG</Key>
+    <Key>OUT</Key>
+    <Key>XEN</Key>
+  </CareerSkills>
+  <Specializations>
+    <Key>AMBASSADOR</Key>
+    <Key>AGITATOR</Key>
+    <Key>QUARTERMASTER</Key>
+  </Specializations>
+</Career>
