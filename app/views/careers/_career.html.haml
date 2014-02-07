@@ -2,12 +2,25 @@
 
 = semantic_form_for(@character, url: career_url, remote: true) do |f|
   .row
-    .span4
+    .span6
       = f.input :career, as: :select, include_blank: false, collection: @careers
 
-    .span6
       .description.well
         = format_description(@character.career.description)
+
+    .span4
+      %p skills
+
+  .row
+    .span6
+      = f.input :first_specialization, as: :select, include_blank: false, collection: @specializations
+
+      .description.well
+        = format_description(@character.first_specialization.try(:description))
+
+    .span4
+      %p more skills
+
 
   .form-actions
     = f.submit(class: "btn btn-large btn-success")

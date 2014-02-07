@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def format_description(description)
-    description = description.force_encoding("iso-8859-1").encode("utf-8")
+    description = description.encode("ascii-8bit").force_encoding("utf-8")
     description.
       gsub("\n", "").
       gsub('\"', '"').

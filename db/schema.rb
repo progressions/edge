@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207231616) do
+ActiveRecord::Schema.define(version: 20140207233626) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20140207231616) do
     t.text     "story"
     t.integer  "social_class_id"
     t.integer  "background_id"
+    t.integer  "first_specialization_id"
   end
 
   create_table "duties", force: true do |t|

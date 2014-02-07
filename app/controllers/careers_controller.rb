@@ -4,11 +4,13 @@ class CareersController < ApplicationController
   def edit
     @careers = Career.all
     @character = current_user.characters.find(params[:id])
+    @specializations = @character.career.specializations
   end
 
   def show
     @careers = Career.all
     @character = current_user.characters.find(params[:id])
+    @specializations = @character.career.specializations
   end
 
   def update
@@ -24,6 +26,6 @@ class CareersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:id, :career_id)
+    params.require(:character).permit(:id, :career_id, :first_specialization_id)
   end
 end

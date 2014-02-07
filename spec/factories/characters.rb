@@ -2,29 +2,30 @@
 #
 # Table name: characters
 #
-#  id                    :integer          not null, primary key
-#  name                  :string(255)
-#  description           :text
-#  user_id               :integer
-#  created_at            :datetime
-#  updated_at            :datetime
-#  player_name           :string(255)
-#  gender                :string(255)
-#  age                   :string(255)
-#  height                :string(255)
-#  build                 :string(255)
-#  hair                  :string(255)
-#  eyes                  :string(255)
-#  notable_features      :text
-#  credits               :integer
-#  used_experience       :integer
-#  portrait_file_name    :string(255)
-#  portrait_content_type :string(255)
-#  portrait_file_size    :integer
-#  portrait_updated_at   :datetime
-#  story                 :text
-#  social_class_id       :integer
-#  background_id         :integer
+#  id                      :integer          not null, primary key
+#  name                    :string(255)
+#  description             :text
+#  user_id                 :integer
+#  created_at              :datetime
+#  updated_at              :datetime
+#  player_name             :string(255)
+#  gender                  :string(255)
+#  age                     :string(255)
+#  height                  :string(255)
+#  build                   :string(255)
+#  hair                    :string(255)
+#  eyes                    :string(255)
+#  notable_features        :text
+#  credits                 :integer
+#  used_experience         :integer
+#  portrait_file_name      :string(255)
+#  portrait_content_type   :string(255)
+#  portrait_file_size      :integer
+#  portrait_updated_at     :datetime
+#  story                   :text
+#  social_class_id         :integer
+#  background_id           :integer
+#  first_specialization_id :integer
 #
 
 FactoryGirl.define do
