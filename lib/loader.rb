@@ -15,6 +15,10 @@ class Loader
         k = "categories_from_xml"
         v = v["Category"]
       end
+      if k == "attributes"
+        k = "attributes_from_xml"
+        v = v["Attributes"]
+      end
 
       class_values[k] = v
     end

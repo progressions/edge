@@ -27,4 +27,7 @@ namespace :load do
   task careers: :environment do
     Loader.load_from_files("Career")
   end
+  task specializations: :environment do
+    Loader.load_from_files("Specialization")
+  end
 end
