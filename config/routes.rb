@@ -1,5 +1,7 @@
 Edge::Application.routes.draw do
 
+  resources :skills
+
   resources :specializations
 
   resources :careers
