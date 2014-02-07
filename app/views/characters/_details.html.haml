@@ -30,8 +30,11 @@
     %dt Encum
     %dd 0/7
 
-    %dt Oblig/Duty
-    %dd 15/0
+    %dt Obligation
+    %dd= @character.total_obligation
+
+    %dt Duty
+    %dd= @character.total_duty
 
   .span5.characteristics_details
     = render partial: 'characteristics', locals: {object: @character.characteristic_amounts}
