@@ -21,7 +21,7 @@
     %dd= @character.species.name
 
     %dt Career
-    %dd Bounty Hunter
+    %dd= @character.career.try(:name)
 
   %dl.dl-horizontal.span2
     %dt Credits

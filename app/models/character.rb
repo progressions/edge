@@ -66,6 +66,8 @@ class Character < ActiveRecord::Base
   has_attached_file :portrait, :styles => { :medium => "300x300", :thumb => "100x100#" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
+  before_save :default_career
+
   before_save :default_species
   before_save :default_characteristics
 
@@ -114,6 +116,18 @@ class Character < ActiveRecord::Base
 
   def default_species
     self.species ||= Species.where(name: "Human").first
+  end
+
+  def default_career
+    self.career ||= Career.where(name: "Smuggler").first
+  end
+
+  def career_id
+    career.try(:id)
+  end
+
+  def career_id=(value)
+    self.career = Career.find(value)
   end
 
   def species_id
