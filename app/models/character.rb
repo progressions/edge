@@ -69,6 +69,8 @@ class Character < ActiveRecord::Base
   before_save :update_duty_xp
   before_save :update_duty_credits
 
+  before_save :update_species
+
   before_save :update_obligation_xp
   before_save :update_obligation_credits
 
@@ -99,6 +101,12 @@ class Character < ActiveRecord::Base
       results[ch] = send(ch).amount
     end
     results
+  end
+
+  def update_species
+    rank = experience_ranks.by_species.first || experience_ranks.by_species.build
+    rank.amount = species.starting_xp
+    rank.save
   end
 
   def default_species

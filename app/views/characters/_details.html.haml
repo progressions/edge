@@ -34,7 +34,7 @@
     %dd 15/0
 
   .span5.characteristics_details
-    = render partial: 'characteristics', locals: {thing: @character}
+    = render partial: 'characteristics', locals: {object: @character.characteristic_amounts}
 
     %table.table-condensed
       %tr
