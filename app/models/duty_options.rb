@@ -14,4 +14,29 @@
 #
 
 class DutyOptions < ActiveRecord::Base
+  belongs_to :character
+
+  def remaining_duty
+    amount = character.total_duty.to_i
+    amount += starting_size.to_i
+    amount += 5 if plus_five_xp?
+    amount += 10 if plus_ten_xp?
+    amount += 5 if plus_thousand_credits?
+    amount += 10 if plus_two_thousand_five_hundred_credits?
+
+    amount
+  end
+
+  def update_duty_options
+    margin = character.total_duty.to_i + self.starting_size.to_i
+
+    if margin < 5
+      self.plus_thousand_credits = false
+      self.plus_five_xp = false
+    end
+    if margin < 10
+      self.plus_two_thousand_five_hundred_credits = false
+      self.plus_ten_xp = false
+    end
+  end
 end
