@@ -1,0 +1,10 @@
+- if @character.present?
+  :javascript
+    $().ready(function() {
+      window.Portrait = {
+        update: function() {
+          $.ajax({ url: "#{portrait_description_url(@character, params.merge(format: 'js'))}" });
+        }
+      };
+      Portrait.update();
+    });

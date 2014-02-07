@@ -45,12 +45,3 @@
       .span8.form-actions
         = f.submit(class: "btn btn-success")
 
-:javascript
-  $().ready(function() {
-    window.Portrait = {
-      update: function() {
-        $.ajax({ url: "#{portrait_description_url(@character, params.merge(format: 'js'))}" });
-      }
-    };
-    Portrait.update();
-  });
