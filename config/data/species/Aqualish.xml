@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Species>
+  <Key>AQUA</Key>
+  <Name>Aqualish</Name>
+  <Description>
+    [H4]Aqualish[h4]
+    The Aqualish are tusked bipeds from the planet Ando
+    whose appearance combined aspects of arachnids and
+    pinniped aquatic mammals. Aqualish had a reputation
+    for being nasty, crude and aggressive, and generally
+    pursued off-world careers as mercenaries, bounty
+    hunters, and pirates. One of the most infamous such
+    Aqualish was the smuggler Ponda Baba.
+    [P][B]Physiology:[b]
+    An amphibious species native to the planet Ando, the
+    Aqualish people are made up of three distinct races
+    which included the Aquala, the Ualaq and the Quara.
+    Although they all had their differences, their
+    baseline genetic structure was the same and their
+    appearances did not vary so drastically as to
+    characterize them as different species. All Aqualish
+    have two facial tusks which curved down over their
+    mouths; a trait which adds to their appearance as
+    arachnids. Indeed, the Aqualish have some arachnid
+    genetic material in their distant past, as
+    demonstrative in their relationship with the Harch
+    species. These facial tusks are highly sensitive
+    to heat and cold, and were used for cracking open
+    the hard shells of shellfish or burrowing through
+    the swampy loam of their homeworld.
+    [P][B]Society:[b]
+    The Aquala hate their Quara relatives, as they
+    blame them for the image the Aqualish had on the
+    galaxy as thugs. Because of this the latter
+    subspecies are considered pariahs on Ando, which
+    has a lower population of Aqualish than the galaxy
+    itself. All three Aqualish subspecies speak
+    mutually intelligible dialects of the same language.
+    Quarrelsome and thug-like, the Aqualish culture
+    revolves around aggression and toughness, with
+    diplomacy being one of their weakest attributes.
+    [P][B]Homeworld:[b]
+    Ando, the homeworld of the Aqualish, is an oceanic
+    planet located in the Ando system of the Mid Rim.  The
+    sea covers 95% of the world.  The majority of the
+    world's islands are sustained by a decaying swamp
+    ecosystem and covered in steamy mist.
+    [P][B]Language:[b]
+    Aqualish is the official language of the planet 
+    Ando, spoken by the Aqualish species. The three 
+    subspecies of Aqualish—Aquala, Quara and Ualaq—each 
+    have a different dialect. However, these regionalisms 
+    are so similar that they are easily understood by 
+    speakers of the separate dialects.
+    [P]Aqualish vocal cords cause harsh guttural 
+    sounds, which are common in the Aqualish language, 
+    but uncommon in Basic. If an Aqualish speaks Galactic 
+    Basic Standard, it sounds coarse and brutish. Most 
+    Aqualish do not learn Basic unless they needed to, 
+    which usually means they have been forced to leave 
+    their homeworld.
+  </Description>
+  <Source>Unofficial Species Menagerie 2.0</Source>
+  <StartingChars>
+    <Brawn>2</Brawn>
+    <Agility>2</Agility>
+    <Intellect>2</Intellect>
+    <Cunning>2</Cunning>
+    <Willpower>2</Willpower>
+    <Presence>2</Presence>
+  </StartingChars>
+  <StartingAttrs>
+    <WoundThreshold>12</WoundThreshold>
+    <StrainThreshold>10</StrainThreshold>
+    <Experience>100</Experience>
+  </StartingAttrs>
+  <SkillModifiers>
+    <SkillModifier>
+      <Key>COERC</Key>
+      <RankStart>1</RankStart>
+      <RankLimit>2</RankLimit>
+    </SkillModifier>
+  </SkillModifiers>
+  <OptionChoices>
+    <OptionChoice>
+      <Key>AQUASWIM</Key>
+      <Name>Swimming</Name>
+      <Options>
+        <Option>
+          <Key>AQUASWIMOP</Key>
+          <Name>Natural Swimmers</Name>
+          <Description>Aqualish gain a [BOOST] on all
+          Athletics checks made to swim.</Description>
+        </Option>
+      </Options>
+    </OptionChoice>
+    <OptionChoice>
+      <Key>AQUASUB</Key>
+      <Name>Subspecies</Name>
+      <Options>
+        <Option>
+          <Key>AQUASUBAQ</Key>
+          <Name>Aquala</Name>
+          <Description>
+            The Aquala subspecies is considered to be the
+            baseline Aqualish breed. Having finned hands and
+            two bulbous black eyes, the Aquala are unable to
+            manipulate most machinery or equipment developed
+            by the galaxy's many species which designed these
+            tools for beings with digits. As a result, Aquala
+            tend to remain on their homeworld in greater
+            numbers then either of the other subspecies.
+          </Description>
+        </Option>
+        <Option>
+          <Key>AQUASUBQU</Key>
+          <Name>Quara</Name>
+          <Description>
+            The Quara have developed clawed,
+            five-fingered hands and like the Aquala have two eyes.
+            Combined with the Ualaq, the Quara make up only ten
+            percent of the Aqualish population. This is due to
+            their ability to use equipment offworld designed for
+            fingered species; Thus, they are the subspecies
+            more commonly found off-world.
+          </Description>
+        </Option>
+        <Option>
+          <Key>AQUASUBUA</Key>
+          <Name>Ualaq</Name>
+          <Description>
+            The Ualaq,
+            considered by some specialists to be the result
+            of genetic mutation, have four eyes instead of
+            two and fingered hands which varied from three to
+            five digits on each. The least common subspecies,
+            the Ualaq often times journeyed far from Ando to
+            avoid discrimination by the Aquala.
+          </Description>
+        </Option>
+      </Options>
+    </OptionChoice>  
+  </OptionChoices>
+</Species>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Species>
+  <Key>DROID</Key>
+  <Name>Droid</Name>
+  <Description>
+    [H4]Droid[h4]
+    Please see page 45 of the Core Rulebook for details.
+
+  </Description>
+  <StartingChars>
+    <Brawn>1</Brawn>
+    <Agility>1</Agility>
+    <Intellect>1</Intellect>
+    <Cunning>1</Cunning>
+    <Willpower>1</Willpower>
+    <Presence>1</Presence>
+  </StartingChars>
+  <StartingAttrs>
+    <WoundThreshold>10</WoundThreshold>
+    <StrainThreshold>10</StrainThreshold>
+    <Experience>175</Experience>
+  </StartingAttrs>
+  <SkillModifiers>
+  </SkillModifiers>
+  <TalentModifiers>
+    <TalentModifier>
+      <Key>ENDUR</Key>
+      <RankAdd>1</RankAdd>
+    </TalentModifier>
+  </TalentModifiers>
+  <OptionChoices>
+    <OptionChoice>
+      <Key>DROIDAB</Key>
+      <Name>Skills</Name>
+      <Options>
+        <Option>
+          <Key>DROIDABSK</Key>
+          <Name>Additional Career Skills</Name>
+          <Description>May train in two additional career skills and one additional specialization skills</Description>
+          <StartingSkillTraining>
+            <SkillTraining>
+              <SkillCount>2</SkillCount>
+              <Requirement>
+                <Career>true</Career>
+              </Requirement>
+            </SkillTraining>
+            <SkillTraining>
+              <SkillCount>1</SkillCount>
+              <Requirement>
+                <Specialization>true</Specialization>
+              </Requirement>
+            </SkillTraining>
+          </StartingSkillTraining>
+        </Option>
+      </Options>
+    </OptionChoice>
+    <OptionChoice>
+      <Key>DROIDMO</Key>
+      <Name>Model</Name>
+      <Options>
+        <Option>
+          <Key>DROIDMO21B</Key>
+          <Name>2-1B Surgical Droid (Genetech/Industrial Automaton)</Name>
+          <Description>
+            The 2-1B Surgical Droid is a highly intelligent
+            and flexible thinker, as one would expect of
+            a droid whose decisions involve life and death.  Its
+            rather ugly chassis hides a remarkably complex and
+            flexible behavioral circuitry matrix, and the droids are
+            intelligent and capable in equal measure.
+          </Description>
+        </Option>
+        <Option>
+          <Key>DROIDMO3PO</Key>
+          <Name>3PO Protocol Droid (Cybot Galactica)</Name>
+          <Description>
+            The 3PO series of protocol droids are some of the most
+            human-like automata ever developed - perfect for their assigned tasks
+            as ambassadors, political aids,
+            translators, and personal attaches.  However, their advanced
+            SyntheTech AA-1 verbobrains can sometimes develop neuroses or
+            other "quirks".
+          </Description>
+        </Option>
+        <Option>
+          <Key>DROIDMOIG</Key>
+          <Name>IG Assassin Droid (Holowan Mechanicals)</Name>
+          <Description>
+            Culminating with the feared and deadly IG-88 model, 
+            the IG series is infamous as one of the most
+            lethal assassin droids in the galaxy.  IG droids rarely
+            meet an opponent they cannot eliminate, and true
+            to their humorless nature, they follow the instructions
+            for a particular bounty to the letter.
+          </Description>
+        </Option>
+        <Option>
+          <Key>DROIDMOLEV0</Key>
+          <Name>LE-V0 Law Enforcement Droid (Rseikharhl Droid Group)</Name>
+          <Description>
+            The success of LE-VO's is deterring crime in the Rseikharhi sector
+            has led to their adoption galaxy-wide as appropriate models for
+            police assistance and private security.  Their programming
+            requires them to follow Imperial codes to the letter and only
+            use force when Absolutely necessary.  Thogh they are hardly ever
+            equipped with lethal weponry, they know how to target
+            a stun weapon for maximum effect.
+          </Description>
+        </Option>
+        <Option>
+          <Key>DROIDMOLOM</Key>
+          <Name>LOM Protocol Droid (Industrial Automaton)</Name>
+          <Description>
+            The LOM series was Industrial Automaton's
+            attempt to upset a market dominated by Cybot Galactica.
+            IA attempted to make a protocol droid
+            very similar to the 3PO units but with an insectoid
+            head to appeal to niche markets.  However, bad PR
+            from at least one unit's career as a jewel thief
+            caused IA to scrap the line.  Some of the remaining
+            LOM droids do have a habit of developing interesting
+            and unexpected personalities.
+          </Description>
+        </Option>
+        <Option>
+          <Key>DROIDMOR</Key>
+          <Name>R-Series Astromech Droid (Industrial Automaton)</Name>
+          <Description>
+            The wildly successful R-series ranges from the original
+            and cumbersom R1 to the famous R2 unit and all the way to the
+            soon-to-be-released R6.  Aside from the R1 (which is more than
+            two meters tall and works aboard capital ships), all of the R-series
+            astromechs are roughly a meter or so tall, and
+            designed to ride in sockets aboard snubfights to perform astrogation
+            calculations and allow hyperspace jumps.
+            A wide variety of tools also make them decent repair droids.
+          </Description>
+        </Option>
+        <Option>
+          <Key>DROIDMOOTH</Key>
+          <Name>Other Droid Model</Name>
+          <Description>
+            The player may choose or create another model of droid to
+            play, with permission from the GM.  Use the "Story/Description"
+            section of Background to describe the model and manufacturer
+            of your droid.
+          </Description>
+        </Option>
+      </Options>
+    </OptionChoice>
+  </OptionChoices>
+  <NoForceAbilities>true</NoForceAbilities>
+  </Species>
