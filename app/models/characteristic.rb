@@ -23,5 +23,6 @@ class Characteristic < ActiveRecord::Base
   def add_rank(source, amount)
     rank = ranks.where(source: source).first || ranks.build(source: source)
     rank.amount = amount
+    rank.save
   end
 end

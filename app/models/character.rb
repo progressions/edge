@@ -75,19 +75,30 @@ class Character < ActiveRecord::Base
   has_one :brawn, -> { where(key: "BR", name: "Brawn") }, class_name: "Characteristic"
   has_one :agility, -> { where(key: "AG", name: "Agility") }, class_name: "Characteristic"
   has_one :intellect, -> { where(key: "IN", name: "Intellect") }, class_name: "Characteristic"
+  has_one :cunning, -> { where(key: "CU", name: "Cunning") }, class_name: "Characteristic"
+  has_one :willpower, -> { where(key: "WI", name: "Willpower") }, class_name: "Characteristic"
+  has_one :presence, -> { where(key: "PR", name: "Presence") }, class_name: "Characteristic"
+
+  CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
 
   def default_characteristics
-    brawn ||= build_brawn
-    brawn.add_rank(:species, species.brawn)
-    brawn.save
+    CHARACTERISTICS.each do |ch|
+      default_characteristic(ch)
+    end
+  end
 
-    agility ||= build_agility
-    agility.add_rank(:species, species.agility)
-    agility.save
+  def default_characteristic(ch)
+    char = send(ch) || send("build_#{ch}")
+    char.add_rank(:species, species.send(ch))
+    char.save
+  end
 
-    intellect ||= build_intellect
-    intellect.add_rank(:species, species.intellect)
-    intellect.save
+  def characteristic_amounts
+    results = {}
+    CHARACTERISTICS.each do |ch|
+      results[ch] = send(ch).amount
+    end
+    results
   end
 
   def default_species
@@ -128,20 +139,6 @@ class Character < ActiveRecord::Base
 
   def total_duty
     duties.sum(:size).to_i
-  end
-
-  concerning :Characteristics do
-    def cunning
-      species.cunning
-    end
-
-    def willpower
-      species.willpower
-    end
-
-    def presence
-      species.presence
-    end
   end
 
   concerning :UpdatingObligationOptions do
