@@ -34,7 +34,7 @@
     %dd 15/0
 
   .span5.characteristics_details
-    = render 'characteristics'
+    = render partial: 'characteristics', locals: {thing: @character}
 
     %table.table-condensed
       %tr

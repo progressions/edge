@@ -10,3 +10,4 @@ $ ->
 class window.Species
   @behaviors: ->
     console.log("behaviors")
+    Form.init()

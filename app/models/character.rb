@@ -28,6 +28,8 @@
 #
 
 class Character < ActiveRecord::Base
+  has_many :characteristics
+
   has_one :character_species
   has_one :species, through: :character_species
   accepts_nested_attributes_for :species
@@ -107,6 +109,32 @@ class Character < ActiveRecord::Base
 
   def total_duty
     duties.sum(:size).to_i
+  end
+
+  concerning :Characteristics do
+    def brawn
+      species.brawn
+    end
+
+    def agility
+      species.agility
+    end
+
+    def intellect
+      species.intellect
+    end
+
+    def cunning
+      species.cunning
+    end
+
+    def willpower
+      species.willpower
+    end
+
+    def presence
+      species.presence
+    end
   end
 
   concerning :UpdatingObligationOptions do

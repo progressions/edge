@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207171720) do
+ActiveRecord::Schema.define(version: 20140207200410) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20140207171720) do
   create_table "character_species", force: true do |t|
     t.integer  "character_id"
     t.integer  "species_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "characteristics", force: true do |t|
+    t.string   "key"
+    t.string   "name"
+    t.integer  "character_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -138,6 +146,7 @@ ActiveRecord::Schema.define(version: 20140207171720) do
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "parent_type"
   end
 
   create_table "social_classes", force: true do |t|
