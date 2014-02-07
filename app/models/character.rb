@@ -37,7 +37,7 @@ class Character < ActiveRecord::Base
   belongs_to :user
 
   has_many :rankables, foreign_key: "parent_id", dependent: :destroy
-  has_many :experience_ranks, through: :rankables, source: :rank
+  has_many :experience_ranks, through: :rankables, source: :rank, class_name: "ExperienceRank"
 
   belongs_to :social_class
   belongs_to :background
@@ -73,11 +73,21 @@ class Character < ActiveRecord::Base
   before_save :update_obligation_credits
 
   has_one :brawn, -> { where(key: "BR", name: "Brawn") }, class_name: "Characteristic"
+  has_one :agility, -> { where(key: "AG", name: "Agility") }, class_name: "Characteristic"
+  has_one :intellect, -> { where(key: "IN", name: "Intellect") }, class_name: "Characteristic"
 
   def default_characteristics
-    brawn = characteristics.where(key: "BR").first || characteristics.create(key: "BR")
+    brawn ||= build_brawn
     brawn.add_rank(:species, species.brawn)
     brawn.save
+
+    agility ||= build_agility
+    agility.add_rank(:species, species.agility)
+    agility.save
+
+    intellect ||= build_intellect
+    intellect.add_rank(:species, species.intellect)
+    intellect.save
   end
 
   def default_species
@@ -121,14 +131,6 @@ class Character < ActiveRecord::Base
   end
 
   concerning :Characteristics do
-    def agility
-      species.agility
-    end
-
-    def intellect
-      species.intellect
-    end
-
     def cunning
       species.cunning
     end
