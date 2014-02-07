@@ -21,4 +21,7 @@ namespace :load do
   task vehicles: :environment do
     Loader.load_from_files("Vehicle")
   end
+  task species: :environment do
+    Loader.load_from_files("Species")
+  end
 end

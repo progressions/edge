@@ -21,4 +21,8 @@
 
 class Species < ActiveRecord::Base
   has_many :characters, through: :character_species
+
+  def starting_chars=(value)
+    raise value.inspect
+  end
 end
