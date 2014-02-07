@@ -17,6 +17,7 @@
 #  starting_xp      :integer
 #  created_at       :datetime
 #  updated_at       :datetime
+#  source           :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
