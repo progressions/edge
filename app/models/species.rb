@@ -22,7 +22,11 @@
 class Species < ActiveRecord::Base
   has_many :characters, through: :character_species
 
-  def starting_chars=(value)
-    raise value.inspect
+  def starting_chars=(values)
+    values.map do |k,v|
+      if self.respond_to?("#{k.underscore}=".to_sym)
+        self.update_attribute(k.underscore, v)
+      end
+    end
   end
 end
