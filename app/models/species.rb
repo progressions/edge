@@ -20,4 +20,5 @@
 #
 
 class Species < ActiveRecord::Base
+  has_many :characters, through: :character_species
 end

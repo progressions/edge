@@ -28,6 +28,9 @@
 #
 
 class Character < ActiveRecord::Base
+  has_one :character_species
+  has_one :species, through: :character_species
+
   belongs_to :user
 
   has_many :rankables, foreign_key: "parent_id", dependent: :destroy

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207171556) do
+ActiveRecord::Schema.define(version: 20140207171720) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20140207171556) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
+  end
+
+  create_table "character_species", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "species_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "characters", force: true do |t|
