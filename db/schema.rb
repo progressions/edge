@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207224900) do
+ActiveRecord::Schema.define(version: 20140207225125) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20140207224900) do
   create_table "categorizables", force: true do |t|
     t.integer  "category_id"
     t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_careers", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "career_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
