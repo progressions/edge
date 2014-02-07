@@ -6,6 +6,9 @@ namespace :load do
   task backgrounds: :environment do
     Loader.load_from_file("Background", filename: "Hooks", collection: "Hooks", member: "Hook")
   end
+  task duty: :environment do
+    Loader.load_from_file("Duty")
+  end
   task obligation: :environment do
     Loader.load_from_file("Obligation")
   end

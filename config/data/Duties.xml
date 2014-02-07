@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Duties>
+  <Duty>
+    <Key>COMBATVICTORY</Key>
+    <Name>Combat Victory</Name>
+    <Description>
+    [H4]Combat Victory[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>COUNTERINTELLIGENCE</Key>
+    <Name>Counter Intelligence</Name>
+    <Description>
+    [H4]Counter Intelligence[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>INTELLIGENCE</Key>
+    <Name>Intelligence</Name>
+    <Description>
+    [H4]Intelligence[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>INTERNALSECURITY</Key>
+    <Name>Internal Security</Name>
+    <Description>
+    [H4]Internal Security[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>PERSONNEL</Key>
+    <Name>Personnel</Name>
+    <Description>
+    [H4]Personnel[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>POLITICALSUPPORT</Key>
+    <Name>Political Support</Name>
+    <Description>
+    [H4]Political Support[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>RECRUITING</Key>
+    <Name>Recruiting</Name>
+    <Description>
+    [H4]Recruiting[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>RESOURCEACQUISITION</Key>
+    <Name>Resource Acquisition</Name>
+    <Description>
+    [H4]Resource Acquisition[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>SABOTAGE</Key>
+    <Name>Sabotage</Name>
+    <Description>
+    [H4]Sabotage[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>SPACESUPERIORITY</Key>
+    <Name>Space Superiority</Name>
+    <Description>
+    [H4]Space Superiority[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>TECHPROCUREMENT</Key>
+    <Name>Tech Procurement</Name>
+    <Description>
+    [H4]Tech Procurement[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+  <Duty>
+    <Key>SUPPORT</Key>
+    <Name>Support</Name>
+    <Description>
+    [H4]Support[h4]
+    Please see Age of Rebellion Rule Book for details.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+  </Duty>
+</Duties>
