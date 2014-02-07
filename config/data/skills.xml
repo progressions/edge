@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Skills>
+  <Skill>
+    <Key>ASTRO</Key>
+    <Name>Astrogation</Name>
+    <Description>
+      [H4]Astrogation (Intellect)[h4]
+      Please see page 104 of the Core Rulebook for details.
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>ATHL</Key>
+    <Name>Athletics</Name>
+    <Description>
+      [H4]Athletics (Brawn)[h4]
+      Please see page 105 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>BR</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>BRAWL</Key>
+    <Name>Brawl</Name>
+    <Description>
+      [H4]Brawl (Brawn)[h4]
+      Please see page 120 of the Core Rulebook for details.
+    </Description>
+    <CharKey>BR</CharKey>
+    <Type>Combat</Type>
+  </Skill>
+  <Skill>
+    <Key>CHARM</Key>
+    <Name>Charm</Name>
+    <Description>
+      [H4]Charm (Presence)[h4]
+      Please see page 105 of the Core Rulebook for details.
+    </Description>
+    <CharKey>PR</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>COERC</Key>
+    <Name>Coercion</Name>
+    <Description>
+      [H4]Coercion (Willpower)[h4]
+      Please see page 106 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>WIL</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>COMP</Key>
+    <Name>Computers</Name>
+    <Description>
+      [H4]Computers (Intellect)[h4]
+      Please see page 107 of the Core Rulebook for details.
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>COOL</Key>
+    <Name>Cool</Name>
+    <Description>
+      [H4]Cool (Presence)[h4]
+      Please see page 108 of the Core Rulebook for details.
+    </Description>
+    <CharKey>PR</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>COORD</Key>
+    <Name>Coordination</Name>
+    <Description>
+      [H4]Coordination (Agility)[h4]
+      Please see page 109 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>CORE</Key>
+    <Name>Core Worlds</Name>
+    <Description>
+      [H4]Core Worlds (Intellect)[h4]
+      Please see page 123 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+  <Skill>
+    <Key>DECEP</Key>
+    <Name>Deception</Name>
+    <Description>
+      [H4]Deception (Cunning)[h4]
+      Please see page 109 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>CUN</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>DISC</Key>
+    <Name>Discipline</Name>
+    <Description>
+      [H4]Discipline (Willpower)[h4]
+      Please see page 110 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>WIL</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>EDU</Key>
+    <Name>Education</Name>
+    <Description>
+      [H4]Education (Intellect)[h4]
+      Please see page 123 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+  <Skill>
+    <Key>GUNN</Key>
+    <Name>Gunnery</Name>
+    <Description>
+      [H4]Gunnery (Agility)[h4]
+      Please see page 120 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>Combat</Type>
+  </Skill>
+  <Skill>
+    <Key>LEAD</Key>
+    <Name>Leadership</Name>
+    <Description>
+      [H4]Leadership (Presence)[h4]
+      Please see page 111 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>PR</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>LTSABER</Key>
+    <Name>Lightsaber</Name>
+    <Description>
+      [H4]Lightsaber (Agility)[h4]
+      Player characters do not normally have this skill available to them in Edge of the Empire.  Please
+speak with your GM before taking ranks in it.
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>Combat</Type>
+  </Skill>
+  <Skill>
+    <Key>LORE</Key>
+    <Name>Lore</Name>
+    <Description>
+      [H4]Lore (Intellect)[h4]
+      Please see page 123 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+  <Skill>
+    <Key>MECH</Key>
+    <Name>Mechanics</Name>
+    <Description>
+      [H4]Mechanics (Intellect)[h4]
+      Please see page 111 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>MED</Key>
+    <Name>Medicine</Name>
+    <Description>
+      [H4]Medicine (Intellect)[h4]
+      Please see page 112 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>MELEE</Key>
+    <Name>Melee</Name>
+    <Description>
+      [H4]Melee (Brawn)[h4]
+      Please see page 121 of the Core Rulebook for details.
+
+
+    </Description>
+    <CharKey>BR</CharKey>
+    <Type>Combat</Type>
+  </Skill>
+  <Skill>
+    <Key>NEG</Key>
+    <Name>Negotiation</Name>
+    <Description>
+      [H4]Negotiation (Presence)[h4]
+      Please see page 113 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>PR</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>OUT</Key>
+    <Name>Outer Rim</Name>
+    <Description>
+      [H4]Outer Rim (Intellect)[h4]
+      Please see page 124 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+  <Skill>
+    <Key>PERC</Key>
+    <Name>Perception</Name>
+    <Description>
+      [H4]Perception (Cunning)[h4]
+      Please see page 114 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>CUN</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>PILOTPL</Key>
+    <Name>Piloting - Planetary</Name>
+    <Description>
+      [H4]Piloting - Planetary (Agility)[h4]
+      Please see page 115 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>PILOTSP</Key>
+    <Name>Piloting - Space</Name>
+    <Description>
+      [H4]Piloting - Space (Agility)[h4]
+      Please see page 116 of the Core Rulebook for details.
+
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>RANGHVY</Key>
+    <Name>Ranged - Heavy</Name>
+    <Description>
+      [H4]Ranged - Heavy (Agility)[h4]
+      Please see page 121 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>Combat</Type>
+  </Skill>
+  <Skill>
+    <Key>RANGLT</Key>
+    <Name>Ranged - Light</Name>
+    <Description>
+      [H4]Ranged - Light (Agility)[h4]
+      Please see page 122 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>Combat</Type>
+  </Skill>
+  <Skill>
+    <Key>RESIL</Key>
+    <Name>Resilience</Name>
+    <Description>
+      [H4]Resilience (Brawn)[h4]
+      Please see page 116 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>BR</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>SKUL</Key>
+    <Name>Skulduggery</Name>
+    <Description>
+      [H4]Skulduggery (Cunning)[h4]
+      Please see page 116 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>CUN</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>STEAL</Key>
+    <Name>Stealth</Name>
+    <Description>
+      [H4]Stealth (Agility)[h4]
+      Please see page 117 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>AG</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>SW</Key>
+    <Name>Streetwise</Name>
+    <Description>
+      [H4]Streetwise (Cunning)[h4]
+      Please see page 118 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>CUN</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>SURV</Key>
+    <Name>Survival</Name>
+    <Description>
+      [H4]Survival (Cunning)[h4]
+      Please see page 119 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>CUN</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>UND</Key>
+    <Name>Underworld</Name>
+    <Description>
+      [H4]Underworld (Intellect)[h4]
+      Please see page 124 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+  <Skill>
+    <Key>VIGIL</Key>
+    <Name>Vigilance</Name>
+    <Description>
+      [H4]Vigilance (Willpower)[h4]
+      Please see page 119 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>WIL</CharKey>
+    <Type>General</Type>
+  </Skill>
+  <Skill>
+    <Key>XEN</Key>
+    <Name>Xenology</Name>
+    <Description>
+      [H4]Xenology (Intellect)[h4]
+      Please see page 125 of the Core Rulebook for details.
+
+    </Description>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+  <Skill>
+    <Key>WARF</Key>
+    <Name>Warfare</Name>
+    <Description>
+      [H4]Warfare (Intellect)[h4]
+      Please see Age of Rebellion Rule book.
+    </Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <CharKey>INT</CharKey>
+    <Type>Knowledge</Type>
+  </Skill>
+</Skills>
