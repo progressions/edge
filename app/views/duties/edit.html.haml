@@ -5,7 +5,7 @@
 :javascript
   $().ready(function() {
     window.Duty.refresh = function() {
-      $.ajax({ url: "#{duties_duty_url(@character, params.merge(format: 'js'))}" });
+      $.ajax({ url: "#{duty_url(@character, params.merge(format: 'js'))}" });
     };
     Duty.refresh();
   });

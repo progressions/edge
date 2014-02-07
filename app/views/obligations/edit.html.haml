@@ -5,7 +5,7 @@
 :javascript
   $().ready(function() {
     window.Obligation.refresh = function() {
-      $.ajax({ url: "#{obligations_obligation_url(@character, params.merge(format: 'js'))}" });
+      $.ajax({ url: "#{obligation_url(@character, params.merge(format: 'js'))}" });
     };
     Obligation.refresh();
   });
