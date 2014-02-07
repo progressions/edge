@@ -10,13 +10,13 @@ module ApplicationHelper
       gsub("\n", "").
       gsub('\"', '"').
       gsub("[H4]", "<h4>").
-      gsub("[h4]", "</h4>").
+      gsub("[h4]", "</h4> ").
       gsub("[P]", "<p>").
-      gsub("[p]", "</p>").
+      gsub("[p]", "</p> ").
       gsub("[B]", "<strong>").
-      gsub("[b]", "</strong>").
+      gsub("[b]", "</strong> ").
       gsub("[I]", "<em>").
-      gsub("[i]", "</em>").
+      gsub("[i]", "</em> ").
       html_safe
   rescue StandardError => e
     return e
