@@ -14,5 +14,5 @@ class Characteristic < ActiveRecord::Base
   belongs_to :character
 
   has_many :rankables, foreign_key: "parent_id", dependent: :destroy
-  has_many :ranks, through: :rankables
+  has_many :ranks, -> { where(parent_type: "Characteristic") }, through: :rankables
 end
