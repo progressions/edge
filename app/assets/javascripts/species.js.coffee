@@ -6,7 +6,6 @@ $ ->
   if $("#edit_species").length > 0
     console.log("yes")
 
-
 class window.Species
   @refresh: ->
 

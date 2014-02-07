@@ -15,4 +15,5 @@ class window.Form
       Portrait.update()
       Details.update()
       Species.refresh()
+      Career.refresh()
       Flash.success("Changes saved.")

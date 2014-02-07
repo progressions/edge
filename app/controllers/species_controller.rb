@@ -4,13 +4,11 @@ class SpeciesController < ApplicationController
   def edit
     @species = Species.official
     @character = current_user.characters.find(params[:id])
-    @character.species ||= Species.new
   end
 
   def show
     @species = Species.official
     @character = current_user.characters.find(params[:id])
-    @character.species ||= Species.new
   end
 
   def update

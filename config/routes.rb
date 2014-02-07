@@ -1,7 +1,6 @@
 Edge::Application.routes.draw do
 
   resources :careers
-
   resources :weapons
   resources :vehicles
 
