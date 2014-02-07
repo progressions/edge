@@ -17,12 +17,12 @@ class DutyOptions < ActiveRecord::Base
   belongs_to :character
 
   def remaining_duty
-    amount = character.total_duty.to_i
-    amount += starting_size.to_i
-    amount += 5 if plus_five_xp?
-    amount += 10 if plus_ten_xp?
-    amount += 5 if plus_thousand_credits?
-    amount += 10 if plus_two_thousand_five_hundred_credits?
+    amount = starting_size.to_i
+    amount -= character.total_duty.to_i
+    amount -= 5 if plus_five_xp?
+    amount -= 10 if plus_ten_xp?
+    amount -= 5 if plus_thousand_credits?
+    amount -= 10 if plus_two_thousand_five_hundred_credits?
 
     amount
   end

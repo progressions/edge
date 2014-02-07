@@ -36,21 +36,21 @@
 
     = f.semantic_fields_for :duty_options do |o|
       = o.label :starting_size
-      = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
+      = o.input :starting_size, as: :select, include_blank: false, collection: [5, 10, 15, 20]
 
-      %label.checkbox{class: "#{'disabled' unless plus_five_xp_enabled?(@character)}"}
-        +5 Starting XP (+5 Duty)
-        = o.check_box :plus_five_xp, disabled: !plus_five_xp_enabled?(@character)
+      %label.checkbox{class: "#{'disabled' unless duty_plus_five_xp_enabled?(@character)}"}
+        +5 Starting XP (-5 Duty)
+        = o.check_box :plus_five_xp, disabled: !duty_plus_five_xp_enabled?(@character)
 
-      %label.checkbox{class: "#{'disabled' unless plus_ten_xp_enabled?(@character)}"}
-        +10 Starting XP (+10 Duty)
-        = o.check_box :plus_ten_xp, disabled: !plus_ten_xp_enabled?(@character)
+      %label.checkbox{class: "#{'disabled' unless duty_plus_ten_xp_enabled?(@character)}"}
+        +10 Starting XP (-10 Duty)
+        = o.check_box :plus_ten_xp, disabled: !duty_plus_ten_xp_enabled?(@character)
 
-      %label.checkbox{class: "#{'disabled' unless plus_thousand_credits_enabled?(@character)}"}
-        +1,000 Credits (+5 Duty)
-        = o.check_box :plus_thousand_credits, disabled: !plus_thousand_credits_enabled?(@character)
+      %label.checkbox{class: "#{'disabled' unless duty_plus_thousand_credits_enabled?(@character)}"}
+        +1,000 Credits (-5 Duty)
+        = o.check_box :plus_thousand_credits, disabled: !duty_plus_thousand_credits_enabled?(@character)
 
-      %label.checkbox{class: "#{'disabled' unless plus_two_thousand_five_hundred_credits_enabled?(@character)}"}
-        +2,500 Credits (+10 Duty)
-        = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !plus_two_thousand_five_hundred_credits_enabled?(@character)
+      %label.checkbox{class: "#{'disabled' unless duty_plus_two_thousand_five_hundred_credits_enabled?(@character)}"}
+        +2,500 Credits (-10 Duty)
+        = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !duty_plus_two_thousand_five_hundred_credits_enabled?(@character)
 
