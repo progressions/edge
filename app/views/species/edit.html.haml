@@ -1,8 +1,11 @@
 - @active = :species
 
-#edit_species.row
+#edit_species
 
 :javascript
   $().ready(function() {
-    $.ajax({ url: "#{species_url(@character, params.merge(format: 'js'))}" });
+    window.Species.refresh = function() {
+      $.ajax({ url: "#{species_url(@character, params.merge(format: 'js'))}" });
+    };
+    Species.refresh();
   });

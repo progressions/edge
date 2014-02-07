@@ -8,6 +8,8 @@ $ ->
 
 
 class window.Species
+  @refresh: ->
+
   @behaviors: ->
     console.log("behaviors")
     Form.init()

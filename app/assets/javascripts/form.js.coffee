@@ -14,4 +14,5 @@ class window.Form
     $('form[data-remote=true]').on 'ajax:success', (event, data, status, xhr) ->
       Portrait.update()
       Details.update()
+      Species.refresh()
       Flash.success("Changes saved.")

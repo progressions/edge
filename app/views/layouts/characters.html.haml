@@ -1,6 +1,6 @@
 - content_for :content do
   .row
-    .span2
+    .span2.side-nav
       %ul.nav.nav-tabs.nav-stacked
         %li{class: "#{'active' if @active == :description}"}= link_to("Description", edit_description_url(@character))
         %li{class: "#{'active' if @active == :background}"}= link_to("Background", edit_background_url(@character))
