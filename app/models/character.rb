@@ -28,6 +28,9 @@
 #
 
 class Character < ActiveRecord::Base
+  has_one :character_career
+  has_one :career, through: :character_career
+
   has_many :characteristics
 
   has_one :character_species

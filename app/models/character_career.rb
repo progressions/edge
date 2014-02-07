@@ -10,4 +10,6 @@
 #
 
 class CharacterCareer < ActiveRecord::Base
+  belongs_to :career
+  belongs_to :character
 end

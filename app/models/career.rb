@@ -13,4 +13,7 @@
 
 class Career < ActiveRecord::Base
   include Sourced
+
+  has_many :character_careers
+  has_many :character, through: :character_careers
 end
