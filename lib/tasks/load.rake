@@ -30,4 +30,7 @@ namespace :load do
   task specializations: :environment do
     Loader.load_from_files("Specialization")
   end
+  task skills: :environment do
+    Loader.load_from_file("Skill")
+  end
 end
