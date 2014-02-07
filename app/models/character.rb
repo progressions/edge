@@ -66,8 +66,12 @@ class Character < ActiveRecord::Base
   before_save :update_obligation_xp
   before_save :update_obligation_credits
 
+  def starting_experience
+    species.try(:starting_xp).to_i
+  end
+
   def total_experience
-    experience_ranks.sum(:amount).to_i + used_experience.to_i
+    starting_experience + experience_ranks.sum(:amount).to_i + used_experience.to_i
   end
 
   def earned_experience_rank

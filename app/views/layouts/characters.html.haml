@@ -1,5 +1,4 @@
 - content_for :content do
-
   .row
     .span2
       %ul.nav.nav-tabs.nav-stacked
@@ -7,6 +6,7 @@
         %li{class: "#{'active' if @active == :background}"}= link_to("Background", edit_background_url(@character))
         %li{class: "#{'active' if @active == :obligation}"}= link_to("Obligation", edit_obligation_url(@character))
         %li{class: "#{'active' if @active == :duty}"}= link_to("Duty", edit_duty_url(@character))
+        %li{class: "#{'active' if @active == :species}"}= link_to("Species", edit_species_url(@character))
 
     .span10
       - if @character.present?
