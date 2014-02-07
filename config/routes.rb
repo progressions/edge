@@ -23,7 +23,11 @@ Edge::Application.routes.draw do
   end
 
   resources :backgrounds
-  resources :obligations
+  resources :obligations do
+    member do
+      get :obligations
+    end
+  end
 
   resources :characters do
     collection do

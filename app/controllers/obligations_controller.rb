@@ -7,6 +7,12 @@ class ObligationsController < ApplicationController
     @character.obligation_options ||= ObligationOptions.create(starting_size: 10)
   end
 
+  def obligations
+    @character = current_user.characters.find(params[:id])
+    @obligations = Obligation.all
+    @character.obligation_options ||= ObligationOptions.create(starting_size: 10)
+  end
+
   def update
     @character = current_user.characters.find(params[:id])
 

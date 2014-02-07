@@ -1,0 +1,59 @@
+= semantic_nested_form_for(@character, url: obligation_url) do |f|
+  .form-horizontal.obligations.span7
+    %h4
+      Total Obligation:
+      = @character.total_obligation
+
+    = f.semantic_fields_for :character_obligations do |c|
+      .span3
+        = c.label :obligation_id, "Obligation"
+        = c.input :obligation_id, as: :select, collection: @obligations, include_blank: false, input_html: {class: 'obligation_select'}
+
+        .control-group
+          = c.label :size
+          = c.text_field :size, type: :number, class: "size_input"
+
+        .control-group
+          = c.label :notes
+          = c.text_area :notes
+
+        %p= c.link_to_remove "Remove", class: 'btn btn-danger'
+
+      .span3.well.obligation_details
+        - @obligations.each do |obligation|
+          = div_for(obligation, style: "display: none;") do
+            = format_description(obligation.description)
+
+      .clearfix.clear
+
+    %p= f.link_to_add 'New Obligation', :character_obligations, class: 'btn btn-info'
+
+    .form-actions
+      = f.submit(class: "btn btn-large btn-success")
+
+  .span3.obligation_options
+    %h3 Options
+
+    = f.semantic_fields_for :obligation_options do |o|
+      = o.label :starting_size
+      = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
+
+      - over_by_five = (@character.total_obligation - @character.obligation_options.try(:starting_size).to_i >= 5)
+      - over_by_ten = (@character.total_obligation - @character.obligation_options.try(:starting_size).to_i >= 10)
+
+      %label.checkbox{class: "#{'disabled' unless over_by_five}"}
+        +5 Starting XP (+5 Obligation)
+        = o.check_box :plus_five_xp, disabled: !over_by_five
+
+      %label.checkbox{class: "#{'disabled' unless over_by_ten}"}
+        +10 Starting XP (+10 Obligation)
+        = o.check_box :plus_ten_xp, disabled: !over_by_ten
+
+      %label.checkbox{class: "#{'disabled' unless over_by_five}"}
+        +1,000 Credits (+5 Obligation)
+        = o.check_box :plus_thousand_credits, disabled: !over_by_five
+
+      %label.checkbox{class: "#{'disabled' unless over_by_ten}"}
+        +2,500 Credits (+10 Obligation)
+        = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !over_by_ten
+

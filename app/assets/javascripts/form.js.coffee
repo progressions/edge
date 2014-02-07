@@ -15,5 +15,3 @@ class window.Form
       Portrait.update()
       Details.update()
       Flash.success("Changes saved.")
-
-
