@@ -21,6 +21,8 @@
 #
 
 class Species < ActiveRecord::Base
+  include Sourced
+
   has_many :characters, through: :character_species
 
   def self.official

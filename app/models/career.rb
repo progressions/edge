@@ -12,4 +12,5 @@
 #
 
 class Career < ActiveRecord::Base
+  include Sourced
 end

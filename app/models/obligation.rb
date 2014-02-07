@@ -12,6 +12,7 @@
 #
 
 class Obligation < ActiveRecord::Base
+  include Sourced
   include Sluggable
 
   has_many :character_obligations
