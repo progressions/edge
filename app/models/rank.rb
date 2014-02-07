@@ -24,4 +24,8 @@ class Rank < ActiveRecord::Base
   def self.by_duty
     where(source: "duty")
   end
+
+  def self.by_species
+    where(source: "species")
+  end
 end
