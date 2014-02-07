@@ -1,11 +1,30 @@
 = semantic_form_for(@character, url: species_url, remote: true) do |f|
   .row
     .span4
-      %p= @character.species.name
       = f.input :species, as: :select, include_blank: false, collection: @species
 
     .span6.characteristics_details
       = render partial: 'characters/characteristics', locals: {object: @character.species}
+
+      %dl.dl-horizontal
+        %dt Wound Threshold
+        %dd
+          = @character.species.wound_threshold
+          + Brawn
+        %dt Strain Threshold
+        %dd
+          = @character.species.strain_threshold
+          + Willpower
+        %dt Starting Experience
+        %dd
+          = @character.species.starting_xp
+          XP
+
+        %p &nbsp;
+
+        .description.well
+          = format_description(@character.species.description)
+
 
   .form-actions
     = f.submit(class: "btn btn-large btn-success")
