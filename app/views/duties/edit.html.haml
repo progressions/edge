@@ -1,0 +1,11 @@
+- @active = :duty
+
+#edit_duties.row
+
+:javascript
+  $().ready(function() {
+    window.Duty.refresh = function() {
+      $.ajax({ url: "#{duties_duty_url(@character, params.merge(format: 'js'))}" });
+    };
+    Duty.refresh();
+  });

@@ -1,0 +1,56 @@
+= semantic_nested_form_for(@character, url: duty_url) do |f|
+  .form-horizontal.duties.span7
+    %h4
+      Total Duty:
+      = @character.total_duty
+
+    = f.semantic_fields_for :character_duties do |c|
+      .span3
+        = c.label :duty_id, "Duty"
+        = c.input :duty_id, as: :select, collection: @duties, include_blank: false, input_html: {class: 'duty_select'}
+
+        .control-group
+          = c.label :size
+          = c.text_field :size, type: :number, class: "size_input"
+
+        .control-group
+          = c.label :notes
+          = c.text_area :notes
+
+        %p= c.link_to_remove "Remove", class: 'btn btn-danger'
+
+      .span3.well.duty_details
+        - @duties.each do |duty|
+          = div_for(duty, style: "display: none;") do
+            = format_description(duty.description)
+
+      .clearfix.clear
+
+    %p= f.link_to_add 'New Duty', :character_duties, class: 'btn btn-info'
+
+    .form-actions
+      = f.submit(class: "btn btn-large btn-success")
+
+  .span3.duty_options
+    %h3 Options
+
+    = f.semantic_fields_for :duty_options do |o|
+      = o.label :starting_size
+      = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
+
+      %label.checkbox{class: "#{'disabled' unless plus_five_xp_enabled?(@character)}"}
+        +5 Starting XP (+5 Duty)
+        = o.check_box :plus_five_xp, disabled: !plus_five_xp_enabled?(@character)
+
+      %label.checkbox{class: "#{'disabled' unless plus_ten_xp_enabled?(@character)}"}
+        +10 Starting XP (+10 Duty)
+        = o.check_box :plus_ten_xp, disabled: !plus_ten_xp_enabled?(@character)
+
+      %label.checkbox{class: "#{'disabled' unless plus_thousand_credits_enabled?(@character)}"}
+        +1,000 Credits (+5 Duty)
+        = o.check_box :plus_thousand_credits, disabled: !plus_thousand_credits_enabled?(@character)
+
+      %label.checkbox{class: "#{'disabled' unless plus_two_thousand_five_hundred_credits_enabled?(@character)}"}
+        +2,500 Credits (+10 Duty)
+        = o.check_box :plus_two_thousand_five_hundred_credits, disabled: !plus_two_thousand_five_hundred_credits_enabled?(@character)
+
