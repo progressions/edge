@@ -1,1 +1,8 @@
-%h1 hi
+- @active = :species
+
+#edit_species.row
+
+:javascript
+  $().ready(function() {
+    $.ajax({ url: "#{species_url(@character, params.merge(format: 'js'))}" });
+  });

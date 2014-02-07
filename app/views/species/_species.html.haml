@@ -1,0 +1,7 @@
+= semantic_form_for(@character, url: species_url) do |f|
+  .row
+    .span10
+      = f.input :species, as: :select, include_blank: false, collection: @species
+
+  .form-actions
+    = f.submit(class: "btn btn-large btn-success")

@@ -30,6 +30,7 @@
 class Character < ActiveRecord::Base
   has_one :character_species
   has_one :species, through: :character_species
+  accepts_nested_attributes_for :species
 
   belongs_to :user
 
@@ -60,11 +61,25 @@ class Character < ActiveRecord::Base
   has_attached_file :portrait, :styles => { :medium => "300x300", :thumb => "100x100#" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
+  before_save :default_species
+
   before_save :update_duty_xp
   before_save :update_duty_credits
 
   before_save :update_obligation_xp
   before_save :update_obligation_credits
+
+  def default_species
+    self.species ||= Species.where(name: "Human").first
+  end
+
+  def species_id
+    species.try(:id)
+  end
+
+  def species_id=(value)
+    self.species = Species.find(value)
+  end
 
   def starting_experience
     species.try(:starting_xp).to_i
