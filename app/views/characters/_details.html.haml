@@ -1,63 +1,78 @@
-%dl.dl-horizontal.span2
-  %dt Name
-  %dd= @character.name
-
-  %dt Species
-  %dd Droid
-
-  %dt Career
-  %dd Bounty Hunter
-
-%dl.dl-horizontal.span2
-  %dt Credits
-  %dd= number_with_delimiter(@character.credits)
-
-  %dt Encum
-  %dd 0/7
-
-  %dt Oblig/Duty
-  %dd 15/0
-
-.span5.characteristics_details
-  %table.table-condensed.characteristics
-    %tr.values
-      %td
-        .value 2
-      %td
-        .value 2
-      %td
-        .value 2
-      %td
-        .value 2
-      %td
-        .value 2
-      %td
-        .value 2
-    %tr.names
-      %td Brawn
-      %td Agility
-      %td Intellect
-      %td Cunning
-      %td Willpower
-      %td Presence
-
-  %table.table-condensed
+#character_xp_details.row
+  %table#xp.table.table-bordered.span10
     %tr
-      %td Wound
-      %td Strain
-      %td Defense
-      %td Soak
+      %th Start XP
+      %td 110
+      %th Earned XP
+      %td 0
+      %th Total XP
+      %td 110
+      %th Used XP
+      %td 0
+      %th Unused XP
+      %td 110
 
-    %tr
-      %td 12
-      %td 12
-      %td
-        %table.table-condensed
-          %tr
-            %td 1
-            %td 1
-          %tr
-            %td Ranged
-            %td Melee
-      %td 3
+.row
+  %dl.dl-horizontal.span2
+    %dt Name
+    %dd= @character.name
+
+    %dt Species
+    %dd Droid
+
+    %dt Career
+    %dd Bounty Hunter
+
+  %dl.dl-horizontal.span2
+    %dt Credits
+    %dd= number_with_delimiter(@character.credits)
+
+    %dt Encum
+    %dd 0/7
+
+    %dt Oblig/Duty
+    %dd 15/0
+
+  .span5.characteristics_details
+    %table.table-condensed.characteristics
+      %tr.values
+        %td
+          .value 2
+        %td
+          .value 2
+        %td
+          .value 2
+        %td
+          .value 2
+        %td
+          .value 2
+        %td
+          .value 2
+      %tr.names
+        %td Brawn
+        %td Agility
+        %td Intellect
+        %td Cunning
+        %td Willpower
+        %td Presence
+
+    %table.table-condensed
+      %tr
+        %td Wound
+        %td Strain
+        %td Defense
+        %td Soak
+
+      %tr
+        %td 12
+        %td 12
+        %td
+          %table.table-condensed
+            %tr
+              %td 1
+              %td 1
+            %tr
+              %td Ranged
+              %td Melee
+        %td 3
 

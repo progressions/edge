@@ -10,24 +10,7 @@
 
     .span10
       - if @character.present?
-        #character_xp_details.row
-          .span10
-            %table.table
-              %tr
-                %th Start XP
-                %td 110
-                %th Earned XP
-                %td 0
-                %th Total XP
-                %td 110
-                %th Used XP
-                %td 0
-                %th Unused XP
-                %td 110
-
-    .span10
-      - if @character.present?
-        #character_details.row
+        #character_details
 
       = yield
 
