@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140206234040) do
+ActiveRecord::Schema.define(version: 20140207014700) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -69,14 +69,6 @@ ActiveRecord::Schema.define(version: 20140206234040) do
     t.integer  "background_id"
   end
 
-  create_table "experience_ranks", force: true do |t|
-    t.integer  "character_id"
-    t.integer  "amount"
-    t.string   "source"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "obligation_options", force: true do |t|
     t.integer  "character_id"
     t.integer  "starting_size"
@@ -93,6 +85,21 @@ ActiveRecord::Schema.define(version: 20140206234040) do
     t.string   "name"
     t.text     "description"
     t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rankables", force: true do |t|
+    t.integer  "rank_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ranks", force: true do |t|
+    t.integer  "amount"
+    t.string   "source"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -30,7 +30,9 @@
 class Character < ActiveRecord::Base
   belongs_to :user
 
-  has_many :experience_ranks
+  has_many :rankables, foreign_key: "parent_id", dependent: :destroy
+  has_many :experience_ranks, through: :rankables, source: :rank
+
   belongs_to :social_class
   belongs_to :background
 
