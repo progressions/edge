@@ -24,4 +24,7 @@ namespace :load do
   task species: :environment do
     Loader.load_from_files("Species")
   end
+  task careers: :environment do
+    Loader.load_from_files("Career")
+  end
 end
