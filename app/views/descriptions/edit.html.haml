@@ -1,6 +1,6 @@
 - @active = :description
 
-= semantic_form_for(@character, url: description_url, remote: true) do |f|
+= semantic_form_for(@character, url: description_url, remote: true, html: {class: "ajax"}) do |f|
   .row
     .span4
       .form-horizontal
@@ -45,3 +45,7 @@
       .span8.form-actions
         = f.submit(class: "btn btn-success")
 
+:javascript
+  $().ready(function() {
+    Descriptions.init();
+  });
