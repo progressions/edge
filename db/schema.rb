@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207014700) do
+ActiveRecord::Schema.define(version: 20140207152805) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20140207014700) do
   create_table "categorizables", force: true do |t|
     t.integer  "category_id"
     t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_duties", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "duty_id"
+    t.integer  "size"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +76,26 @@ ActiveRecord::Schema.define(version: 20140207014700) do
     t.text     "story"
     t.integer  "social_class_id"
     t.integer  "background_id"
+  end
+
+  create_table "duties", force: true do |t|
+    t.string   "key"
+    t.string   "name"
+    t.text     "description"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "duty_options", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "starting_size"
+    t.boolean  "plus_five_xp"
+    t.boolean  "plus_ten_xp"
+    t.boolean  "plus_thousand_credits"
+    t.boolean  "plus_two_thousand_five_hundred_credits"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "obligation_options", force: true do |t|

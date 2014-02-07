@@ -28,6 +28,7 @@
 #  price                :integer
 #  rarity               :integer
 #  source               :string(255)
+#  vehicle_type         :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
