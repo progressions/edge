@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207152805) do
+ActiveRecord::Schema.define(version: 20140207171556) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -137,6 +137,23 @@ ActiveRecord::Schema.define(version: 20140207152805) do
     t.string   "name"
     t.text     "description"
     t.string   "key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "species", force: true do |t|
+    t.string   "key"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "brawn"
+    t.integer  "agility"
+    t.integer  "intellect"
+    t.integer  "cunning"
+    t.integer  "willpower"
+    t.integer  "presence"
+    t.integer  "wound_threshold"
+    t.integer  "strain_threshold"
+    t.integer  "starting_xp"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
