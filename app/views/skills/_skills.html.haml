@@ -14,4 +14,4 @@
             %td= career?(cs)
             %td= cs.skill_type
             %td
-              = select_tag("character[buy_skills][#{cs.id}]", options_for_select(0..5))
+              = select_tag("character[purchased_skill_ranks][#{cs.id}]", options_for_select(0..5, cs.purchased_amount))

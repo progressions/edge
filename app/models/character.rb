@@ -273,7 +273,11 @@ class Character < ActiveRecord::Base
     Specialization.where(id: ids)
   end
 
-  def buy_skill(values)
+  def purchased_skill_ranks=(values)
+    values.each do |cs_id, value|
+      character_skill = self.character_skills.find(cs_id)
+      character_skill.purchase_ranks(value)
+    end
   end
 
   concerning :UpdatingObligationOptions do
