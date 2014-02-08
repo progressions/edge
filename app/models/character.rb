@@ -158,6 +158,21 @@ class Character < ActiveRecord::Base
     self.first_specialization ||= self.career.specializations.first
   end
 
+  def career_skill_ids
+    career_skills.pluck(:id)
+  end
+
+  def career_skill_ids=(values)
+    values.each do |skill_id, value|
+      skill = Skill.find(skill_id)
+      if value.last == "true"
+        self.career_skills << skill
+      else
+        self.career_skills.delete(skill)
+      end
+    end
+  end
+
   def career_id
     career.try(:id)
   end

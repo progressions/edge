@@ -11,9 +11,12 @@
     .span4
       %h4 Career Skills
 
-      %ul
+      .controls
         - @career_skills.each do |skill|
-          %li= skill.name
+          %label.checkbox
+            = hidden_field_tag("character[career_skill_ids[#{skill.id}]][]", false)
+            = check_box_tag("character[career_skill_ids[#{skill.id}]][]", true, @character.career_skills.include?(skill))
+            = skill.name
 
   .row
     .span6
@@ -25,9 +28,14 @@
     .span4
       %h4 Specialization Skills
 
-      %ul
+      .controls
         - @specialization_skills.each do |skill|
-          %li= skill.name
+          %label.checkbox
+            = hidden_field_tag("character[career_skill_ids[#{skill.id}]][]", false)
+            = check_box_tag("character[career_skill_ids[#{skill.id}]][]", true, @character.career_skills.include?(skill))
+            = skill.name
+
+      .controls
 
 
   .form-actions
