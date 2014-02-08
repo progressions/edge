@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(version: 20140208170902) do
     t.datetime "updated_at"
   end
 
-  create_table "character_career_skills", force: true do |t|
-    t.integer  "character_id"
-    t.integer  "skill_id"
-    t.string   "source"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "character_careers", force: true do |t|
     t.integer  "character_id"
     t.integer  "career_id"
