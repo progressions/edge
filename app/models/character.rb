@@ -29,6 +29,9 @@
 #
 
 class Character < ActiveRecord::Base
+  has_many :character_skills
+  has_many :skills, through: :character_skills
+
   has_many :character_specializations
   has_many :specializations, through: :character_specializations
 
