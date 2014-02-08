@@ -29,6 +29,9 @@
 #
 
 class Character < ActiveRecord::Base
+  has_many :character_career_skills
+  has_many :career_skills, through: :character_career_skills, source: :skill
+
   has_many :character_skills
   has_many :skills, through: :character_skills
 
