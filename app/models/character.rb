@@ -160,15 +160,8 @@ class Character < ActiveRecord::Base
     unless self.career.specializations.include?(self.first_specialization)
       self.first_specialization_id = self.career.specializations.first.id
     end
-  end
-
-  def first_specialization_id=(value)
-    spec = self.career.specializations.find(value)
-    if spec.present?
-      self.first_specialization=(spec)
-      self.career_skills_by_first_specialization = spec.career_skills
-    else
-      errors.add(:base, "First Specialization must be within Career.")
+    if changed_attributes.include?(:first_specialization_id)
+      self.career_skills_by_first_specialization = self.first_specialization.career_skills
     end
   end
 
