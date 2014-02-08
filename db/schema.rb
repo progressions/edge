@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208180906) do
+ActiveRecord::Schema.define(version: 20140208181014) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
