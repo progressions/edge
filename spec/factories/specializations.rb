@@ -11,6 +11,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  career_id   :integer
+#  skill_keys  :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

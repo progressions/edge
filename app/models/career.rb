@@ -2,21 +2,21 @@
 #
 # Table name: careers
 #
-#  id            :integer          not null, primary key
-#  key           :string(255)
-#  name          :string(255)
-#  description   :text
-#  created_at    :datetime
-#  updated_at    :datetime
-#  source        :string(255)
-#  career_skills :string(255)
+#  id          :integer          not null, primary key
+#  key         :string(255)
+#  name        :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#  source      :string(255)
+#  skill_keys  :string(255)
 #
 
 class Career < ActiveRecord::Base
   include Sourced
   include Sluggable
 
-  serialize :skill_keys, Array
+  include CareerSkillKeys
 
   has_many :character_careers
   has_many :character, through: :character_careers

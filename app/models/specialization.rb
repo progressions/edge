@@ -11,11 +11,13 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  career_id   :integer
+#  skill_keys  :string(255)
 #
 
 class Specialization < ActiveRecord::Base
   include Sourced
   include Sluggable
+  include CareerSkillKeys
 
   has_many :character_specializations
   has_many :characters, through: :character_specialization
