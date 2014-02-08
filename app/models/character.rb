@@ -181,21 +181,25 @@ class Character < ActiveRecord::Base
     career_skills.pluck(:id)
   end
 
-  def specialization_skill_ids=(values)
-    set_career_skill_ids(values)
+  def career_skills_by_specialization_ids=(values)
+    set_career_skill_ids(:specialization, values)
   end
 
-  def career_skill_ids=(values)
-    set_career_skill_ids(values)
+  def career_skill_by_career_ids=(values)
+    set_career_skill_ids(:career, values)
   end
 
-  def set_career_skill_ids(values)
+  def career_skill_by_species_ids=(values)
+    set_career_skill_ids(:species, values)
+  end
+
+  def set_career_skill_ids(source, values)
     values.each do |skill_id, value|
       skill = Skill.find(skill_id)
       if value.last == "true"
-        self.career_skills << skill
+        self.send("career_skills_by_#{source}") << skill
       else
-        self.career_skills.delete(skill)
+        self.send("career_skills_by_#{source}").delete(skill)
       end
     end
   end
@@ -207,7 +211,9 @@ class Character < ActiveRecord::Base
   def career_id=(value)
     new_career = Career.find(value)
     unless new_career == self.career
+      self.career_skills_by_career.delete_all
       self.career = new_career
+      self.career_skills_by_career = self.career.career_skills
     end
   end
 
@@ -216,7 +222,11 @@ class Character < ActiveRecord::Base
   end
 
   def species_id=(value)
-    self.species = Species.find(value)
+    new_species = Species.find(value)
+    unless new_species == self.species
+      self.career_skills_by_species.delete_all
+      self.career = new_career
+    end
   end
 
   def starting_experience
