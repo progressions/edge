@@ -27,10 +27,8 @@
       %td
         = link_to(character.name, edit_description_url(character))
       %td= character.player_name
-      %td
-        Droid
-      %td
-        Bounty Hunter
+      %td= character.species.try(:name)
+      %td= character.career.try(:name)
 
       %td.actions
         .btn-group
