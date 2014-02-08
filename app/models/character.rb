@@ -273,10 +273,22 @@ class Character < ActiveRecord::Base
     Specialization.where(id: ids)
   end
 
+  def career_skill_ranks=(values)
+    values.each do |skill_id, value|
+      if value.last == "true"
+        amount = 1
+      else
+        amount = 0
+      end
+      character_skill = self.character_skills.where(skill_id: skill_id).first
+      character_skill.set_career_ranks(amount)
+    end
+  end
+
   def purchased_skill_ranks=(values)
     values.each do |cs_id, value|
       character_skill = self.character_skills.find(cs_id)
-      character_skill.purchase_ranks(value)
+      character_skill.set_purchased_ranks(value)
     end
   end
 

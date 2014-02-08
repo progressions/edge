@@ -10,11 +10,11 @@
       %h4 Career Skills
 
       .controls
-        - @career_skills.each do |skill|
+        - @character.career_character_career_skills.each do |cs|
           %label.checkbox
-            =# hidden_field_tag("character[career_skill_ids[#{skill.id}]][]", false)
-            =# check_box_tag("character[career_skill_ids[#{skill.id}]][]", true, @character.career_skills.include?(skill))
-            = skill.name
+            = hidden_field_tag("character[career_skill_ranks[#{cs.skill.id}]][]", false)
+            = check_box_tag("character[career_skill_ranks[#{cs.skill.id}]][]", true, false)
+            = cs.name
 
     .form-actions
       = f.submit(class: "btn btn-large btn-success")
