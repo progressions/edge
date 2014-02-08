@@ -26,9 +26,12 @@
 #  social_class_id         :integer
 #  background_id           :integer
 #  first_specialization_id :integer
+#  skill_keys              :string(255)
 #
 
 class Character < ActiveRecord::Base
+  include CareerSkillKeys
+
   has_many :character_specializations
   has_many :specializations, through: :character_specializations
 
