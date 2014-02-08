@@ -4,11 +4,13 @@
       %thead
         %th Skill
         %th Career
+        %th Type
 
       %tbody
         - @character.skills.each do |skill|
           %tr
             %td= skill.name
             %td= career?(skill, @character)
+            %td= skill.skill_type
 
 

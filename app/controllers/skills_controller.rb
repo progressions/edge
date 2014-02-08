@@ -8,9 +8,6 @@ class SkillsController < ApplicationController
   def show
     @careers = Career.all
     @character = current_user.characters.find(params[:id])
-    @specializations = @character.career.specializations
-    @career_skills = @character.career_skills_by_career
-    @specialization_skills = @character.career_skills_by_first_specialization
   end
 
   def update
