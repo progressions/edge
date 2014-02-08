@@ -26,7 +26,7 @@ class Career < ActiveRecord::Base
   def specializations_from_xml=(values)
     values.each do |value|
       specialization = Specialization.lookup(value)
-      unless specializations.include?(specialization)
+      unless specialization.nil? || specializations.include?(specialization)
         specializations << specialization
       end
     end

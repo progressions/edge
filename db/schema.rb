@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208001416) do
+ActiveRecord::Schema.define(version: 20140208002055) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20140208001416) do
   create_table "character_skills", force: true do |t|
     t.integer  "character_id"
     t.integer  "skill_id"
+    t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
