@@ -9,7 +9,11 @@
         = format_description(@character.career.description)
 
     .span4
-      %p skills
+      %h4 Career Skills
+
+      %ul
+        - @career_skills.each do |skill|
+          %li= skill.name
 
   .row
     .span6
@@ -19,7 +23,11 @@
         = format_description(@character.first_specialization.try(:description))
 
     .span4
-      %p more skills
+      %h4 Specialization Skills
+
+      %ul
+        - @specialization_skills.each do |skill|
+          %li= skill.name
 
 
   .form-actions

@@ -2,15 +2,15 @@ class CareersController < ApplicationController
   layout 'characters'
 
   def edit
-    @careers = Career.all
     @character = current_user.characters.find(params[:id])
-    @specializations = @character.career.specializations
   end
 
   def show
     @careers = Career.all
     @character = current_user.characters.find(params[:id])
     @specializations = @character.career.specializations
+    @career_skills = @character.career.career_skills
+    @specialization_skills = @character.first_specialization.career_skills
   end
 
   def update
