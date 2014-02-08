@@ -22,6 +22,10 @@ class Loader
         k = "specializations_from_xml"
         v = v["Key"]
       end
+      if k == "career_skills"
+        k = "skill_keys"
+        v = v["Key"]
+      end
 
       class_values[k] = v
     end

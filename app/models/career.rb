@@ -16,7 +16,7 @@ class Career < ActiveRecord::Base
   include Sourced
   include Sluggable
 
-  serialize :career_skills, Array
+  serialize :skill_keys, Array
 
   has_many :character_careers
   has_many :character, through: :character_careers
