@@ -16,4 +16,5 @@ class window.Form
       Details.update()
       Species.refresh()
       Career.refresh()
+      Skills.refresh()
       Flash.success("Changes saved.")

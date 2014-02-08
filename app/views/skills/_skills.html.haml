@@ -1,16 +1,17 @@
 .row
-  = semantic_form_for(@character, url: career_url, remote: true) do |f|
+  = semantic_form_for(@character, url: skill_url, remote: true) do |f|
     %table.table.span10
       %thead
         %th Skill
         %th Career
         %th Type
+        %th Buy
 
       %tbody
-        - @character.skills.each do |skill|
+        - @character.character_skills.each do |cs|
           %tr
-            %td= skill.name
-            %td= career?(skill, @character)
-            %td= skill.skill_type
-
-
+            %td= cs.skill.name
+            %td= career?(cs)
+            %td= cs.skill_type
+            %td
+              = select_tag("character[buy_skills][#{cs.id}]", options_for_select(0..5))

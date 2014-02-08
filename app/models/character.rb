@@ -273,6 +273,9 @@ class Character < ActiveRecord::Base
     Specialization.where(id: ids)
   end
 
+  def buy_skill(values)
+  end
+
   concerning :UpdatingObligationOptions do
     def update_obligation_credits
       return unless obligation_options.present?

@@ -6,7 +6,6 @@ class SkillsController < ApplicationController
   end
 
   def show
-    @careers = Career.all
     @character = current_user.characters.find(params[:id])
   end
 

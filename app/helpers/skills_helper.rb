@@ -1,6 +1,6 @@
 module SkillsHelper
-  def career?(skill, character)
-    if character.career_skills.include?(skill)
+  def career?(character_skill)
+    if character_skill.career?
       tag(:i, class: "icon icon-check").html_safe
     else
       tag(:i, class: "").html_safe
