@@ -25,8 +25,6 @@ class CareersController < ApplicationController
     redirect_to edit_career_url(@character)
   end
 
-  # {"career_skills": {"8": [true, false]}
-
   def character_params
     params.require(:character).permit! #(:id, :career_id, :first_specialization_id, :career_skill_ids)
   end

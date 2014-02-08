@@ -1,7 +1,5 @@
--# encoding: utf-8
-
-= semantic_form_for(@character, url: career_url, remote: true) do |f|
-  .row
+.row
+  = semantic_form_for(@character, url: career_url, remote: true) do |f|
     .span6
       = f.input :career, as: :select, include_blank: false, collection: @careers
 
@@ -18,14 +16,20 @@
             = check_box_tag("character[career_skill_ids[#{skill.id}]][]", true, @character.career_skills.include?(skill))
             = skill.name
 
-  .row
-    .span6
+    .form-actions
+      = f.submit(class: "btn btn-large btn-success")
+
+
+.row
+  .span6
+    = semantic_form_for(@character, url: career_url, remote: true) do |f|
       = f.input :first_specialization, as: :select, include_blank: false, collection: @specializations
 
       .description.well
         = format_description(@character.first_specialization.try(:description))
 
-    .span4
+  .span4
+    = semantic_form_for(@character, url: career_url, remote: true) do |f|
       %h4 Specialization Skills
 
       .controls
@@ -35,9 +39,5 @@
             = check_box_tag("character[career_skill_ids[#{skill.id}]][]", true, @character.career_skills.include?(skill))
             = skill.name
 
-      .controls
-
-
-  .form-actions
-    = f.submit(class: "btn btn-large btn-success")
+    .controls
 

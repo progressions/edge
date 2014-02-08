@@ -162,7 +162,20 @@ class Character < ActiveRecord::Base
     career_skills.pluck(:id)
   end
 
+  def specialization_skill_ids=(values)
+    set_career_skill_ids(values)
+  end
+
   def career_skill_ids=(values)
+    set_career_skill_ids(values)
+  end
+
+  # off, first on:  [false, true, false] true
+  # off, second on: [false, false, true] true
+  # on, first off: [false, false, true] false
+  # on, second off: [false, true, false] false
+
+  def set_career_skill_ids(values)
     values.each do |skill_id, value|
       skill = Skill.find(skill_id)
       if value.last == "true"
