@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208011627) do
+ActiveRecord::Schema.define(version: 20140208012700) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(version: 20140208011627) do
     t.string   "char_key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "skill_type"
   end
 
   create_table "social_classes", force: true do |t|

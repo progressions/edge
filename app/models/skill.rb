@@ -10,6 +10,7 @@
 #  char_key    :string(255)
 #  created_at  :datetime
 #  updated_at  :datetime
+#  skill_type  :string(255)
 #
 
 class Skill < ActiveRecord::Base
