@@ -9,8 +9,8 @@ class CareersController < ApplicationController
     @careers = Career.all
     @character = current_user.characters.find(params[:id])
     @specializations = @character.career.specializations
-    @career_skills = @character.career.career_skills
-    @specialization_skills = @character.first_specialization.career_skills
+    @career_skills = @character.career_skills_by_career
+    @specialization_skills = @character.career_skills_by_first_specialization
   end
 
   def update

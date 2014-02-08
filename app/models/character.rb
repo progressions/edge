@@ -41,8 +41,11 @@ class Character < ActiveRecord::Base
   has_many :species_character_career_skills, -> { where(source: "species") }, class_name: "CharacterCareerSkill"
   has_many :career_skills_by_species, through: :species_character_career_skills, source: :skill
 
-  has_many :specialization_character_career_skills, -> { where(source: "species") }, class_name: "CharacterCareerSkill"
+  has_many :specialization_character_career_skills, -> { where(source: "specialization") }, class_name: "CharacterCareerSkill"
   has_many :career_skills_by_specialization, through: :specialization_character_career_skills, source: :skill
+
+  has_many :first_specialization_character_career_skills, -> { where(source: "first_specialization") }, class_name: "CharacterCareerSkill"
+  has_many :career_skills_by_first_specialization, through: :first_specialization_character_career_skills, source: :skill
 
 
   has_many :character_specializations
@@ -155,7 +158,17 @@ class Character < ActiveRecord::Base
 
   def update_first_specialization
     unless self.career.specializations.include?(self.first_specialization)
-      self.first_specialization = self.career.specializations.first
+      self.first_specialization_id = self.career.specializations.first.id
+    end
+  end
+
+  def first_specialization_id=(value)
+    spec = self.career.specializations.find(value)
+    if spec.present?
+      self.first_specialization=(spec)
+      self.career_skills_by_first_specialization = spec.career_skills
+    else
+      errors.add(:base, "First Specialization must be within Career.")
     end
   end
 
@@ -174,7 +187,7 @@ class Character < ActiveRecord::Base
   end
 
   def default_specialization
-    self.first_specialization ||= self.career.specializations.first
+    self.first_specialization_id ||= self.career.specializations.first.id
   end
 
   def career_skill_ids
