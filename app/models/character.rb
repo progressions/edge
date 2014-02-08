@@ -189,6 +189,12 @@ class Character < ActiveRecord::Base
     duties.sum(:size).to_i
   end
 
+  def all_specializations
+    ids = Array(specializations.pluck(:id))
+    ids << first_specialization.id
+    Specialization.where(id: ids)
+  end
+
   concerning :UpdatingObligationOptions do
     def update_obligation_credits
       return unless obligation_options.present?

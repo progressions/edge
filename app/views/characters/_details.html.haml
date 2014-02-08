@@ -15,13 +15,16 @@
 .row
   %dl.dl-horizontal.span2
     %dt Name
-    %dd= @character.name
+    %dd= @character.name || "&nbsp;".html_safe
 
     %dt Species
     %dd= @character.species.name
 
     %dt Career
     %dd= @character.career.try(:name)
+
+    %dt Specs
+    %dd= @character.all_specializations.pluck(:name).join(", ")
 
   %dl.dl-horizontal.span2
     %dt Credits
