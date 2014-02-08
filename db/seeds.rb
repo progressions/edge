@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 testuser = User.create(email: "test@gmail.com", password: "password", password_confirmation: "password")
+
+Character.create(name: "Borsk", player_name: "Isaac", gender: "Male", height: "1.4m", build: "Medium", hair: "Brown", eyes: "Brown", user: testuser)
