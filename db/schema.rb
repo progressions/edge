@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208005258) do
+ActiveRecord::Schema.define(version: 20140208011627) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(version: 20140208005258) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "source"
-  end
-
-  create_table "career_skills", force: true do |t|
-    t.integer  "character_id"
-    t.integer  "skill_id"
-    t.string   "source"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "careers", force: true do |t|
@@ -49,6 +41,14 @@ ActiveRecord::Schema.define(version: 20140208005258) do
   create_table "categorizables", force: true do |t|
     t.integer  "category_id"
     t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "character_career_skills", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "skill_id"
+    t.string   "source"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -76,13 +76,6 @@ ActiveRecord::Schema.define(version: 20140208005258) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "notes"
-  end
-
-  create_table "character_skills", force: true do |t|
-    t.integer  "character_id"
-    t.integer  "skill_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "character_specializations", force: true do |t|

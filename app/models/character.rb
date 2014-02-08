@@ -32,9 +32,6 @@ class Character < ActiveRecord::Base
   has_many :character_career_skills
   has_many :career_skills, through: :character_career_skills, source: :skill
 
-  has_many :character_skills
-  has_many :skills, through: :character_skills
-
   has_many :character_specializations
   has_many :specializations, through: :character_specializations
 
@@ -104,6 +101,10 @@ class Character < ActiveRecord::Base
   has_one :presence, -> { where(key: "PR", name: "Presence") }, class_name: "Characteristic"
 
   CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
+
+  def skills
+    Skill.all
+  end
 
   def default_obligation_options
     self.obligation_options ||= self.create_obligation_options
