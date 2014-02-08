@@ -1,0 +1,12 @@
+- @active = :skills
+
+#edit_skills
+
+:javascript
+  $().ready(function() {
+    window.Skills.refresh = function() {
+      $.ajax({ url: "#{skill_url(@character, params.merge(format: 'js'))}" });
+    };
+    Skills.refresh();
+  });
+

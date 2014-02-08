@@ -1,9 +1,8 @@
 Edge::Application.routes.draw do
 
+  resources :characteristics
   resources :skills
-
   resources :specializations
-
   resources :careers
   resources :weapons
   resources :vehicles

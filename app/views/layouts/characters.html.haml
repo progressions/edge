@@ -8,6 +8,7 @@
         %li{class: "#{'active' if @active == :duty}"}= link_to("Duty", edit_duty_url(@character))
         %li{class: "#{'active' if @active == :species}"}= link_to("Species", edit_species_url(@character))
         %li{class: "#{'active' if @active == :career}"}= link_to("Career", edit_career_url(@character))
+        %li{class: "#{'active' if @active == :skills}"}= link_to("Skills", edit_skill_url(@character))
 
     .span10
       - if @character.present?
