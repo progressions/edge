@@ -73,6 +73,9 @@ class Character < ActiveRecord::Base
   has_attached_file :portrait, :styles => { :medium => "300x300", :thumb => "100x100#" }, :default_url => "/assets/:style/missing.jpg"
   validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
 
+  before_save :default_obligation_options
+  before_save :default_credits
+
   before_save :default_career
   before_save :default_specialization
 
@@ -96,6 +99,14 @@ class Character < ActiveRecord::Base
   has_one :presence, -> { where(key: "PR", name: "Presence") }, class_name: "Characteristic"
 
   CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
+
+  def default_obligation_options
+    self.obligation_options ||= self.create_obligation_options
+  end
+
+  def default_credits
+    self.credits ||= 500
+  end
 
   def default_characteristics
     CHARACTERISTICS.each do |ch|

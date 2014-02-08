@@ -36,7 +36,7 @@
 
     = f.semantic_fields_for :obligation_options do |o|
       = o.label :starting_size
-      = o.input :starting_size, as: :select, collection: [5, 10, 15, 20]
+      = o.input :starting_size, as: :select, include_blank: false, collection: [5, 10, 15, 20]
 
       %label.checkbox{class: "#{'disabled' unless obligation_plus_five_xp_enabled?(@character)}"}
         +5 Starting XP (+5 Obligation)
