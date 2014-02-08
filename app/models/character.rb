@@ -35,6 +35,16 @@ class Character < ActiveRecord::Base
   has_many :character_career_skills
   has_many :career_skills, through: :character_career_skills, source: :skill
 
+  has_many :career_character_career_skills, -> { where(source: "career") }, class_name: "CharacterCareerSkill"
+  has_many :career_skills_by_career, through: :career_character_career_skills, source: :skill
+
+  has_many :species_character_career_skills, -> { where(source: "species") }, class_name: "CharacterCareerSkill"
+  has_many :career_skills_by_species, through: :species_character_career_skills, source: :skill
+
+  has_many :specialization_character_career_skills, -> { where(source: "species") }, class_name: "CharacterCareerSkill"
+  has_many :career_skills_by_specialization, through: :specialization_character_career_skills, source: :skill
+
+
   has_many :character_specializations
   has_many :specializations, through: :character_specializations
 
@@ -96,6 +106,8 @@ class Character < ActiveRecord::Base
   before_save :update_obligation_xp
   before_save :update_obligation_credits
 
+  before_save :default_skills
+
   has_one :brawn, -> { where(key: "BR", name: "Brawn") }, class_name: "Characteristic"
   has_one :agility, -> { where(key: "AG", name: "Agility") }, class_name: "Characteristic"
   has_one :intellect, -> { where(key: "IN", name: "Intellect") }, class_name: "Characteristic"
@@ -105,8 +117,12 @@ class Character < ActiveRecord::Base
 
   CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
 
-  def skills
-    Skill.all
+  def default_skills
+    Skill.all.each do |skill|
+      unless self.skills.include?(skill)
+        self.skills << skill
+      end
+    end
   end
 
   def default_obligation_options
@@ -189,7 +205,10 @@ class Character < ActiveRecord::Base
   end
 
   def career_id=(value)
-    self.career = Career.find(value)
+    new_career = Career.find(value)
+    unless new_career == self.career
+      self.career = new_career
+    end
   end
 
   def species_id
