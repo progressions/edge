@@ -26,7 +26,6 @@
 #  social_class_id         :integer
 #  background_id           :integer
 #  first_specialization_id :integer
-#  skill_keys              :string(255)
 #
 
 require 'spec_helper'
