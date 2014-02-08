@@ -170,11 +170,6 @@ class Character < ActiveRecord::Base
     set_career_skill_ids(values)
   end
 
-  # off, first on:  [false, true, false] true
-  # off, second on: [false, false, true] true
-  # on, first off: [false, false, true] false
-  # on, second off: [false, true, false] false
-
   def set_career_skill_ids(values)
     values.each do |skill_id, value|
       skill = Skill.find(skill_id)
