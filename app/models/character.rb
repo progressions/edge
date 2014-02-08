@@ -30,8 +30,6 @@
 #
 
 class Character < ActiveRecord::Base
-  has_many :career_skills
-
   has_many :character_specializations
   has_many :specializations, through: :character_specializations
 
