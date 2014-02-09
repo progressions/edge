@@ -10,5 +10,7 @@ module HasRanks
     has_many :career_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "CareerRank"
     has_many :specialization_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "SpecializationRank"
     has_many :species_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "SpeciesRank"
+    has_many :attach_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "AttachRank"
+    has_many :talent_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "TalentRank"
   end
 end
