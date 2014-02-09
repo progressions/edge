@@ -10,13 +10,8 @@ class CareersController < ApplicationController
     @character = current_user.characters.find(params[:id])
     @specializations = @character.career.specializations
 
-    career_skill_ids = @character.career_skills_by_career.pluck(:id)
-    @career_skills = @character.character_skills.where(skill_id: career_skill_ids)
-
-    @free_ranks = @career_skills.map(&:career_ranks).flatten
-
-    specialization_skill_ids = @character.career_skills_by_first_specialization.pluck(:id)
-    @specialization_skills = @character.character_skills.where(skill_id: specialization_skill_ids)
+    @career_skills = @character.char_skills_by_career
+    @specialization_skills = @character.char_skills_by_specialization
   end
 
   def update

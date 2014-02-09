@@ -11,14 +11,20 @@
       %h4 Career Skills
 
       %p
-        Total free ranks from career:
-        = @free_ranks.count
+        You may choose
+        = @character.free_career_skill_ranks_remaining
+        more skills.
 
       .controls
         - @career_skills.each do |cs|
-          %label.checkbox
+          - if cs.career_amount > 0 || @character.more_free_career_skill_ranks?
+            - disabled = nil
+          - else
+            - disabled = "disabled"
+
+          %label.checkbox{class: disabled}
             = hidden_field_tag("character[career_skill_ranks[#{cs.skill.id}]][]", false)
-            = check_box_tag("character[career_skill_ranks[#{cs.skill.id}]][]", true, cs.career_amount > 0)
+            = check_box_tag("character[career_skill_ranks[#{cs.skill.id}]][]", true, cs.career_amount > 0, disabled: disabled)
             = cs.name
 
 
@@ -34,11 +40,21 @@
     = semantic_form_for(@character, url: career_url, remote: true) do |f|
       %h4 Specialization Skills
 
+      %p
+        You may choose
+        = @character.free_specialization_skill_ranks_remaining
+        more skills.
+
       .controls
         - @specialization_skills.each do |cs|
-          %label.checkbox
+          - if cs.specialization_amount > 0 || @character.more_free_specialization_skill_ranks?
+            - disabled = nil
+          - else
+            - disabled = "disabled"
+
+          %label.checkbox{class: disabled}
             = hidden_field_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", false)
-            = check_box_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", true, cs.specialization_amount > 0)
+            = check_box_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", true, cs.specialization_amount > 0, disabled: disabled)
             = cs.name
 
     .controls

@@ -2,8 +2,6 @@ module CharacterAssociations
   extend ActiveSupport::Concern
 
   included do
-    include EasyHasOne
-
     easy_has_one :career
     easy_has_one :species
 

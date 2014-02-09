@@ -29,6 +29,8 @@
 #
 
 class Character < ActiveRecord::Base
+  include EasyHasOne
+
   include CharacterAssociations
   include CharacterXml
   include CharacterObligationDuty
@@ -56,6 +58,52 @@ class Character < ActiveRecord::Base
   before_save :update_obligation_credits
 
   before_save :default_skills
+
+  def char_skills_by_career
+    ids = self.career_skills_by_career.pluck(:id)
+    self.character_skills.where(skill_id: ids)
+  end
+
+  def char_skills_by_specialization
+    ids = self.career_skills_by_first_specialization.pluck(:id)
+    self.character_skills.where(skill_id: ids)
+  end
+
+  def free_career_skill_ranks
+    char_skills_by_career.map(&:career_ranks).flatten.select do |rank|
+      rank.amount.to_i > 0
+    end
+  end
+
+  def free_specialization_skill_ranks
+    char_skills_by_specialization.map(&:specialization_ranks).flatten.select do |rank|
+      rank.amount.to_i > 0
+    end
+  end
+
+  def free_career_skill_ranks_remaining
+    total_free_career_skill_ranks - free_career_skill_ranks.try(:count).to_i
+  end
+
+  def free_specialization_skill_ranks_remaining
+    total_free_specialization_skill_ranks - free_specialization_skill_ranks.try(:count).to_i
+  end
+
+  def total_free_career_skill_ranks
+    4
+  end
+
+  def total_free_specialization_skill_ranks
+    2
+  end
+
+  def more_free_career_skill_ranks?
+    free_career_skill_ranks_remaining > 0
+  end
+
+  def more_free_specialization_skill_ranks?
+    free_specialization_skill_ranks_remaining > 0
+  end
 
   def all_specializations
     ids = Array(specializations.pluck(:id))
