@@ -17,6 +17,7 @@ class CharacterSkill < ActiveRecord::Base
   belongs_to :skill
 
   delegate :name, to: :skill
+  delegate :skill_type, to: :skill
 
   def career?
     character.career_skills.include?(skill)
