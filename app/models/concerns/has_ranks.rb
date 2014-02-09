@@ -12,7 +12,7 @@ module HasRanks
 
       # has_many :career_ranks
       #
-      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: rank_klass.name
+      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: rank_klass.name, dependent: :destroy
 
       # career_amount
       #
