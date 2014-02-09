@@ -14,15 +14,6 @@
       - if @character.present?
         #character_details
 
-        #rankables
-          %h2
-            Ranks:
-            = Rank.count
-
-          %h2
-            Rankables:
-            = Rankable.count
-
       = yield
 
 = render template: "layouts/application"
