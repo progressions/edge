@@ -7,7 +7,7 @@ module HasRanks
     has_many :rankables, foreign_key: "parent_id", dependent: :destroy
     has_many :ranks, -> { where(parent_type: klass_name) }, through: :rankables, dependent: :destroy
 
-    [:purchased, :career, :specialization, :species, :attach, :talent].each do |key|
+    [:purchased, :career, :specialization, :species, :attach, :talent, :obligation, :duty, :item].each do |key|
       rank_klass = "#{key}_rank".camelize.constantize
 
       # has_many :career_ranks

@@ -374,16 +374,6 @@ class Character < ActiveRecord::Base
     end
   end
 
-  concerning :Ranks do
-    def duty_rank
-      # experience_ranks.by_duty.first || experience_ranks.build(source: "duty")
-    end
-
-    def obligation_rank
-      # experience_ranks.by_obligation.first || experience_ranks.build(source: "obligation")
-    end
-  end
-
   def self.from_xml(xml)
     hash = Hash.from_xml(xml)
     character_params = {}
