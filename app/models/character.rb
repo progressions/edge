@@ -37,6 +37,7 @@ class Character < ActiveRecord::Base
   has_many :character_career_skills
   has_many :career_skills, through: :character_career_skills, source: :skill
 
+
   has_many :career_character_career_skills, -> { where(source: "career") }, class_name: "CharacterCareerSkill"
   has_many :career_skills_by_career, through: :career_character_career_skills, source: :skill
 
@@ -159,8 +160,13 @@ class Character < ActiveRecord::Base
     unless self.career.specializations.include?(self.first_specialization)
       self.first_specialization_id = self.career.specializations.first.id
     end
+
     if changed_attributes.include?(:first_specialization_id)
-      self.career_skills_by_first_specialization = self.first_specialization.career_skills
+      self.career_skills_by_first_specialization.delete_all
+      self.first_specialization.career_skills.each do |skill|
+        self.career_skills_by_first_specialization << skill
+      end
+      raise self.career_skills_by_first_specialization.inspect
     end
   end
 
@@ -276,6 +282,18 @@ class Character < ActiveRecord::Base
       end
       character_skill = self.character_skills.where(skill_id: skill_id).first
       character_skill.set_career_ranks(amount)
+    end
+  end
+
+  def specialization_skill_ranks=(values)
+    values.each do |skill_id, value|
+      if value.last == "true"
+        amount = 1
+      else
+        amount = 0
+      end
+      character_skill = self.character_skills.where(skill_id: skill_id).first
+      character_skill.set_specialization_ranks(amount)
     end
   end
 

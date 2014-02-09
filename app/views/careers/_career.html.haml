@@ -10,10 +10,11 @@
       %h4 Career Skills
 
       .controls
-        - @character.career_character_career_skills.each do |cs|
+        - skill_ids = @character.career_skills_by_career.pluck(:id)
+        - @character.character_skills.where(skill_id: skill_ids).each do |cs|
           %label.checkbox
             = hidden_field_tag("character[career_skill_ranks[#{cs.skill.id}]][]", false)
-            = check_box_tag("character[career_skill_ranks[#{cs.skill.id}]][]", true, false)
+            = check_box_tag("character[career_skill_ranks[#{cs.skill.id}]][]", true, cs.career_amount > 0)
             = cs.name
 
     .form-actions
@@ -33,11 +34,12 @@
       %h4 Specialization Skills
 
       .controls
-        - @specialization_skills.each do |skill|
+        - skill_ids = @character.career_skills_by_first_specialization.pluck(:id)
+        - @character.character_skills.where(skill_id: skill_ids).each do |cs|
           %label.checkbox
-            =# hidden_field_tag("character[career_skill_ids[#{skill.id}]][]", false)
-            =# check_box_tag("character[career_skill_ids[#{skill.id}]][]", true, @character.career_skills.include?(skill))
-            = skill.name
+            = hidden_field_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", false)
+            = check_box_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", true, cs.specialization_amount > 0)
+            = cs.name
 
     .controls
 

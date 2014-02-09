@@ -10,21 +10,27 @@ module HasRanks
     [:purchased, :career, :specialization, :species, :attach, :talent].each do |key|
       rank_klass = "#{key}_rank".camelize.constantize
 
+      # has_many :career_ranks
+      #
       has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: rank_klass.name
 
+      # career_amount
+      #
       define_method("#{key}_amount") do
         send("first_#{key}_rank").try(:amount).to_i
       end
 
+      # first_career_rank
+      #
       define_method("first_#{key}_rank") do
         self.send("#{key}_ranks").first
       end
 
+      # set_career_ranks=(amount)
+      #
       define_method("set_#{key}_ranks") do |amount|
-        if self.send("#{key}_ranks").any?
-          self.send("#{key}_ranks").first.update_attributes(amount: amount)
-        else
-          self.send("#{key}_ranks").delete_all
+        self.send("#{key}_ranks").delete_all
+        if amount.to_i > 0
           self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
         end
       end
