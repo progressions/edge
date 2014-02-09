@@ -17,6 +17,8 @@ class Rank < ActiveRecord::Base
   has_many :characters, through: :rankables
   has_many :characteristics, through: :rankables
 
+  belongs_to :character_skill
+
   def self.by_obligation
     where(source: "obligation")
   end

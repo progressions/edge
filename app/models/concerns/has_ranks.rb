@@ -6,11 +6,27 @@ module HasRanks
 
     has_many :rankables, foreign_key: "parent_id", dependent: :destroy
     has_many :ranks, -> { where(parent_type: klass_name) }, through: :rankables, dependent: :destroy
-    has_many :purchased_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "PurchasedRank"
-    has_many :career_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "CareerRank"
-    has_many :specialization_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "SpecializationRank"
-    has_many :species_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "SpeciesRank"
-    has_many :attach_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "AttachRank"
-    has_many :talent_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "TalentRank"
+
+    [:purchased, :career, :specialization, :species, :attach, :talent].each do |key|
+      rank_klass = "#{key}_rank".camelize.constantize
+
+      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: rank_klass.name
+
+      define_method("#{key}_amount") do
+        send("first_#{key}_rank").try(:amount).to_i
+      end
+
+      define_method("first_#{key}_rank") do
+        self.send("#{key}_ranks").first
+      end
+
+      define_method("set_#{key}_ranks") do |amount|
+        if self.send("#{key}_ranks").any?
+          self.send("#{key}_ranks").first.update_attributes(amount: amount)
+        else
+          self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
+        end
+      end
+    end
   end
 end
