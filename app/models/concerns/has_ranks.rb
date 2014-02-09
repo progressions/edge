@@ -14,6 +14,10 @@ module HasRanks
       #
       has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: rank_klass.name, dependent: :destroy
 
+      define_method("total_amount") do
+        ranks.sum(:amount)
+      end
+
       # career_amount
       #
       define_method("#{key}_amount") do
