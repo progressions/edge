@@ -47,5 +47,4 @@ module CharacterCareerSkills
   def specialization_skill_ranks=(values)
     career_ranks(:specialization, values)
   end
-
 end
