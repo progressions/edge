@@ -24,6 +24,7 @@ module EasyHasOne
           self.send("career_skills_by_#{key}").delete_all
           self.send("#{key}=", new_record)
           self.send("career_skills_by_#{key}=", self.send(key).career_skills)
+          self.send("on_#{key}_change")
         end
       end
     end

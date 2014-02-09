@@ -44,7 +44,7 @@ class Character < ActiveRecord::Base
   before_save :default_specialization
 
   before_save :default_species
-  before_save :default_characteristics
+  before_create :default_characteristics
 
   before_save :update_duty_xp
   before_save :update_duty_credits

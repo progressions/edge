@@ -17,6 +17,16 @@ module CharacterCharacteristics
     char.save
   end
 
+  def on_species_change
+    species_ranks = self.characteristics.map(&:species_ranks).flatten
+    species_ranks.each(&:destroy)
+
+    default_characteristics
+  end
+
+  def on_career_change
+  end
+
   def characteristic_amounts
     results = {}
     CHARACTERISTICS.each do |ch|
