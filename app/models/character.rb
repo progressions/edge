@@ -231,7 +231,7 @@ class Character < ActiveRecord::Base
     new_species = Species.find(value)
     unless new_species == self.species
       self.career_skills_by_species.delete_all
-      self.career = new_career
+      self.species = new_species
     end
   end
 
