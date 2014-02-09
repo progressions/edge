@@ -1,12 +1,12 @@
-- @active = :career
+- @active = :characteristics
 
-#edit_career
+#edit_characteristics
 
 :javascript
   $().ready(function() {
-    window.Career.refresh = function() {
-      $.ajax({ url: "#{career_url(@character, params.merge(format: 'js'))}" });
+    window.Characteristics.refresh = function() {
+      $.ajax({ url: "#{characteristic_url(@character, params.merge(format: 'js'))}" });
     };
-    Career.refresh();
+    Characteristics.refresh();
   });
 
