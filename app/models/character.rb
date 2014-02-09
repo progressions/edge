@@ -315,7 +315,7 @@ class Character < ActiveRecord::Base
       if obligation_options.plus_ten_xp
         amount += 10
       end
-      obligation_rank.update_attribute(:amount, amount)
+      # obligation_rank.update_attribute(:amount, amount)
     end
   end
 
@@ -350,7 +350,7 @@ class Character < ActiveRecord::Base
       if duty_options.plus_ten_xp
         amount += 10
       end
-      duty_rank.update_attribute(:amount, amount)
+      # duty_rank.update_attribute(:amount, amount)
     end
   end
 
