@@ -9,5 +9,7 @@
 #
 
 class Experience < ActiveRecord::Base
+  include HasRanks
+
   belongs_to :character
 end

@@ -11,15 +11,10 @@
 #
 
 class CharacterSkill < ActiveRecord::Base
+  include HasRanks
+
   belongs_to :character
   belongs_to :skill
-
-  has_many :rankables, foreign_key: "parent_id", dependent: :destroy
-  has_many :purchased_ranks, through: :rankables, source: :rank, class_name: "PurchasedRank"
-  has_many :career_ranks, through: :rankables, source: :rank, class_name: "CareerRank"
-
-  delegate :name, to: :skill
-  delegate :skill_type, to: :skill
 
   def career?
     character.career_skills.include?(skill)

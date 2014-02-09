@@ -29,6 +29,8 @@
 #
 
 class Character < ActiveRecord::Base
+  has_one :experience
+
   has_many :character_skills
   has_many :skills, through: :character_skills
 
