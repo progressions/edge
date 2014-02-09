@@ -18,4 +18,12 @@ class Characteristic < ActiveRecord::Base
   def amount
     ranks.sum(:amount).to_i
   end
+
+  def can_purchase?
+    amount < max_purchasable_rank
+  end
+
+  def max_purchasable_rank
+    5
+  end
 end

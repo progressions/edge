@@ -18,6 +18,10 @@ module HasRanks
         ranks.sum(:amount)
       end
 
+      define_method("non_purchased_amount") do
+        total_amount.to_i - purchased_amount.to_i
+      end
+
       # career_amount
       #
       define_method("#{key}_amount") do
