@@ -34,11 +34,6 @@ class Character < ActiveRecord::Base
   include CharacterObligationDuty
   include CharacterExperience
 
-  include EasyHasOne
-
-  easy_has_one :career
-  easy_has_one :species
-
   before_save :default_obligation_options
   before_save :default_credits
 
