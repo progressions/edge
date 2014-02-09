@@ -8,5 +8,7 @@ module HasRanks
     has_many :ranks, -> { where(parent_type: klass_name) }, through: :rankables, dependent: :destroy
     has_many :purchased_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "PurchasedRank"
     has_many :career_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "CareerRank"
+    has_many :specialization_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "SpecializationRank"
+    has_many :species_ranks, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: "SpeciesRank"
   end
 end
