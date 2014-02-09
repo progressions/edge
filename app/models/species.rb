@@ -25,6 +25,10 @@ class Species < ActiveRecord::Base
 
   has_many :characters, through: :character_species
 
+  def career_skills
+    []
+  end
+
   def self.official
     where(source: [nil, "Enter the Unknown", "Suns of Fortune", "Age of Rebellion Rulebook"])
   end

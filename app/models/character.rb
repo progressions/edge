@@ -30,9 +30,13 @@
 
 class Character < ActiveRecord::Base
   include CharacterAssociations
+  include CharacterXml
+  include CharacterObligationDuty
 
-  has_attached_file :portrait, :styles => { :medium => "300x300", :thumb => "100x100#" }, :default_url => "/assets/:style/missing.jpg"
-  validates_attachment_content_type :portrait, :content_type => /\Aimage\/.*\Z/
+  include EasyHasOne
+
+  easy_has_one :career
+  easy_has_one :species
 
   before_save :default_obligation_options
   before_save :default_credits
@@ -54,15 +58,6 @@ class Character < ActiveRecord::Base
 
   before_save :default_skills
 
-  has_one :brawn, -> { where(key: "BR", name: "Brawn") }, class_name: "Characteristic"
-  has_one :agility, -> { where(key: "AG", name: "Agility") }, class_name: "Characteristic"
-  has_one :intellect, -> { where(key: "IN", name: "Intellect") }, class_name: "Characteristic"
-  has_one :cunning, -> { where(key: "CU", name: "Cunning") }, class_name: "Characteristic"
-  has_one :willpower, -> { where(key: "WI", name: "Willpower") }, class_name: "Characteristic"
-  has_one :presence, -> { where(key: "PR", name: "Presence") }, class_name: "Characteristic"
-
-  CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
-
   def default_skills
     Skill.all.each do |skill|
       unless self.skills.include?(skill)
@@ -79,24 +74,30 @@ class Character < ActiveRecord::Base
     self.credits ||= 500
   end
 
-  def default_characteristics
-    CHARACTERISTICS.each do |ch|
-      default_characteristic(ch)
+  concerning :Characteristics do
+    included do
+      CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
     end
-  end
 
-  def default_characteristic(ch)
-    char = send(ch) || send("build_#{ch}")
-    # char.add_rank(:species, species.send(ch))
-    char.save
-  end
-
-  def characteristic_amounts
-    results = {}
-    CHARACTERISTICS.each do |ch|
-      results[ch] = send(ch).amount
+    def default_characteristics
+      CHARACTERISTICS.each do |ch|
+        default_characteristic(ch)
+      end
     end
-    results
+
+    def default_characteristic(ch)
+      char = send(ch) || send("build_#{ch}")
+      char.set_species_ranks(species.send(ch))
+      char.save
+    end
+
+    def characteristic_amounts
+      results = {}
+      CHARACTERISTICS.each do |ch|
+        results[ch] = send(ch).amount
+      end
+      results
+    end
   end
 
   def update_first_specialization
@@ -109,7 +110,6 @@ class Character < ActiveRecord::Base
       self.first_specialization.career_skills.each do |skill|
         self.career_skills_by_first_specialization << skill
       end
-      raise self.career_skills_by_first_specialization.inspect
     end
   end
 
@@ -155,6 +155,7 @@ class Character < ActiveRecord::Base
     end
   end
 
+=begin
   def career_id
     career.try(:id)
   end
@@ -179,6 +180,7 @@ class Character < ActiveRecord::Base
       self.species = new_species
     end
   end
+=end
 
   def starting_experience
     species.try(:starting_xp).to_i
@@ -246,125 +248,4 @@ class Character < ActiveRecord::Base
       character_skill.set_purchased_ranks(value)
     end
   end
-
-  concerning :UpdatingObligationOptions do
-    def update_obligation_credits
-      return unless obligation_options.present?
-
-      amount = self.credits.to_i
-
-      if obligation_options.changes["plus_thousand_credits"] == [false, true]
-        amount += 1000
-      elsif obligation_options.changes["plus_thousand_credits"] == [true, false]
-        amount -= 1000
-      end
-
-      if obligation_options.changes["plus_two_thousand_five_hundred_credits"] == [false, true]
-        amount += 2500
-      elsif obligation_options.changes["plus_two_thousand_five_hundred_credits"] == [true, false]
-        amount -= 2500
-      end
-
-      self.credits = amount
-    end
-
-    def update_obligation_xp
-      return unless obligation_options.present?
-
-      amount = 0
-      if obligation_options.plus_five_xp
-        amount += 5
-      end
-      if obligation_options.plus_ten_xp
-        amount += 10
-      end
-      # obligation_rank.update_attribute(:amount, amount)
-    end
-  end
-
-  concerning :UpdatingDutyOptions do
-    def update_duty_credits
-      return unless duty_options.present?
-
-      amount = self.credits.to_i
-
-      if duty_options.changes["plus_thousand_credits"] == [false, true]
-        amount += 1000
-      elsif duty_options.changes["plus_thousand_credits"] == [true, false]
-        amount -= 1000
-      end
-
-      if duty_options.changes["plus_two_thousand_five_hundred_credits"] == [false, true]
-        amount += 2500
-      elsif duty_options.changes["plus_two_thousand_five_hundred_credits"] == [true, false]
-        amount -= 2500
-      end
-
-      self.credits = amount
-    end
-
-    def update_duty_xp
-      return unless duty_options.present?
-
-      amount = 0
-      if duty_options.plus_five_xp
-        amount += 5
-      end
-      if duty_options.plus_ten_xp
-        amount += 10
-      end
-      # duty_rank.update_attribute(:amount, amount)
-    end
-  end
-
-  def self.from_xml(xml)
-    hash = Hash.from_xml(xml)
-    character_params = {}
-
-    description_hash = hash["Character"]["Description"]
-    character_params[:name] = description_hash["CharName"]
-    character_params[:player_name] = description_hash["PlayerName"]
-    character_params[:gender] = description_hash["Gender"]
-    character_params[:age] = description_hash["Age"]
-    character_params[:height] = description_hash["Height"]
-    character_params[:build] = description_hash["Build"]
-    character_params[:hair] = description_hash["Hair"]
-    character_params[:eyes] = description_hash["Eyes"]
-    character_params[:notable_features] = description_hash["OtherFeatures"]
-
-    social_class_slug = hash["Character"]["Class"]["ClassKey"]
-    background_slug = hash["Character"]["Hook"]["HookKey"]
-
-    character_params[:social_class] = SocialClass.lookup(social_class_slug)
-    character_params[:background] = Background.lookup(background_slug)
-
-    create(character_params)
-  end
-
-  def to_xml(options = {})
-    require 'builder'
-    options[:indent] ||= 2
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
-    xml.instruct! unless options[:skip_instruct]
-    xml.tag!(:Character) do
-      xml.tag!(:Description) do
-        xml.tag!(:CharName, name)
-        xml.tag!(:PlayerName, player_name)
-        xml.tag!(:Gender, gender)
-        xml.tag!(:Age, age)
-        xml.tag!(:Height, height)
-        xml.tag!(:Build, build)
-        xml.tag!(:Hair, hair)
-        xml.tag!(:Eyes, eyes)
-        xml.tag!(:OtherFeatures, notable_features)
-      end
-      xml.tag!(:Class) do
-        xml.tag!(:ClassKey, social_class.slug)
-      end
-      xml.tag!(:Hook) do
-        xml.tag!(:HookKey, background.slug)
-      end
-    end
-  end
-
 end
