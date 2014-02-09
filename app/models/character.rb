@@ -31,6 +31,9 @@
 class Character < ActiveRecord::Base
   include EasyHasOne
 
+  easy_has_one :career
+  easy_has_one :species
+
   include CharacterAssociations
   include CharacterXml
   include CharacterObligationDuty

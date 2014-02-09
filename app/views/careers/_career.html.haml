@@ -30,6 +30,10 @@
 
 .row
   .span6
+    %p
+      First spec:
+      = @character.first_specialization.name
+
     = semantic_form_for(@character, url: career_url, remote: true) do |f|
       = f.input :first_specialization, as: :select, include_blank: false, collection: @specializations
 
