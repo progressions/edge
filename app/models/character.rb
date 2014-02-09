@@ -64,9 +64,6 @@ class Character < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :rankables, foreign_key: "parent_id", dependent: :destroy
-  has_many :experience_ranks, through: :rankables, source: :rank, class_name: "ExperienceRank"
-
   belongs_to :social_class
   belongs_to :background
 
@@ -144,7 +141,7 @@ class Character < ActiveRecord::Base
 
   def default_characteristic(ch)
     char = send(ch) || send("build_#{ch}")
-    char.add_rank(:species, species.send(ch))
+    # char.add_rank(:species, species.send(ch))
     char.save
   end
 
@@ -166,9 +163,6 @@ class Character < ActiveRecord::Base
   end
 
   def update_species
-    rank = experience_ranks.by_species.first || experience_ranks.by_species.build
-    rank.amount = species.starting_xp
-    rank.save
   end
 
   def default_species
@@ -240,19 +234,17 @@ class Character < ActiveRecord::Base
   end
 
   def total_experience
-    starting_experience + experience_ranks.sum(:amount).to_i + used_experience.to_i
+    starting_experience + used_experience.to_i
   end
 
   def earned_experience_rank
-    experience_ranks.where(source: :purchased).first || experience_ranks.create(source: :purchased, amount: 0)
   end
 
   def earned_experience
-    earned_experience_rank.amount
+    0
   end
 
   def earned_experience=(amount)
-    earned_experience_rank.update_attributes(amount: amount)
   end
 
   def unused_experience
@@ -364,11 +356,11 @@ class Character < ActiveRecord::Base
 
   concerning :Ranks do
     def duty_rank
-      experience_ranks.by_duty.first || experience_ranks.build(source: "duty")
+      # experience_ranks.by_duty.first || experience_ranks.build(source: "duty")
     end
 
     def obligation_rank
-      experience_ranks.by_obligation.first || experience_ranks.build(source: "obligation")
+      # experience_ranks.by_obligation.first || experience_ranks.build(source: "obligation")
     end
   end
 

@@ -14,10 +14,13 @@ class Characteristic < ActiveRecord::Base
   belongs_to :character
 
   has_many :rankables, foreign_key: "parent_id", dependent: :destroy
-  has_many :ranks, through: :rankables, source: :rank, class_name: "CharacteristicRank"
+  has_many :ranks, -> { where(parent_type: "characteristic") }, through: :rankables, foreign_key: "parent_id", dependent: :destroy
+  has_many :purchased_ranks, through: :rankables, source: :rank, class_name: "PurchasedRank"
+  has_many :career_ranks, through: :rankables, source: :rank, class_name: "CareerRank"
+
 
   def amount
-    ranks.sum(:amount)
+    5
   end
 
   def add_rank(source, amount)
