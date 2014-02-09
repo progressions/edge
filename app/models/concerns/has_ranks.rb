@@ -47,13 +47,6 @@ module HasRanks
       define_method("#{key}_rankables") do
         send("#{key}_ranks").map(&:rankables)
       end
-
-      # def career?
-      #   character.career_skills.include?(skill)
-      # end
-      define_method("#{key}?") do
-        character.send("#{key}_skills").include?(skill)
-      end
     end
   end
 end

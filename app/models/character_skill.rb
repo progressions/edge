@@ -18,4 +18,8 @@ class CharacterSkill < ActiveRecord::Base
 
   delegate :name, to: :skill
   delegate :skill_type, to: :skill
+
+  def career?
+    character.career_skills.include?(skill)
+  end
 end
