@@ -1,6 +1,13 @@
 module CharacterObligationDuty
   extend ActiveSupport::Concern
 
+  def total_obligation
+    obligations.sum(:size).to_i
+  end
+
+  def total_duty
+    duties.sum(:size).to_i
+  end
 
   def update_obligation_credits
     return unless obligation_options.present?
