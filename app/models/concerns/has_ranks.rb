@@ -24,6 +24,7 @@ module HasRanks
         if self.send("#{key}_ranks").any?
           self.send("#{key}_ranks").first.update_attributes(amount: amount)
         else
+          self.send("#{key}_ranks").delete_all
           self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
         end
       end
