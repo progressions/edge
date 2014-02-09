@@ -10,8 +10,8 @@
 #
 
 class Rankable < ActiveRecord::Base
-  belongs_to :rank
-  belongs_to :character, foreign_key: "parent_id"
-  belongs_to :characteristic, foreign_key: "parent_id"
-  belongs_to :experience, foreign_key: "parent_id"
+  belongs_to :rank, dependent: :destroy
+  belongs_to :character, foreign_key: "parent_id", dependent: :destroy
+  belongs_to :characteristic, foreign_key: "parent_id", dependent: :destroy
+  belongs_to :experience, foreign_key: "parent_id",  dependent: :destroy
 end

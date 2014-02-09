@@ -14,10 +14,10 @@
 class Rank < ActiveRecord::Base
   has_many :rankables
 
-  has_many :characters, through: :rankables
-  has_many :characteristics, through: :rankables
+  has_many :characters, through: :rankables, dependent: :destroy
+  has_many :characteristics, through: :rankables, dependent: :destroy
 
-  belongs_to :character_skill
+  belongs_to :character_skill, dependent: :destroy
 
   def self.by_obligation
     where(source: "obligation")

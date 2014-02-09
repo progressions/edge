@@ -18,13 +18,17 @@ module CharacterCharacteristics
   end
 
   def on_species_change
-    species_ranks = self.characteristics.map(&:species_ranks).flatten
-    species_ranks.each(&:destroy)
+    ranks = self.characteristics.map(&:species_ranks).flatten
+    ranks.each(&:destroy)
 
     default_characteristics
   end
 
   def on_career_change
+    rankables = self.character_skills.map(&:career_rankables).flatten
+    ranks = self.character_skills.map(&:career_ranks).flatten
+    rankables.each(&:destroy)
+    ranks.each(&:destroy)
   end
 
   def characteristic_amounts

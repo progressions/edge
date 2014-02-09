@@ -29,10 +29,23 @@ module HasRanks
       # set_career_ranks=(amount)
       #
       define_method("set_#{key}_ranks") do |amount|
-        self.send("#{key}_ranks").delete_all
+        self.career_rankables.map(&:destroy)
+
         if amount.to_i > 0
-          self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
+          if self.send("#{key}_ranks").count == 0
+            self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
+          else
+             self.send("#{key}_ranks").first.update_attributes(amount: amount)
+          end
         end
+      end
+
+      # def career_rankables
+      #   career_ranks.map(&:rankables)
+      # end
+      #
+      define_method("#{key}_rankables") do
+        send("#{key}_ranks").map(&:rankables)
       end
     end
   end
