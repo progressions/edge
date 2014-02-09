@@ -33,6 +33,7 @@ class Character < ActiveRecord::Base
   include CharacterXml
   include CharacterObligationDuty
   include CharacterExperience
+  include CharacterCharacteristics
 
   before_save :default_obligation_options
   before_save :default_credits
@@ -68,32 +69,6 @@ class Character < ActiveRecord::Base
 
   def default_credits
     self.credits ||= 500
-  end
-
-  concerning :Characteristics do
-    included do
-      CHARACTERISTICS = [:brawn, :agility, :intellect, :cunning, :willpower, :presence]
-    end
-
-    def default_characteristics
-      CHARACTERISTICS.each do |ch|
-        default_characteristic(ch)
-      end
-    end
-
-    def default_characteristic(ch)
-      char = send(ch) || send("build_#{ch}")
-      char.set_species_ranks(species.send(ch))
-      char.save
-    end
-
-    def characteristic_amounts
-      results = {}
-      CHARACTERISTICS.each do |ch|
-        results[ch] = send(ch).amount
-      end
-      results
-    end
   end
 
   def update_first_specialization
