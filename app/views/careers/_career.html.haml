@@ -10,9 +10,12 @@
     = semantic_form_for(@character, url: career_url, remote: true) do |f|
       %h4 Career Skills
 
+      %p
+        Total free ranks from career:
+        = @free_ranks.count
+
       .controls
-        - skill_ids = @character.career_skills_by_career.pluck(:id)
-        - @character.character_skills.where(skill_id: skill_ids).each do |cs|
+        - @career_skills.each do |cs|
           %label.checkbox
             = hidden_field_tag("character[career_skill_ranks[#{cs.skill.id}]][]", false)
             = check_box_tag("character[career_skill_ranks[#{cs.skill.id}]][]", true, cs.career_amount > 0)
@@ -32,8 +35,7 @@
       %h4 Specialization Skills
 
       .controls
-        - skill_ids = @character.career_skills_by_first_specialization.pluck(:id)
-        - @character.character_skills.where(skill_id: skill_ids).each do |cs|
+        - @specialization_skills.each do |cs|
           %label.checkbox
             = hidden_field_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", false)
             = check_box_tag("character[specialization_skill_ranks[#{cs.skill.id}]][]", true, cs.specialization_amount > 0)
