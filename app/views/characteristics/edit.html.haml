@@ -1,0 +1,12 @@
+- @active = :career
+
+#edit_career
+
+:javascript
+  $().ready(function() {
+    window.Career.refresh = function() {
+      $.ajax({ url: "#{career_url(@character, params.merge(format: 'js'))}" });
+    };
+    Career.refresh();
+  });
+
