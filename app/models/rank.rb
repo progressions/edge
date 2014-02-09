@@ -12,7 +12,7 @@
 #
 
 class Rank < ActiveRecord::Base
-  has_many :rankables
+  has_many :rankables, dependent: :destroy
 
   has_many :characters, through: :rankables
   has_many :characteristics, through: :rankables
