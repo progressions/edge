@@ -6,7 +6,7 @@ module HasRanks
 
     has_many :ranks, -> { where(parent_type: klass_name) }
 
-    [:purchased, :career, :specialization, :species, :attach, :talent, :obligation, :duty, :item].each do |key|
+    [:purchased, :career, :specialization, :species, :attach, :talent, :item].each do |key|
       rank_klass = "#{key}_rank".camelize.constantize
 
       # has_many :career_ranks
