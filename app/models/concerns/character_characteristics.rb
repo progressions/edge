@@ -25,9 +25,7 @@ module CharacterCharacteristics
   end
 
   def on_career_change
-    rankables = self.character_skills.map(&:career_rankables).flatten
     ranks = self.character_skills.map(&:career_ranks).flatten
-    rankables.each(&:destroy)
     ranks.each(&:destroy)
   end
 

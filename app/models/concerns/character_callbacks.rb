@@ -24,15 +24,12 @@ module CharacterCallbacks
 
     if changed_attributes.include?(:first_specialization_id)
 
-      # must delete all ranks and rankables belongong to career_skills_by_first_spec
+      # must delete all ranks belonging to career_skills_by_first_spec
 
       ids = self.career_skills_by_first_specialization.map(&:id).flatten
 
       spec_ranks = self.character_skills.where(skill_id: ids).map(&:specialization_ranks).flatten
-      spec_rankables = self.character_skills.where(skill_id: ids).map(&:specialization_rankables).flatten
-
       spec_ranks.map(&:delete)
-      spec_rankables.map(&:delete)
 
       self.career_skills_by_first_specialization.delete_all
 

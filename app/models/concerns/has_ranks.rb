@@ -4,15 +4,14 @@ module HasRanks
   included do
     klass_name = self.name.to_s.camelize
 
-    has_many :rankables, foreign_key: "parent_id", dependent: :destroy
-    has_many :ranks, -> { where(parent_type: klass_name) }, through: :rankables, dependent: :destroy
+    has_many :ranks, -> { where(parent_type: klass_name) }
 
     [:purchased, :career, :specialization, :species, :attach, :talent, :obligation, :duty, :item].each do |key|
       rank_klass = "#{key}_rank".camelize.constantize
 
       # has_many :career_ranks
       #
-      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, through: :rankables, source: :rank, class_name: rank_klass.name, dependent: :destroy
+      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, source: :rank, class_name: rank_klass.name
 
       define_method("total_amount") do
         ranks.sum(:amount)
@@ -48,9 +47,6 @@ module HasRanks
 
         # end callback
 
-        rankables = self.send("#{key}_rankables")
-
-        rankables.map(&:destroy)
         self.send("set_#{key}_rank", amount)
       end
 
@@ -62,14 +58,6 @@ module HasRanks
         else
           self.send("#{key}_ranks").first.update_attributes(amount: amount)
         end
-      end
-
-      # def career_rankables
-      #   career_ranks.map(&:rankables)
-      # end
-      #
-      define_method("#{key}_rankables") do
-        send("#{key}_ranks").map(&:rankables)
       end
     end
   end
