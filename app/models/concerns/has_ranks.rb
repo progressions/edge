@@ -6,14 +6,10 @@ module HasRanks
 
     klass_name = self.name.to_s.camelize
 
-    has_many :ranks, -> { where(parent_type: klass_name) }
+    has_many :ranks, -> { where(parent_type: klass_name) }, foreign_key: "parent_id"
 
     define_method("total_amount") do
-      rank_klass_names = RANK_KEYS.map do |key|
-        "#{key}_rank".camelize.constantize
-      end
-
-      Rank.where(type: rank_klass_names, parent_type: klass_name, parent_id: self.id).sum(:amount)
+      self.ranks.sum(:amount)
     end
 
     define_method("non_purchased_amount") do
