@@ -35,47 +35,79 @@ body {
   td {
     text-align: center;
   }
+}
 
-  .characteristics {
-    td {
-      border: 10px solid white;
-      border-bottom: none;
-      border-top: none;
-    }
-    tr.values {
-      td {
-        background-color: green;
+table.edit-characteristics {
+  td, th {
+    text-align: center;
+  }
+  td.buy {
+    width: 55px;
+  }
+}
 
-        height: 40px;
-        width: 50px;
+td.characteristic {
+  background-image: url("/assets/characteristic_background.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 52px;
+  width: 50px;
 
-        .value {
-          background-color: white;
-          border-radius: 50%;
-          border: double 4px black;
+  display: inline-block;
 
-          margin: auto;
+  .value {
+    margin: auto;
 
-          height: 35px;
-          width: 35px;
+    height: 38px;
+    width: 35px;
 
-          text-align: center;
-          vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
 
-          font-size: 20px;
-          font-weight: bold;
-          line-height: 35px;
-        }
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 40px;
+  }
+
+  .name {
+    color: white;
+    font-size: 0.5em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+
+.characteristics {
+  td {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .values {
+    td, .outside {
+      background-image: url("/assets/characteristic_background.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      height: 52px;
+      width: 50px;
+
+      .value {
+        margin: auto;
+
+        height: 38px;
+        width: 35px;
+
+        text-align: center;
+        vertical-align: middle;
+
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
       }
-    }
-    tr.names {
-      background-color: maroon;
-      color: white;
-      font-size: 9px;
-      text-transform: uppercase;
 
-      td {
-        border-radius: 10%;
+      .name {
+        color: white;
+        font-size: 0.5em;
+        text-transform: uppercase;
       }
     }
   }
