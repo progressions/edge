@@ -9,6 +9,7 @@
 #  created_at  :datetime
 #  updated_at  :datetime
 #  parent_type :string(255)
+#  parent_id   :integer
 #
 
 class Rank < ActiveRecord::Base
