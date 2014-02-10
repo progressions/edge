@@ -16,7 +16,7 @@ class window.Characteristics
     console.log("behaviors")
     Form.init()
 
-  @minus: (event) ->
+  @modify: (event, callback) ->
     target = $(event.target)
     parent = target.parent(".characteristic")
     value_field = parent.find(".current-value")
@@ -24,26 +24,21 @@ class window.Characteristics
 
     value = field.val()
 
-    new_value = value - 1
+    new_value = callback(value)
 
     field.val(new_value)
     value_field.html(new_value)
 
     $('form').submit()
-
 
   @plus: (event) ->
-    target = $(event.target)
-    parent = target.parent(".characteristic")
-    value_field = parent.find(".current-value")
-    field = parent.find("input")
+    Characteristics.modify(event, Characteristics.add)
 
-    value = field.val()
+  @minus: (event) ->
+    Characteristics.modify(event, Characteristics.subtract)
 
-    new_value = value - 0 + 1
+  @add: (value) ->
+    parseInt(value) + 1
 
-    field.val(new_value)
-    value_field.html(new_value)
-
-    $('form').submit()
-
+  @subtract: (value) ->
+    parseInt(value) - 1
