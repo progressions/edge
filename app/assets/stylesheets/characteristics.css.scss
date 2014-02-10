@@ -3,3 +3,35 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#edit_characteristics {
+  .buy {
+    width: 100px;
+
+    .minus, .current-value, .plus {
+      display: inline-block;
+    }
+    .current-value {
+      border: 1px solid maroon;
+
+      font-weight: bold;
+      font-size: 25px;
+
+      padding-top: 5px;
+
+      height: 30px;
+      width: 30px;
+    }
+    .minus, .plus {
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+
+      width: 20px;
+      height: 20px;
+
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+  }
+}

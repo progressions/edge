@@ -10,5 +10,40 @@ class window.Characteristics
   @refresh: ->
 
   @behaviors: ->
+    $(".minus").on('click', Characteristics.minus)
+    $(".plus").on('click', Characteristics.plus)
+
     console.log("behaviors")
     Form.init()
+
+  @minus: (event) ->
+    target = $(event.target)
+    parent = target.parent(".characteristic")
+    value_field = parent.find(".current-value")
+    field = parent.find("input")
+
+    value = field.val()
+
+    new_value = value - 1
+
+    field.val(new_value)
+    value_field.html(new_value)
+
+    $('form').submit()
+
+
+  @plus: (event) ->
+    target = $(event.target)
+    parent = target.parent(".characteristic")
+    value_field = parent.find(".current-value")
+    field = parent.find("input")
+
+    value = field.val()
+
+    new_value = value - 0 + 1
+
+    field.val(new_value)
+    value_field.html(new_value)
+
+    $('form').submit()
+

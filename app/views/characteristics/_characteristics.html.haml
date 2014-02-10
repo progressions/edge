@@ -1,7 +1,7 @@
 .row
   .span10
     = semantic_form_for(@character, url: characteristic_url, remote: true) do |f|
-      %table.edit-characteristics.table.table-striped.table-condensed.span5
+      %table.edit-characteristics.table.table-striped.table-condensed
         %thead
           %th Species
           %th Talents
@@ -17,7 +17,12 @@
             %td= cc.attach_amount
             %td= cc.item_amount
             %td.buy
-              = select_tag("character[purchased_char_ranks][#{cc.id}]", options_for_select(0..5, cc.purchased_amount))
+              = div_for(cc) do
+                = hidden_field_tag("character[purchased_char_ranks][#{cc.id}]", cc.purchased_amount)
+
+                %a.minus -
+                .current-value= cc.purchased_amount
+                %a.plus +
             %td.characteristic
               .value= cc.total_amount
               .name= cc.name
