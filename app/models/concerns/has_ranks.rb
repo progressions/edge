@@ -34,24 +34,33 @@ module HasRanks
         self.send("#{key}_ranks").first
       end
 
-      # set_career_ranks=(amount)
+      # set_career_ranks(amount)
       #
       define_method("set_#{key}_ranks") do |amount|
+        # execute callback
+        #
+        old_amount = self.send("#{key}_amount")
+        new_amount = amount
+
+        if self.respond_to?("after_#{key}_rank")
+          self.send("after_#{key}_rank", old_amount.to_i, new_amount.to_i)
+        end
+
+        # end callback
+
         rankables = self.send("#{key}_rankables")
 
-        if amount.to_i == 0
-          ranks = self.send("#{key}_ranks")
+        rankables.map(&:destroy)
+        self.send("set_#{key}_rank", amount)
+      end
 
-          rankables.map(&:destroy)
-          ranks.map(&:destroy)
+      # set_career_rank(amount)
+      #
+      define_method("set_#{key}_rank") do |amount|
+        if self.send("#{key}_ranks").count == 0
+          self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
         else
-          rankables.map(&:destroy)
-
-          if self.send("#{key}_ranks").count == 0
-            self.send("#{key}_ranks=", [rank_klass.create(amount: amount, parent_type: klass_name)])
-          else
-             self.send("#{key}_ranks").first.update_attributes(amount: amount)
-          end
+          self.send("#{key}_ranks").first.update_attributes(amount: amount)
         end
       end
 

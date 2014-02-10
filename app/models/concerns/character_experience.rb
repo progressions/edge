@@ -19,8 +19,11 @@ module CharacterExperience
   def earned_experience=(amount)
   end
 
-  def unused_experience
-    total_experience.to_i - used_experience.to_i
+  def used_experience
+    self.experience.purchased_amount.to_i
   end
 
+  def unused_experience
+    total_experience.to_i - used_experience
+  end
 end
