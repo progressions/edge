@@ -46,7 +46,7 @@ class window.Characteristics
       value
 
   @subtract: (value) ->
-    if parseInt(value) > 1
+    if parseInt(value) >= 1
       parseInt(value) - 1
     else
       value
