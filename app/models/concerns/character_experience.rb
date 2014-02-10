@@ -2,14 +2,19 @@ module CharacterExperience
   extend ActiveSupport::Concern
 
   def starting_experience
-    species.try(:starting_xp).to_i
+    species.try(:starting_xp).to_i + obligation_experience.to_i
+  end
+
+  def obligation_experience
+    result = 0
+    result += 5 if self.obligation_options.try(:plus_five_xp)
+    result += 10 if self.obligation_options.try(:plus_ten_xp)
+
+    result
   end
 
   def total_experience
     starting_experience + used_experience.to_i
-  end
-
-  def earned_experience_rank
   end
 
   def earned_experience
@@ -20,10 +25,10 @@ module CharacterExperience
   end
 
   def used_experience
-    self.experience.purchased_amount.to_i
+    self.experience.spent_experience
   end
 
   def unused_experience
-    total_experience.to_i - used_experience
+    starting_experience.to_i - used_experience
   end
 end

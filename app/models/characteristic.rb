@@ -15,27 +15,12 @@ class Characteristic < ActiveRecord::Base
 
   belongs_to :character
 
-  def after_purchased_rank(old_amount, new_amount)
-    old_rank = total_amount
-    new_rank = non_purchased_amount + new_amount
-
-    xp_cost = cost_of_next_rank(old_rank, new_rank)
-
-    purchase_experience(xp_cost)
-  end
-
-  def purchase_experience(cost)
-    self.character.experience.purchase(cost)
-  end
-
-  def cost_of_next_rank(old_rank, new_rank)
-    return 0 if old_rank.to_i == new_rank.to_i
-
-    if old_rank > new_rank
-      old_rank * -10
-    else
-      new_rank * 10
+  def experience_cost
+    cost = 0
+    purchased_amount.times do |i|
+      cost += (total_amount - i) * 10
     end
+    cost
   end
 
   def amount
