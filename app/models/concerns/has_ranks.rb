@@ -2,7 +2,7 @@ module HasRanks
   extend ActiveSupport::Concern
 
   included do
-    RANK_KEYS = [:purchased, :career, :specialization, :species, :attach, :talent, :item]
+    RANK_KEYS ||= [:purchased, :career, :specialization, :species, :attach, :talent, :item]
 
     klass_name = self.name.to_s.camelize
 
