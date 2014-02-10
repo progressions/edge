@@ -24,6 +24,6 @@ class Characteristic < ActiveRecord::Base
   end
 
   def max_purchasable_rank
-    5
+    5 - non_purchased_amount.to_i
   end
 end

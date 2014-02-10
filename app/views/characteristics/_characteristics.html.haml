@@ -18,6 +18,7 @@
             %td= cc.item_amount
             %td.buy
               = div_for(cc) do
+                .max_purchasable= cc.max_purchasable_rank
                 = hidden_field_tag("character[purchased_char_ranks][#{cc.id}]", cc.purchased_amount)
 
                 %a.minus -

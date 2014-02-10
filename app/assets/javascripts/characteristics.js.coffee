@@ -21,6 +21,8 @@ class window.Characteristics
     parent = target.parent(".characteristic")
     value_field = parent.find(".current-value")
     field = parent.find("input")
+    max_purchasable_field = parent.find(".max_purchasable")
+    Characteristics.max_purchasable_amount = parseInt(max_purchasable_field.html())
 
     value = field.val()
 
@@ -38,7 +40,13 @@ class window.Characteristics
     Characteristics.modify(event, Characteristics.subtract)
 
   @add: (value) ->
-    parseInt(value) + 1
+    if parseInt(value) < Characteristics.max_purchasable_amount
+      parseInt(value) + 1
+    else
+      value
 
   @subtract: (value) ->
-    parseInt(value) - 1
+    if parseInt(value) > 1
+      parseInt(value) - 1
+    else
+      value
