@@ -43,6 +43,8 @@ class Character < ActiveRecord::Base
   include CharacterCareerSkills
   include CharacterFreeSkillRanks
 
+  before_save :default_experience
+
   before_save :default_obligation_options
   before_save :default_credits
 

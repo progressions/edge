@@ -32,7 +32,7 @@ module CharacterCharacteristics
   def characteristic_amounts
     results = {}
     CHARACTERISTICS.each do |ch|
-      results[ch] = send(ch).amount
+      results[ch] = send(ch).total_amount
     end
     results
   end

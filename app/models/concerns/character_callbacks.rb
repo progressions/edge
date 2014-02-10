@@ -1,6 +1,12 @@
 module CharacterCallbacks
   extend ActiveSupport::Concern
 
+  def default_experience
+    unless self.experience.present?
+      self.create_experience
+    end
+  end
+
   def default_skills
     Skill.all.each do |skill|
       unless self.skills.include?(skill)
