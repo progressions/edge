@@ -11,7 +11,7 @@ module HasRanks
 
       # has_many :career_ranks
       #
-      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, source: :rank, class_name: rank_klass.name
+      has_many "#{key}_ranks".to_sym, -> { where(parent_type: klass_name) }, foreign_key: "parent_id", class_name: rank_klass.name
 
       define_method("total_amount") do
         ranks.sum(:amount)

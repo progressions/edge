@@ -13,8 +13,6 @@
 #
 
 class Rank < ActiveRecord::Base
-  belongs_to :character_skill
-
   def self.by_obligation
     where(source: "obligation")
   end

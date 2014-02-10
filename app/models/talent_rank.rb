@@ -13,4 +13,6 @@
 #
 
 class TalentRank < Rank
+  belongs_to :characteristic, -> { where("ranks.parent_type = ?", "Characteristic") }, foreign_key: "parent_id"
+  belongs_to :character_skill, -> { where("ranks.parent_type = ?", "CharacterSkill") }, foreign_key: "parent_id"
 end
