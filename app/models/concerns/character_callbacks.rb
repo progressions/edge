@@ -3,7 +3,7 @@ module CharacterCallbacks
 
   def default_experience
     unless self.experience.present?
-      self.create_experience
+      self.build_experience
     end
   end
 
