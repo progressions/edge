@@ -6,7 +6,7 @@ class Loader
     values.each do |k, v|
       next unless v.present?
 
-      k = k.underscore
+      k = k.to_s.underscore
       if k == "type"
         k = "#{klass.name.underscore}_type"
       end
@@ -21,6 +21,14 @@ class Loader
       if k == "specializations"
         k = "specializations_from_xml"
         v = v["Key"]
+      end
+      if k == "option_choices"
+        k = "option_choices_from_xml"
+        v = v["OptionChoice"]
+      end
+      if k == "options"
+        k = "options_from_xml"
+        v = v["Option"]
       end
       if k == "career_skills"
         k = "skill_keys"
@@ -38,6 +46,8 @@ class Loader
     record.update_attributes(class_values)
 
     puts "Loaded record: #{record.inspect}"
+
+    record
   end
 
   def self.load_from_files(name, options={})

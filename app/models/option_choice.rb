@@ -11,4 +11,12 @@
 #
 
 class OptionChoice < ActiveRecord::Base
+  belongs_to :species
+  has_many :options
+
+  def options_from_xml=(values)
+    puts
+    puts values.inspect
+    puts
+  end
 end

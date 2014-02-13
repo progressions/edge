@@ -23,6 +23,8 @@
 class Species < ActiveRecord::Base
   include Sourced
 
+  has_many :option_choices
+
   has_many :characters, through: :character_species
 
   def career_skills
@@ -46,6 +48,16 @@ class Species < ActiveRecord::Base
       if self.respond_to?("#{k.underscore}=".to_sym)
         self.update_attribute(k.underscore, v)
       end
+    end
+  end
+
+  def option_choices_from_xml=(values)
+    puts
+    puts values.inspect
+    puts
+    values.each do |choice_values|
+      choice_values[:species_id] = self.id
+      Loader.load_single(OptionChoice, choice_values)
     end
   end
 
