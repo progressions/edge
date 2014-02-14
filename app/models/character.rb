@@ -74,7 +74,12 @@ class Character < ActiveRecord::Base
   def species_option=(value)
     option = Option.find(value)
     choice = option.option_choice
-    raise option.inspect
+    opt = self.character_options.where(choice_key: choice.key).first
+    opt ||= self.character_options.build(choice_key: choice.key)
+    opt.character_species_id = self.character_species.id
+    opt.option_key = option.key
+    opt.save
+    Rails.logger.info(opt.inspect)
   end
 
   def purchased_char_ranks=(values)

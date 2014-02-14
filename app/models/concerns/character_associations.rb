@@ -2,6 +2,8 @@ module CharacterAssociations
   extend ActiveSupport::Concern
 
   included do
+    has_many :character_options, through: :character_species, dependent: :destroy
+
     has_one :experience
 
     has_many :character_skills
@@ -34,7 +36,7 @@ module CharacterAssociations
 
     has_many :characteristics
 
-    has_one :character_species
+    has_one :character_species, dependent: :destroy
     has_one :species, through: :character_species
     accepts_nested_attributes_for :species
 
