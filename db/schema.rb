@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214222014) do
+ActiveRecord::Schema.define(version: 20140214044945) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -77,17 +77,6 @@ ActiveRecord::Schema.define(version: 20140214222014) do
     t.datetime "updated_at"
     t.text     "notes"
   end
-
-  create_table "character_options", force: true do |t|
-    t.integer  "character_id"
-    t.string   "choice_key"
-    t.string   "option_key"
-    t.text     "starting_skills"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "character_options", ["character_id"], name: "index_character_options_on_character_id", using: :btree
 
   create_table "character_skills", force: true do |t|
     t.integer  "character_id"
