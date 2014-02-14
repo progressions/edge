@@ -25,9 +25,6 @@ class Option < ActiveRecord::Base
     puts
     values.each do |new_values|
       new_values[:option_id] = self.id
-      puts
-      puts new_values.inspect
-      puts
       new_values["Requirement"] = [new_values["Requirement"]].flatten
       Loader.load_single(SkillTraining, new_values)
     end
