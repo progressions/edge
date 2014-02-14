@@ -72,7 +72,6 @@ class Character < ActiveRecord::Base
   end
 
   def species_option=(value)
-    raise value.inspect
     option = Option.find(value)
     raise "Species Option: #{option.inspect}"
   end
