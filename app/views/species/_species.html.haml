@@ -17,7 +17,7 @@
             = div_for(option) do
               %p= option.description
 
-              %p= option.skill_trainings.inspect
+              - option.skill_trainings.each do |skill_training|
 
 
 

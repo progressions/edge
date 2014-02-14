@@ -13,5 +13,17 @@
 class SkillTraining < ActiveRecord::Base
   belongs_to :option
 
-  serialize :requirement, Array
+  serialize :requirement, Hash
+
+  def career?
+    requirement["Career"]
+  end
+
+  def specialization?
+    requirement["Specialization"]
+  end
+
+  def non_career?
+    requirement["NonCareer"]
+  end
 end
