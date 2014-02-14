@@ -15,4 +15,12 @@ class CharacterOption < ActiveRecord::Base
   belongs_to :character_species
 
   serialize :skill_trainings, Hash
+
+  def choice
+    OptionChoice.where(key: choice_key).first
+  end
+
+  def option
+    Option.where(key: option_key).first
+  end
 end
