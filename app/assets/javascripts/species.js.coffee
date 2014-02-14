@@ -13,6 +13,7 @@ class window.Species
     console.log("behaviors")
     $("a.option_choice").click(OptionChoice.show)
     OptionChoice.init()
+    Option.init()
     Form.init()
 
 class window.OptionChoice
