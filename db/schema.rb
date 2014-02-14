@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214044945) do
+ActiveRecord::Schema.define(version: 20140214213507) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -98,6 +98,9 @@ ActiveRecord::Schema.define(version: 20140214044945) do
     t.integer  "species_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "choice_key"
+    t.string   "option_key"
+    t.text     "skill_trainings"
   end
 
   create_table "characteristics", force: true do |t|
