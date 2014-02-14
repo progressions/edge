@@ -4,6 +4,7 @@ class CreateCharacterOptions < ActiveRecord::Migration
       t.belongs_to :character_species, index: true
       t.string :choice_key
       t.string :option_key
+      t.text :skill_trainings
 
       t.timestamps
     end

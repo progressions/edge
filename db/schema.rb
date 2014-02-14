@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20140214223159) do
     t.integer  "character_species_id"
     t.string   "choice_key"
     t.string   "option_key"
+    t.text     "skill_trainings"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

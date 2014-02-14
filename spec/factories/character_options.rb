@@ -6,6 +6,7 @@
 #  character_species_id :integer
 #  choice_key           :string(255)
 #  option_key           :string(255)
+#  skill_trainings      :text
 #  created_at           :datetime
 #  updated_at           :datetime
 #

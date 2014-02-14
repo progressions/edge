@@ -12,6 +12,5 @@
 class CharacterSpecies < ActiveRecord::Base
   belongs_to :character
   belongs_to :species
-
-  serialize :skill_trainings, Hash
+  has_many :character_options
 end
