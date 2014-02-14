@@ -9,6 +9,7 @@ class SpeciesController < ApplicationController
   def show
     @species = Species.official
     @character = current_user.characters.find(params[:id])
+    @option_choices = @character.species.option_choices.joins(:options)
   end
 
   def update

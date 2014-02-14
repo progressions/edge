@@ -5,6 +5,22 @@
     .span4
       = f.input :species, as: :select, include_blank: false, collection: @species
 
+      .well.option_choices
+        - @option_choices.each do |choice|
+          %p
+            %a.btn= choice.name
+
+          .controls
+            = select_tag("option", options_from_collection_for_select(choice.options, :id, :name))
+
+          - choice.options.each do |option|
+            = div_for(option) do
+              %p= option.description
+
+              %p= option.inspect
+
+
+
     .span6.characteristics_details
       = render partial: 'characters/characteristics', locals: {object: @character.species}
 

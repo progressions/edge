@@ -18,6 +18,10 @@ class OptionChoice < ActiveRecord::Base
     values = [values].flatten
     values.each do |new_values|
       new_values[:option_choice_id] = self.id
+      puts
+      puts "new_values"
+      puts new_values.inspect
+      puts
       Loader.load_single(Option, new_values)
     end
   end

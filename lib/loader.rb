@@ -30,6 +30,10 @@ class Loader
         k = "options_from_xml"
         v = v["Option"]
       end
+      if k == "starting_skill_training"
+        k = "starting_skill_training_from_xml"
+        v = v["SkillTraining"]
+      end
       if k == "career_skills"
         k = "skill_keys"
         v = v["Key"]
