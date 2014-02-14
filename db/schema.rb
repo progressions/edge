@@ -194,7 +194,7 @@ ActiveRecord::Schema.define(version: 20140210164022) do
     t.integer  "option_choice_id"
     t.string   "key"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "starting_skill_training"
     t.integer  "skill_count"
     t.boolean  "non_career"

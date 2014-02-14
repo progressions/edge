@@ -52,9 +52,7 @@ class Species < ActiveRecord::Base
   end
 
   def option_choices_from_xml=(values)
-    puts
-    puts values.inspect
-    puts
+    values = [values].flatten
     values.each do |choice_values|
       choice_values[:species_id] = self.id
       Loader.load_single(OptionChoice, choice_values)

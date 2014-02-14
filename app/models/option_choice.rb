@@ -15,8 +15,10 @@ class OptionChoice < ActiveRecord::Base
   has_many :options
 
   def options_from_xml=(values)
-    puts
-    puts values.inspect
-    puts
+    values = [values].flatten
+    values.each do |new_values|
+      new_values[:option_choice_id] = self.id
+      Loader.load_single(Option, new_values)
+    end
   end
 end
