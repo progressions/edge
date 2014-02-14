@@ -16,14 +16,14 @@ class SkillTraining < ActiveRecord::Base
   serialize :requirement, Hash
 
   def career?
-    requirement["Career"]
+    !!requirement["Career"]
   end
 
   def specialization?
-    requirement["Specialization"]
+    !!requirement["Specialization"]
   end
 
   def non_career?
-    requirement["NonCareer"]
+    !!requirement["NonCareer"]
   end
 end

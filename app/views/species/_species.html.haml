@@ -18,7 +18,17 @@
               %p= option.description
 
               - option.skill_trainings.each do |skill_training|
+                - if skill_training.non_career?
 
+                  %h4 Select Non-Career Skills
+
+                  %p
+                    You may choose
+                    = skill_training.skill_count
+                    more non-career skills.
+
+                  - @non_career_skills.each do |skill|
+                    %p= skill.name
 
 
     .span6.characteristics_details

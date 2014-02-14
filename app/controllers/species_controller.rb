@@ -10,6 +10,9 @@ class SpeciesController < ApplicationController
     @species = Species.official
     @character = current_user.characters.find(params[:id])
     @option_choices = @character.species.option_choices.joins(:options)
+    @non_career_skills = @character.character_skills.reject do |skill|
+      skill.career? && skill.species_amount < 1
+    end
   end
 
   def update
