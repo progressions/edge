@@ -6,30 +6,38 @@
       = f.input :species, as: :select, include_blank: false, collection: @species
 
       .well.option_choices
+        %p.button-group
+          - @option_choices.each do |choice|
+            %a.btn.option_choice{"data-target" => dom_id(choice)}= choice.name
+
         - @option_choices.each do |choice|
-          %p
-            %a.btn= choice.name
+          = div_for(choice, style: "display: none;") do
+            .controls
+              = select_tag("option", options_from_collection_for_select(choice.options, :id, :name))
 
-          .controls
-            = select_tag("option", options_from_collection_for_select(choice.options, :id, :name))
+            - choice.options.each do |option|
+              = div_for(option, style: "display: none;") do
+                %p= option.description
 
-          - choice.options.each do |option|
-            = div_for(option) do
-              %p= option.description
+                - option.skill_trainings.each do |skill_training|
+                  - if skill_training.non_career?
+                    %h4 Select Non-Career Skills
 
-              - option.skill_trainings.each do |skill_training|
-                - if skill_training.non_career?
+                    %p
+                      You may choose
+                      = @character.free_species_skill_ranks_remaining
+                      more non-career skills.
 
-                  %h4 Select Non-Career Skills
+                    - @non_career_skills.each do |cs|
+                      - if cs.species_amount > 0 || @character.more_free_species_skill_ranks?
+                        - disabled = nil
+                      - else
+                        - disabled = "disabled"
 
-                  %p
-                    You may choose
-                    = skill_training.skill_count
-                    more non-career skills.
-
-                  - @non_career_skills.each do |skill|
-                    %p= skill.name
-
+                      %label.checkbox{class: disabled}
+                        = hidden_field_tag("character[species_skill_ranks[#{cs.skill.id}]][]", false)
+                        = check_box_tag("character[species_skill_ranks[#{cs.skill.id}]][]", true, cs.species_amount > 0, disabled: disabled)
+                        = cs.name
 
     .span6.characteristics_details
       = render partial: 'characters/characteristics', locals: {object: @character.species}

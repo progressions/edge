@@ -28,7 +28,7 @@ module CharacterCareerSkills
     end
   end
 
-  def career_ranks(key, values)
+  def free_ranks(key, values)
     values.each do |skill_id, value|
       if value.last == "true"
         amount = 1
@@ -40,11 +40,15 @@ module CharacterCareerSkills
     end
   end
 
+  def species_skill_ranks=(values)
+    free_ranks(:species, values)
+  end
+
   def career_skill_ranks=(values)
-    career_ranks(:career, values)
+    free_ranks(:career, values)
   end
 
   def specialization_skill_ranks=(values)
-    career_ranks(:specialization, values)
+    free_ranks(:specialization, values)
   end
 end

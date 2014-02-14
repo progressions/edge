@@ -11,4 +11,18 @@ class window.Species
 
   @behaviors: ->
     console.log("behaviors")
+    $("a.option_choice").click(Choice.show)
+    Choice.init()
     Form.init()
+
+class window.Choice
+  @init: ->
+    $("a.option_choice:first").first().click()
+
+  @show: (event) ->
+    element = $(event.target)
+    id = element.data("target")
+
+    block = $("##{id}")
+    $("div.option_choice").hide()
+    block.show()

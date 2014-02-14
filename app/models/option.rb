@@ -21,9 +21,6 @@ class Option < ActiveRecord::Base
 
   def starting_skill_training_from_xml=(values={})
     values = [values].flatten
-    puts
-    puts values.inspect
-    puts
     values.each do |new_values|
       new_values[:option_id] = self.id
       Loader.load_single(SkillTraining, new_values)

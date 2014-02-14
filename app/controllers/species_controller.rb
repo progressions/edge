@@ -9,7 +9,7 @@ class SpeciesController < ApplicationController
   def show
     @species = Species.official
     @character = current_user.characters.find(params[:id])
-    @option_choices = @character.species.option_choices.joins(:options)
+    @option_choices = @character.species.option_choices.joins(:options).uniq
     @non_career_skills = @character.character_skills.reject do |skill|
       skill.career? && skill.species_amount < 1
     end
@@ -28,6 +28,6 @@ class SpeciesController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:id, :species_id)
+    params.require(:character).permit! # (:id, :species_id)
   end
 end
