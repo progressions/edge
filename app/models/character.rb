@@ -71,6 +71,12 @@ class Character < ActiveRecord::Base
     Specialization.where(id: ids)
   end
 
+  def species_option=(value)
+    raise value.inspect
+    option = Option.find(value)
+    raise "Species Option: #{option.inspect}"
+  end
+
   def purchased_char_ranks=(values)
     values.each do |c_id, value|
       characteristic = self.characteristics.find(c_id)

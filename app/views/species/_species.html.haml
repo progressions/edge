@@ -13,7 +13,8 @@
         - @option_choices.each do |choice|
           = div_for(choice, style: "display: none;") do
             .controls
-              = select_tag("option", options_from_collection_for_select(choice.options, :id, :name))
+              = choice.options.inspect
+              = select_tag("character[species_option]", options_from_collection_for_select(choice.options, :id, :name))
 
             - choice.options.each do |option|
               = div_for(option, style: "display: none;") do
