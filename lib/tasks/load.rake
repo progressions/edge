@@ -22,6 +22,7 @@ namespace :load do
     Loader.load_from_files("Vehicle")
   end
   task species: :environment do
+    SkillTraining.delete_all
     Loader.load_from_files("Species")
   end
   task careers: :environment do

@@ -216,7 +216,7 @@ ActiveRecord::Schema.define(version: 20140214044945) do
   create_table "skill_trainings", force: true do |t|
     t.integer  "option_id"
     t.integer  "skill_count"
-    t.text     "requirements"
+    t.text     "requirement"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

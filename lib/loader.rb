@@ -46,7 +46,11 @@ class Loader
       klass.new.respond_to?("#{k}=".to_sym)
     end
 
-    record = klass.where(key: key).first || klass.new
+    if klass.new.respond_to?(:key)
+      record = klass.where(key: key).first || klass.new
+    else
+      record = klass.new
+    end
     record.update_attributes(class_values)
 
     puts "Loaded record: #{record.inspect}"

@@ -12,4 +12,6 @@
 
 class SkillTraining < ActiveRecord::Base
   belongs_to :option
+
+  serialize :requirement, Array
 end

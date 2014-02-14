@@ -17,5 +17,19 @@
 
 class Option < ActiveRecord::Base
   belongs_to :option_choice
-  has_many :skill_trainings
+
+  def starting_skill_training_from_xml=(values={})
+    values = [values].flatten
+    puts
+    puts values.inspect
+    puts
+    values.each do |new_values|
+      new_values[:option_id] = self.id
+      puts
+      puts new_values.inspect
+      puts
+      new_values["Requirement"] = [new_values["Requirement"]].flatten
+      Loader.load_single(SkillTraining, new_values)
+    end
+  end
 end
