@@ -73,7 +73,10 @@ class Character < ActiveRecord::Base
 
   def species_option=(value)
     option = Option.find(value)
-    raise "Species Option: #{option.inspect}"
+    choice = option.option_choice
+    self.character_species.option_key = option.key
+    self.character_species.choice_key = choice.key
+    self.character_species.save
   end
 
   def purchased_char_ranks=(values)
