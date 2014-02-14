@@ -2,17 +2,14 @@
 #
 # Table name: character_options
 #
-#  id              :integer          not null, primary key
-#  character_id    :integer
-#  choice_key      :string(255)
-#  option_key      :string(255)
-#  starting_skills :text
-#  created_at      :datetime
-#  updated_at      :datetime
+#  id                   :integer          not null, primary key
+#  character_species_id :integer
+#  choice_key           :string(255)
+#  option_key           :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
 #
 
 class CharacterOption < ActiveRecord::Base
-  belongs_to :character
-
-  serialize :starting_skills, Hash
+  belongs_to :character_species
 end
