@@ -45,6 +45,26 @@ class Species < ActiveRecord::Base
     attributes_from_xml(values)
   end
 
+  def specialization_skill_bonus
+    specialization_skill_trainings.map(&:skill_count).sum
+  end
+
+  def specialization_skill_trainings
+    SkillTraining.joins(:option).joins(option: [:option_choice]).where("option_choices.species_id = ?", self.id).select do |st|
+      st.requirement["Specialization"]
+    end
+  end
+
+  def career_skill_bonus
+    career_skill_trainings.map(&:skill_count).sum
+  end
+
+  def career_skill_trainings
+    SkillTraining.joins(:option).joins(option: [:option_choice]).where("option_choices.species_id = ?", self.id).select do |st|
+      st.requirement["Career"]
+    end
+  end
+
   def attributes_from_xml(values)
     values.map do |k,v|
       if self.respond_to?("#{k.underscore}=".to_sym)

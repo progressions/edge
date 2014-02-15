@@ -51,11 +51,11 @@ module CharacterFreeSkillRanks
   end
 
   def total_free_career_skill_ranks
-    4
+    4 + self.species.career_skill_bonus.to_i
   end
 
   def total_free_specialization_skill_ranks
-    2
+    2 + self.species.specialization_skill_bonus.to_i
   end
 
   def more_free_species_skill_ranks?
