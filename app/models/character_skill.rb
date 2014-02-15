@@ -18,6 +18,7 @@ class CharacterSkill < ActiveRecord::Base
 
   delegate :name, to: :skill
   delegate :skill_type, to: :skill
+  delegate :key, to: :skill
 
   def experience_cost
     cost = 0
