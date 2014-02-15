@@ -71,6 +71,11 @@ class Character < ActiveRecord::Base
     Specialization.where(id: ids)
   end
 
+  def species_option_for_choice(choice)
+    selected_char_option = self.character_options.where(choice_key: choice.key).first
+    choice.options.where(key: selected_char_option.option_key).first
+  end
+
   def species_option=(value)
     option = Option.find(value)
     choice = option.option_choice

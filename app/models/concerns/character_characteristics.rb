@@ -18,7 +18,9 @@ module CharacterCharacteristics
   end
 
   def on_species_change
-    self.character_species.character_options.delete_all
+    ids = self.character_species.character_options.pluck(:id)
+    CharacterOption.where(id: ids).delete_all
+
     self.species.option_choices.each do |choice|
       choice.options.each do |option|
         self.species_option = option.id
