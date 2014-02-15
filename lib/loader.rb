@@ -11,32 +11,30 @@ class Loader
         k = "#{klass.name.underscore}_type"
       end
 
-      if k == "categories"
+      case k
+      when "categories"
         k = "categories_from_xml"
         v = v["Category"]
-      end
-      if k == "attributes"
+      when "attributes"
         k = "attributes_from_xml"
-      end
-      if k == "specializations"
+      when "specializations"
         k = "specializations_from_xml"
         v = v["Key"]
-      end
-      if k == "option_choices"
+      when "option_choices"
         k = "option_choices_from_xml"
         v = v["OptionChoice"]
-      end
-      if k == "options"
+      when "options"
         k = "options_from_xml"
         v = v["Option"]
-      end
-      if k == "starting_skill_training"
+      when "starting_skill_training"
         k = "starting_skill_training_from_xml"
         v = v["SkillTraining"]
-      end
-      if k == "career_skills"
+      when "career_skills"
         k = "skill_keys"
         v = v["Key"]
+      when "skill_modifiers"
+        k = "skill_modifiers_from_xml"
+        v = v["SkillModifier"]
       end
 
       class_values[k] = v

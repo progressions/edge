@@ -53,6 +53,14 @@ class Species < ActiveRecord::Base
     end
   end
 
+  def skill_modifiers_from_xml=(values)
+    values = [values].flatten
+    values.each do |new_values|
+      new_values[:species_id] = self.id
+      Loader.load_single(SkillModifier, new_values)
+    end
+  end
+
   def option_choices_from_xml=(values)
     values = [values].flatten
     values.each do |choice_values|
