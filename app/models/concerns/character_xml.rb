@@ -32,7 +32,24 @@ module CharacterXml
       career = Career.lookup(hash["Career"]["CareerKey"])
       character_params[:career_id] = career
 
+      specializations = [hash["Specializations"]["CharSpecialization"]].flatten
+      specializations.each do |spec_values|
+        specialization = Specialization.lookup(spec_values["Key"])
+        if spec_values["isStartingSpec"] == "true"
+          character_params[:first_specialization_id] = specialization.id
+        else
+          # add to additional specializations
+        end
+      end
+
       @character.update_attributes(character_params)
+
+      options = [hash["Species"]["SelectedOptions"]["CharOption"]].flatten
+      options.each do |opt_values|
+        option = Option.where(key: opt_values["OptionKey"]).first
+        character_params[:species_option] = option.id
+        @character.species_option = option.id
+      end
     end
   end
 

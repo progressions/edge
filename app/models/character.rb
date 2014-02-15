@@ -84,7 +84,6 @@ class Character < ActiveRecord::Base
     opt.character_species_id = self.character_species.id
     opt.option_key = option.key
     opt.save
-    Rails.logger.info(opt.inspect)
   end
 
   def purchased_char_ranks=(values)
