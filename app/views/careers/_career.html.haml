@@ -11,9 +11,14 @@
       %h4 Career Skills
 
       %p
-        You may choose
-        = @character.free_career_skill_ranks_remaining
-        more skills.
+        - if @character.free_career_skill_ranks_remaining < 0
+          You must un-select
+          = @character.free_career_skill_ranks_remaining * -1
+          more skills.
+        - else
+          You may choose
+          = @character.free_career_skill_ranks_remaining
+          more skills.
 
       .controls
         - @career_skills.each do |cs|
@@ -41,9 +46,14 @@
       %h4 Specialization Skills
 
       %p
-        You may choose
-        = @character.free_specialization_skill_ranks_remaining
-        more skills.
+        - if @character.free_specialization_skill_ranks_remaining < 0
+          You must un-select
+          = @character.free_specialization_skill_ranks_remaining * -1
+          more skills.
+        - else
+          You may choose
+          = @character.free_specialization_skill_ranks_remaining
+          more skills.
 
       .controls
         - @specialization_skills.each do |cs|
