@@ -12,5 +12,5 @@
 class CharacterSpecies < ActiveRecord::Base
   belongs_to :character
   belongs_to :species
-  has_many :character_options
+  has_many :character_options, dependent: :destroy
 end
