@@ -30,16 +30,17 @@
                     = @character.free_species_skill_ranks_remaining
                     more non-career skills.
 
-                  - @non_career_skills.each do |cs|
-                    - if cs.species_amount > 0 || @character.more_free_species_skill_ranks?
-                      - disabled = nil
-                    - else
-                      - disabled = "disabled"
+                  = semantic_form_for(@character, url: species_url, remote: true) do |f|
+                    - @non_career_skills.each do |cs|
+                      - if cs.species_amount > 0 || @character.more_free_species_skill_ranks?
+                        - disabled = nil
+                      - else
+                        - disabled = "disabled"
 
-                    %label.checkbox{class: disabled}
-                      = hidden_field_tag("character[species_skill_ranks[#{cs.skill.id}]][]", false)
-                      = check_box_tag("character[species_skill_ranks[#{cs.skill.id}]][]", true, cs.species_amount > 0, disabled: disabled)
-                      = cs.name
+                      %label.checkbox{class: disabled}
+                        = hidden_field_tag("character[species_skill_ranks[#{cs.skill.id}]][]", false)
+                        = check_box_tag("character[species_skill_ranks[#{cs.skill.id}]][]", true, cs.species_amount > 0, disabled: disabled)
+                        = cs.name
 
   .span6.characteristics_details
     = render partial: 'characters/characteristics', locals: {object: @character.species}

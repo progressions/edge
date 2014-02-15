@@ -10,7 +10,6 @@ class window.Species
   @refresh: ->
 
   @behaviors: ->
-    console.log("behaviors")
     $("a.option_choice").click(OptionChoice.show)
     OptionChoice.init()
     Option.init()
