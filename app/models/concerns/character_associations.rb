@@ -2,7 +2,7 @@ module CharacterAssociations
   extend ActiveSupport::Concern
 
   included do
-    has_many :character_options, through: :character_species, dependent: :destroy
+    has_many :character_options, through: :character_species
 
     has_one :experience
 

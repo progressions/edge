@@ -1,28 +1,39 @@
 module CharacterXml
   extend ActiveSupport::Concern
 
-  def self.from_xml(xml)
-    hash = Hash.from_xml(xml)
-    character_params = {}
+  included do
+    def self.from_xml(xml)
+      hash = Hash.from_xml(xml)
+      hash = hash["Character"]
+      character_params = {}
 
-    description_hash = hash["Character"]["Description"]
-    character_params[:name] = description_hash["CharName"]
-    character_params[:player_name] = description_hash["PlayerName"]
-    character_params[:gender] = description_hash["Gender"]
-    character_params[:age] = description_hash["Age"]
-    character_params[:height] = description_hash["Height"]
-    character_params[:build] = description_hash["Build"]
-    character_params[:hair] = description_hash["Hair"]
-    character_params[:eyes] = description_hash["Eyes"]
-    character_params[:notable_features] = description_hash["OtherFeatures"]
+      description_hash = hash["Description"]
+      character_params[:name] = description_hash["CharName"]
+      character_params[:player_name] = description_hash["PlayerName"]
+      character_params[:gender] = description_hash["Gender"]
+      character_params[:age] = description_hash["Age"]
+      character_params[:height] = description_hash["Height"]
+      character_params[:build] = description_hash["Build"]
+      character_params[:hair] = description_hash["Hair"]
+      character_params[:eyes] = description_hash["Eyes"]
+      character_params[:notable_features] = description_hash["OtherFeatures"]
 
-    social_class_key = hash["Character"]["Class"]["ClassKey"]
-    background_key = hash["Character"]["Hook"]["HookKey"]
+      social_class_key = hash["Class"]["ClassKey"]
+      background_key = hash["Hook"]["HookKey"]
 
-    character_params[:social_class] = SocialClass.lookup(social_class_key)
-    character_params[:background] = Background.lookup(background_key)
+      character_params[:social_class] = SocialClass.lookup(social_class_key)
+      character_params[:background] = Background.lookup(background_key)
 
-    create(character_params)
+      @character = create(character_params)
+
+      species = Species.lookup(hash["Species"]["SpeciesKey"])
+      character_params[:species_id] = species
+
+      career = Career.lookup(hash["Career"]["CareerKey"])
+      character_params[:career_id] = career
+
+      @character.update_attributes(character_params)
+    end
   end
 
   def to_xml(options = {})

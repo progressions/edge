@@ -22,6 +22,7 @@
 
 class Species < ActiveRecord::Base
   include Sourced
+  include Sluggable
 
   has_many :skill_modifiers
 
