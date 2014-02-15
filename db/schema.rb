@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214223159) do
+ActiveRecord::Schema.define(version: 20140215054449) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -223,6 +223,17 @@ ActiveRecord::Schema.define(version: 20140214223159) do
     t.string   "parent_type"
     t.integer  "parent_id"
   end
+
+  create_table "skill_modifiers", force: true do |t|
+    t.integer  "species_id"
+    t.string   "key"
+    t.integer  "rank_start"
+    t.integer  "rank_limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "skill_modifiers", ["species_id"], name: "index_skill_modifiers_on_species_id", using: :btree
 
   create_table "skill_trainings", force: true do |t|
     t.integer  "option_id"

@@ -23,6 +23,8 @@
 class Species < ActiveRecord::Base
   include Sourced
 
+  has_many :skill_modifiers
+
   has_many :option_choices
 
   has_many :characters, through: :character_species
