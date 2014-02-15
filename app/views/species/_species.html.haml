@@ -14,7 +14,9 @@
         = div_for(choice, style: "display: none;") do
           .controls
             = semantic_form_for(@character, url: species_url, remote: true) do |f|
-              = select_tag("character[species_option]", options_from_collection_for_select(choice.options, :id, :name))
+              - selected_char_option = @character.character_options.where(choice_key: choice.key).first
+              - selected_choice = choice.options.where(key: selected_char_option.option_key).first
+              = select_tag("character[species_option]", options_from_collection_for_select(choice.options, :id, :name, selected_choice.id))
 
           - choice.options.each do |option|
             = div_for(option, style: "display: none;") do
