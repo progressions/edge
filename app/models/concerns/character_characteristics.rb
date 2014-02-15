@@ -17,6 +17,14 @@ module CharacterCharacteristics
     char.save
   end
 
+  def update_species_skills
+    self.species.skill_modifiers.each do |sm|
+      skill = sm.skill
+      char_skill = self.character_skills.where(skill_id: skill.id).first
+      char_skill.set_species_ranks(sm.rank_start)
+    end
+  end
+
   def on_species_change
     ids = self.character_species.character_options.pluck(:id)
     CharacterOption.where(id: ids).delete_all
@@ -26,9 +34,12 @@ module CharacterCharacteristics
         self.species_option = option.id
       end
     end
-    ranks = self.characteristics.map(&:species_ranks).flatten
-    ranks.each(&:destroy)
 
+    ranks = self.character_skills.map(&:species_ranks).flatten.map(&:id)
+    ranks += self.characteristics.map(&:species_ranks).flatten.map(&:id)
+    Rank.where(id: ranks).delete_all
+
+    update_species_skills
     default_characteristics
   end
 
