@@ -13,4 +13,8 @@
 
 class SkillModifier < ActiveRecord::Base
   belongs_to :species
+
+  def skill
+    Skill.where(key: key).first
+  end
 end
