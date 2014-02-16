@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216180315) do
+ActiveRecord::Schema.define(version: 20140216200730) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -110,6 +110,16 @@ ActiveRecord::Schema.define(version: 20140216180315) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "character_talents", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "talent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "character_talents", ["character_id"], name: "index_character_talents_on_character_id", using: :btree
+  add_index "character_talents", ["talent_id"], name: "index_character_talents_on_talent_id", using: :btree
 
   create_table "characteristics", force: true do |t|
     t.string   "key"
@@ -301,6 +311,23 @@ ActiveRecord::Schema.define(version: 20140216180315) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "source"
+  end
+
+  create_table "talents", force: true do |t|
+    t.string   "key"
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "ranked"
+    t.string   "activation"
+    t.integer  "additional_hp"
+    t.string   "source"
+    t.text     "attributes"
+    t.text     "damage"
+    t.text     "choose_career_skills"
+    t.boolean  "jury_rigged"
+    t.text     "skill_choice"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
