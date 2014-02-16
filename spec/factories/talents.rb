@@ -10,7 +10,7 @@
 #  activation           :string(255)
 #  additional_hp        :integer
 #  source               :string(255)
-#  attributes           :text
+#  talent_attributes    :text
 #  damage               :text
 #  choose_career_skills :text
 #  jury_rigged          :boolean

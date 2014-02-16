@@ -321,7 +321,7 @@ ActiveRecord::Schema.define(version: 20140216200730) do
     t.string   "activation"
     t.integer  "additional_hp"
     t.string   "source"
-    t.text     "attributes"
+    t.text     "talent_attributes"
     t.text     "damage"
     t.text     "choose_career_skills"
     t.boolean  "jury_rigged"

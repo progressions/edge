@@ -10,7 +10,7 @@
 #  activation           :string(255)
 #  additional_hp        :integer
 #  source               :string(255)
-#  attributes           :text
+#  talent_attributes    :text
 #  damage               :text
 #  choose_career_skills :text
 #  jury_rigged          :boolean
@@ -22,4 +22,13 @@
 class Talent < ActiveRecord::Base
   belongs_to :character_talent
   has_many :characters, through: :character_talent
+
+  serialize :talent_attributes, Hash
+  serialize :damage, Hash
+  serialize :choose_career_skills, Hash
+  serialize :skill_choice, Hash
+
+  def attributes_from_xml=(values)
+    self.talent_attributes = values
+  end
 end
