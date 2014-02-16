@@ -73,7 +73,7 @@ class Character < ActiveRecord::Base
 
   def species_option_for_choice(choice)
     selected_char_option = self.character_options.where(choice_key: choice.key).first
-    choice.options.where(key: selected_char_option.option_key).first
+    choice.options.where(key: selected_char_option.try(:option_key)).first
   end
 
   def species_option=(value)
