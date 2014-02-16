@@ -36,4 +36,7 @@ namespace :load do
   task skills: :environment do
     Loader.load_from_file("Skill")
   end
+  task talents: :environment do
+    Loader.load_from_file("Talent")
+  end
 end

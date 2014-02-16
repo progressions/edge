@@ -1,0 +1,1531 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Talents>
+  <Talent>
+    <Key>ADV</Key>
+    <Name>Adversary</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>ANAT</Key>
+    <Name>Anatomy Lessons</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>ARM</Key>
+    <Name>Armor Master</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <SoakValue>1</SoakValue>
+      <Requirement>
+        <WearingArmor>true</WearingArmor>
+      </Requirement>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>ARMIMP</Key>
+    <Name>Armor Master (Improved)</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <DefenseRanged>1</DefenseRanged>
+      <DefenseMelee>1</DefenseMelee>
+      <Requirement>
+        <WearingArmor>true</WearingArmor>
+        <SoakAtLeast>2</SoakAtLeast>
+      </Requirement>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>BACT</Key>
+    <Name>Bacta Specialist</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>BADM</Key>
+    <Name>Bad Motivator</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>BAL</Key>
+    <Name>Balance</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>BAR</Key>
+    <Name>Barrage</Name>
+    <Ranked>true</Ranked>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>BLA</Key>
+    <Name>Black Market Contacts</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>BLO</Key>
+    <Name>Blooded</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>BOD</Key>
+    <Name>Body Guard</Name>
+    <Ranked>true</Ranked>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>BRA</Key>
+    <Name>Brace</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>BRI</Key>
+    <Name>Brilliant Evasion</Name>
+    <Description>Please see page 132 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>BYP</Key>
+    <Name>Bypass Security</Name>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>COD</Key>
+    <Name>Codebreaker</Name>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>COM</Key>
+    <Name>Command</Name>
+    <Ranked>true</Ranked>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>CONF</Key>
+    <Name>Confidence</Name>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>CONT</Key>
+    <Name>Contraption</Name>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>CONV</Key>
+    <Name>Convincing Demeanor</Name>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>CRIPV</Key>
+    <Name>Crippling Blow</Name>
+    <Description>Please see page 133 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Active</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEAD</Key>
+    <Name>Dead to Rights</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEADIMP</Key>
+    <Name>Dead to Rights (Improved)</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEADACC</Key>
+    <Name>Deadly Accuracy</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <SkillChoice>
+      <Type>Combat</Type>
+      <SkillCount>1</SkillCount>
+    </SkillChoice>
+  </Talent>
+  <Talent>
+    <Key>DEDI</Key>
+    <Name>Dedication</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <CharacteristicChoices>
+      <CharacteristicChoice>
+        <Bonus>1</Bonus>
+      </CharacteristicChoice>
+    </CharacteristicChoices>
+  </Talent>
+  <Talent>
+    <Key>DEFDRI</Key>
+    <Name>Defensive Driving</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEFSLI</Key>
+    <Name>Defensive Slicing</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEFSLIIMP</Key>
+    <Name>Defensive Slicing (Improved)</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEFSTA</Key>
+    <Name>Defensive Stance</Name>
+    <Description>Please see page 134 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>DISOR</Key>
+    <Name>Disorient</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>DODGE</Key>
+    <Name>Dodge</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>DURA</Key>
+    <Name>Durable</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>ENDUR</Key>
+    <Name>Enduring</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <SoakValue>1</SoakValue>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>EXTRACK</Key>
+    <Name>Expert Tracker</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>FAMSUNS</Key>
+    <Name>Familiar Suns</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>FERSTR</Key>
+    <Name>Feral Strength</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <Damage>
+      <Bonus>1</Bonus>
+      <Skills>
+        <Key>BRAWL</Key>
+        <Key>MELEE</Key>
+      </Skills>
+    </Damage>
+  </Talent>
+  <Talent>
+    <Key>FLDCOMM</Key>
+    <Name>Field Commander</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>FLDCOMMIMP</Key>
+    <Name>Field Commander (Improved)</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>FINETUN</Key>
+    <Name>Fine Tuning</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>FORAG</Key>
+    <Name>Forager</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>FORCERAT</Key>
+    <Name>Force Rating</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <ForceRating>1</ForceRating>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>FRENZ</Key>
+    <Name>Frenzied Attack</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>FULLTH</Key>
+    <Name>Full Throttle</Name>
+    <Description>Please see page 135 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>FULLTHIMP</Key>
+    <Name>Full Throttle (Improved)</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>FULLTHSUP</Key>
+    <Name>Full Throttle (Supreme)</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>GALMAP</Key>
+    <Name>Galaxy Mapper</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>GEARHD</Key>
+    <Name>Gearhead</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>GRIT</Key>
+    <Name>Grit</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <StrainThreshold>1</StrainThreshold>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>HARDHD</Key>
+    <Name>Hard Headed</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>HARDHDIMP</Key>
+    <Name>Hard Headed (Improved)</Name>
+    <Description>Please see page 136 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>HEIGHT</Key>
+    <Name>Heightened Awareness</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>HERO</Key>
+    <Name>Heroic Fortitude</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>HIDD</Key>
+    <Name>Hidden Storage</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>HOLDTOG</Key>
+    <Name>Hold Together</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>HUNT</Key>
+    <Name>Hunter</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>INDIS</Key>
+    <Name>Indistinguishable</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>INSIGHT</Key>
+    <Name>Insight</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <ChooseCareerSkills>
+      <NewSkills>
+        <Key>DISC</Key>
+        <Key>PERC</Key>
+      </NewSkills>
+    </ChooseCareerSkills>
+  </Talent>
+  <Talent>
+    <Key>INSPRHET</Key>
+    <Name>Inspiring Rhetoric</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>INSPRHETIMP</Key>
+    <Name>Inspiring Rhetoric (Improved)</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>INSPRHETSUP</Key>
+    <Name>Inspiring Rhetoric (Supreme)</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>INTENSFOC</Key>
+    <Name>Intense Focus</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>INTENSPRE</Key>
+    <Name>Intense Presence</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>INTIM</Key>
+    <Name>Intimidating</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>INVENT</Key>
+    <Name>Inventor</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>JUMP</Key>
+    <Name>Jump Up</Name>
+    <Description>Please see page 137 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>JURY</Key>
+    <Name>Jury Rigged</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <JuryRigged>true</JuryRigged>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>KILL</Key>
+    <Name>Kill With Kindness</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>KNOCK</Key>
+    <Name>Knockdown</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>KNOWSOM</Key>
+    <Name>Know Somebody</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>KNOWSPEC</Key>
+    <Name>Knowledge Specialization</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <SkillChoice>
+      <Type>Knowledge</Type>
+      <SkillCount>1</SkillCount>
+    </SkillChoice>
+  </Talent>
+  <Talent>
+    <Key>KNOWSCH</Key>
+    <Name>Known Schematic</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>LETSRIDE</Key>
+    <Name>Let's Ride</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>LETHALBL</Key>
+    <Name>Lethal Blows</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASDOC</Key>
+    <Name>Master Doctor</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASMERC</Key>
+    <Name>Master Merchant</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASSHAD</Key>
+    <Name>Master of Shadows</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASPIL</Key>
+    <Name>Master Pilot</Name>
+    <Description>Please see page 138 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASSLIC</Key>
+    <Name>Master Slicer</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASSTAR</Key>
+    <Name>Master Starhopper</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MENTFOR</Key>
+    <Name>Mental Fortress</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATBRAW</Key>
+    <Name>Natural Brawler</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATCHARM</Key>
+    <Name>Natural Charmer</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATDOC</Key>
+    <Name>Natural Doctor</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATENF</Key>
+    <Name>Natural Enforcer</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATHUN</Key>
+    <Name>Natural Hunter</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATMAR</Key>
+    <Name>Natural Marksman</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATNEG</Key>
+    <Name>Natural Negotiator</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATOUT</Key>
+    <Name>Natural Outdoorsman</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATPIL</Key>
+    <Name>Natural Pilot</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATPRO</Key>
+    <Name>Natural Programmer</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATROG</Key>
+    <Name>Natural Rogue</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATSCH</Key>
+    <Name>Natural Scholar</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATTIN</Key>
+    <Name>Natural Tinkerer</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NOBFOOL</Key>
+    <Name>Nobody's Fool</Name>
+    <Description>Please see page 139 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>OUTDOOR</Key>
+    <Name>Outdoorsman</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>OVEREM</Key>
+    <Name>Overwhelm Emotions</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>PLAUSDEN</Key>
+    <Name>Plausible Deniability</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>POINTBL</Key>
+    <Name>Point Blank</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>PRECAIM</Key>
+    <Name>Precise Aim</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>PRESPNT</Key>
+    <Name>Pressure Point</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>QUICKDR</Key>
+    <Name>Quick Draw</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>QUICKST</Key>
+    <Name>Quick Strike</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>RAPREA</Key>
+    <Name>Rapid Reaction</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>RAPREC</Key>
+    <Name>Rapid Recovery</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>REDUNSYS</Key>
+    <Name>Redundant Systems</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>RESEARCH</Key>
+    <Name>Researcher</Name>
+    <Description>Please see page 141 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>RESOLVE</Key>
+    <Name>Resolve</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>RESPSCHOL</Key>
+    <Name>Respected Scholar</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SCATH</Key>
+    <Name>Scathing Tirade</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>SCATHIMP</Key>
+    <Name>Scathing Tirade (Improved)</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SCATHSUP</Key>
+    <Name>Scathing Tirade (Supreme)</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SECWIND</Key>
+    <Name>Second Wind</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SENSDANG</Key>
+    <Name>Sense Danger</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SENSDEMO</Key>
+    <Name>Sense Emotions</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SHORTCUT</Key>
+    <Name>Short Cut</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SIDESTEP</Key>
+    <Name>Side Step</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>SIXSENSE</Key>
+    <Name>Sixth Sense</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <DefenseRanged>1</DefenseRanged>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>SKILLJOCK</Key>
+    <Name>Skilled Jockey</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SKILLSLIC</Key>
+    <Name>Skilled Slicer</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SMOOTHTALK</Key>
+    <Name>Smooth Talker</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+    <SkillChoice>
+      <SkillCount>1</SkillCount>
+      <SkillList>
+        <Key>CHARM</Key>
+        <Key>COERC</Key>
+        <Key>NEG</Key>
+        <Key>DECEP</Key>
+      </SkillList>
+    </SkillChoice>
+  </Talent>
+  <Talent>
+    <Key>SNIPSHOT</Key>
+    <Name>Sniper Shot</Name>
+    <Description>Please see page 142 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>SOFTSP</Key>
+    <Name>Soft Spot</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SOLREP</Key>
+    <Name>Solid Repairs</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SPARECL</Key>
+    <Name>Spare Clip</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SPKBIN</Key>
+    <Name>Speaks Binary</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>STALK</Key>
+    <Name>Stalker</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>STNERV</Key>
+    <Name>Steely Nerves</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>STIMAP</Key>
+    <Name>Stim Application</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>STIMAPIMP</Key>
+    <Name>Stim Application (Improved)</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>STIMAPSUP</Key>
+    <Name>Stim Application (Supreme)</Name>
+    <Description>Please see page 143 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+
+
+  <Talent>
+    <Key>STRSMART</Key>
+    <Name>Street Smarts</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>STRGEN</Key>
+    <Name>Stroke of Genius</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>STRONG</Key>
+    <Name>Strong Arm</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>STUNBL</Key>
+    <Name>Stunning Blow</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>STUNBLIMP</Key>
+    <Name>Stunning Blow (Improved)</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SUPREF</Key>
+    <Name>Superior Reflexes</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <DefenseMelee>1</DefenseMelee>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>SURG</Key>
+    <Name>Surgeon</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>SWIFT</Key>
+    <Name>Swift</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>TARGBL</Key>
+    <Name>Targeted Blow</Name>
+    <Description>Please see page 144 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>TECHAPT</Key>
+    <Name>Technical Aptitude</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>TINK</Key>
+    <Name>Tinkerer</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <AddlHP>1</AddlHP>
+  </Talent>
+  <Talent>
+    <Key>TOUCH</Key>
+    <Name>Touch of Fate</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>TOUGH</Key>
+    <Name>Toughened</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <Attributes>
+      <WoundThreshold>2</WoundThreshold>
+    </Attributes>
+  </Talent>
+  <Talent>
+    <Key>TRICK</Key>
+    <Name>Tricky Target</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>TRUEAIM</Key>
+    <Name>True Aim</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>UNCANREAC</Key>
+    <Name>Uncanny Reactions</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>UNCANSENS</Key>
+    <Name>Uncanny Senses</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>UTIL</Key>
+    <Name>Utility Belt</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>UTINNI</Key>
+    <Name>Utinni!</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>WELLROUND</Key>
+    <Name>Well Rounded</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+    <ChooseCareerSkills>
+      <SkillCount>2</SkillCount>
+    </ChooseCareerSkills>
+  </Talent>
+  <Talent>
+    <Key>WHEEL</Key>
+    <Name>Wheel and Deal</Name>
+    <Description>Please see page 145 of the Core Rulebook for details.</Description>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>ALLTERDRIV</Key>
+    <Name>All Terrain Driver</Name>
+    <Description>Please see page 30 of Enter the Unknown sourcebook for details.</Description>
+    <Source>Enter the Unknown</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>BOUGHT</Key>
+    <Name>Bought Info</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>CAREPLAN</Key>
+    <Name>Careful Planning</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>CLEVERSOLN</Key>
+    <Name>Clever Solution</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>COMMPRES</Key>
+    <Name>Commanding Presence</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>COORDASS</Key>
+    <Name>Coordinated Assault</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>UNSTOP</Key>
+    <Name>Unstoppable</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>FIRECON</Key>
+    <Name>Fire Control</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>FORMONME</Key>
+    <Name>Form On Me</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>FULLSTOP</Key>
+    <Name>Full Stop</Name>
+    <Description>Please see page 30 of Enter the Unknown sourcebook for details.</Description>
+    <Source>Enter the Unknown</Source>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>GREASE</Key>
+    <Name>Greased Palms</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>INCITE</Key>
+    <Name>Incite Rebellion</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>ITSNOTTHATBAD</Key>
+    <Name>Its Not that Bad</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASDRIV</Key>
+    <Name>Master Driver</Name>
+    <Description>Please see page 30 of Enter the Unknown sourcebook for details.</Description>
+    <Source>Enter the Unknown</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASGREN</Key>
+    <Name>Master Grenadier</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>MASLEAD</Key>
+    <Name>Master Leader</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATDRIV</Key>
+    <Name>Natural Driver</Name>
+    <Description>Please see page 30 of Enter the Unknown sourcebook for details.</Description>
+    <Source>Enter the Unknown</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>NATLEAD</Key>
+    <Name>Natural Leader</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>PWRBLST</Key>
+    <Name>Powerful Blast</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>QUICKFIX</Key>
+    <Name>Quick Fix</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SELDETON</Key>
+    <Name>Selective Detonation</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SOUNDINV</Key>
+    <Name>Sound Investiments</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>STIMSPEC</Key>
+    <Name>Stimpack Specialization</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>TIME2GO</Key>
+    <Name>Time to Go</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>TIME2GOIMP</Key>
+    <Name>Time to Go (Improved)</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Maneuver</Activation>
+  </Talent>
+  <Talent>
+    <Key>WORKLIKECHARM</Key>
+    <Name>Works Like A Charm</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <AddlHP>0</AddlHP>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SLEIGHTMIND</Key>
+    <Name>Sleight of Mind</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>INVIG</Key>
+    <Name>Invigorate</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>FORCEWILL</Key>
+    <Name>Force of Will</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>PHYSTRAIN</Key>
+    <Name>Physical Training</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>OVERDEF</Key>
+    <Name>Overwhelm Defenses</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>true</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>DEPSHOT</Key>
+    <Name>Debilitating Shot</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>EXHPORT</Key>
+    <Name>Exhaust Port</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>SITAWARE</Key>
+    <Name>Situational Awareness</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>BASICTRAIN</Key>
+    <Name>Basic Combat Training</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <JuryRigged>false</JuryRigged>
+    <ChooseCareerSkills>
+      <SkillCount>0</SkillCount>
+      <NewSkills>
+        <Key>BRAWL</Key>
+        <Key>RANGLT</Key>
+      </NewSkills>
+    </ChooseCareerSkills>
+  </Talent>
+  <Talent>
+    <Key>TACTTRAIN</Key>
+    <Name>Tactical Combat Training</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <ChooseCareerSkills>
+      <SkillCount>0</SkillCount>
+      <NewSkills>
+        <Key>MELEE</Key>
+        <Key>RANGHVY</Key>
+      </NewSkills>
+    </ChooseCareerSkills>
+  </Talent>
+  <Talent>
+    <Key>VEHTRAIN</Key>
+    <Name>Vehicle Combat Training</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <ChooseCareerSkills>
+      <SkillCount>0</SkillCount>
+      <NewSkills>
+        <Key>GUNN</Key>
+        <Key>PILOTPL</Key>
+      </NewSkills>
+    </ChooseCareerSkills>
+  </Talent>
+  <Talent>
+    <Key>WELLTRAV</Key>
+    <Name>Well Travelled</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+    <ChooseCareerSkills>
+      <SkillCount>0</SkillCount>
+      <NewSkills>
+        <Key>CORE</Key>
+        <Key>OUT</Key>
+      </NewSkills>
+    </ChooseCareerSkills>
+  </Talent>
+  <Talent>
+    <Key>CREATKILL</Key>
+    <Name>Creative Killer</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+  <Talent>
+    <Key>DYNFIRE</Key>
+    <Name>Dynamic Fire</Name>
+    <Description>Please see Age of Rebellion Rule book.</Description>
+    <Source>Age of Rebellion Rulebook</Source>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <!-- Enter the Unknown-->
+  <Talent>
+    <Key>PIN</Key>
+    <Name>Pin</Name>
+    <Description>
+      Please see page 30 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+    <AddlHP>0</AddlHP>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>MUSEUMWORTHY</Key>
+    <Name>Museum Worthy</Name>
+    <Description>
+      Please see page 30 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+    <AddlHP>0</AddlHP>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>BRNGITDWN</Key>
+    <Name>Bring It Down</Name>
+    <Description>
+      Please see page 30 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+    <AddlHP>0</AddlHP>
+    <Ranked>false</Ranked>
+    <Activation>Incidental</Activation>
+  </Talent>
+  <Talent>
+    <Key>HUNTERQUARRY</Key>
+    <Name>Hunter's Quarry</Name>
+    <Description>Please see page 30 of Enter the Unknown for details.</Description>
+    <Source>Enter the Unknown</Source>
+    <AddlHP>0</AddlHP>
+    <Ranked>false</Ranked>
+    <Activation>Action</Activation>
+  </Talent>
+  <Talent>
+    <Key>HUNTQIMP</Key>
+    <Name>Hunter's Quarry (Improved)</Name>
+    <Description>
+      Please see page 30 of Enter the Unknown for details.
+    </Description>
+    <Source>Enter the Unknown</Source>
+    <AddlHP>0</AddlHP>
+    <Ranked>false</Ranked>
+    <Activation>Passive</Activation>
+  </Talent>
+</Talents>
