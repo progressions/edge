@@ -83,7 +83,7 @@ class Character < ActiveRecord::Base
     opt ||= self.character_options.build(choice_key: choice.key)
     opt.character_species_id = self.character_species.id
     opt.option_key = option.key
-    opt.save
+    opt.save!
   end
 
   def purchased_char_ranks=(values)
