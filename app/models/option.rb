@@ -18,6 +18,7 @@
 class Option < ActiveRecord::Base
   belongs_to :option_choice
   has_many :skill_trainings
+  has_many :skill_modifiers
 
   def starting_skill_training_from_xml=(values={})
     values = [values].flatten
