@@ -14,6 +14,10 @@
 class SkillModifier < ActiveRecord::Base
   belongs_to :species
 
+  def self.unique_key?
+    false
+  end
+
   def skill
     Skill.where(key: key).first
   end

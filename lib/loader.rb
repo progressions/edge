@@ -44,7 +44,7 @@ class Loader
       klass.new.respond_to?("#{k}=".to_sym)
     end
 
-    if klass.new.respond_to?(:key)
+    if klass.unique_key? && klass.new.respond_to?(:key)
       record = klass.where(key: key).first || klass.new
     else
       record = klass.new
@@ -94,5 +94,11 @@ class Loader
         Loader.load_single(klass, values)
       end
     end
+  end
+end
+
+class ActiveRecord::Base
+  def self.unique_key?
+    true
   end
 end
