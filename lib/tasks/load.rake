@@ -23,6 +23,8 @@ namespace :load do
   end
   task species: :environment do
     SkillTraining.delete_all
+    SkillModifier.delete_all
+    OptionSkillModifier.delete_all
     Loader.load_from_files("Species")
   end
   task careers: :environment do
