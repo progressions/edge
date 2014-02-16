@@ -11,6 +11,8 @@
 #
 
 class OptionChoice < ActiveRecord::Base
+  include Sluggable
+
   belongs_to :species
   has_many :options
 

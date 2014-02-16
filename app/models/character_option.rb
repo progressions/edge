@@ -17,10 +17,16 @@ class CharacterOption < ActiveRecord::Base
   serialize :skill_trainings, Hash
 
   def choice
-    OptionChoice.where(key: choice_key).first
+    OptionChoice.lookup(option_key)
   end
 
   def option
-    Option.where(key: option_key).first
+    Option.lookup(option_key)
+  end
+
+  def skill_modifiers
+    return [] unless option.present?
+
+    option.skill_modifiers
   end
 end

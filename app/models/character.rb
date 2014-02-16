@@ -42,6 +42,7 @@ class Character < ActiveRecord::Base
   include CharacterCallbacks
   include CharacterCareerSkills
   include CharacterFreeSkillRanks
+  include CharacterChanges
 
   before_save :default_experience
 
@@ -72,8 +73,7 @@ class Character < ActiveRecord::Base
   end
 
   def species_option_for_choice(choice)
-    selected_char_option = self.character_options.where(choice_key: choice.key).first
-    choice.options.where(key: selected_char_option.try(:option_key)).first
+    self.character_options.where(choice_key: choice.key).first.option
   end
 
   def species_option=(value)
@@ -84,6 +84,9 @@ class Character < ActiveRecord::Base
     opt.character_species_id = self.character_species.id
     opt.option_key = option.key
     opt.save!
+
+    clear_species_ranks
+    update_species_skills
   end
 
   def purchased_char_ranks=(values)

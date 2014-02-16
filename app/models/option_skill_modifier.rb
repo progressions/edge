@@ -13,4 +13,8 @@
 
 class OptionSkillModifier < ActiveRecord::Base
   belongs_to :option
+
+  def skill
+    Skill.where(key: key).first
+  end
 end
