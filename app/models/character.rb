@@ -76,7 +76,7 @@ class Character < ActiveRecord::Base
     self.character_options.where(choice_key: choice.key).first.option
   end
 
-  def species_option=(value)
+  def set_species_option(value)
     option = Option.find(value)
     choice = option.option_choice
     opt = self.character_options.where(choice_key: choice.key).first
@@ -84,8 +84,11 @@ class Character < ActiveRecord::Base
     opt.character_species_id = self.character_species.id
     opt.option_key = option.key
     opt.save!
+  end
 
-    clear_species_ranks
+  def species_option=(value)
+    set_species_option(value)
+    clear_species_skill_ranks
     update_species_skills
   end
 

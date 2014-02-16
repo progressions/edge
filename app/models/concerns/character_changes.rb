@@ -7,11 +7,11 @@ module CharacterChanges
 
     self.species.option_choices.each do |choice|
       choice.options.each do |option|
-        self.species_option = option.id
+        self.set_species_option(option.id)
       end
     end
 
-    clear_species_ranks
+    clear_all_species_ranks
     update_species_skills
     default_characteristics
   end
@@ -25,12 +25,6 @@ module CharacterChanges
 
     self.character_options.each do |co|
       co.skill_modifiers.each do |sm|
-        Rails.logger.info("")
-        Rails.logger.info("")
-        Rails.logger.info("co: #{co.inspect}")
-        Rails.logger.info("sm: #{sm.inspect}")
-        Rails.logger.info("")
-        Rails.logger.info("")
         skill = sm.skill
         char_skill = self.character_skills.where(skill_id: skill.id).first
         char_skill.set_species_ranks(sm.rank_start)
@@ -38,7 +32,12 @@ module CharacterChanges
     end
   end
 
-  def clear_species_ranks
+  def clear_species_skill_ranks
+    ranks = self.character_skills.map(&:species_ranks).flatten.map(&:id)
+    Rank.where(id: ranks).delete_all
+  end
+
+  def clear_all_species_ranks
     ranks = self.character_skills.map(&:species_ranks).flatten.map(&:id)
     ranks += self.characteristics.map(&:species_ranks).flatten.map(&:id)
     Rank.where(id: ranks).delete_all
