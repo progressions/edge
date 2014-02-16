@@ -26,4 +26,8 @@ class Option < ActiveRecord::Base
       Loader.load_single(SkillTraining, new_values)
     end
   end
+
+  def skill_modifiers_from_xml=(values={})
+    raise values.inspect
+  end
 end

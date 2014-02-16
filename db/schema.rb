@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140215054449) do
+ActiveRecord::Schema.define(version: 20140216180315) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -200,6 +200,17 @@ ActiveRecord::Schema.define(version: 20140215054449) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "option_skill_modifiers", force: true do |t|
+    t.integer  "option_id"
+    t.string   "key"
+    t.integer  "rank_start"
+    t.integer  "rank_limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "option_skill_modifiers", ["option_id"], name: "index_option_skill_modifiers_on_option_id", using: :btree
 
   create_table "options", force: true do |t|
     t.integer  "option_choice_id"
