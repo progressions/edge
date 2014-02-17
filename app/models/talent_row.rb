@@ -16,7 +16,7 @@ class TalentRow < ActiveRecord::Base
     dirs = values["Direction"]
     @talent_keys.each_with_index do |key, i|
       talent = Talent.lookup(key)
-      directions = dirs[i]
+      directions = parse_directions(dirs[i])
       thing = {
         talent: talent,
         direction: directions
@@ -28,5 +28,14 @@ class TalentRow < ActiveRecord::Base
 
   def talents=(values)
     @talent_keys = values["Key"]
+  end
+
+  def parse_directions(value)
+    {
+      up: value["Up"] == "true",
+      down: value["Down"] == "true",
+      left: value["Left"] == "true",
+      right: value["Right"] == "true"
+    }
   end
 end
