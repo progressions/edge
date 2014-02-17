@@ -3,5 +3,8 @@
     = semantic_form_for(@character, url: species_url, remote: true) do |f|
       %p= @character.first_specialization.name
 
-    - @character.first_specialization.talent_rows.each do |row|
-      %p= row.inspect
+    %table.table
+      - @character.first_specialization.talent_rows.each do |row|
+        %tr
+          - row.talent_boxes.each do |box|
+            %td= box.name

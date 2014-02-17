@@ -17,6 +17,8 @@
 class TalentBox < ActiveRecord::Base
   belongs_to :talent_row
 
+  delegate :name, to: :talent
+
   def talent
     Talent.lookup(key)
   end
