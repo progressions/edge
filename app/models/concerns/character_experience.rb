@@ -25,7 +25,7 @@ module CharacterExperience
   end
 
   def used_experience
-    self.experience.spent_experience
+    self.experience.try(:spent_experience).to_i
   end
 
   def unused_experience
