@@ -1,0 +1,12 @@
+- @active = :specializations
+
+#edit_specializations
+
+:javascript
+  $().ready(function() {
+    window.Specializations.refresh = function() {
+      $.ajax({ url: "#{specialization_url(@character, params.merge(format: 'js'))}" });
+    };
+    Specializations.refresh();
+  });
+
