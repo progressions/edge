@@ -7,4 +7,16 @@
       - @character.first_specialization.talent_rows.each do |row|
         %tr
           - row.talent_boxes.each do |box|
+            %td
+            %td= box.up
+            %td
+        %tr
+          - row.talent_boxes.each do |box|
+            %td= box.left
             %td= box.name
+            %td= box.right
+        %tr
+          - row.talent_boxes.each do |box|
+            %td
+            %td= box.down
+            %td
