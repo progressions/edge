@@ -1,6 +1,7 @@
 .row
-  .span4
+  .span10
     = semantic_form_for(@character, url: species_url, remote: true) do |f|
       %p= @character.first_specialization.name
 
-
+    - @character.first_specialization.talent_rows.each do |row|
+      %p= row.inspect
