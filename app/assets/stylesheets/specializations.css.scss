@@ -10,8 +10,18 @@ table.talents {
   }
   .talent {
     border: 1px solid black;
-    width: 250px;
+    width: 230px;
     height: 100px;
+
+    padding: 10px;
+
+    h3 {
+      font-size: 1.25em;
+      line-height: 1.5em;
+    }
+    p {
+      font-size: 0.8em;
+    }
   }
 
 }
