@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217044048) do
+ActiveRecord::Schema.define(version: 20140217044335) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -312,6 +312,20 @@ ActiveRecord::Schema.define(version: 20140217044048) do
     t.datetime "updated_at"
     t.string   "source"
   end
+
+  create_table "talent_boxes", force: true do |t|
+    t.integer  "talent_row_id"
+    t.string   "key"
+    t.integer  "position"
+    t.boolean  "left"
+    t.boolean  "right"
+    t.boolean  "up"
+    t.boolean  "down"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "talent_boxes", ["talent_row_id"], name: "index_talent_boxes_on_talent_row_id", using: :btree
 
   create_table "talent_rows", force: true do |t|
     t.integer  "specialization_id"
