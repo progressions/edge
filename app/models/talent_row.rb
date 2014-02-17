@@ -11,4 +11,22 @@
 
 class TalentRow < ActiveRecord::Base
   belongs_to :specialization
+
+  def directions=(values)
+    dirs = values["Direction"]
+    @talent_keys.each_with_index do |key, i|
+      talent = Talent.lookup(key)
+      directions = dirs[i]
+      thing = {
+        talent: talent,
+        direction: directions
+      }
+      puts thing.inspect
+    end
+    raise "yay"
+  end
+
+  def talents=(values)
+    @talent_keys = values["Key"]
+  end
 end

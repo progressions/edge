@@ -16,4 +16,12 @@
 
 class TalentBox < ActiveRecord::Base
   belongs_to :talent_row
+
+  def talent
+    Talent.lookup(key)
+  end
+
+  def self.unique_key?
+    false
+  end
 end

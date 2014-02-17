@@ -35,8 +35,11 @@ class Loader
       when "skill_modifiers"
         k = "skill_modifiers_from_xml"
         v = v["SkillModifier"]
-      when "addlHP"
+      when "addl_hp"
         k = "additional_hp"
+      when "talent_rows"
+        k = "talent_rows_from_xml"
+        v = v["TalentRow"]
       end
 
       class_values[k] = v
