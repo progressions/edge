@@ -1,3 +1,17 @@
 // Place all the styles related to the specializations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.talents {
+  .connector-up, .connector-down, .connector-left, .connector-right {
+    background-color: black;
+    height: 10px;
+    width: 10px;
+  }
+  .talent {
+    border: 1px solid black;
+    width: 200px;
+    height: 100px;
+  }
+
+}
