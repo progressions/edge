@@ -11,7 +11,7 @@
 
 class TalentRow < ActiveRecord::Base
   belongs_to :specialization
-  has_many :talent_boxes
+  has_many :talent_boxes, -> { order(:position) }
 
   def directions=(values)
     dirs = values["Direction"]

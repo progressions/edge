@@ -3,7 +3,7 @@
     = semantic_form_for(@character, url: species_url, remote: true) do |f|
       %p= @character.first_specialization.name
 
-    %table.table.talents
+    %table.talents
       - @character.first_specialization.talent_rows.each do |row|
         %tr
           - row.talent_boxes.each do |box|
@@ -11,5 +11,8 @@
             %td
         %tr
           - row.talent_boxes.each do |box|
-            %td.talent= box.name
+            %td.talent
+              = box.name
             %td{class: ("connector-right" if box.right)}
+
+    %p &nbsp;
