@@ -11,19 +11,16 @@
 
 class TalentRow < ActiveRecord::Base
   belongs_to :specialization
+  has_many :talent_boxes
 
   def directions=(values)
     dirs = values["Direction"]
     @talent_keys.each_with_index do |key, i|
-      talent = Talent.lookup(key)
-      directions = parse_directions(dirs[i])
-      thing = {
-        talent: talent,
-        direction: directions
-      }
-      puts thing.inspect
+      box_values = parse_directions(dirs[i])
+      box_values[:key] = key
+      box_values[:position] = i
+      box = self.talent_boxes.build(box_values)
     end
-    raise "yay"
   end
 
   def talents=(values)

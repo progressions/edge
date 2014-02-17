@@ -34,6 +34,8 @@ namespace :load do
     Loader.load_from_files("Career")
   end
   task specializations: :environment do
+    TalentRow.delete_all
+    TalentBox.delete_all
     Loader.load_from_files("Specialization")
   end
   task skills: :environment do
