@@ -6,7 +6,7 @@
 #  option_choice_id        :integer
 #  key                     :string(255)
 #  name                    :string(255)
-#  description             :text
+#  description             :string(255)
 #  starting_skill_training :boolean
 #  skill_count             :integer
 #  non_career              :boolean

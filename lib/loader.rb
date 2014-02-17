@@ -59,6 +59,9 @@ class Loader
     puts "Loaded record: #{record.inspect}"
 
     record
+  rescue StandardError => e
+    puts "ERROR: #{e}"
+    puts record.inspect
   end
 
   def self.load_from_files(name, options={})
