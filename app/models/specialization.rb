@@ -21,4 +21,5 @@ class Specialization < ActiveRecord::Base
 
   has_many :character_specializations
   has_many :characters, through: :character_specialization
+  has_many :talent_rows, dependent: :destroy
 end

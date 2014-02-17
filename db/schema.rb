@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216200730) do
+ActiveRecord::Schema.define(version: 20140217044048) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -312,6 +312,15 @@ ActiveRecord::Schema.define(version: 20140216200730) do
     t.datetime "updated_at"
     t.string   "source"
   end
+
+  create_table "talent_rows", force: true do |t|
+    t.integer  "specialization_id"
+    t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "talent_rows", ["specialization_id"], name: "index_talent_rows_on_specialization_id", using: :btree
 
   create_table "talents", force: true do |t|
     t.string   "key"
