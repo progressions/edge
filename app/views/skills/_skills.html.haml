@@ -14,7 +14,7 @@
         %th Rank
 
       %tbody
-        - @character.character_skills.each do |cs|
+        - @character_skills.each do |cs|
           %tr
             %td= cs.skill.name
             %td= career?(cs)
