@@ -11,6 +11,7 @@ module Ajaxy
 
   def show
     @character = current_user.characters.find(params[:id])
+    load_values
   end
 
   def update
