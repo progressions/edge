@@ -12,6 +12,9 @@ namespace :load do
   task obligation: :environment do
     Loader.load_from_file("Obligation")
   end
+  task duty: :environment do
+    Loader.load_from_file("Duty")
+  end
   task social_class: :environment do
     Loader.load_from_file("SocialClass", filename: "Classes", collection: "Classes", member: "Class")
   end
