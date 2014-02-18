@@ -13,15 +13,42 @@ table.talents {
     width: 230px;
     height: 100px;
 
-    padding: 10px;
+    padding: 5px;
 
-    h3 {
-      font-size: 1.25em;
-      line-height: 1.5em;
+    label.name {
+      background-color: maroon;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+
+      padding: 2px;
+
+      input {
+        margin-left: 3px;
+        margin-right: 5px;
+      }
     }
+
     p {
       font-size: 0.8em;
     }
-  }
+    .cost {
+      background-color: maroon;
+      color: white;
+      font-size: 0.75em;
+      padding: 5px;
+      text-align: right;
+    }
 
+  }
+  .disabled {
+    border: 1px solid #ccc;
+    .cost,
+    label.name {
+      background-color: #ccc;
+    }
+    .cost {
+      border: none;
+    }
+  }
 }

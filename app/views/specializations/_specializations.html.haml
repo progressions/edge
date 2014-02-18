@@ -11,9 +11,14 @@
             %td
         %tr
           - row.talent_boxes.each do |box|
-            %td.talent
-              %h3= box.name
+            %td.talent.disabled
+              %label.checkbox.name
+                %input{type: "checkbox"}
+                = box.name
               %p= box.description
+              %h4.cost
+                Cost:
+                = row.cost
             %td{class: ("connector-right" if box.right)}
 
     %p &nbsp;
