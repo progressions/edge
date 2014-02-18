@@ -19,6 +19,7 @@ class TalentBox < ActiveRecord::Base
 
   delegate :name, to: :talent
   delegate :description, to: :talent
+  delegate :cost, to: :talent_row
 
   def talent
     Talent.lookup(key)
