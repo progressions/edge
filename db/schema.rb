@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217044335) do
+ActiveRecord::Schema.define(version: 20140220014441) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "name"
@@ -110,6 +110,16 @@ ActiveRecord::Schema.define(version: 20140217044335) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "character_talent_boxes", force: true do |t|
+    t.integer  "character_id"
+    t.integer  "talent_box_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "character_talent_boxes", ["character_id"], name: "index_character_talent_boxes_on_character_id", using: :btree
+  add_index "character_talent_boxes", ["talent_box_id"], name: "index_character_talent_boxes_on_talent_box_id", using: :btree
 
   create_table "characteristics", force: true do |t|
     t.string   "key"
