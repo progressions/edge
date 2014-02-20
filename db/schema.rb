@@ -111,16 +111,6 @@ ActiveRecord::Schema.define(version: 20140217044335) do
     t.datetime "updated_at"
   end
 
-  create_table "character_talents", force: true do |t|
-    t.integer  "character_id"
-    t.integer  "talent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "character_talents", ["character_id"], name: "index_character_talents_on_character_id", using: :btree
-  add_index "character_talents", ["talent_id"], name: "index_character_talents_on_talent_id", using: :btree
-
   create_table "characteristics", force: true do |t|
     t.string   "key"
     t.string   "name"
