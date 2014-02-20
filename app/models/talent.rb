@@ -22,9 +22,6 @@
 class Talent < ActiveRecord::Base
   include Sluggable
 
-  belongs_to :character_talent
-  has_many :characters, through: :character_talent
-
   serialize :talent_attributes, Hash
   serialize :damage, Hash
   serialize :choose_career_skills, Hash
