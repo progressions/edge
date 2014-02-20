@@ -29,19 +29,19 @@ class TalentBox < ActiveRecord::Base
     false
   end
 
-  def left
-    self.talent_row.talent_boxes.where("position < ?", self.position).first
+  def box_left
+    self.talent_row.talent_boxes.where("position < ?", self.position).first if self.left?
   end
 
-  def right
-    self.talent_row.talent_boxes.where("position > ?", self.position).first
+  def box_right
+    self.talent_row.talent_boxes.where("position > ?", self.position).first if self.right?
   end
 
-  def up
-    self.talent_row.row_up.talent_boxes.where(position: self.position).first
+  def box_up
+    self.talent_row.row_up.talent_boxes.where(position: self.position).first if self.up?
   end
 
-  def down
-    self.talent_row.row_down.talent_boxes.where(position: self.position).first
+  def box_down
+    self.talent_row.row_down.talent_boxes.where(position: self.position).first if self.down?
   end
 end
