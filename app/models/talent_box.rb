@@ -28,4 +28,20 @@ class TalentBox < ActiveRecord::Base
   def self.unique_key?
     false
   end
+
+  def left
+    self.talent_row.talent_boxes.where("position < ?", self.position).first
+  end
+
+  def right
+    self.talent_row.talent_boxes.where("position > ?", self.position).first
+  end
+
+  def up
+    self.talent_row.row_up.talent_boxes.where(position: self.position).first
+  end
+
+  def down
+    self.talent_row.row_down.talent_boxes.where(position: self.position).first
+  end
 end

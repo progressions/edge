@@ -66,6 +66,16 @@ class Character < ActiveRecord::Base
 
   before_save :default_skills
 
+  def talent_id=(values)
+    values.each do |key, value|
+      talent = Talent.find(key)
+      if value.last == "true"
+        self.talents << talent
+      else
+      end
+    end
+  end
+
   def all_specializations
     ids = Array(specializations.pluck(:id))
     ids << first_specialization.id

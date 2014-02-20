@@ -18,4 +18,5 @@ class window.Form
       Career.refresh()
       Skills.refresh()
       Characteristics.refresh()
+      Specializations.refresh()
       Flash.success("Changes saved.")

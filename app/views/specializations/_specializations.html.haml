@@ -1,7 +1,6 @@
 .row
   .span10
-    = semantic_form_for(@character, url: species_url, remote: true) do |f|
-      %p= @character.first_specialization.name
+    %p= @character.first_specialization.name
 
     %table.talents
       - @character.first_specialization.talent_rows.each do |row|
@@ -11,14 +10,17 @@
             %td
         %tr
           - row.talent_boxes.each do |box|
-            %td.talent.disabled
-              %label.checkbox.name
-                %input{type: "checkbox"}
-                = box.name
-              %p= box.description
-              %h4.cost
-                Cost:
-                = row.cost
+            - disabled = nil
+            %td.talent{class: disabled}
+              = semantic_form_for(@character, url: species_url, remote: true) do |f|
+                %label.checkbox.name
+                  = hidden_field_tag("character[talent_id[#{box.talent.id}]][]", false)
+                  = check_box_tag("character[talent_id[#{box.talent.id}]][]", true, @character.talents.include?(box.talent), disabled: disabled)
+                  = box.name
+                %p= box.description
+                %h4.cost
+                  Cost:
+                  = row.cost
             %td{class: ("connector-right" if box.right)}
 
     %p &nbsp;

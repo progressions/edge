@@ -35,4 +35,12 @@ class TalentRow < ActiveRecord::Base
       right: value["Right"] == "true"
     }
   end
+
+  def row_up
+    self.specialization.talent_rows.where("cost < ?", self.cost).first
+  end
+
+  def row_down
+    self.specialization.talent_rows.where("cost > ?", self.cost).first
+  end
 end
