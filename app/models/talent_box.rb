@@ -15,6 +15,9 @@
 #
 
 class TalentBox < ActiveRecord::Base
+  has_many :character_talent_boxes
+  has_many :characters, through: :character_talent_boxes
+
   belongs_to :talent_row
 
   delegate :name, to: :talent
