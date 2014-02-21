@@ -70,14 +70,19 @@ class Character < ActiveRecord::Base
   def talent_box_id=(values)
     values.each do |key, value|
       box = TalentBox.find(key)
+      character_talent = self.character_talents.where(talent_id: box.talent.id).first
+      rank = character_talent.try(:purchased_amount)
+
       if value.last == "true"
         self.talent_boxes << box
 
-        character_talent = self.character_talents.where(talent_id: box.talent.id).first
-        rank = character_talent.purchased_amount
         character_talent.set_purchased_rank(rank.to_i + 1)
       else
-        # remove character_talent_box and talent rank
+        self.talent_boxes.delete(box)
+
+        if rank.to_i > 0
+          character_talent.set_purchased_rank(rank.to_i - 1)
+        end
       end
     end
   end
