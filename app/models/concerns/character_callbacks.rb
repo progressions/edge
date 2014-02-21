@@ -7,6 +7,14 @@ module CharacterCallbacks
     end
   end
 
+  def default_talents
+    Talent.all.each do |talent|
+      unless self.talents.include?(talent)
+        self.talents << talent
+      end
+    end
+  end
+
   def default_skills
     Skill.all.each do |skill|
       unless self.skills.include?(skill)

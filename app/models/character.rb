@@ -64,6 +64,7 @@ class Character < ActiveRecord::Base
   before_save :update_obligation_xp
   before_save :update_obligation_credits
 
+  before_save :default_talents
   before_save :default_skills
 
   def talent_id=(values)
