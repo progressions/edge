@@ -2,6 +2,9 @@ module CharacterAssociations
   extend ActiveSupport::Concern
 
   included do
+    has_many :character_talents
+    has_many :talents, through: :character_talents
+
     has_many :character_talent_boxes
     has_many :talent_boxes, through: :character_talent_boxes
 

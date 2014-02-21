@@ -13,15 +13,7 @@
 #
 
 class Rank < ActiveRecord::Base
-  def self.by_obligation
-    where(source: "obligation")
-  end
-
-  def self.by_duty
-    where(source: "duty")
-  end
-
-  def self.by_species
-    where(source: "species")
-  end
+  belongs_to :characteristic, -> { where("ranks.parent_type = ?", "Characteristic") }, foreign_key: "parent_id"
+  belongs_to :character_skill, -> { where("ranks.parent_type = ?", "CharacterSkill") }, foreign_key: "parent_id"
+  belongs_to :character_talent, -> { where("ranks.parent_type = ?", "CharacterTalent") }, foreign_key: "parent_id"
 end

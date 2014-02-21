@@ -10,6 +10,14 @@
 #
 
 class CharacterTalent < ActiveRecord::Base
+  include HasRanks
+
   belongs_to :character
   belongs_to :talent
+
+  delegate :name, to: :talent
+
+  def experience_cost
+    5
+  end
 end
