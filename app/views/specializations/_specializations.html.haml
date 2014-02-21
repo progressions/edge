@@ -10,7 +10,7 @@
             %td
         %tr
           - row.talent_boxes.each do |box|
-            - ctb = @character.character_talent_boxes.where(box_id: box.id)
+            - ct = @character.character_talents.where(talent_id: box.talent.try(:id)).first
             - disabled = nil
             - if row.cost > 5
               - disabled = "disabled"
@@ -24,6 +24,7 @@
                   = hidden_field_tag("character[talent_box_id[#{box.id}]][]", false)
                   = check_box_tag("character[talent_box_id[#{box.id}]][]", true, @character.talent_boxes.include?(box), disabled: disabled)
                   = box.name
+                  = ct.total_amount
                 %p= box.description
                 %h4.cost
                   Cost:
