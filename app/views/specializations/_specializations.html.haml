@@ -15,7 +15,7 @@
             - if row.cost > 5
               - disabled = "disabled"
 
-              - if @character.talent_boxes.include?(box.box_up) || @character.talent_boxes.include?(box.box_down) || @character.talent_boxes.include?(box.box_left) || @character.talent_boxes.include?(box.box_right) || @character.talent_boxes.include?(box)
+              - if @character.can_buy?(box)
                 - disabled = nil
 
             %td.talent{class: disabled}

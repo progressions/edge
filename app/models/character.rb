@@ -87,6 +87,11 @@ class Character < ActiveRecord::Base
     end
   end
 
+  def can_buy?(box)
+    prereqs = [box.box_up, box.box_down, box.box_left, box.box_right].compact
+    (self.talent_boxes - prereqs).count != self.talent_boxes.count
+  end
+
   def all_specializations
     ids = Array(specializations.pluck(:id))
     ids << first_specialization.id
