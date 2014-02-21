@@ -67,12 +67,17 @@ class Character < ActiveRecord::Base
   before_save :default_talents
   before_save :default_skills
 
-  def talent_id=(values)
+  def talent_box_id=(values)
     values.each do |key, value|
-      talent = Talent.find(key)
+      box = TalentBox.find(key)
       if value.last == "true"
-        self.talents << talent
+        self.talent_boxes << box
+
+        character_talent = self.character_talents.where(talent_id: box.talent.id).first
+        rank = character_talent.purchased_amount
+        character_talent.set_purchased_rank(rank.to_i + 1)
       else
+        # remove character_talent_box and talent rank
       end
     end
   end

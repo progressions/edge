@@ -14,10 +14,8 @@
             %td.talent{class: disabled}
               = semantic_form_for(@character, url: species_url, remote: true) do |f|
                 %label.checkbox.name
-                  = hidden_field_tag("character[talent_id[#{box.talent.id}]][]", false)
-                  = check_box_tag("character[talent_id[#{box.talent.id}]][]", true, false, disabled: disabled)
-                  =# hidden_field_tag("character[talent_id[#{box.talent.id}]][]", false)
-                  =# check_box_tag("character[talent_id[#{box.talent.id}]][]", true, @character.talents.include?(box.talent), disabled: disabled)
+                  = hidden_field_tag("character[talent_box_id[#{box.id}]][]", false)
+                  = check_box_tag("character[talent_box_id[#{box.id}]][]", true, @character.talent_boxes.include?(box), disabled: disabled)
                   = box.name
                 %p= box.description
                 %h4.cost
