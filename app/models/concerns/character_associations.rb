@@ -4,7 +4,6 @@ module CharacterAssociations
   included do
     has_many :character_talent_boxes
     has_many :talent_boxes, through: :character_talent_boxes
-    has_many :talents, through: :talent_boxes
 
     has_many :character_options, through: :character_species
 
