@@ -88,6 +88,8 @@ class Character < ActiveRecord::Base
   end
 
   def can_buy?(box)
+    return true if self.talent_boxes.include?(box)
+
     prereqs = [box.box_up, box.box_down, box.box_left, box.box_right].compact
     (self.talent_boxes - prereqs).count != self.talent_boxes.count
   end
