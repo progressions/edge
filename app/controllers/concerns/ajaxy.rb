@@ -29,4 +29,7 @@ module Ajaxy
   def character_params
     params.require(:character).permit! #(:id, :career_id, :first_specialization_id, :career_skill_ids)
   end
+
+  def load_values
+  end
 end
