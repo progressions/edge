@@ -37,7 +37,7 @@ class TalentRow < ActiveRecord::Base
   end
 
   def row_up
-    self.specialization.talent_rows.where("cost < ?", self.cost).first
+    self.specialization.talent_rows.where("cost < ?", self.cost).last
   end
 
   def row_down

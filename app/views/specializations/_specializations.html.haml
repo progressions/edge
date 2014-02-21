@@ -10,7 +10,14 @@
             %td
         %tr
           - row.talent_boxes.each do |box|
+            - ctb = @character.character_talent_boxes.where(box_id: box.id)
             - disabled = nil
+            - if row.cost > 5
+              - disabled = "disabled"
+
+              - if @character.talent_boxes.include?(box.box_up) || @character.talent_boxes.include?(box.box_down) || @character.talent_boxes.include?(box.box_left) || @character.talent_boxes.include?(box.box_right) || @character.talent_boxes.include?(box)
+                - disabled = nil
+
             %td.talent{class: disabled}
               = semantic_form_for(@character, url: species_url, remote: true) do |f|
                 %label.checkbox.name

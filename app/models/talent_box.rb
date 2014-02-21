@@ -33,7 +33,7 @@ class TalentBox < ActiveRecord::Base
   end
 
   def box_left
-    self.talent_row.talent_boxes.where("position < ?", self.position).first if self.left?
+    self.talent_row.talent_boxes.where("position < ?", self.position).last if self.left?
   end
 
   def box_right
@@ -41,10 +41,18 @@ class TalentBox < ActiveRecord::Base
   end
 
   def box_up
-    self.talent_row.row_up.talent_boxes.where(position: self.position).first if self.up?
+    self.talent_row.row_up.talent_boxes.where(position: self.position).last if self.up?
   end
 
   def box_down
     self.talent_row.row_down.talent_boxes.where(position: self.position).first if self.down?
+  end
+
+  def prerequisites
+    unless @prerequisites
+      @prerequisites = [box_left, box_right, box_up, box_down].compact
+    end
+
+    @prerequisites
   end
 end
