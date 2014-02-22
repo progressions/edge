@@ -39,7 +39,7 @@ class Character < ActiveRecord::Base
   include Character::ObligationDuty
   include Character::CalculatingExperience
   include Character::Characteristics
-  include Character::Callbacks
+  include Character::CallbackMethods
   include Character::CareerSkills
   include Character::FreeSkillRanks
   include Character::Changes
