@@ -1,7 +1,6 @@
 module PurchasingRanks
   extend ActiveSupport::Concern
 
-
   def purchased_char_ranks=(values)
     values.each do |c_id, value|
       characteristic = self.characteristics.find(c_id)
