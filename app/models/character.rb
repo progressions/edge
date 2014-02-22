@@ -85,7 +85,12 @@ class Character < ActiveRecord::Base
         end
       end
 
-      self.character_talent_boxes.each do |ct|
+      self.character_talent_boxes.each do |ctb|
+        rank = ctb.purchased_amount.to_i
+
+        unless ctb.valid_box? || ctb.talent_box.talent_row.cost == 5
+          # raise "I need to remove ctb: #{ctb.inspect}"
+        end
       end
     end
   end

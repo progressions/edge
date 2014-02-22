@@ -24,6 +24,7 @@
                   = hidden_field_tag("character[talent_box_id[#{box.id}]][]", false)
                   = check_box_tag("character[talent_box_id[#{box.id}]][]", true, @character.talent_boxes.include?(box), disabled: disabled)
                   = box.name
+                  = ct.id
                   = ct.total_amount
                 %p= box.description
                 %h4.cost
