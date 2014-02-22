@@ -84,11 +84,25 @@ class Character < ActiveRecord::Base
           character_talent.set_purchased_rank(rank.to_i - 1)
         end
       end
+
+      self.character_talent_boxes.each do |ct|
+        box = ct.talent_box
+
+        unless self.can_buy?(box)
+          self.character_talent_boxes.delete(ct)
+          self.talent_boxes.delete(box)
+
+          if rank.to_i > 0
+            character_talent.set_purchased_rank(rank.to_i - 1)
+          end
+        end
+      end
     end
   end
 
   def can_buy?(box)
-    return true if self.talent_boxes.include?(box)
+    # return true if self.talent_boxes.include?(box)
+    return true if box.talent_row.cost == 5
 
     prereqs = [box.box_up, box.box_down, box.box_left, box.box_right].compact
     (self.talent_boxes - prereqs).count != self.talent_boxes.count
