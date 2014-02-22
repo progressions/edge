@@ -105,7 +105,7 @@ class Character < ActiveRecord::Base
   end
 
   def species_option_for_choice(choice)
-    self.character_options.where(choice_key: choice.key).first.option
+    self.character_options.where(choice_key: choice.key).first.try(:option)
   end
 
   def set_species_option(value)
