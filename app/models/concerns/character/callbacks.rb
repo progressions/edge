@@ -1,4 +1,4 @@
-module CharacterCallbacks
+module Character::Callbacks
   extend ActiveSupport::Concern
 
   def default_experience

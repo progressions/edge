@@ -1,4 +1,4 @@
-module CharacterFreeSkillRanks
+module Character::FreeSkillRanks
   extend ActiveSupport::Concern
 
   def char_skills_by_species

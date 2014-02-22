@@ -1,4 +1,4 @@
-module CharacterExperience
+module Character::Experience
   extend ActiveSupport::Concern
 
   def starting_experience

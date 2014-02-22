@@ -1,4 +1,4 @@
-module CharacterXml
+module Character::Xml
   extend ActiveSupport::Concern
 
   included do

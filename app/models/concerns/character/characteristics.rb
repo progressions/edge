@@ -1,4 +1,4 @@
-module CharacterCharacteristics
+module Character::Characteristics
   extend ActiveSupport::Concern
 
   included do

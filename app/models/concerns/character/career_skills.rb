@@ -1,4 +1,4 @@
-module CharacterCareerSkills
+module Character::CareerSkills
   extend ActiveSupport::Concern
 
   def career_skill_ids

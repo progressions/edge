@@ -1,4 +1,4 @@
-module CharacterAssociations
+module Character::Associations
   extend ActiveSupport::Concern
 
   included do

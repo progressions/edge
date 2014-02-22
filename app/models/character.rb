@@ -34,18 +34,18 @@ class Character < ActiveRecord::Base
   easy_has_one :career
   easy_has_one :species
 
-  include CharacterAssociations
-  include CharacterXml
-  include CharacterObligationDuty
-  include CharacterExperience
-  include CharacterCharacteristics
-  include CharacterCallbacks
-  include CharacterCareerSkills
-  include CharacterFreeSkillRanks
-  include CharacterChanges
-  include BuyingSpecializations
-  include UpdatingSpecies
-  include PurchasingRanks
+  include Character::Associations
+  include Character::Xml
+  include Character::ObligationDuty
+  include Character::Experience
+  include Character::Characteristics
+  include Character::Callbacks
+  include Character::CareerSkills
+  include Character::FreeSkillRanks
+  include Character::Changes
+  include Character::BuyingSpecializations
+  include Character::UpdatingSpecies
+  include Character::PurchasingRanks
 
   before_save :default_experience
 

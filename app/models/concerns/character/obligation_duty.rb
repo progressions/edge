@@ -1,4 +1,4 @@
-module CharacterObligationDuty
+module Character::ObligationDuty
   extend ActiveSupport::Concern
 
   def total_obligation

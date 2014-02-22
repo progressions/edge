@@ -1,4 +1,4 @@
-module CharacterChanges
+module Character::Changes
   extend ActiveSupport::Concern
 
   def on_species_change
