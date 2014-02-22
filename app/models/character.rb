@@ -67,6 +67,17 @@ class Character < ActiveRecord::Base
   before_save :default_talents
   before_save :default_skills
 
+  def remove_box(box)
+    character_talent = self.character_talents.where(talent_id: box.talent.id).first
+    rank = character_talent.try(:purchased_amount)
+
+    self.talent_boxes.delete(box)
+
+    if rank.to_i > 0
+      character_talent.set_purchased_rank(rank.to_i - 1)
+    end
+  end
+
   def talent_box_id=(values)
     values.each do |key, value|
       box = TalentBox.find(key)
@@ -78,18 +89,14 @@ class Character < ActiveRecord::Base
 
         character_talent.set_purchased_rank(rank.to_i + 1)
       else
-        self.talent_boxes.delete(box)
-
-        if rank.to_i > 0
-          character_talent.set_purchased_rank(rank.to_i - 1)
-        end
+        remove_box(box)
       end
 
       self.character_talent_boxes.each do |ctb|
         rank = ctb.purchased_amount.to_i
 
-        unless ctb.valid_box? || ctb.talent_box.talent_row.cost == 5
-          # raise "I need to remove ctb: #{ctb.inspect}"
+        unless ctb.valid_box?
+          remove_box(ctb.talent_box)
         end
       end
     end

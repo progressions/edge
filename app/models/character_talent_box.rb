@@ -28,7 +28,7 @@ class CharacterTalentBox < ActiveRecord::Base
   delegate :purchased_amount, to: :character_talent
 
   def valid_box?
-    connection_costs.include?(5)
+    self.talent_box.talent_row.cost == 5 || connection_costs.include?(5)
   end
 
   def connection_costs
