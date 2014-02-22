@@ -14,6 +14,6 @@ class CharacterTalentBox < ActiveRecord::Base
   belongs_to :talent_box
 
   def box_up
-    character.character_talent_boxes.where(talent_box_id: self.talent_box.box_up.try(:id)
+    character.character_talent_boxes.where(talent_box_id: self.talent_box.box_up.try(:id))
   end
 end
