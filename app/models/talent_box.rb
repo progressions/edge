@@ -48,6 +48,10 @@ class TalentBox < ActiveRecord::Base
     self.talent_row.row_down.talent_boxes.where(position: self.position).first if self.down?
   end
 
+  def connections
+    @connections ||= [box_left, box_right, box_up, box_down].compact
+  end
+
   def prerequisites
     unless @prerequisites
       @prerequisites = [box_left, box_right, box_up, box_down].compact

@@ -86,16 +86,6 @@ class Character < ActiveRecord::Base
       end
 
       self.character_talent_boxes.each do |ct|
-        box = ct.talent_box
-
-        unless self.can_buy?(box)
-          self.character_talent_boxes.delete(ct)
-          self.talent_boxes.delete(box)
-
-          if rank.to_i > 0
-            character_talent.set_purchased_rank(rank.to_i - 1)
-          end
-        end
       end
     end
   end
