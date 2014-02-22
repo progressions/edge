@@ -1,4 +1,4 @@
-module BuyingSpecializations
+module Character::BuyingSpecializations
   extend ActiveSupport::Concern
 
   def remove_box(box)
@@ -30,7 +30,7 @@ module BuyingSpecializations
         rank = ctb.purchased_amount.to_i
 
         unless ctb.valid_box?
-  remove_box(ctb.talent_box)
+          remove_box(ctb.talent_box)
         end
       end
     end

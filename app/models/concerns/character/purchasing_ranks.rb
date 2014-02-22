@@ -1,4 +1,4 @@
-module PurchasingRanks
+module Character::PurchasingRanks
   extend ActiveSupport::Concern
 
   def purchased_char_ranks=(values)

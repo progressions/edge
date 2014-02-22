@@ -1,4 +1,4 @@
-module UpdatingSpecies
+module Character::UpdatingSpecies
   extend ActiveSupport::Concern
 
   def species_option_for_choice(choice)
