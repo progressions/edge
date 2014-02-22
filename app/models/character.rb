@@ -37,7 +37,7 @@ class Character < ActiveRecord::Base
   include Character::Associations
   include Character::Xml
   include Character::ObligationDuty
-  include Character::Experience
+  include Character::CalculatingExperience
   include Character::Characteristics
   include Character::Callbacks
   include Character::CareerSkills

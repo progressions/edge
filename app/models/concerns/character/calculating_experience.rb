@@ -1,8 +1,8 @@
-module Character::Experience
+module Character::CalculatingExperience
   extend ActiveSupport::Concern
 
   def starting_experience
-    species.try(:starting_xp).to_i + obligation_experience.to_i
+    self.species.try(:starting_xp).to_i + obligation_experience.to_i
   end
 
   def obligation_experience
